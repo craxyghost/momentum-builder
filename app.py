@@ -320,6 +320,75 @@ def health():
     })
 
 
+# ── Rebalance Dashboard (Monthly Automation) ───────────────────────
+
+@app.route('/rebalance')
+def rebalance_dashboard():
+    """Serve the monthly rebalance dashboard."""
+    try:
+        with open('templates/rebalance.html', 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        return '''
+        <html><body style="color: #ccc; font-family: Arial; padding: 20px;">
+        <h1>📊 Rebalance Dashboard</h1>
+        <p>Dashboard loading... Automation runs every 1st of month at 6 AM IST</p>
+        </body></html>
+        '''
+
+
+@app.route('/api/rebalance/data')
+def api_rebalance_data():
+    """Get monthly rebalance report."""
+    import json, os
+    report_path = 'data/rebalance_report.json'
+    if os.path.exists(report_path):
+        try:
+            with open(report_path) as f:
+                return jsonify(json.load(f))
+        except:
+            pass
+    return jsonify({'error': 'No report yet. Run the automation first.'}), 404
+
+
+@app.route('/api/rebalance/run', methods=['POST'])
+def api_rebalance_run():
+    """Trigger monthly automation manually."""
+    import os, threading, importlib.util
+
+    def _run_automation():
+        try:
+            os.environ['FORCE_RUN'] = '1'
+            spec = importlib.util.spec_from_file_location(
+                'monthly_automation',
+                'monthly_automation.py'
+            )
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            if hasattr(mod, 'main'):
+                mod.main()
+        except Exception as e:
+            print(f'[Error] Automation failed: {e}')
+
+    t = threading.Thread(target=_run_automation, daemon=True)
+    t.start()
+    return jsonify({'status': 'started', 'message': 'Automation running. Check /rebalance in 5-10 minutes.'})
+
+
+@app.route('/api/rebalance/status')
+def api_rebalance_status():
+    """Get automation job status."""
+    import json, os
+    job_file = 'data/job_state.json'
+    if os.path.exists(job_file):
+        try:
+            with open(job_file) as f:
+                return jsonify(json.load(f))
+        except:
+            pass
+    return jsonify({'status': 'idle', 'progress': 'Ready'})
+
+
 # ── Entry Point ────────────────────────────────────────────────────
 
 if __name__ == '__main__':
