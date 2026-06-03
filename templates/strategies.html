@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📊 5-Strategy Comparison — Momentum Builder</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+      --border: #30363d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #58a6ff; --green: #3fb950; --yellow: #d29922;
+      --orange: #f78166; --red: #f85149; --purple: #bc8cff;
+      --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,.45);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text);
+           font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+           min-height: 100vh; line-height: 1.55; }
+
+    /* ── Nav ── */
+    .navbar { background: var(--bg2); border-bottom: 1px solid var(--border);
+               padding: 13px 28px; display: flex; align-items: center; gap: 20px;
+               position: sticky; top: 0; z-index: 200; backdrop-filter: blur(10px); }
+    .nav-brand { font-size: 17px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .nav-links  { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-link   { color: var(--muted); text-decoration: none; padding: 6px 13px;
+                  border-radius: 8px; font-size: 13px; font-weight: 500; transition: all .18s; }
+    .nav-link:hover  { color: var(--text); background: var(--bg3); }
+    .nav-link.active { color: var(--accent); background: rgba(88,166,255,.1); }
+
+    /* ── Page header ── */
+    .page-header { background: linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);
+                   border-bottom: 1px solid var(--border); padding: 26px 32px; }
+    .page-header h1 { font-size: 25px; font-weight: 800; display:flex;align-items:center;gap:10px;}
+    .page-header p  { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 780px; }
+
+    .container { max-width: 1380px; margin: 0 auto; padding: 26px 22px; }
+
+    /* ── Exchange Toggle ── */
+    .exchange-bar { display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap; }
+    .exch-btn { padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;
+                cursor:pointer;border:1px solid var(--border);background:var(--bg2);
+                color:var(--muted);transition:all .18s;text-decoration:none; }
+    .exch-btn:hover { color:var(--text);border-color:var(--accent); }
+    .exch-btn.active { background:var(--accent);color:#0d1117;border-color:var(--accent); }
+
+    /* ── Action buttons ── */
+    .btn { padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;
+           cursor:pointer;border:none;display:inline-flex;align-items:center;gap:7px;
+           transition:all .18s;text-decoration:none; }
+    .btn-primary { background:var(--accent);color:#0d1117; }
+    .btn-primary:hover { background:#79b8ff; }
+    .btn-success { background:var(--green);color:#0d1117; }
+    .btn-success:hover { filter:brightness(1.1); }
+    .btn-ghost   { background:transparent;color:var(--muted);border:1px solid var(--border); }
+    .btn-ghost:hover { color:var(--text);border-color:var(--accent); }
+    .btn-danger  { background:#c0392b;color:#fff;border:2px solid #e74c3c; }
+    .btn-danger:hover { background:#e74c3c; }
+    .btn:disabled { opacity:.5;cursor:not-allowed; }
+
+    /* ── 5 Strategy Summary Cards ── */
+    .strategy-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+                     gap:14px;margin-bottom:28px; }
+    .s-card {
+      background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+      padding:18px 20px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden;
+    }
+    .s-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;
+                       background:var(--card-color); }
+    .s-card:hover  { transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35); }
+    .s-card.active-card { border-color:var(--card-color);
+                           box-shadow:0 0 0 1px var(--card-color),0 8px 24px rgba(0,0,0,.3); }
+    .s-card .s-icon  { font-size:22px;margin-bottom:8px; }
+    .s-card .s-name  { font-size:13px;font-weight:700;color:var(--text); }
+    .s-card .s-acad  { font-size:10px;color:var(--muted);margin-top:2px; }
+    .s-card .s-ret   { font-size:26px;font-weight:900;margin:10px 0 4px; }
+    .s-card .s-sub   { font-size:11px;color:var(--muted); }
+    .s-card .s-badge { display:inline-block;padding:2px 8px;border-radius:4px;
+                       font-size:10px;font-weight:700;margin-top:8px; }
+    .pos-return { color:var(--green); }
+    .neg-return { color:var(--red); }
+    .neu-return { color:var(--muted); }
+
+    /* ── No data state ── */
+    .no-data { background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+               padding:60px 24px;text-align:center;color:var(--muted);margin-bottom:24px; }
+    .no-data .nd-icon { font-size:48px;margin-bottom:14px; }
+    .no-data h3 { font-size:18px;color:var(--text);margin-bottom:8px; }
+    .no-data p  { font-size:14px;max-width:440px;margin:0 auto 20px; }
+
+    /* ── Comparison Chart ── */
+    .chart-card { background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+                  padding:22px 24px;margin-bottom:28px; }
+    .chart-card h3 { font-size:15px;font-weight:700;margin-bottom:16px;
+                     display:flex;align-items:center;gap:10px; }
+    .chart-wrap { position:relative;height:280px; }
+    .chart-legend { display:flex;flex-wrap:wrap;gap:14px;margin-top:14px; }
+    .leg-item { display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted); }
+    .leg-dot  { width:10px;height:10px;border-radius:50%;flex-shrink:0; }
+
+    /* ── Comparison Table ── */
+    .comp-card { background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+                 overflow:hidden;margin-bottom:28px; }
+    .comp-card h3 { padding:16px 20px;font-size:14px;font-weight:700;
+                    border-bottom:1px solid var(--border); }
+    .comp-table { width:100%;border-collapse:collapse;font-size:13px; }
+    .comp-table th { padding:10px 14px;text-align:left;font-size:11px;font-weight:700;
+                     color:var(--muted);text-transform:uppercase;letter-spacing:.4px;
+                     background:var(--bg3);border-bottom:1px solid var(--border); }
+    .comp-table td { padding:12px 14px;border-bottom:1px solid rgba(48,54,61,.5);
+                     vertical-align:middle; }
+    .comp-table tbody tr:hover { background:rgba(88,166,255,.04); }
+    .comp-table tbody tr:last-child td { border-bottom:none; }
+    .strat-name { font-weight:700;display:flex;align-items:center;gap:8px; }
+    .risk-low    { color:var(--green); }
+    .risk-med    { color:var(--yellow); }
+    .risk-high   { color:var(--orange); }
+
+    /* ── Individual Strategy Panels ── */
+    .strategy-panels { display:flex;flex-direction:column;gap:16px; }
+    .panel { background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+             overflow:hidden; }
+    .panel-header { padding:16px 20px;border-bottom:1px solid var(--border);cursor:pointer;
+                    display:flex;align-items:center;gap:12px;user-select:none; }
+    .panel-header:hover { background:rgba(255,255,255,.02); }
+    .panel-color-bar { width:4px;height:36px;border-radius:3px;flex-shrink:0; }
+    .panel-title { flex:1; }
+    .panel-title h4  { font-size:14px;font-weight:700;color:var(--text); }
+    .panel-title p   { font-size:12px;color:var(--muted);margin-top:2px; }
+    .panel-right { display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+    .panel-stat  { text-align:right; }
+    .panel-stat .label { font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase; }
+    .panel-stat .value { font-size:16px;font-weight:800;margin-top:2px; }
+    .chevron { font-size:14px;color:var(--muted);transition:transform .25s;margin-left:8px; }
+    .panel-body { display:none; }
+    .panel-body.open { display:block; }
+
+    /* Position table inside panel */
+    .pos-table { width:100%;border-collapse:collapse;font-size:12.5px; }
+    .pos-table thead tr { background:var(--bg3); }
+    .pos-table th { padding:10px 12px;text-align:left;font-size:10.5px;font-weight:700;
+                    color:var(--muted);text-transform:uppercase;letter-spacing:.4px;
+                    border-bottom:1px solid var(--border);white-space:nowrap; }
+    .pos-table td { padding:10px 12px;border-bottom:1px solid rgba(48,54,61,.45);
+                    vertical-align:middle; }
+    .pos-table tbody tr:hover { background:rgba(88,166,255,.035); }
+    .pos-table tbody tr:last-child td { border-bottom:none; }
+    .pos-table tfoot td { padding:12px;font-weight:700;font-size:13px;
+                          border-top:2px solid var(--border);background:var(--bg3); }
+    .pnl-pos { color:var(--green);font-weight:700; }
+    .pnl-neg { color:var(--red);  font-weight:700; }
+    .pnl-bar { height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;
+               width:60px;display:inline-block;vertical-align:middle;margin-left:6px; }
+    .pnl-fill{ height:100%;border-radius:2px; }
+
+    /* Panel action row */
+    .panel-actions { padding:14px 20px;border-top:1px solid var(--border);
+                     display:flex;gap:10px;flex-wrap:wrap;align-items:center; }
+
+    /* ── Toast ── */
+    .toast { position:fixed;bottom:22px;right:22px;z-index:9999;background:var(--bg2);
+             border:1px solid var(--border);border-radius:var(--radius);padding:13px 18px;
+             font-size:13px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);
+             transition:all .28s;pointer-events:none; }
+    .toast.show { opacity:1;transform:translateY(0); }
+
+    /* ── Spinner ── */
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .spin { display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);
+            border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite; }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="/" class="nav-brand">🚀 Momentum Builder</a>
+  <div class="nav-links">
+    <a href="/"              class="nav-link">🔍 Analyze</a>
+    <a href="/screener/nse"  class="nav-link">🇮🇳 NSE Elite</a>
+    <a href="/screener/nyse" class="nav-link">🇺🇸 NYSE Elite</a>
+    <a href="/portfolio"     class="nav-link">💰 Portfolio</a>
+    <a href="/strategies"    class="nav-link active">📊 6 Strategies</a>
+  </div>
+</nav>
+
+<!-- ── Page Header ──────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1>📊 5-Strategy Comparison Dashboard</h1>
+  <p>
+    Track and compare 5 different momentum portfolio strategies side-by-side.
+    Each strategy uses a different academic approach — from ETF rotation to sector-neutral stock picking.
+    Invest <strong>₹100 / $100 per position</strong>, refresh prices anytime, and let the data tell you which strategy really works.
+  </p>
+</div>
+
+<div class="container">
+
+  <!-- ── Exchange Toggle ─────────────────────────────────────────── -->
+  <div class="exchange-bar">
+    <span style="font-size:13px;color:var(--muted);font-weight:600;">Exchange:</span>
+    <a href="/strategies?exchange=NSE"
+       class="exch-btn {% if exchange=='NSE' %}active{% endif %}">🇮🇳 NSE</a>
+    <a href="/strategies?exchange=NYSE"
+       class="exch-btn {% if exchange=='NYSE' %}active{% endif %}">🇺🇸 NYSE</a>
+
+    <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
+      {% if (exchange=='NSE' and nse_has_screener) or (exchange=='NYSE' and nyse_has_screener) %}
+      <button class="btn btn-danger" id="btn-build" onclick="buildAll()" title="⚠️ Monthly rebalance only — do not click daily">
+        🏗️ Build All 6 Strategies
+      </button>
+      {% else %}
+      <a href="/screener/{{ exchange.lower() }}" class="btn btn-ghost">
+        🔭 Run {{ exchange }} Screener First
+      </a>
+      {% endif %}
+
+      {% set any_pf = portfolios.values() | selectattr('positions') | list %}
+      {% if any_pf %}
+      <button class="btn btn-success" id="btn-refresh" onclick="refreshAll()">
+        🔄 Refresh All Prices
+      </button>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- ── No screener data notice ─────────────────────────────────── -->
+  {% if (exchange=='NSE' and not nse_has_screener) or (exchange=='NYSE' and not nyse_has_screener) %}
+  <div class="no-data">
+    <div class="nd-icon">🔭</div>
+    <h3>Run the {{ exchange }} Screener First</h3>
+    <p>
+      The 5-strategy portfolios are built from your screener results (score 81-100).
+      Run the {{ exchange }} screener to scan all stocks, then come back here to build all 5 portfolios.
+    </p>
+    <a href="/screener/{{ exchange.lower() }}" class="btn btn-primary">
+      ⚡ Go to {{ exchange }} Screener
+    </a>
+  </div>
+  {% endif %}
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SUMMARY CARDS — 6 Strategy Returns at a Glance
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="strategy-grid">
+    {% for sid, meta in strategies.items() %}
+    {% set pf = portfolios.get(sid) %}
+    <div class="s-card" style="--card-color:{{ meta.color }};"
+         onclick="scrollToPanel('{{ sid }}')" id="card-{{ sid }}">
+      <div class="s-icon">{{ meta.icon }}</div>
+      <div class="s-name">{{ meta.name }}</div>
+      <div class="s-acad" style="color:var(--muted);">{{ meta.academic.split('—')[0].strip() }}</div>
+
+      {% if pf %}
+        {% set pct = pf.total_pnl_pct %}
+        <div class="s-ret {% if pct > 0 %}pos-return{% elif pct < 0 %}neg-return{% else %}neu-return{% endif %}">
+          {% if pct > 0 %}+{% endif %}{{ '%.2f'|format(pct) }}%
+        </div>
+        <div class="s-sub">
+          {{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_pnl) }} P&amp;L on
+          {{ pf.currency_symbol }}{{ pf.total_invested }}
+        </div>
+        <div class="s-sub" style="margin-top:4px;">
+          {{ pf.positions|length }} positions · Updated {{ pf.last_updated }}
+        </div>
+        <span class="s-badge" style="background:rgba(63,185,80,.12);color:var(--green);">
+          {{ meta.rebalance }}
+        </span>
+      {% else %}
+        <div class="s-ret neu-return">—</div>
+        <div class="s-sub">Not built yet</div>
+        <span class="s-badge" style="background:var(--bg3);color:var(--muted);">
+          {{ meta.max_stocks }} stocks max
+        </span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PERFORMANCE COMPARISON CHART
+  ═══════════════════════════════════════════════════════════════ -->
+  {% set has_history = namespace(val=false) %}
+  {% for sid, hist in histories.items() %}
+    {% if hist and hist|length > 0 %}{% set has_history.val = true %}{% endif %}
+  {% endfor %}
+
+  {% if has_history.val %}
+  <div class="chart-card">
+    <h3>📈 Cumulative Return Comparison
+      <span style="font-size:12px;color:var(--muted);font-weight:400;">
+        — all 5 strategies vs time
+      </span>
+    </h3>
+    <div class="chart-wrap">
+      <canvas id="compare-chart"></canvas>
+    </div>
+    <div class="chart-legend" id="chart-legend"></div>
+  </div>
+  {% endif %}
+
+  <!-- ══════════════════════════════════════════════════════════════
+       COMPARISON TABLE
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="comp-card">
+    <h3>⚖️ Strategy Head-to-Head</h3>
+    <div style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Strategy</th>
+            <th>Positions</th>
+            <th>Invested</th>
+            <th>Current Value</th>
+            <th>P&amp;L</th>
+            <th>Return %</th>
+            <th>Risk Level</th>
+            <th>Rebalance</th>
+            <th>Academic CAGR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sid, meta in strategies.items() %}
+          {% set pf = portfolios.get(sid) %}
+          <tr>
+            <td>
+              <div class="strat-name">
+                <span style="font-size:16px;">{{ meta.icon }}</span>
+                <span style="color:{{ meta.color }};">{{ meta.name }}</span>
+              </div>
+            </td>
+            <td>{{ pf.positions|length if pf else '—' }}</td>
+            <td>{% if pf %}{{ pf.currency_symbol }}{{ pf.total_invested }}{% else %}—{% endif %}</td>
+            <td>{% if pf %}{{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_current_value) }}{% else %}—{% endif %}</td>
+            <td>
+              {% if pf %}
+              <span class="{% if pf.total_pnl >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if pf.total_pnl >= 0 %}+{% endif %}{{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_pnl) }}
+              </span>
+              {% else %}—{% endif %}
+            </td>
+            <td>
+              {% if pf %}
+              <span class="{% if pf.total_pnl_pct >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if pf.total_pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(pf.total_pnl_pct) }}%
+              </span>
+              {% else %}—{% endif %}
+            </td>
+            <td class="{% if 'Low' in meta.risk %}risk-low{% elif 'High' in meta.risk %}risk-high{% else %}risk-med{% endif %}">
+              {{ meta.risk }}
+            </td>
+            <td style="font-size:12px;color:var(--muted);">{{ meta.rebalance }}</td>
+            <td style="font-size:11px;color:var(--muted);">{{ meta.academic }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       INDIVIDUAL STRATEGY PANELS (Accordion)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="strategy-panels">
+    {% for sid, meta in strategies.items() %}
+    {% set pf = portfolios.get(sid) %}
+    <div class="panel" id="panel-{{ sid }}">
+
+      <!-- Panel Header -->
+      <div class="panel-header" onclick="togglePanel('{{ sid }}')">
+        <div class="panel-color-bar" style="background:{{ meta.color }};"></div>
+        <div class="panel-title">
+          <h4>{{ meta.icon }} {{ meta.name }}</h4>
+          <p>{{ meta.desc }}</p>
+        </div>
+        <div class="panel-right">
+          {% if pf %}
+          <div class="panel-stat">
+            <div class="label">Positions</div>
+            <div class="value" style="color:var(--accent);">{{ pf.positions|length }}</div>
+          </div>
+          <div class="panel-stat">
+            <div class="label">Return</div>
+            <div class="value {% if pf.total_pnl_pct >= 0 %}pos-return{% else %}neg-return{% endif %}">
+              {% if pf.total_pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(pf.total_pnl_pct) }}%
+            </div>
+          </div>
+          <div class="panel-stat">
+            <div class="label">P&amp;L</div>
+            <div class="value {% if pf.total_pnl >= 0 %}pos-return{% else %}neg-return{% endif %}">
+              {% if pf.total_pnl >= 0 %}+{% endif %}{{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_pnl) }}
+            </div>
+          </div>
+          {% else %}
+          <div class="panel-stat">
+            <div class="label">Status</div>
+            <div class="value" style="color:var(--muted);font-size:13px;">Not built</div>
+          </div>
+          {% endif %}
+          <span class="chevron" id="chev-{{ sid }}">▼</span>
+        </div>
+      </div>
+
+      <!-- Panel Body -->
+      <div class="panel-body" id="body-{{ sid }}">
+        {% if pf and pf.positions %}
+
+        <!-- S6: Sweet Spot score band info -->
+        {% if sid == 's6' and pf.get('sweet_spot_note') %}
+        <div style="margin-bottom:14px;padding:10px 16px;border-radius:8px;font-size:13px;
+                    background:rgba(38,166,154,.12);border:1px solid rgba(38,166,154,.3);color:#26a69a;">
+          <strong>🎯 SWEET SPOT BAND</strong>
+          — Scores {{ pf.score_min }}–{{ pf.score_max }}
+          · {{ pf.excluded_above_91 }} stock{% if pf.excluded_above_91 != 1 %}s{% endif %} above 91 excluded (crash risk)
+          · {{ pf.positions|length }} positions in the 81–91 zone
+        </div>
+        {% endif %}
+
+        <!-- S1: Dual Momentum mode banner -->
+        {% if sid == 's1' and pf.get('dual_mode') %}
+        <div style="margin-bottom:14px;padding:10px 16px;border-radius:8px;font-size:13px;
+                    {% if 'BULL' in pf.dual_mode %}
+                    background:rgba(63,185,80,.12);border:1px solid rgba(63,185,80,.3);color:var(--green);
+                    {% else %}
+                    background:rgba(248,81,73,.12);border:1px solid rgba(248,81,73,.3);color:var(--red);
+                    {% endif %}">
+          <strong>{% if 'BULL' in pf.dual_mode %}📈 BULL MODE{% else %}🛡️ BEAR MODE{% endif %}</strong>
+          — {{ pf.dual_mode }}
+          {% if pf.get('market_12m') is not none %}
+          · Market ETF 12M: <strong>{{ '%+.1f'|format(pf.market_12m) }}%</strong>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Positions table -->
+        <div style="overflow-x:auto;">
+          <table class="pos-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Stock</th>
+                <th>Cap</th>
+                <th>Sector</th>
+                <th>Score</th>
+                <th>Entry {{ pf.currency_symbol }}</th>
+                <th>Now {{ pf.currency_symbol }}</th>
+                <th>Units</th>
+                <th>Inv.</th>
+                <th>Value</th>
+                <th>P&amp;L</th>
+                <th>Ret%</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in pf.positions %}
+              <tr>
+                <td style="font-weight:700;color:var(--muted);">{{ p.rank }}</td>
+                <td>
+                  <div style="font-weight:700;font-size:13px;">{{ p.company_name }}</div>
+                  <div style="font-size:10.5px;color:var(--muted);font-family:monospace;">{{ p.ticker }}</div>
+                </td>
+                <td style="font-size:11px;color:var(--muted);">{{ p.category }}</td>
+                <td style="font-size:11px;color:var(--muted);">{{ p.sector }}</td>
+                <td>
+                  <span style="background:rgba(88,166,255,.12);color:var(--accent);
+                               border-radius:5px;padding:2px 7px;font-size:11px;font-weight:700;">
+                    {{ p.score_at_entry }}
+                  </span>
+                </td>
+                <td style="font-family:monospace;font-size:12px;">{{ '%.2f'|format(p.entry_price) }}</td>
+                <td style="font-family:monospace;font-size:12px;font-weight:600;">{{ '%.2f'|format(p.current_price) }}</td>
+                <td style="font-size:11px;color:var(--muted);">{{ '%.5f'|format(p.units) }}</td>
+                <td style="font-family:monospace;font-size:12px;">{{ pf.currency_symbol }}{{ p.investment }}</td>
+                <td style="font-family:monospace;font-size:12px;font-weight:600;">
+                  {{ pf.currency_symbol }}{{ '%.2f'|format(p.current_value) }}
+                </td>
+                <td class="{% if p.pnl >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}" style="font-size:12px;">
+                  {% if p.pnl >= 0 %}+{% endif %}{{ pf.currency_symbol }}{{ '%.2f'|format(p.pnl) }}
+                </td>
+                <td style="font-size:12px;">
+                  <span class="{% if p.pnl_pct >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                    {% if p.pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(p.pnl_pct) }}%
+                  </span>
+                  <div class="pnl-bar">
+                    <div class="pnl-fill"
+                         style="width:{{ [p.pnl_pct|abs,30]|min / 30 * 100 }}%;
+                                background:{% if p.pnl_pct >= 0 %}var(--green){% else %}var(--red){% endif %};">
+                    </div>
+                  </div>
+                </td>
+                <td style="font-size:10.5px;color:var(--muted);max-width:200px;
+                            overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+                    title="{{ p.strategy_note }}">
+                  {{ p.strategy_note }}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="8">TOTAL — {{ pf.positions|length }} positions</td>
+                <td>{{ pf.currency_symbol }}{{ pf.total_invested }}</td>
+                <td>{{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_current_value) }}</td>
+                <td class="{% if pf.total_pnl >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                  {% if pf.total_pnl >= 0 %}+{% endif %}{{ pf.currency_symbol }}{{ '%.2f'|format(pf.total_pnl) }}
+                </td>
+                <td class="{% if pf.total_pnl_pct >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                  {% if pf.total_pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(pf.total_pnl_pct) }}%
+                </td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Panel action bar -->
+        <div class="panel-actions">
+          <button class="btn btn-primary" onclick="refreshOne('{{ sid }}', this)">
+            🔄 Refresh Prices
+          </button>
+          <span style="font-size:12px;color:var(--muted);">
+            Entry: {{ pf.entry_date }} · Updated: {{ pf.last_updated }}
+            {% if pf.best_performer %} · Best: {{ pf.best_performer }}{% endif %}
+            {% if pf.worst_performer %} · Worst: {{ pf.worst_performer }}{% endif %}
+          </span>
+        </div>
+
+        {% else %}
+        <!-- Not built yet -->
+        <div style="padding:40px 24px;text-align:center;color:var(--muted);">
+          <div style="font-size:36px;margin-bottom:10px;">{{ meta.icon }}</div>
+          <div style="font-size:14px;color:var(--text);font-weight:600;margin-bottom:6px;">
+            {{ meta.name }} not built yet
+          </div>
+          <div style="font-size:13px;margin-bottom:18px;">
+            Click "Build All 6 Strategies" above to create all 6 portfolios at once.
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ── Strategy Legend / Key ──────────────────────────────────── -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+              padding:20px 24px;margin-top:24px;">
+    <h4 style="font-size:14px;font-weight:700;margin-bottom:14px;">📚 Strategy Reference Guide</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;">
+      {% for sid, meta in strategies.items() %}
+      <div style="border-left:3px solid {{ meta.color }};padding-left:12px;">
+        <div style="font-weight:700;font-size:13px;">{{ meta.icon }} {{ meta.name }}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px;">{{ meta.desc }}</div>
+        <div style="font-size:11px;color:{{ meta.color }};margin-top:5px;font-style:italic;">
+          {{ meta.academic }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const EXCHANGE = '{{ exchange }}';
+
+  // ── Chart data from server ─────────────────────────────────────
+  const HISTORIES = {{ histories | tojson }};
+  const STRATEGIES = {
+    {% for sid, meta in strategies.items() %}
+    '{{ sid }}': { name: '{{ meta.name }}', color: '{{ meta.color }}', icon: '{{ meta.icon }}' },
+    {% endfor %}
+  };
+
+  // ── Build Chart ────────────────────────────────────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    buildChart();
+    // Auto-open first panel that has data
+    {% set ns = namespace(opened=false) %}
+    {% for sid in strategies.keys() %}
+    {% if portfolios.get(sid) and not ns.opened %}
+    openPanel('{{ sid }}');
+    {% set ns.opened = true %}
+    {% endif %}
+    {% endfor %}
+  });
+
+  function buildChart() {
+    const ctx = document.getElementById('compare-chart');
+    if (!ctx) return;
+
+    // Collect all unique dates across all histories
+    const dateSet = new Set();
+    Object.values(HISTORIES).forEach(h => h.forEach(p => dateSet.add(p.date)));
+    const allDates = Array.from(dateSet).sort();
+    if (allDates.length === 0) return;
+
+    const datasets = [];
+    const legEl    = document.getElementById('chart-legend');
+
+    Object.entries(HISTORIES).forEach(([sid, hist]) => {
+      if (!hist || hist.length === 0) return;
+      const meta = STRATEGIES[sid];
+      if (!meta) return;
+
+      // Build date → pnl_pct map
+      const map = {};
+      hist.forEach(h => { map[h.date] = h.total_pnl_pct; });
+
+      // Fill in data for all dates (carry forward last known value)
+      let last = 0;
+      const data = allDates.map(d => {
+        if (map[d] !== undefined) last = map[d];
+        return last;
+      });
+
+      datasets.push({
+        label:           meta.name,
+        data,
+        borderColor:     meta.color,
+        backgroundColor: meta.color + '18',
+        borderWidth:     2,
+        fill:            false,
+        tension:         0.35,
+        pointRadius:     4,
+        pointHoverRadius: 6,
+        pointBackgroundColor: meta.color,
+      });
+
+      // Legend
+      if (legEl) {
+        const li = document.createElement('div');
+        li.className = 'leg-item';
+        li.innerHTML = `<div class="leg-dot" style="background:${meta.color}"></div>
+                        <span>${meta.icon} ${meta.name}</span>`;
+        legEl.appendChild(li);
+      }
+    });
+
+    if (datasets.length === 0) return;
+
+    new Chart(ctx, {
+      type: 'line',
+      data: { labels: allDates, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: c => ` ${c.dataset.label}: ${c.parsed.y >= 0 ? '+' : ''}${c.parsed.y.toFixed(2)}%`
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#8b949e', font: { size: 11 } }, grid: { color: '#30363d' } },
+          y: {
+            ticks: { color: '#8b949e', font: { size: 11 },
+                     callback: v => (v >= 0 ? '+' : '') + v + '%' },
+            grid: { color: '#30363d' }
+          }
+        }
+      }
+    });
+  }
+
+  // ── Accordion ─────────────────────────────────────────────────
+  function openPanel(sid) {
+    document.getElementById('body-' + sid)?.classList.add('open');
+    const chev = document.getElementById('chev-' + sid);
+    if (chev) chev.style.transform = 'rotate(180deg)';
+  }
+  function togglePanel(sid) {
+    const body = document.getElementById('body-' + sid);
+    const chev = document.getElementById('chev-' + sid);
+    if (!body) return;
+    const open = body.classList.toggle('open');
+    if (chev) chev.style.transform = open ? 'rotate(180deg)' : '';
+  }
+  function scrollToPanel(sid) {
+    const el = document.getElementById('panel-' + sid);
+    if (el) { el.scrollIntoView({ behavior:'smooth', block:'start' }); openPanel(sid); }
+  }
+
+  // ── Build All ─────────────────────────────────────────────────
+  function buildAll() {
+    const btn = document.getElementById('btn-build');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin"></span> Building…';
+    showToast('⏳ Building all 5 strategies (may take ~60s for ETF data)…');
+
+    fetch(`/api/strategies/${EXCHANGE}/build`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('✅ All strategies built! Reloading…');
+          setTimeout(() => location.reload(), 1000);
+        } else {
+          showToast('❌ ' + (d.error || 'Error'));
+          btn.disabled = false;
+          btn.innerHTML = '🏗️ Build All 6 Strategies';
+        }
+      })
+      .catch(() => {
+        showToast('❌ Network error');
+        btn.disabled = false;
+        btn.innerHTML = '🏗️ Build All 6 Strategies';
+      });
+  }
+
+  // ── Refresh All ───────────────────────────────────────────────
+  function refreshAll() {
+    const btn = document.getElementById('btn-refresh');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin"></span> Refreshing…';
+    showToast('⏳ Fetching live prices for all portfolios…');
+
+    fetch(`/api/strategies/${EXCHANGE}/refresh`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('✅ All prices updated! Reloading…');
+          setTimeout(() => location.reload(), 800);
+        } else {
+          showToast('❌ Error refreshing');
+          btn.disabled = false;
+          btn.innerHTML = '🔄 Refresh All Prices';
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = '🔄 Refresh All Prices';
+      });
+  }
+
+  // ── Refresh Single ────────────────────────────────────────────
+  function refreshOne(sid, btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin"></span> Refreshing…';
+
+    fetch(`/api/strategies/${EXCHANGE}/${sid}/refresh`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('✅ Prices updated! Reloading…');
+          setTimeout(() => location.reload(), 800);
+        } else {
+          showToast('❌ ' + (d.error || 'Error'));
+          btn.disabled = false;
+          btn.innerHTML = '🔄 Refresh Prices';
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = '🔄 Refresh Prices';
+      });
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3800);
+  }
+</script>
+</body>
+</html>

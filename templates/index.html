@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momentum Builder — Long-Term Momentum Investing</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #0d1117;
+      --bg2:      #161b22;
+      --bg3:      #1c2128;
+      --border:   #30363d;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --accent:   #58a6ff;
+      --green:    #3fb950;
+      --yellow:   #d29922;
+      --orange:   #f78166;
+      --red:      #f85149;
+      --purple:   #bc8cff;
+      --radius:   12px;
+      --shadow:   0 4px 24px rgba(0,0,0,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ───────────────────────────────────── */
+    .header {
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .logo { font-size: 28px; }
+    .header-title h1 { font-size: 20px; font-weight: 700; color: var(--text); }
+    .header-title p  { font-size: 13px; color: var(--muted); }
+    .header-badge {
+      margin-left: auto;
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.3);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ── Layout ───────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+
+    /* ── Search Card ──────────────────────────────── */
+    .search-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    .search-card h2 { font-size: 18px; margin-bottom: 8px; color: var(--text); }
+    .search-card p  { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .search-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input,
+    .form-group select {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+      height: 44px;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(88,166,255,0.1); }
+    .form-group input { flex: 1; min-width: 200px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .form-group select { min-width: 160px; }
+    .btn-analyze {
+      background: var(--accent);
+      color: #0d1117;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      height: 44px;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-analyze:hover  { background: #79b8ff; }
+    .btn-analyze:active { transform: scale(0.97); }
+    .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .example-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .example-chips span { font-size: 12px; color: var(--muted); }
+    .chip {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(88,166,255,0.08); }
+
+    /* ── Loading ──────────────────────────────────── */
+    .loading-overlay {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 48px;
+      color: var(--muted);
+    }
+    .loading-overlay.active { display: flex; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Error Banner ─────────────────────────────── */
+    .error-banner {
+      display: none;
+      background: rgba(248,81,73,0.1);
+      border: 1px solid rgba(248,81,73,0.3);
+      color: #f85149;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .error-banner.active { display: flex; align-items: center; gap: 10px; }
+
+    /* ── Results Section ──────────────────────────── */
+    #results { display: none; }
+    #results.active { display: block; }
+
+    /* ── Stock Header ─────────────────────────────── */
+    .stock-header {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .stock-name h2 { font-size: 26px; font-weight: 700; }
+    .stock-name .ticker-badge {
+      display: inline-block;
+      background: rgba(88,166,255,0.15);
+      border: 1px solid rgba(88,166,255,0.3);
+      color: var(--accent);
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    .stock-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+    .meta-item { font-size: 13px; color: var(--muted); }
+    .meta-item strong { color: var(--text); }
+    .stock-price-box { text-align: right; }
+    .stock-price-box .price { font-size: 32px; font-weight: 700; color: var(--text); }
+    .stock-price-box .price-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Final Score ──────────────────────────────── */
+    .final-score-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-score-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% -20%, rgba(88,166,255,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .final-score-card h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 24px; }
+    .gauge-wrapper { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .gauge-container { position: relative; width: 200px; height: 200px; }
+    canvas#gaugeCanvas { width: 200px; height: 200px; }
+    .gauge-label {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -40%);
+      text-align: center;
+    }
+    .gauge-label .score-num  { font-size: 44px; font-weight: 800; line-height: 1; }
+    .gauge-label .score-max  { font-size: 16px; color: var(--muted); }
+    .gauge-label .score-text { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .final-recommendation {
+      max-width: 480px;
+      text-align: left;
+    }
+    .rec-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px; }
+    .rec-class { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+    .rec-text {
+      font-size: 14px;
+      color: var(--muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      line-height: 1.7;
+    }
+    .score-breakdown { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .score-breakdown-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      text-align: center;
+    }
+    .score-breakdown-item .sb-name { color: var(--muted); margin-bottom: 2px; }
+    .score-breakdown-item .sb-val  { font-weight: 700; font-size: 14px; }
+
+    /* ── Indicators Grid ──────────────────────────── */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .indicators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .indicator-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .indicator-card:hover { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(88,166,255,0.1); }
+    .ind-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+    .ind-icon-name { display: flex; align-items: center; gap: 10px; }
+    .ind-icon { font-size: 22px; }
+    .ind-name { font-size: 15px; font-weight: 600; }
+    .ind-academic { font-size: 11px; color: var(--purple); margin-top: 2px; }
+    .ind-score-badge {
+      font-size: 22px;
+      font-weight: 800;
+      min-width: 56px;
+      text-align: right;
+      line-height: 1;
+    }
+    .ind-score-sub { font-size: 11px; color: var(--muted); text-align: right; }
+
+    /* Score bar */
+    .score-bar-track {
+      height: 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s cubic-bezier(0.4,0,0.2,1);
+      width: 0;
+    }
+
+    .ind-signal {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .ind-detail {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .ind-subvals { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ind-subval-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .ind-subval-item strong { color: var(--text); }
+
+    /* Expand section */
+    .ind-expand-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 12px;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ind-description {
+      display: none;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      line-height: 1.7;
+    }
+    .ind-description.open { display: block; }
+    .ind-meta-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .ind-meta-item { font-size: 11px; color: var(--muted); }
+    .ind-meta-item strong { color: var(--accent); }
+
+    /* ── Chart Section ────────────────────────────── */
+    .chart-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+    .chart-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 20px; color: var(--text); }
+    .chart-wrapper { position: relative; height: 280px; }
+
+    /* ── Score color helpers ──────────────────────── */
+    .score-very-strong { color: #00c853; }
+    .score-strong      { color: #64dd17; }
+    .score-moderate    { color: #ffd600; }
+    .score-weak        { color: #ff6d00; }
+    .score-very-weak   { color: #f85149; }
+
+    /* ── Info Section ─────────────────────────────── */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .info-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .info-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .info-card p  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── Footer ───────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 640px) {
+      .header { padding: 16px; }
+      .container { padding: 16px; }
+      .search-row { flex-direction: column; }
+      .form-group input, .form-group select, .btn-analyze { width: 100%; }
+      .gauge-wrapper { flex-direction: column; }
+      .stock-header { flex-direction: column; }
+      .stock-price-box { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav style="background:#161b22;border-bottom:1px solid #30363d;padding:12px 28px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:200;backdrop-filter:blur(10px);">
+  <span style="font-size:17px;font-weight:700;color:#e6edf3;white-space:nowrap;">🚀 Momentum Builder</span>
+  <div style="display:flex;gap:4px;flex-wrap:wrap;">
+    <a href="/"              style="color:#58a6ff;background:rgba(88,166,255,.1);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;">🔍 Analyze Stock</a>
+    <a href="/screener/nse"  style="color:#8b949e;text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;transition:all .18s;" onmouseover="this.style.color='#e6edf3';this.style.background='#1c2128'" onmouseout="this.style.color='#8b949e';this.style.background='transparent'">🇮🇳 NSE Elite</a>
+    <a href="/screener/nyse" style="color:#8b949e;text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;transition:all .18s;" onmouseover="this.style.color='#e6edf3';this.style.background='#1c2128'" onmouseout="this.style.color='#8b949e';this.style.background='transparent'">🇺🇸 NYSE Elite</a>
+    <a href="/portfolio"     style="color:#8b949e;text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;transition:all .18s;" onmouseover="this.style.color='#e6edf3';this.style.background='#1c2128'" onmouseout="this.style.color='#8b949e';this.style.background='transparent'">💰 Portfolio</a>
+    <a href="/strategies"   style="color:#8b949e;text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;transition:all .18s;" onmouseover="this.style.color='#e6edf3';this.style.background='#1c2128'" onmouseout="this.style.color='#8b949e';this.style.background='transparent'">📊 6 Strategies</a>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">📈</div>
+  <div class="header-title">
+    <h1>Momentum Builder</h1>
+    <p>Long-Term Momentum Investing · BSE · NSE · NYSE · NASDAQ</p>
+  </div>
+  <div class="header-badge">Personal · Monthly Data</div>
+</header>
+
+<div class="container">
+
+  <!-- Search Card -->
+  <div class="search-card">
+    <h2>Analyze Stock Momentum</h2>
+    <p>Enter a stock symbol and select the exchange. The app fetches monthly data and scores all 5 proven momentum indicators.</p>
+    <div class="search-row">
+      <div class="form-group" style="flex:1; min-width:180px;">
+        <label>Stock Symbol</label>
+        <input type="text" id="symbolInput" placeholder="e.g. RELIANCE, TCS, AAPL" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label>Exchange</label>
+        <select id="exchangeSelect">
+          <option value="AUTO">Auto-Detect</option>
+          <option value="NSE">NSE (India)</option>
+          <option value="BSE">BSE (India)</option>
+          <option value="NYSE">NYSE / NASDAQ</option>
+        </select>
+      </div>
+      <button class="btn-analyze" id="analyzeBtn" onclick="analyzeStock()">
+        <span>⚡</span> Analyze
+      </button>
+    </div>
+    <div class="example-chips">
+      <span>Try:</span>
+      <span class="chip" onclick="quickSearch('RELIANCE','NSE')">RELIANCE · NSE</span>
+      <span class="chip" onclick="quickSearch('TCS','NSE')">TCS · NSE</span>
+      <span class="chip" onclick="quickSearch('INFY','NSE')">INFY · NSE</span>
+      <span class="chip" onclick="quickSearch('HDFCBANK','NSE')">HDFCBANK · NSE</span>
+      <span class="chip" onclick="quickSearch('AAPL','NYSE')">AAPL · NYSE</span>
+      <span class="chip" onclick="quickSearch('MSFT','NYSE')">MSFT · NYSE</span>
+      <span class="chip" onclick="quickSearch('NVDA','NYSE')">NVDA · NYSE</span>
+    </div>
+  </div>
+
+  <!-- Error Banner -->
+  <div class="error-banner" id="errorBanner">
+    <span>⚠️</span>
+    <span id="errorText">An error occurred.</span>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div style="font-size:15px;">Fetching data and calculating indicators…</div>
+    <div style="font-size:13px; color: var(--muted);">Using Yahoo Finance · Monthly Data</div>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+
+    <!-- Stock Header -->
+    <div class="stock-header">
+      <div class="stock-name">
+        <div style="margin-bottom:6px;">
+          <span class="ticker-badge" id="resTickerBadge">—</span>
+          <span style="font-size:13px; color:var(--muted);" id="resExchangeBadge">—</span>
+        </div>
+        <h2 id="resCompanyName">—</h2>
+        <div class="stock-meta">
+          <div class="meta-item">Sector: <strong id="resSector">—</strong></div>
+          <div class="meta-item">Exchange: <strong id="resExchange">—</strong></div>
+          <div class="meta-item">Data months: <strong id="resDataMonths">—</strong></div>
+          <div class="meta-item">Last updated: <strong id="resLastUpdated">—</strong></div>
+        </div>
+      </div>
+      <div class="stock-price-box">
+        <div class="price"><span id="resCurrency">$</span><span id="resPrice">—</span></div>
+        <div class="price-label">Current Price</div>
+      </div>
+    </div>
+
+    <!-- Final Score -->
+    <div class="final-score-card">
+      <h3>📊 Final Momentum Score</h3>
+      <div class="gauge-wrapper">
+        <div class="gauge-container">
+          <canvas id="gaugeCanvas" width="200" height="200"></canvas>
+          <div class="gauge-label">
+            <div class="score-num" id="gaugeScoreNum">—</div>
+            <div class="score-max">/100</div>
+            <div class="score-text">Weighted Score</div>
+          </div>
+        </div>
+        <div class="final-recommendation">
+          <div class="rec-label">Momentum Classification</div>
+          <div class="rec-class" id="recClass">—</div>
+          <div class="rec-text" id="recText">—</div>
+          <div class="score-breakdown" id="scoreBreakdown"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicators Grid -->
+    <div class="section-title">📐 Individual Indicator Scores</div>
+    <div class="indicators-grid" id="indicatorsGrid"></div>
+
+    <!-- Price Chart -->
+    <div class="section-title">📉 Price History (36 Months)</div>
+    <div class="chart-card">
+      <div class="chart-wrapper">
+        <canvas id="priceChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Methodology -->
+    <div class="section-title">📚 Methodology & Academic Backing</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>📈 Why Momentum Works</h4>
+        <p>Price momentum is one of the most robust anomalies in finance, documented across 40+ years and 40+ markets. Stocks that have performed well recently tend to continue performing well over 3–12 month horizons.</p>
+      </div>
+      <div class="info-card">
+        <h4>📅 Why Monthly Data</h4>
+        <p>Monthly data removes daily noise and false signals. Studies show momentum strategies using monthly rebalancing outperform daily or weekly approaches for long-term investors by reducing whipsaws and transaction costs.</p>
+      </div>
+      <div class="info-card">
+        <h4>⚖️ Indicator Weighting</h4>
+        <p>12-1 Momentum (30%) has the strongest academic evidence. RSI + MACD (20% each) confirm trend direction. 52W High + MA Cross (15% each) add structural context for sustained trends.</p>
+      </div>
+      <div class="info-card">
+        <h4>⚠️ Important Disclaimer</h4>
+        <p>This tool is for personal research only. Momentum scores are not buy/sell recommendations. Always combine with fundamental analysis and your own risk assessment. Past performance does not guarantee future results.</p>
+      </div>
+    </div>
+
+  </div><!-- /results -->
+
+</div><!-- /container -->
+
+<div class="footer">
+  Momentum Builder · Personal Use · Data from Yahoo Finance · For educational/research purposes only
+</div>
+
+<script>
+// ── Globals ────────────────────────────────────────────────
+let priceChartInstance = null;
+let gaugeAnimFrame    = null;
+
+// ── Quick search ───────────────────────────────────────────
+function quickSearch(sym, exch) {
+  document.getElementById('symbolInput').value = sym;
+  document.getElementById('exchangeSelect').value = exch;
+  analyzeStock();
+}
+
+// Enter key trigger
+document.getElementById('symbolInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') analyzeStock();
+});
+
+// ── Main analysis ──────────────────────────────────────────
+async function analyzeStock() {
+  const symbol   = document.getElementById('symbolInput').value.trim();
+  const exchange = document.getElementById('exchangeSelect').value;
+  if (!symbol) { showError('Please enter a stock symbol.'); return; }
+
+  setLoading(true);
+  hideError();
+  document.getElementById('results').classList.remove('active');
+
+  try {
+    const resp = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ symbol, exchange })
+    });
+    const json = await resp.json();
+    if (!resp.ok || !json.success) {
+      showError(json.error || 'Failed to analyze stock.');
+      return;
+    }
+    renderResults(json.data);
+  } catch (err) {
+    showError('Network error. Is the app server running?');
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+}
+
+// ── Render ─────────────────────────────────────────────────
+function renderResults(data) {
+  const { stock, indicators, final_score, momentum_class, recommendation, chart_data } = data;
+
+  // Stock header
+  document.getElementById('resTickerBadge').textContent  = data.resolved_ticker || stock.ticker;
+  document.getElementById('resExchangeBadge').textContent = stock.exchange || '';
+  document.getElementById('resCompanyName').textContent  = stock.company_name;
+  document.getElementById('resSector').textContent       = stock.sector || 'N/A';
+  document.getElementById('resExchange').textContent     = stock.exchange || 'N/A';
+  document.getElementById('resDataMonths').textContent   = data.data_months + ' months';
+  document.getElementById('resLastUpdated').textContent  = stock.last_updated;
+  document.getElementById('resCurrency').textContent     = stock.currency === 'INR' ? '₹' : (stock.currency === 'USD' ? '$' : (stock.currency || '$'));
+  document.getElementById('resPrice').textContent        = Number(stock.current_price).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+  // Final score
+  const scoreClass = getScoreClass(final_score);
+  document.getElementById('gaugeScoreNum').textContent = final_score;
+  document.getElementById('gaugeScoreNum').className   = 'score-num ' + scoreClass;
+  document.getElementById('recClass').textContent      = momentum_class;
+  document.getElementById('recClass').className        = 'rec-class ' + scoreClass;
+  document.getElementById('recText').textContent       = recommendation;
+
+  // Score breakdown
+  const breakdown = document.getElementById('scoreBreakdown');
+  breakdown.innerHTML = '';
+  Object.entries(indicators).forEach(([key, ind]) => {
+    const sc = getScoreClass(ind.score);
+    breakdown.innerHTML += `
+      <div class="score-breakdown-item">
+        <div class="sb-name">${ind.icon} ${ind.short}</div>
+        <div class="sb-val ${sc}">${ind.score}</div>
+      </div>`;
+  });
+
+  // Gauge
+  drawGauge(final_score, data.momentum_color);
+
+  // Indicators grid
+  renderIndicators(indicators);
+
+  // Price chart
+  renderChart(chart_data, stock.currency);
+
+  // Show results
+  document.getElementById('results').classList.add('active');
+  setTimeout(() => {
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+
+  // Animate score bars after render
+  setTimeout(animateScoreBars, 200);
+}
+
+// ── Gauge ──────────────────────────────────────────────────
+function drawGauge(score, color) {
+  const canvas = document.getElementById('gaugeCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx = canvas.width / 2, cy = canvas.height / 2, r = 80;
+  const startAngle = Math.PI * 0.75;
+  const endAngle   = Math.PI * 2.25;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Background arc
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, startAngle, endAngle);
+  ctx.strokeStyle = '#30363d';
+  ctx.lineWidth = 14;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Colored arc
+  const pct = Math.max(0, Math.min(100, score)) / 100;
+  const fillEnd = startAngle + pct * (endAngle - startAngle);
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, startAngle, fillEnd);
+  ctx.strokeStyle = color || '#58a6ff';
+  ctx.lineWidth = 14;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Tick marks
+  for (let i = 0; i <= 10; i++) {
+    const ang = startAngle + (i / 10) * (endAngle - startAngle);
+    const inner = r - 10, outer = r + 6;
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(ang) * inner, cy + Math.sin(ang) * inner);
+    ctx.lineTo(cx + Math.cos(ang) * outer, cy + Math.sin(ang) * outer);
+    ctx.strokeStyle = '#30363d';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+}
+
+// ── Indicators Grid ────────────────────────────────────────
+function renderIndicators(indicators) {
+  const grid = document.getElementById('indicatorsGrid');
+  grid.innerHTML = '';
+
+  const order = ['12_1_momentum', 'rsi', 'macd', '52_week_high', 'ma_momentum'];
+  order.forEach(key => {
+    const ind = indicators[key];
+    if (!ind) return;
+
+    const sc = getScoreClass(ind.score);
+    const color = getScoreColor(ind.score);
+    const weight_pct = ind.weight_pct || Math.round(ind.weight * 100) + '%';
+
+    let subValsHtml = '';
+    if (ind.sub_values) {
+      Object.entries(ind.sub_values).forEach(([k, v]) => {
+        subValsHtml += `<span class="ind-subval-item"><strong>${v}</strong> ${k}</span>`;
+      });
+    }
+
+    grid.innerHTML += `
+      <div class="indicator-card" id="card_${key}">
+        <div class="ind-header">
+          <div class="ind-icon-name">
+            <span class="ind-icon">${ind.icon}</span>
+            <div>
+              <div class="ind-name">${ind.name}</div>
+              <div class="ind-academic">${ind.academic || ''} · Weight ${weight_pct}</div>
+            </div>
+          </div>
+          <div>
+            <div class="ind-score-badge ${sc}">${ind.score}</div>
+            <div class="ind-score-sub">/100</div>
+          </div>
+        </div>
+        <div class="score-bar-track">
+          <div class="score-bar-fill" id="bar_${key}" style="background:${color}; width:0%"></div>
+        </div>
+        <div class="ind-signal" style="color:${color}">${ind.signal || ''}</div>
+        <div class="ind-detail">${ind.detail || ''}</div>
+        <div class="ind-subvals">${subValsHtml}</div>
+        <button class="ind-expand-btn" onclick="toggleDesc('${key}')">
+          <span id="expandIcon_${key}">▶</span> About this indicator
+        </button>
+        <div class="ind-description" id="desc_${key}">
+          <p>${ind.description || ''}</p>
+          <div class="ind-meta-row">
+            <div class="ind-meta-item">Data used: <strong>${ind.data_used || '—'}</strong></div>
+            <div class="ind-meta-item">Weight: <strong>${weight_pct}</strong></div>
+            <div class="ind-meta-item">Weighted contribution: <strong>${ind.weighted_score || '—'}</strong></div>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+
+function toggleDesc(key) {
+  const el   = document.getElementById(`desc_${key}`);
+  const icon = document.getElementById(`expandIcon_${key}`);
+  el.classList.toggle('open');
+  icon.textContent = el.classList.contains('open') ? '▼' : '▶';
+}
+
+// ── Score bar animation ────────────────────────────────────
+function animateScoreBars() {
+  document.querySelectorAll('.score-bar-fill').forEach(bar => {
+    const id  = bar.id.replace('bar_', '');
+    const card = document.getElementById(`card_${id}`);
+    const badge = card ? card.querySelector('.ind-score-badge') : null;
+    const score = badge ? parseFloat(badge.textContent) : 0;
+    bar.style.width = Math.min(100, score) + '%';
+  });
+}
+
+// ── Price Chart ────────────────────────────────────────────
+function renderChart(chartData, currency) {
+  if (priceChartInstance) { priceChartInstance.destroy(); }
+  const ctx = document.getElementById('priceChart').getContext('2d');
+  const labels = chartData.map(d => d.date);
+  const prices = chartData.map(d => d.price);
+  const sym    = currency === 'INR' ? '₹' : (currency === 'USD' ? '$' : (currency || ''));
+
+  const grad = ctx.createLinearGradient(0, 0, 0, 280);
+  grad.addColorStop(0, 'rgba(88,166,255,0.25)');
+  grad.addColorStop(1, 'rgba(88,166,255,0.01)');
+
+  priceChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Monthly Close',
+        data: prices,
+        borderColor: '#58a6ff',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        pointBackgroundColor: '#58a6ff',
+        fill: true,
+        backgroundColor: grad,
+        tension: 0.35
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1c2128',
+          borderColor: '#30363d',
+          borderWidth: 1,
+          titleColor: '#8b949e',
+          bodyColor: '#e6edf3',
+          callbacks: {
+            label: ctx => `  ${sym}${ctx.raw.toLocaleString('en-IN', {minimumFractionDigits: 2})}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(48,54,61,0.5)' },
+          ticks: { color: '#8b949e', maxTicksLimit: 12, font: { size: 11 } }
+        },
+        y: {
+          grid: { color: 'rgba(48,54,61,0.5)' },
+          ticks: {
+            color: '#8b949e',
+            font: { size: 11 },
+            callback: v => sym + v.toLocaleString('en-IN')
+          }
+        }
+      }
+    }
+  });
+}
+
+// ── Helpers ────────────────────────────────────────────────
+function getScoreClass(score) {
+  if (score >= 80) return 'score-very-strong';
+  if (score >= 65) return 'score-strong';
+  if (score >= 50) return 'score-moderate';
+  if (score >= 35) return 'score-weak';
+  return 'score-very-weak';
+}
+function getScoreColor(score) {
+  if (score >= 80) return '#00c853';
+  if (score >= 65) return '#64dd17';
+  if (score >= 50) return '#ffd600';
+  if (score >= 35) return '#ff6d00';
+  return '#f85149';
+}
+function setLoading(on) {
+  document.getElementById('loadingOverlay').classList.toggle('active', on);
+  document.getElementById('analyzeBtn').disabled = on;
+}
+function showError(msg) {
+  const el = document.getElementById('errorBanner');
+  document.getElementById('errorText').textContent = msg;
+  el.classList.add('active');
+}
+function hideError() {
+  document.getElementById('errorBanner').classList.remove('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ flag }} {{ exchange }} Elite Screener — Score 81-100 | Momentum Builder</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #0d1117; --bg2: #161b22; --bg3: #1c2128;
+      --border:  #30363d; --text: #e6edf3; --muted: #8b949e;
+      --accent:  #58a6ff; --green: #3fb950; --yellow: #d29922;
+      --orange:  #f78166; --red: #f85149; --purple: #bc8cff;
+      --radius:  12px;    --shadow: 0 4px 24px rgba(0,0,0,.4);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh; line-height: 1.5;
+    }
+
+    /* ── Nav ──────────────────────────────────────────── */
+    .navbar {
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 14px 28px; display: flex; align-items: center; gap: 24px;
+      position: sticky; top: 0; z-index: 200; backdrop-filter: blur(10px);
+    }
+    .nav-brand { font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .nav-links  { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      color: var(--muted); text-decoration: none; padding: 6px 14px;
+      border-radius: 8px; font-size: 13px; font-weight: 500;
+      transition: all .18s; white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--text); background: var(--bg3); }
+    .nav-link.active { color: var(--accent); background: rgba(88,166,255,.1); }
+
+    /* ── Page Header ──────────────────────────────────── */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+      border-bottom: 1px solid var(--border); padding: 28px 32px;
+    }
+    .page-header h1 { font-size: 26px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .page-header p  { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 700px; }
+
+    /* ── Container ────────────────────────────────────── */
+    .container { max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+
+    /* ── Stats Bar ────────────────────────────────────── */
+    .stats-bar {
+      display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 24px; flex: 1; min-width: 160px;
+    }
+    .stat-card .label { font-size: 11px; color: var(--muted); font-weight: 600;
+                        text-transform: uppercase; letter-spacing: .5px; }
+    .stat-card .value { font-size: 26px; font-weight: 800; margin-top: 4px; }
+    .stat-card .sub   { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .v-green  { color: var(--green); }
+    .v-accent { color: var(--accent); }
+    .v-yellow { color: var(--yellow); }
+    .v-muted  { color: var(--muted); }
+
+    /* ── Action Row ───────────────────────────────────── */
+    .action-row {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .btn {
+      padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: none; transition: all .18s; display: flex; align-items: center; gap: 8px;
+    }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-primary:hover { background: #79b8ff; }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-ghost {
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+    .btn-success { background: var(--green); color: #0d1117; }
+    .btn-success:hover { filter: brightness(1.1); }
+    .btn-danger  { background: #c0392b; color: #fff; border: 2px solid #e74c3c; }
+    .btn-danger:hover { background: #e74c3c; }
+    .btn-danger:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* ── Progress Bar ─────────────────────────────────── */
+    .progress-section {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px;
+      display: none;
+    }
+    .progress-section.visible { display: block; }
+    .progress-label { font-size: 14px; color: var(--muted); margin-bottom: 10px; display: flex; justify-content: space-between; }
+    .progress-bar-track {
+      height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--accent), var(--green));
+      border-radius: 4px; transition: width .4s ease;
+    }
+    .progress-status { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+    /* ── Table ────────────────────────────────────────── */
+    .table-wrapper {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .table-header-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .table-header-row h3 { font-size: 15px; font-weight: 700; }
+    .table-meta { font-size: 12px; color: var(--muted); }
+    .search-box {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); padding: 7px 14px; border-radius: 8px;
+      font-size: 13px; outline: none; width: 220px;
+    }
+    .search-box:focus { border-color: var(--accent); }
+
+    /* spreadsheet table */
+    .spreadsheet { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .spreadsheet thead tr {
+      background: var(--bg3); position: sticky; top: 0; z-index: 10;
+    }
+    .spreadsheet th {
+      padding: 12px 14px; text-align: left; font-size: 11px; font-weight: 700;
+      color: var(--muted); text-transform: uppercase; letter-spacing: .5px;
+      border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer;
+    }
+    .spreadsheet th:hover { color: var(--accent); }
+    .spreadsheet td {
+      padding: 11px 14px; border-bottom: 1px solid rgba(48,54,61,.6);
+      vertical-align: middle;
+    }
+    .spreadsheet tbody tr:hover { background: rgba(88,166,255,.04); }
+    .spreadsheet tbody tr:last-child td { border-bottom: none; }
+
+    /* Rank cell */
+    .rank { font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; width: 40px; }
+    .rank-1  { color: #ffd700; }
+    .rank-2  { color: #c0c0c0; }
+    .rank-3  { color: #cd7f32; }
+
+    /* Stock name */
+    .stock-name { font-weight: 700; color: var(--text); font-size: 14px; }
+    .stock-ticker { font-size: 11px; color: var(--muted); font-family: monospace; }
+    .sector-badge {
+      display: inline-block; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 4px; padding: 2px 7px; font-size: 10px; color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* Score pill */
+    .score-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 30px; border-radius: 8px;
+      font-size: 15px; font-weight: 800; letter-spacing: -.3px;
+    }
+    .score-91 { background: rgba(63,185,80,.18); color: #3fb950; border: 1px solid rgba(63,185,80,.3); }
+    .score-81 { background: rgba(88,166,255,.15); color: #58a6ff; border: 1px solid rgba(88,166,255,.3); }
+
+    /* Indicator score cell */
+    .ind-score {
+      font-weight: 700; font-size: 13px; padding: 3px 8px;
+      border-radius: 5px; display: inline-block;
+    }
+    .ind-90 { color: #3fb950; background: rgba(63,185,80,.1); }
+    .ind-75 { color: #58a6ff; background: rgba(88,166,255,.1); }
+    .ind-60 { color: #d29922; background: rgba(210,153,34,.1); }
+    .ind-low{ color: #f78166; background: rgba(247,129,102,.1); }
+
+    .signal-text { font-size: 11px; color: var(--muted); max-width: 160px;
+                   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* Price cell */
+    .price-cell { font-weight: 600; font-family: monospace; font-size: 13px; }
+
+    /* Rec badge */
+    .rec-badge {
+      font-size: 11px; padding: 3px 10px; border-radius: 12px;
+      font-weight: 600; white-space: nowrap;
+      background: rgba(63,185,80,.12); color: var(--green);
+      border: 1px solid rgba(63,185,80,.25);
+    }
+
+    /* ── Empty state ──────────────────────────────────── */
+    .empty-state {
+      padding: 72px 24px; text-align: center; color: var(--muted);
+    }
+    .empty-state .icon { font-size: 56px; margin-bottom: 16px; }
+    .empty-state h3 { font-size: 20px; color: var(--text); margin-bottom: 8px; }
+    .empty-state p  { font-size: 14px; max-width: 480px; margin: 0 auto 24px; }
+
+    /* ── Category Filter Bar ─────────────────────────── */
+    .cat-filter-bar {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; align-items: center;
+    }
+    .cat-filter-bar span { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .cat-btn {
+      padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--border); background: var(--bg3);
+      color: var(--muted); transition: all .18s;
+    }
+    .cat-btn:hover  { color: var(--text); border-color: var(--accent); }
+    .cat-btn.active { color: #0d1117; border-color: transparent; }
+    .cat-all    { } .cat-all.active    { background: var(--accent); }
+    .cat-large  { } .cat-large.active  { background: var(--green); }
+    .cat-mid    { } .cat-mid.active    { background: #d29922; }
+    .cat-small  { } .cat-small.active  { background: #f78166; }
+    .cat-micro  { } .cat-micro.active  { background: var(--purple); }
+
+    /* category badge in table */
+    .cat-tag {
+      display: inline-block; padding: 2px 7px; border-radius: 4px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+    }
+    .tag-large { background: rgba(63,185,80,.15);  color: var(--green);  }
+    .tag-mid   { background: rgba(210,153,34,.15); color: var(--yellow); }
+    .tag-small { background: rgba(247,129,102,.15);color: var(--orange); }
+    .tag-micro { background: rgba(188,140,255,.15);color: var(--purple); }
+
+    /* ── Portfolio CTA ────────────────────────────────── */
+    .portfolio-cta {
+      background: linear-gradient(135deg, rgba(63,185,80,.08) 0%, rgba(88,166,255,.08) 100%);
+      border: 1px solid rgba(63,185,80,.25); border-radius: var(--radius);
+      padding: 20px 24px; margin-top: 24px; display: flex;
+      align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .portfolio-cta .cta-text h4 { font-size: 15px; font-weight: 700; color: var(--text); }
+    .portfolio-cta .cta-text p  { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Toast ────────────────────────────────────────── */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px;
+      font-size: 14px; box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(10px);
+      transition: all .3s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 900px) {
+      .spreadsheet .hide-sm { display: none; }
+      .search-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="/" class="nav-brand">🚀 Momentum Builder</a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">🔍 Analyze Stock</a>
+    <a href="/screener/nse"  class="nav-link {% if exchange=='NSE' %}active{% endif %}">🇮🇳 NSE Elite</a>
+    <a href="/screener/nyse" class="nav-link {% if exchange=='NYSE' %}active{% endif %}">🇺🇸 NYSE Elite</a>
+    <a href="/portfolio"     class="nav-link">💰 Portfolio</a>
+    <a href="/strategies"   class="nav-link">📊 5 Strategies</a>
+  </div>
+</nav>
+
+<!-- ── Page Header ─────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1>{{ flag }} {{ exchange }} Elite Momentum Screener</h1>
+  <p>
+    Automatically scans <strong>{{ total_stocks }} {{ exchange }} stocks</strong>
+    across <strong>Large Cap · Mid Cap · Small Cap</strong> monthly,
+    and surfaces only those with a momentum score of <strong>81–100</strong> — all in one table.
+    Filter by market cap, sort any column, search by name. Auto-refreshes every 30 days.
+  </p>
+</div>
+
+<div class="container">
+
+  <!-- ── Stats Bar ───────────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="label">Elite Stocks Found</div>
+      <div class="value v-green" id="stat-count">
+        {{ screener.high_momentum_count if screener else '—' }}
+      </div>
+      <div class="sub">Score 81-100</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Universe Size</div>
+      <div class="value v-accent" id="stat-total">{{ total_stocks }}</div>
+      <div class="sub">
+        {% if screener and screener.total_scanned != total_stocks %}
+          <span style="color:var(--orange);">⚠ Last scan: {{ screener.total_scanned }}</span>
+        {% else %}
+          {{ exchange }} stocks (all caps)
+        {% endif %}
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Last Updated</div>
+      <div class="value v-yellow" style="font-size:16px; margin-top:8px;" id="stat-lastrun">
+        {{ screener.last_run if screener else 'Never' }}
+      </div>
+      <div class="sub" id="stat-nextrun">
+        Next: {{ screener.next_run if screener else '—' }}
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Auto-Refresh</div>
+      <div class="value v-green">Monthly</div>
+      <div class="sub">Every 30 days</div>
+    </div>
+    {% if screener and screener.category_breakdown %}
+    <div class="stat-card">
+      <div class="label">By Market Cap</div>
+      <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;">
+        {% for cat, cnt in screener.category_breakdown.items() %}
+        <div style="display:flex;justify-content:space-between;font-size:12px;">
+          <span style="color:var(--muted);">{{ cat }}</span>
+          <span style="font-weight:700;color:var(--text);">{{ cnt }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ── Stale-data banner ───────────────────────────────────────── -->
+  {% if screener and screener.total_scanned != total_stocks %}
+  <div style="background:rgba(247,129,102,.1);border:1px solid rgba(247,129,102,.35);
+              border-radius:var(--radius);padding:14px 20px;margin-bottom:20px;
+              display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <span style="font-size:22px;">⚠️</span>
+    <div style="flex:1;">
+      <div style="font-weight:700;font-size:14px;color:var(--orange);">
+        Universe Expanded — Rescan Recommended
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-top:3px;">
+        Last scan covered <strong>{{ screener.total_scanned }} stocks</strong>.
+        Current universe is <strong>{{ total_stocks }} stocks</strong>
+        (Large · Mid · Small Cap).
+        Run a new scan to see all elite stocks across all market caps.
+      </div>
+    </div>
+    <button class="btn btn-danger" onclick="startScan()" style="white-space:nowrap;" title="⚠️ Monthly rebalance only — do not click daily">
+      ⚡ Run Full Scan Now
+    </button>
+  </div>
+  {% endif %}
+
+  <!-- ── Action Row ──────────────────────────────────────────────── -->
+  <div class="action-row">
+    <button class="btn btn-danger" id="btn-scan" onclick="startScan()" title="⚠️ Monthly rebalance only — do not click daily">
+      <span id="btn-scan-icon">⚡</span> Run Screener Now
+    </button>
+    <a href="/portfolio" class="btn btn-ghost">
+      💰 Portfolio Tracker →
+    </a>
+    <span id="scan-label" style="font-size:13px; color:var(--muted);"></span>
+  </div>
+
+  <!-- ── Progress Bar ────────────────────────────────────────────── -->
+  <div class="progress-section" id="progress-section">
+    <div class="progress-label">
+      <span id="pg-text">Scanning stocks…</span>
+      <span id="pg-pct">0%</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="pg-fill" style="width:0%"></div>
+    </div>
+    <div class="progress-status" id="pg-status">Starting…</div>
+  </div>
+
+  <!-- ── Category filter ─────────────────────────────────────────── -->
+  <div class="cat-filter-bar">
+    <span>Filter:</span>
+    <button class="cat-btn cat-all active"   onclick="filterCat('all', this)">All</button>
+    <button class="cat-btn cat-large"        onclick="filterCat('large cap', this)">🟢 Large Cap</button>
+    <button class="cat-btn cat-mid"          onclick="filterCat('mid cap', this)">🟡 Mid Cap</button>
+    <button class="cat-btn cat-small"        onclick="filterCat('small cap', this)">🟠 Small Cap</button>
+  </div>
+
+  <!-- ── Main Table ────────────────────────────────────────────── -->
+  <div class="table-wrapper" id="table-wrapper">
+    <div class="table-header-row">
+      <h3>🏆 {{ exchange }} Elite Stocks — Score 81 to 100</h3>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <input class="search-box" id="search-input" placeholder="Search stock, sector, cap…"
+               oninput="filterTable()" />
+        <span class="table-meta" id="table-count">
+          {% if screener %}{{ screener.high_momentum_count }} stocks{% endif %}
+        </span>
+      </div>
+    </div>
+
+    {% if screener and screener.stocks %}
+    <div style="overflow-x:auto;">
+      <table class="spreadsheet" id="main-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">#</th>
+            <th onclick="sortTable(1)">Stock</th>
+            <th onclick="sortTable(2)">Cap</th>
+            <th onclick="sortTable(3)">Price ({{ currency_symbol }})</th>
+            <th onclick="sortTable(4)">Score ↓</th>
+            <th onclick="sortTable(5)" class="hide-sm">📈 12M Mom</th>
+            <th onclick="sortTable(6)" class="hide-sm">⚡ RSI</th>
+            <th onclick="sortTable(7)" class="hide-sm">〰️ MACD</th>
+            <th onclick="sortTable(8)" class="hide-sm">🏔️ 52W</th>
+            <th onclick="sortTable(9)" class="hide-sm">📊 MA</th>
+            <th onclick="sortTable(10)">Signal</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          {% for stock in screener.stocks %}
+          {% set cat = stock.category | lower %}
+          <tr data-name="{{ stock.company_name|lower }}"
+              data-sector="{{ stock.sector|lower }}"
+              data-symbol="{{ stock.symbol|lower }}"
+              data-cat="{{ cat }}">
+            <td class="rank {% if loop.index == 1 %}rank-1{% elif loop.index == 2 %}rank-2{% elif loop.index == 3 %}rank-3{% endif %}">
+              {{ loop.index }}
+            </td>
+            <td>
+              <div class="stock-name">{{ stock.company_name }}</div>
+              <div class="stock-ticker">{{ stock.ticker }}</div>
+              <div><span class="sector-badge">{{ stock.sector or 'N/A' }}</span></div>
+            </td>
+            <td>
+              <span class="cat-tag
+                {% if 'large' in cat %}tag-large
+                {% elif 'mid'   in cat %}tag-mid
+                {% elif 'small' in cat %}tag-small
+                {% else %}tag-micro{% endif %}">
+                {{ stock.category or '—' }}
+              </span>
+            </td>
+            <td class="price-cell">
+              {{ currency_symbol }}{{ '%.2f'|format(stock.current_price) }}
+            </td>
+            <td>
+              <span class="score-pill {% if stock.final_score >= 91 %}score-91{% else %}score-81{% endif %}">
+                {{ stock.final_score }}
+              </span>
+            </td>
+            <!-- Indicator scores -->
+            {% set ind = stock.indicators %}
+            <td class="hide-sm">
+              {% set s = ind['12_1_momentum'].score %}
+              <span class="ind-score {% if s >= 90 %}ind-90{% elif s >= 75 %}ind-75{% elif s >= 60 %}ind-60{% else %}ind-low{% endif %}">
+                {{ s }}
+              </span>
+            </td>
+            <td class="hide-sm">
+              {% set s = ind['rsi'].score %}
+              <span class="ind-score {% if s >= 90 %}ind-90{% elif s >= 75 %}ind-75{% elif s >= 60 %}ind-60{% else %}ind-low{% endif %}">
+                {{ s }}
+              </span>
+            </td>
+            <td class="hide-sm">
+              {% set s = ind['macd'].score %}
+              <span class="ind-score {% if s >= 90 %}ind-90{% elif s >= 75 %}ind-75{% elif s >= 60 %}ind-60{% else %}ind-low{% endif %}">
+                {{ s }}
+              </span>
+            </td>
+            <td class="hide-sm">
+              {% set s = ind['52_week_high'].score %}
+              <span class="ind-score {% if s >= 90 %}ind-90{% elif s >= 75 %}ind-75{% elif s >= 60 %}ind-60{% else %}ind-low{% endif %}">
+                {{ s }}
+              </span>
+            </td>
+            <td class="hide-sm">
+              {% set s = ind['ma_momentum'].score %}
+              <span class="ind-score {% if s >= 90 %}ind-90{% elif s >= 75 %}ind-75{% elif s >= 60 %}ind-60{% else %}ind-low{% endif %}">
+                {{ s }}
+              </span>
+            </td>
+            <td>
+              <div class="signal-text" title="{{ stock.recommendation }}">
+                {{ stock.momentum_class }}
+              </div>
+            </td>
+            <td>
+              <a href="/?s={{ stock.symbol }}&e={{ exchange }}"
+                 class="btn btn-ghost" style="padding:5px 12px; font-size:12px; text-decoration:none;">
+                Analyze →
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% elif screener and screener.stocks is not none and screener.high_momentum_count == 0 %}
+    <div class="empty-state">
+      <div class="icon">😔</div>
+      <h3>No Elite Stocks Found</h3>
+      <p>Current market conditions have no {{ exchange }} stocks scoring 81+.
+         The screener checked {{ screener.total_scanned }} stocks on {{ screener.last_run }}.</p>
+    </div>
+
+    {% else %}
+    <div class="empty-state" id="empty-state">
+      <div class="icon">🔭</div>
+      <h3>No Screener Data Yet</h3>
+      <p>Click <strong>Run Screener Now</strong> to scan all {{ total_stocks }}+ {{ exchange }} stocks.
+         Takes about 2-4 minutes. Results auto-refresh every 30 days.</p>
+      <button class="btn btn-primary" onclick="startScan()">⚡ Start Scanning</button>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ── Portfolio CTA ───────────────────────────────────────────── -->
+  {% if screener and screener.stocks %}
+  <div class="portfolio-cta">
+    <div style="font-size:32px;">💰</div>
+    <div class="cta-text">
+      <h4>Test the Strategy — Invest {{ currency_symbol }}100 in Top 10 Stocks</h4>
+      <p>
+        Simulate investing {{ currency_symbol }}100 in each of the top-10 momentum stocks from today's screener.
+        Track real returns monthly to validate the momentum strategy.
+      </p>
+    </div>
+    <div style="margin-left:auto; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn btn-success" onclick="createPortfolio()">
+        📊 Start {{ currency_symbol }}100 × 10 Portfolio
+      </button>
+      <a href="/portfolio" class="btn btn-ghost" style="text-decoration:none;">
+        View Portfolio →
+      </a>
+    </div>
+  </div>
+  {% endif %}
+
+</div><!-- /container -->
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  const EXCHANGE = '{{ exchange }}';
+  let pollTimer = null;
+
+  // ── Scan ──────────────────────────────────────────────────────────
+  function startScan() {
+    const btn = document.getElementById('btn-scan');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-inline"></span> Scanning…';
+
+    document.getElementById('progress-section').classList.add('visible');
+    document.getElementById('scan-label').textContent = 'This takes 2–4 minutes…';
+
+    fetch(`/api/screener/${EXCHANGE}/run`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.status === 'already_running') {
+          showToast('⚡ Screener already running…');
+        }
+        pollProgress();
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = '⚡ Run Screener Now';
+      });
+  }
+
+  function pollProgress() {
+    clearTimeout(pollTimer);
+    fetch(`/api/screener/${EXCHANGE}/status`)
+      .then(r => r.json())
+      .then(d => {
+        const p = d.progress;
+        const pct = p.total > 0 ? Math.round((p.done / p.total) * 100) : 0;
+
+        document.getElementById('pg-fill').style.width  = pct + '%';
+        document.getElementById('pg-pct').textContent   = pct + '%';
+        document.getElementById('pg-text').textContent  =
+          `Scanned ${p.done} of ${p.total} stocks • Found ${p.found} elite stocks`;
+        document.getElementById('pg-status').textContent =
+          `Checking: ${p.current || '…'}  |  Errors: ${p.errors}`;
+
+        if (p.status === 'running') {
+          pollTimer = setTimeout(pollProgress, 2500);
+        } else {
+          // Done — reload page to show results
+          setTimeout(() => location.reload(), 1000);
+        }
+      })
+      .catch(() => { pollTimer = setTimeout(pollProgress, 4000); });
+  }
+
+  // Check if already running on load
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch(`/api/screener/${EXCHANGE}/status`)
+      .then(r => r.json())
+      .then(d => {
+        if (d.progress.status === 'running') {
+          document.getElementById('progress-section').classList.add('visible');
+          document.getElementById('btn-scan').disabled = true;
+          pollProgress();
+        }
+      });
+  });
+
+  // ── Portfolio ─────────────────────────────────────────────────────
+  function createPortfolio() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.textContent = 'Creating…';
+    fetch(`/api/portfolio/${EXCHANGE}/create`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('✅ Portfolio created! Redirecting…');
+          setTimeout(() => window.location.href = '/portfolio', 1200);
+        } else {
+          showToast('❌ ' + (d.error || 'Error'));
+          btn.disabled = false;
+          btn.textContent = '📊 Start Portfolio';
+        }
+      })
+      .catch(() => { btn.disabled = false; });
+  }
+
+  // ── Active category filter ────────────────────────────────────────
+  let _activeCat = 'all';
+
+  function filterCat(cat, btn) {
+    _activeCat = cat;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function filterTable() { applyFilters(); }
+
+  function applyFilters() {
+    const q    = (document.getElementById('search-input').value || '').toLowerCase();
+    const rows = document.querySelectorAll('#table-body tr');
+    let shown  = 0;
+    rows.forEach(row => {
+      const name   = row.dataset.name   || '';
+      const sector = row.dataset.sector || '';
+      const sym    = row.dataset.symbol || '';
+      const cat    = row.dataset.cat    || '';
+      const catOk  = _activeCat === 'all' || cat.includes(_activeCat);
+      const textOk = !q || name.includes(q) || sector.includes(q) || sym.includes(q) || cat.includes(q);
+      const show   = catOk && textOk;
+      row.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    document.getElementById('table-count').textContent = shown + ' stocks';
+  }
+
+  // ── Table Sort ────────────────────────────────────────────────────
+  let sortDir = -1;
+  function sortTable(col) {
+    sortDir = -sortDir;
+    const tbody = document.getElementById('table-body');
+    const rows  = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort((a, b) => {
+      const ta = a.querySelectorAll('td')[col]?.textContent.trim() || '';
+      const tb = b.querySelectorAll('td')[col]?.textContent.trim() || '';
+      const na = parseFloat(ta.replace(/[^\d.-]/g, ''));
+      const nb = parseFloat(tb.replace(/[^\d.-]/g, ''));
+      if (!isNaN(na) && !isNaN(nb)) return sortDir * (na - nb);
+      return sortDir * ta.localeCompare(tb);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+</script>
+
+</body>
+</html>

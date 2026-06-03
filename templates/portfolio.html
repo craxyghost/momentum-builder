@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💰 Portfolio Tracker — Momentum Builder</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+      --border: #30363d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #58a6ff; --green: #3fb950; --yellow: #d29922;
+      --orange: #f78166; --red: #f85149;
+      --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,.4);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh; line-height: 1.5;
+    }
+
+    /* ── Nav ── */
+    .navbar {
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 14px 28px; display: flex; align-items: center; gap: 24px;
+      position: sticky; top: 0; z-index: 200; backdrop-filter: blur(10px);
+    }
+    .nav-brand { font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .nav-links  { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      color: var(--muted); text-decoration: none; padding: 6px 14px;
+      border-radius: 8px; font-size: 13px; font-weight: 500; transition: all .18s;
+    }
+    .nav-link:hover { color: var(--text); background: var(--bg3); }
+    .nav-link.active { color: var(--accent); background: rgba(88,166,255,.1); }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+      border-bottom: 1px solid var(--border); padding: 28px 32px;
+    }
+    .page-header h1 { font-size: 26px; font-weight: 800; }
+    .page-header p  { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 720px; }
+
+    .container { max-width: 1300px; margin: 0 auto; padding: 28px 24px; }
+
+    /* ── Section tabs ── */
+    .tab-bar {
+      display: flex; gap: 0; margin-bottom: 28px;
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+      width: fit-content;
+    }
+    .tab-btn {
+      padding: 10px 24px; background: var(--bg2); color: var(--muted);
+      border: none; cursor: pointer; font-size: 14px; font-weight: 600;
+      transition: all .18s;
+    }
+    .tab-btn.active { background: var(--accent); color: #0d1117; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* ── Portfolio card ── */
+    .pf-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; margin-bottom: 28px;
+    }
+    .pf-card-header {
+      padding: 20px 24px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .pf-card-header h3 { font-size: 17px; font-weight: 700; }
+    .pf-meta { font-size: 12px; color: var(--muted); }
+
+    /* ── Summary row ── */
+    .summary-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px; background: var(--border);
+    }
+    .summary-cell {
+      background: var(--bg3); padding: 18px 20px;
+    }
+    .summary-cell .lbl { font-size: 11px; color: var(--muted); font-weight: 600;
+                          text-transform: uppercase; letter-spacing: .5px; }
+    .summary-cell .val { font-size: 22px; font-weight: 800; margin-top: 5px; }
+    .summary-cell .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .v-green  { color: var(--green); }
+    .v-red    { color: var(--red); }
+    .v-yellow { color: var(--yellow); }
+    .v-accent { color: var(--accent); }
+
+    /* ── Position table ── */
+    .pos-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .pos-table thead tr { background: var(--bg3); }
+    .pos-table th {
+      padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 700;
+      color: var(--muted); text-transform: uppercase; letter-spacing: .4px;
+      border-bottom: 1px solid var(--border); white-space: nowrap;
+    }
+    .pos-table td {
+      padding: 12px 14px; border-bottom: 1px solid rgba(48,54,61,.5);
+      vertical-align: middle;
+    }
+    .pos-table tbody tr:hover { background: rgba(88,166,255,.04); }
+    .pos-table tbody tr:last-child td { border-bottom: none; }
+    .pos-table tfoot td {
+      padding: 14px; font-weight: 700; font-size: 14px;
+      border-top: 2px solid var(--border); background: var(--bg3);
+    }
+
+    .pnl-pos { color: var(--green); font-weight: 700; }
+    .pnl-neg { color: var(--red);   font-weight: 700; }
+    .pnl-zero{ color: var(--muted); }
+
+    .pnl-bar-track {
+      height: 4px; background: var(--bg3); border-radius: 2px;
+      overflow: hidden; width: 80px; display: inline-block; vertical-align: middle; margin-left: 6px;
+    }
+    .pnl-bar-fill { height: 100%; border-radius: 2px; }
+
+    .rank-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; border-radius: 50%; font-size: 11px; font-weight: 800;
+      background: var(--bg3); color: var(--muted); border: 1px solid var(--border);
+    }
+
+    .score-chip {
+      background: rgba(88,166,255,.12); color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25); border-radius: 6px;
+      padding: 2px 8px; font-size: 12px; font-weight: 700;
+    }
+
+    /* ── No portfolio state ── */
+    .no-pf {
+      padding: 60px 24px; text-align: center; color: var(--muted);
+    }
+    .no-pf .icon { font-size: 48px; margin-bottom: 12px; }
+    .no-pf h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+    .no-pf p  { font-size: 14px; max-width: 400px; margin: 0 auto 20px; }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: none; transition: all .18s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-primary:hover { background: #79b8ff; }
+    .btn-success { background: var(--green); color: #0d1117; }
+    .btn-success:hover { filter: brightness(1.1); }
+    .btn-ghost {
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+    .btn-danger { background: rgba(248,81,73,.15); color: var(--red);
+                  border: 1px solid rgba(248,81,73,.3); }
+    .btn-danger:hover { background: rgba(248,81,73,.25); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* ── Chart ── */
+    .chart-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin-bottom: 24px;
+    }
+    .chart-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+    .chart-wrap { position: relative; height: 220px; }
+
+    /* ── Explainer box ── */
+    .explainer {
+      background: rgba(88,166,255,.06); border: 1px solid rgba(88,166,255,.2);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px;
+    }
+    .explainer h4 { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .explainer p  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .explainer ul { font-size: 13px; color: var(--muted); padding-left: 18px; line-height: 1.8; }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px;
+      font-size: 14px; box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(10px); transition: all .3s;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="/" class="nav-brand">🚀 Momentum Builder</a>
+  <div class="nav-links">
+    <a href="/"              class="nav-link">🔍 Analyze Stock</a>
+    <a href="/screener/nse"  class="nav-link">🇮🇳 NSE Elite</a>
+    <a href="/screener/nyse" class="nav-link">🇺🇸 NYSE Elite</a>
+    <a href="/portfolio"     class="nav-link active">💰 Portfolio</a>
+    <a href="/strategies"   class="nav-link">📊 5 Strategies</a>
+  </div>
+</nav>
+
+<!-- ── Page Header ──────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1>💰 Portfolio Return Tracker</h1>
+  <p>
+    Validates the momentum strategy by simulating a <strong>₹100 investment in each top-10 NSE stock</strong>
+    and a <strong>$100 investment in each top-10 NYSE stock</strong> at the time of the screener run.
+    Track real returns to confirm these high-momentum stocks actually outperform.
+  </p>
+</div>
+
+<div class="container">
+
+  <!-- ── Explainer ─────────────────────────────────────────────── -->
+  <div class="explainer">
+    <h4>📖 How This Works — Validating Real Momentum</h4>
+    <ul>
+      <li>When you run the NSE or NYSE screener, the top-10 stocks (score 81-100) are recorded.</li>
+      <li>A virtual portfolio invests <strong>₹100 per NSE stock</strong> and <strong>$100 per NYSE stock</strong> at today's closing price.</li>
+      <li>Each time you visit this page or click <em>Refresh Prices</em>, live prices are fetched and P&amp;L is recalculated.</li>
+      <li>The monthly history chart shows cumulative portfolio return — validating whether momentum stocks outperform the market.</li>
+      <li><strong>Academic backing:</strong> Jegadeesh &amp; Titman (1993) showed momentum stocks generate ~1% excess return per month over 3-12 month holding periods.</li>
+    </ul>
+  </div>
+
+  <!-- ── Tab Bar ───────────────────────────────────────────────── -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('nse', this)">🇮🇳 NSE Portfolio</button>
+    <button class="tab-btn"        onclick="switchTab('nyse', this)">🇺🇸 NYSE Portfolio</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NSE TAB
+  ════════════════════════════════════════════════════ -->
+  <div class="tab-pane active" id="tab-nse">
+    {% if nse_portfolio %}
+    <!-- Summary cards -->
+    <div class="pf-card">
+      <div class="pf-card-header">
+        <div>
+          <h3>🇮🇳 NSE Momentum Portfolio</h3>
+          <div class="pf-meta">
+            Entry: {{ nse_portfolio.entry_date }} &nbsp;|&nbsp;
+            Last updated: <span id="nse-updated">{{ nse_portfolio.last_updated }}</span>
+            &nbsp;|&nbsp; ₹{{ nse_portfolio.investment_per_stock }} × 10 positions
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="refreshPortfolio('NSE')">🔄 Refresh Prices</button>
+          <a href="/screener/nse" class="btn btn-ghost">← Back to Screener</a>
+          <button class="btn btn-danger" onclick="resetPortfolio('NSE')">🗑 Reset</button>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-cell">
+          <div class="lbl">Total Invested</div>
+          <div class="val">₹<span id="nse-invested">{{ nse_portfolio.total_invested }}</span></div>
+          <div class="sub">₹{{ nse_portfolio.investment_per_stock }} × {{ nse_portfolio.positions|length }} stocks</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Current Value</div>
+          <div class="val {% if nse_portfolio.total_pnl >= 0 %}v-green{% else %}v-red{% endif %}">
+            ₹<span id="nse-value">{{ '%.2f'|format(nse_portfolio.total_current_value) }}</span>
+          </div>
+          <div class="sub">Live prices</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Total P&amp;L</div>
+          <div class="val {% if nse_portfolio.total_pnl >= 0 %}v-green{% else %}v-red{% endif %}">
+            {% if nse_portfolio.total_pnl >= 0 %}+{% endif %}₹<span id="nse-pnl">{{ '%.2f'|format(nse_portfolio.total_pnl) }}</span>
+          </div>
+          <div class="sub" id="nse-pnl-pct">
+            {% if nse_portfolio.total_pnl_pct >= 0 %}+{% endif %}{{ nse_portfolio.total_pnl_pct }}%
+          </div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Best Performer</div>
+          <div class="val v-green" style="font-size:16px; margin-top:8px;">
+            {{ nse_portfolio.best_performer or '—' }}
+          </div>
+          <div class="sub">Worst: {{ nse_portfolio.worst_performer or '—' }}</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Days Held</div>
+          <div class="val v-yellow" id="nse-days">—</div>
+          <div class="sub">Since {{ nse_portfolio.entry_date }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History chart -->
+    {% if nse_history and nse_history|length > 1 %}
+    <div class="chart-card">
+      <h4>📈 Portfolio Return History</h4>
+      <div class="chart-wrap">
+        <canvas id="nse-chart"></canvas>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Positions table -->
+    <div class="pf-card">
+      <div class="pf-card-header">
+        <h3>📋 Positions</h3>
+        <span class="pf-meta">{{ nse_portfolio.positions|length }} stocks × ₹{{ nse_portfolio.investment_per_stock }} each</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="pos-table" id="nse-positions-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Stock</th>
+              <th>Sector</th>
+              <th>Score</th>
+              <th>Entry ₹</th>
+              <th>Current ₹</th>
+              <th>Units</th>
+              <th>Invested</th>
+              <th>Value</th>
+              <th>P&amp;L ₹</th>
+              <th>Return %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in nse_portfolio.positions %}
+            <tr>
+              <td><span class="rank-badge">{{ p.rank }}</span></td>
+              <td>
+                <div style="font-weight:700;">{{ p.company_name }}</div>
+                <div style="font-size:11px;color:var(--muted);font-family:monospace;">{{ p.ticker }}</div>
+              </td>
+              <td style="font-size:12px;color:var(--muted);">{{ p.sector or 'N/A' }}</td>
+              <td><span class="score-chip">{{ p.score_at_entry }}</span></td>
+              <td style="font-family:monospace;">{{ '%.2f'|format(p.entry_price) }}</td>
+              <td class="nse-cp" style="font-family:monospace;font-weight:600;">{{ '%.2f'|format(p.current_price) }}</td>
+              <td style="font-size:12px;color:var(--muted);">{{ '%.4f'|format(p.units) }}</td>
+              <td style="font-family:monospace;">₹{{ p.investment }}</td>
+              <td class="nse-cv" style="font-family:monospace;font-weight:600;">₹{{ '%.2f'|format(p.current_value) }}</td>
+              <td class="{% if p.pnl >= 0 %}pnl-pos{% elif p.pnl < 0 %}pnl-neg{% else %}pnl-zero{% endif %} nse-pnl">
+                {% if p.pnl >= 0 %}+{% endif %}₹{{ '%.2f'|format(p.pnl) }}
+              </td>
+              <td class="nse-pct">
+                <span class="{% if p.pnl_pct >= 0 %}pnl-pos{% elif p.pnl_pct < 0 %}pnl-neg{% else %}pnl-zero{% endif %}">
+                  {% if p.pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(p.pnl_pct) }}%
+                </span>
+                <div class="pnl-bar-track">
+                  <div class="pnl-bar-fill"
+                       style="width:{{ [p.pnl_pct|abs, 30]|min / 30 * 100 }}%;
+                              background: {% if p.pnl_pct >= 0 %}var(--green){% else %}var(--red){% endif %};">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="7">TOTAL</td>
+              <td>₹{{ nse_portfolio.total_invested }}</td>
+              <td>₹{{ '%.2f'|format(nse_portfolio.total_current_value) }}</td>
+              <td class="{% if nse_portfolio.total_pnl >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if nse_portfolio.total_pnl >= 0 %}+{% endif %}₹{{ '%.2f'|format(nse_portfolio.total_pnl) }}
+              </td>
+              <td class="{% if nse_portfolio.total_pnl_pct >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if nse_portfolio.total_pnl_pct >= 0 %}+{% endif %}{{ nse_portfolio.total_pnl_pct }}%
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    {% else %}
+    <!-- No NSE portfolio yet -->
+    <div class="pf-card">
+      <div class="no-pf">
+        <div class="icon">🇮🇳</div>
+        <h3>No NSE Portfolio Yet</h3>
+        <p>Run the NSE screener first, then start a portfolio to invest ₹100 in each of the top-10 stocks.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <a href="/screener/nse" class="btn btn-primary">🔭 Go to NSE Screener</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NYSE TAB
+  ════════════════════════════════════════════════════ -->
+  <div class="tab-pane" id="tab-nyse">
+    {% if nyse_portfolio %}
+    <div class="pf-card">
+      <div class="pf-card-header">
+        <div>
+          <h3>🇺🇸 NYSE Momentum Portfolio</h3>
+          <div class="pf-meta">
+            Entry: {{ nyse_portfolio.entry_date }} &nbsp;|&nbsp;
+            Last updated: <span id="nyse-updated">{{ nyse_portfolio.last_updated }}</span>
+            &nbsp;|&nbsp; ${{ nyse_portfolio.investment_per_stock }} × 10 positions
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="refreshPortfolio('NYSE')">🔄 Refresh Prices</button>
+          <a href="/screener/nyse" class="btn btn-ghost">← Back to Screener</a>
+          <button class="btn btn-danger" onclick="resetPortfolio('NYSE')">🗑 Reset</button>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-cell">
+          <div class="lbl">Total Invested</div>
+          <div class="val">$<span id="nyse-invested">{{ nyse_portfolio.total_invested }}</span></div>
+          <div class="sub">${{ nyse_portfolio.investment_per_stock }} × {{ nyse_portfolio.positions|length }} stocks</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Current Value</div>
+          <div class="val {% if nyse_portfolio.total_pnl >= 0 %}v-green{% else %}v-red{% endif %}">
+            $<span id="nyse-value">{{ '%.2f'|format(nyse_portfolio.total_current_value) }}</span>
+          </div>
+          <div class="sub">Live prices</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Total P&amp;L</div>
+          <div class="val {% if nyse_portfolio.total_pnl >= 0 %}v-green{% else %}v-red{% endif %}">
+            {% if nyse_portfolio.total_pnl >= 0 %}+{% endif %}$<span id="nyse-pnl">{{ '%.2f'|format(nyse_portfolio.total_pnl) }}</span>
+          </div>
+          <div class="sub" id="nyse-pnl-pct">
+            {% if nyse_portfolio.total_pnl_pct >= 0 %}+{% endif %}{{ nyse_portfolio.total_pnl_pct }}%
+          </div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Best Performer</div>
+          <div class="val v-green" style="font-size:16px; margin-top:8px;">
+            {{ nyse_portfolio.best_performer or '—' }}
+          </div>
+          <div class="sub">Worst: {{ nyse_portfolio.worst_performer or '—' }}</div>
+        </div>
+        <div class="summary-cell">
+          <div class="lbl">Days Held</div>
+          <div class="val v-yellow" id="nyse-days">—</div>
+          <div class="sub">Since {{ nyse_portfolio.entry_date }}</div>
+        </div>
+      </div>
+    </div>
+
+    {% if nyse_history and nyse_history|length > 1 %}
+    <div class="chart-card">
+      <h4>📈 Portfolio Return History</h4>
+      <div class="chart-wrap">
+        <canvas id="nyse-chart"></canvas>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="pf-card">
+      <div class="pf-card-header">
+        <h3>📋 Positions</h3>
+        <span class="pf-meta">{{ nyse_portfolio.positions|length }} stocks × ${{ nyse_portfolio.investment_per_stock }} each</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="pos-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Stock</th>
+              <th>Sector</th>
+              <th>Score</th>
+              <th>Entry $</th>
+              <th>Current $</th>
+              <th>Units</th>
+              <th>Invested</th>
+              <th>Value</th>
+              <th>P&amp;L $</th>
+              <th>Return %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in nyse_portfolio.positions %}
+            <tr>
+              <td><span class="rank-badge">{{ p.rank }}</span></td>
+              <td>
+                <div style="font-weight:700;">{{ p.company_name }}</div>
+                <div style="font-size:11px;color:var(--muted);font-family:monospace;">{{ p.ticker }}</div>
+              </td>
+              <td style="font-size:12px;color:var(--muted);">{{ p.sector or 'N/A' }}</td>
+              <td><span class="score-chip">{{ p.score_at_entry }}</span></td>
+              <td style="font-family:monospace;">{{ '%.2f'|format(p.entry_price) }}</td>
+              <td style="font-family:monospace;font-weight:600;">{{ '%.2f'|format(p.current_price) }}</td>
+              <td style="font-size:12px;color:var(--muted);">{{ '%.4f'|format(p.units) }}</td>
+              <td style="font-family:monospace;">${{ p.investment }}</td>
+              <td style="font-family:monospace;font-weight:600;">${{ '%.2f'|format(p.current_value) }}</td>
+              <td class="{% if p.pnl >= 0 %}pnl-pos{% elif p.pnl < 0 %}pnl-neg{% else %}pnl-zero{% endif %}">
+                {% if p.pnl >= 0 %}+{% endif %}${{ '%.2f'|format(p.pnl) }}
+              </td>
+              <td>
+                <span class="{% if p.pnl_pct >= 0 %}pnl-pos{% elif p.pnl_pct < 0 %}pnl-neg{% else %}pnl-zero{% endif %}">
+                  {% if p.pnl_pct >= 0 %}+{% endif %}{{ '%.2f'|format(p.pnl_pct) }}%
+                </span>
+                <div class="pnl-bar-track">
+                  <div class="pnl-bar-fill"
+                       style="width:{{ [p.pnl_pct|abs, 30]|min / 30 * 100 }}%;
+                              background: {% if p.pnl_pct >= 0 %}var(--green){% else %}var(--red){% endif %};">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="7">TOTAL</td>
+              <td>${{ nyse_portfolio.total_invested }}</td>
+              <td>${{ '%.2f'|format(nyse_portfolio.total_current_value) }}</td>
+              <td class="{% if nyse_portfolio.total_pnl >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if nyse_portfolio.total_pnl >= 0 %}+{% endif %}${{ '%.2f'|format(nyse_portfolio.total_pnl) }}
+              </td>
+              <td class="{% if nyse_portfolio.total_pnl_pct >= 0 %}pnl-pos{% else %}pnl-neg{% endif %}">
+                {% if nyse_portfolio.total_pnl_pct >= 0 %}+{% endif %}{{ nyse_portfolio.total_pnl_pct }}%
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    {% else %}
+    <div class="pf-card">
+      <div class="no-pf">
+        <div class="icon">🇺🇸</div>
+        <h3>No NYSE Portfolio Yet</h3>
+        <p>Run the NYSE screener first, then start a portfolio to invest $100 in each of the top-10 stocks.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <a href="/screener/nyse" class="btn btn-primary">🔭 Go to NYSE Screener</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div><!-- /container -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── Tabs ──────────────────────────────────────────────────────────
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── Days held ─────────────────────────────────────────────────────
+  function calcDays(dateStr, elId) {
+    if (!dateStr) return;
+    const ms = Date.now() - new Date(dateStr).getTime();
+    const days = Math.floor(ms / 86400000);
+    const el = document.getElementById(elId);
+    if (el) el.textContent = days;
+  }
+  {% if nse_portfolio %}
+  calcDays('{{ nse_portfolio.entry_date }}', 'nse-days');
+  {% endif %}
+  {% if nyse_portfolio %}
+  calcDays('{{ nyse_portfolio.entry_date }}', 'nyse-days');
+  {% endif %}
+
+  // ── Refresh portfolio prices ───────────────────────────────────────
+  function refreshPortfolio(exchange) {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.textContent = '⏳ Refreshing…';
+    showToast('Fetching live prices… (may take ~30s)');
+
+    fetch(`/api/portfolio/${exchange}/update`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('✅ Prices updated! Reloading…');
+          setTimeout(() => location.reload(), 800);
+        } else {
+          showToast('❌ ' + (d.error || 'Error'));
+          btn.disabled = false;
+          btn.textContent = '🔄 Refresh Prices';
+        }
+      })
+      .catch(() => {
+        showToast('❌ Network error');
+        btn.disabled = false;
+        btn.textContent = '🔄 Refresh Prices';
+      });
+  }
+
+  // ── Reset portfolio ───────────────────────────────────────────────
+  function resetPortfolio(exchange) {
+    if (!confirm(`Reset the ${exchange} portfolio? This will delete all tracking data.`)) return;
+    // For reset: just create a new one from the screener
+    fetch(`/api/portfolio/${exchange}/create`, { method: 'POST' })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) {
+          showToast('🔄 Portfolio reset with today\'s prices!');
+          setTimeout(() => location.reload(), 1000);
+        } else {
+          showToast('❌ ' + (d.error || 'Run screener first'));
+        }
+      });
+  }
+
+  // ── Charts ────────────────────────────────────────────────────────
+  function buildChart(canvasId, history) {
+    if (!history || history.length < 2) return;
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: history.map(h => h.date),
+        datasets: [{
+          label: 'Portfolio Return %',
+          data: history.map(h => h.total_pnl_pct),
+          borderColor: '#3fb950',
+          backgroundColor: 'rgba(63,185,80,.08)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.35,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#3fb950',
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.parsed.y >= 0 ? '+' : ''}${ctx.parsed.y.toFixed(2)}%`
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#8b949e', font: { size: 11 } }, grid: { color: '#30363d' } },
+          y: {
+            ticks: {
+              color: '#8b949e', font: { size: 11 },
+              callback: v => (v >= 0 ? '+' : '') + v + '%'
+            },
+            grid: { color: '#30363d' }
+          }
+        }
+      }
+    });
+  }
+
+  {% if nse_history %}
+  buildChart('nse-chart', {{ nse_history | tojson }});
+  {% endif %}
+  {% if nyse_history %}
+  buildChart('nyse-chart', {{ nyse_history | tojson }});
+  {% endif %}
+
+  // ── Toast ─────────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+</script>
+</body>
+</html>
