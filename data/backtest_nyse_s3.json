@@ -3,7 +3,7 @@
   "strategy_name": "QVM Triple Filter",
   "strategy_icon": "\ud83d\udc8e",
   "exchange": "NYSE",
-  "generated_at": "2026-06-04 19:39",
+  "generated_at": "2026-06-04 19:53",
   "period": {
     "start": "Jun 2025",
     "end": "May 2026",
@@ -37,6 +37,30 @@
           "entry_price": 471.0,
           "exit_price": 509.31,
           "return_pct": 8.13
+        },
+        {
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 83.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 92.4,
+          "entry_price": 106.41,
+          "exit_price": 108.0,
+          "return_pct": 1.49
+        },
+        {
+          "ticker": "WMT",
+          "symbol": "WMT",
+          "sector": "Other",
+          "score": 82.5,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 94.0,
+          "entry_price": 98.02,
+          "exit_price": 96.97,
+          "return_pct": -1.07
         },
         {
           "ticker": "V",
@@ -169,38 +193,15 @@
           "entry_price": 727.35,
           "exit_price": 774.05,
           "return_pct": 6.42
-        },
-        {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 48.5,
-          "macd_score": 40.0,
-          "rsi_score": 50.0,
-          "h52_score": 83.0,
-          "entry_price": 167.26,
-          "exit_price": 175.62,
-          "return_pct": 5.0
-        },
-        {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 48.1,
-          "macd_score": 40.0,
-          "rsi_score": 50.0,
-          "h52_score": 88.3,
-          "entry_price": 135.46,
-          "exit_price": 157.95,
-          "return_pct": 16.61
         }
       ],
-      "portfolio_return_pct": 4.28,
-      "portfolio_value": 104.28,
+      "portfolio_return_pct": 2.87,
+      "portfolio_value": 102.87,
       "num_stocks": 15,
       "sectors": {
         "Streaming": 1,
         "Cybersecurity": 1,
+        "Other": 2,
         "Payments": 2,
         "Retail": 1,
         "EV/Auto": 1,
@@ -208,15 +209,14 @@
         "Social Media": 1,
         "Consumer": 1,
         "E-Commerce": 1,
-        "Technology": 2,
+        "Technology": 1,
         "Healthcare": 1,
-        "Pharma": 1,
-        "Semiconductors": 1
+        "Pharma": 1
       },
       "mode": "INVESTED",
-      "best_stock": "NVDA",
+      "best_stock": "META",
       "worst_stock": "TSLA",
-      "best_return": 16.61,
+      "best_return": 14.54,
       "worst_return": -7.52
     },
     {
@@ -246,6 +246,30 @@
           "entry_price": 509.37,
           "exit_price": 454.57,
           "return_pct": -10.76
+        },
+        {
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 86.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.2,
+          "entry_price": 218.9,
+          "exit_price": 223.5,
+          "return_pct": 2.1
+        },
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 84.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.3,
+          "entry_price": 272.84,
+          "exit_price": 292.03,
+          "return_pct": 7.03
         },
         {
           "ticker": "V",
@@ -378,38 +402,15 @@
           "entry_price": 175.34,
           "exit_price": 191.47,
           "return_pct": 9.2
-        },
-        {
-          "ticker": "PG",
-          "symbol": "PG",
-          "sector": "Consumer",
-          "score": 51.2,
-          "macd_score": 20.0,
-          "rsi_score": 50.0,
-          "h52_score": 89.1,
-          "entry_price": 155.41,
-          "exit_price": 146.26,
-          "return_pct": -5.89
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 45.7,
-          "macd_score": 40.0,
-          "rsi_score": 50.0,
-          "h52_score": 87.6,
-          "entry_price": 104.79,
-          "exit_price": 108.19,
-          "return_pct": 3.25
         }
       ],
-      "portfolio_return_pct": 1.46,
-      "portfolio_value": 105.8,
+      "portfolio_return_pct": 2.25,
+      "portfolio_value": 105.18,
       "num_stocks": 15,
       "sectors": {
         "Streaming": 1,
         "Cybersecurity": 1,
+        "Other": 2,
         "Payments": 2,
         "Social Media": 1,
         "Banking": 1,
@@ -418,9 +419,7 @@
         "Semiconductors": 1,
         "Technology": 2,
         "E-Commerce": 1,
-        "Healthcare": 1,
-        "Consumer": 1,
-        "Energy": 1
+        "Healthcare": 1
       },
       "mode": "INVESTED",
       "best_stock": "NVDA",
@@ -432,6 +431,18 @@
       "month": "Aug 2025",
       "month_key": "2025-08",
       "stocks": [
+        {
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 85.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 97.5,
+          "entry_price": 216.8,
+          "exit_price": 238.66,
+          "return_pct": 10.08
+        },
         {
           "ticker": "NFLX",
           "symbol": "NFLX",
@@ -455,6 +466,18 @@
           "entry_price": 448.95,
           "exit_price": 423.7,
           "return_pct": -5.62
+        },
+        {
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 84.2,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 94.9,
+          "entry_price": 110.13,
+          "exit_price": 110.83,
+          "return_pct": 0.63
         },
         {
           "ticker": "JPM",
@@ -587,48 +610,24 @@
           "entry_price": 188.6,
           "exit_price": 212.43,
           "return_pct": 12.63
-        },
-        {
-          "ticker": "AMD",
-          "symbol": "AMD",
-          "sector": "Semiconductors",
-          "score": 59.3,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 94.1,
-          "entry_price": 170.16,
-          "exit_price": 162.63,
-          "return_pct": -4.43
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 49.0,
-          "macd_score": 40.0,
-          "rsi_score": 50.0,
-          "h52_score": 90.7,
-          "entry_price": 108.54,
-          "exit_price": 110.76,
-          "return_pct": 2.04
         }
       ],
-      "portfolio_return_pct": 2.26,
-      "portfolio_value": 108.19,
+      "portfolio_return_pct": 3.13,
+      "portfolio_value": 108.47,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Streaming": 1,
         "Cybersecurity": 1,
         "Banking": 1,
         "Social Media": 1,
-        "Semiconductors": 2,
+        "Semiconductors": 1,
         "Payments": 2,
         "Technology": 2,
         "E-Commerce": 1,
         "EV/Auto": 1,
         "Retail": 1,
-        "Healthcare": 1,
-        "Energy": 1
+        "Healthcare": 1
       },
       "mode": "INVESTED",
       "best_stock": "GOOGL",
@@ -641,6 +640,18 @@
       "month_key": "2025-09",
       "stocks": [
         {
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 84.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.5,
+          "entry_price": 234.0,
+          "exit_price": 225.55,
+          "return_pct": -3.61
+        },
+        {
           "ticker": "NFLX",
           "symbol": "NFLX",
           "sector": "Streaming",
@@ -651,6 +662,18 @@
           "entry_price": 119.7,
           "exit_price": 119.89,
           "return_pct": 0.16
+        },
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 84.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 93.7,
+          "entry_price": 287.69,
+          "exit_price": 328.03,
+          "return_pct": 14.02
         },
         {
           "ticker": "NVDA",
@@ -795,36 +818,13 @@
           "entry_price": 174.41,
           "exit_price": 182.23,
           "return_pct": 4.48
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 61.3,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 92.9,
-          "entry_price": 111.68,
-          "exit_price": 110.28,
-          "return_pct": -1.25
-        },
-        {
-          "ticker": "COST",
-          "symbol": "COST",
-          "sector": "Retail",
-          "score": 60.6,
-          "macd_score": 70.0,
-          "rsi_score": 50.0,
-          "h52_score": 87.7,
-          "entry_price": 934.7,
-          "exit_price": 921.72,
-          "return_pct": -1.39
         }
       ],
-      "portfolio_return_pct": 5.65,
-      "portfolio_value": 114.3,
+      "portfolio_return_pct": 6.52,
+      "portfolio_value": 115.54,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Streaming": 1,
         "Semiconductors": 2,
         "Social Media": 1,
@@ -834,9 +834,7 @@
         "E-Commerce": 1,
         "EV/Auto": 1,
         "Payments": 2,
-        "Healthcare": 1,
-        "Energy": 1,
-        "Retail": 1
+        "Healthcare": 1
       },
       "mode": "INVESTED",
       "best_stock": "TSLA",
@@ -848,6 +846,18 @@
       "month": "Oct 2025",
       "month_key": "2025-10",
       "stocks": [
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 91.5,
+          "macd_score": 90.0,
+          "rsi_score": 80.9,
+          "h52_score": 88.2,
+          "entry_price": 326.84,
+          "exit_price": 368.15,
+          "return_pct": 12.64
+        },
         {
           "ticker": "CRWD",
           "symbol": "CRWD",
@@ -895,6 +905,18 @@
           "entry_price": 185.22,
           "exit_price": 202.47,
           "return_pct": 9.31
+        },
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 89.1,
+          "macd_score": 90.0,
+          "rsi_score": 79.7,
+          "h52_score": 96.5,
+          "entry_price": 782.12,
+          "exit_price": 777.94,
+          "return_pct": -0.54
         },
         {
           "ticker": "META",
@@ -1003,36 +1025,13 @@
           "entry_price": 160.93,
           "exit_price": 256.12,
           "return_pct": 59.15
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 61.6,
-          "macd_score": 90.0,
-          "rsi_score": 48.6,
-          "h52_score": 92.5,
-          "entry_price": 110.1,
-          "exit_price": 111.86,
-          "return_pct": 1.6
-        },
-        {
-          "ticker": "COST",
-          "symbol": "COST",
-          "sector": "Retail",
-          "score": 55.4,
-          "macd_score": 20.0,
-          "rsi_score": 74.2,
-          "h52_score": 86.2,
-          "entry_price": 919.1,
-          "exit_price": 907.6,
-          "return_pct": -1.25
         }
       ],
-      "portfolio_return_pct": 6.41,
-      "portfolio_value": 121.63,
+      "portfolio_return_pct": 7.19,
+      "portfolio_value": 123.85,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Cybersecurity": 1,
         "Banking": 1,
         "Streaming": 1,
@@ -1042,9 +1041,7 @@
         "Payments": 2,
         "Healthcare": 1,
         "EV/Auto": 1,
-        "E-Commerce": 1,
-        "Energy": 1,
-        "Retail": 1
+        "E-Commerce": 1
       },
       "mode": "INVESTED",
       "best_stock": "AMD",
@@ -1056,6 +1053,18 @@
       "month": "Nov 2025",
       "month_key": "2025-11",
       "stocks": [
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 94.1,
+          "macd_score": 90.0,
+          "rsi_score": 84.0,
+          "h52_score": 95.6,
+          "entry_price": 370.51,
+          "exit_price": 401.35,
+          "return_pct": 8.32
+        },
         {
           "ticker": "NVDA",
           "symbol": "NVDA",
@@ -1091,6 +1100,18 @@
           "entry_price": 308.03,
           "exit_price": 310.09,
           "return_pct": 0.67
+        },
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 89.6,
+          "macd_score": 90.0,
+          "rsi_score": 78.2,
+          "h52_score": 95.7,
+          "entry_price": 778.13,
+          "exit_price": 814.07,
+          "return_pct": 4.62
         },
         {
           "ticker": "GOOGL",
@@ -1211,36 +1232,13 @@
           "entry_price": 548.23,
           "exit_price": 548.76,
           "return_pct": 0.1
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 62.8,
-          "macd_score": 90.0,
-          "rsi_score": 50.8,
-          "h52_score": 93.8,
-          "entry_price": 112.0,
-          "exit_price": 113.38,
-          "return_pct": 1.24
-        },
-        {
-          "ticker": "COST",
-          "symbol": "COST",
-          "sector": "Retail",
-          "score": 54.1,
-          "macd_score": 20.0,
-          "rsi_score": 72.8,
-          "h52_score": 84.9,
-          "entry_price": 909.84,
-          "exit_price": 911.02,
-          "return_pct": 0.13
         }
       ],
-      "portfolio_return_pct": -2.75,
-      "portfolio_value": 118.29,
+      "portfolio_return_pct": -1.97,
+      "portfolio_value": 121.41,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Semiconductors": 2,
         "Cybersecurity": 1,
         "Banking": 1,
@@ -1250,9 +1248,7 @@
         "Healthcare": 1,
         "Social Media": 1,
         "E-Commerce": 1,
-        "Payments": 2,
-        "Energy": 1,
-        "Retail": 1
+        "Payments": 2
       },
       "mode": "INVESTED",
       "best_stock": "GOOGL",
@@ -1264,6 +1260,30 @@
       "month": "Dec 2025",
       "month_key": "2025-12",
       "stocks": [
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 95.2,
+          "macd_score": 90.0,
+          "rsi_score": 86.0,
+          "h52_score": 100.0,
+          "entry_price": 393.27,
+          "exit_price": 344.72,
+          "return_pct": -12.35
+        },
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 92.6,
+          "macd_score": 90.0,
+          "rsi_score": 81.4,
+          "h52_score": 96.8,
+          "entry_price": 568.0,
+          "exit_price": 570.45,
+          "return_pct": 0.43
+        },
         {
           "ticker": "GOOGL",
           "symbol": "GOOGL",
@@ -1419,36 +1439,13 @@
           "entry_price": 545.88,
           "exit_price": 569.05,
           "return_pct": 4.24
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 64.5,
-          "macd_score": 90.0,
-          "rsi_score": 52.8,
-          "h52_score": 96.0,
-          "entry_price": 114.55,
-          "exit_price": 118.74,
-          "return_pct": 3.65
-        },
-        {
-          "ticker": "V",
-          "symbol": "V",
-          "sector": "Payments",
-          "score": 56.2,
-          "macd_score": 20.0,
-          "rsi_score": 73.3,
-          "h52_score": 89.2,
-          "entry_price": 331.57,
-          "exit_price": 349.26,
-          "return_pct": 5.34
         }
       ],
-      "portfolio_return_pct": 0.58,
-      "portfolio_value": 118.98,
+      "portfolio_return_pct": -0.81,
+      "portfolio_value": 120.43,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Technology": 2,
         "Semiconductors": 2,
         "Cybersecurity": 1,
@@ -1459,19 +1456,42 @@
         "Pharma": 1,
         "E-Commerce": 1,
         "Social Media": 1,
-        "Payments": 2,
-        "Energy": 1
+        "Payments": 1
       },
       "mode": "INVESTED",
       "best_stock": "NVDA",
-      "worst_stock": "NFLX",
+      "worst_stock": "AVGO",
       "best_return": 6.72,
-      "worst_return": -11.97
+      "worst_return": -12.35
     },
     {
       "month": "Jan 2026",
       "month_key": "2026-01",
       "stocks": [
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 92.5,
+          "macd_score": 90.0,
+          "rsi_score": 80.8,
+          "h52_score": 91.3,
+          "entry_price": 575.15,
+          "exit_price": 654.58,
+          "return_pct": 13.81
+        },
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 91.5,
+          "macd_score": 90.0,
+          "rsi_score": 82.8,
+          "h52_score": 95.6,
+          "entry_price": 875.51,
+          "exit_price": 926.43,
+          "return_pct": 5.82
+        },
         {
           "ticker": "GOOGL",
           "symbol": "GOOGL",
@@ -1627,36 +1647,13 @@
           "entry_price": 662.16,
           "exit_price": 715.89,
           "return_pct": 8.11
-        },
-        {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 56.8,
-          "macd_score": 20.0,
-          "rsi_score": 63.4,
-          "h52_score": 69.9,
-          "entry_price": 94.13,
-          "exit_price": 83.49,
-          "return_pct": -11.3
-        },
-        {
-          "ticker": "V",
-          "symbol": "V",
-          "sector": "Payments",
-          "score": 56.0,
-          "macd_score": 20.0,
-          "rsi_score": 76.3,
-          "h52_score": 93.7,
-          "entry_price": 348.43,
-          "exit_price": 320.5,
-          "return_pct": -8.01
         }
       ],
-      "portfolio_return_pct": 0.23,
-      "portfolio_value": 119.25,
+      "portfolio_return_pct": 2.82,
+      "portfolio_value": 123.83,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Technology": 2,
         "Healthcare": 1,
         "Semiconductors": 2,
@@ -1666,20 +1663,31 @@
         "Energy": 1,
         "EV/Auto": 1,
         "E-Commerce": 1,
-        "Payments": 2,
-        "Social Media": 1,
-        "Streaming": 1
+        "Payments": 1,
+        "Social Media": 1
       },
       "mode": "INVESTED",
       "best_stock": "XOM",
-      "worst_stock": "NFLX",
+      "worst_stock": "CRWD",
       "best_return": 17.75,
-      "worst_return": -11.3
+      "worst_return": -6.88
     },
     {
       "month": "Feb 2026",
       "month_key": "2026-02",
       "stocks": [
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 94.4,
+          "macd_score": 90.0,
+          "rsi_score": 84.6,
+          "h52_score": 96.7,
+          "entry_price": 658.57,
+          "exit_price": 741.42,
+          "return_pct": 12.58
+        },
         {
           "ticker": "JNJ",
           "symbol": "JNJ",
@@ -1703,6 +1711,18 @@
           "entry_price": 335.98,
           "exit_price": 311.54,
           "return_pct": -7.27
+        },
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 92.0,
+          "macd_score": 90.0,
+          "rsi_score": 85.2,
+          "h52_score": 95.0,
+          "entry_price": 923.18,
+          "exit_price": 851.32,
+          "return_pct": -7.78
         },
         {
           "ticker": "AMD",
@@ -1835,36 +1855,13 @@
           "entry_price": 540.06,
           "exit_price": 516.32,
           "return_pct": -4.4
-        },
-        {
-          "ticker": "V",
-          "symbol": "V",
-          "sector": "Payments",
-          "score": 50.7,
-          "macd_score": 20.0,
-          "rsi_score": 63.2,
-          "h52_score": 86.0,
-          "entry_price": 323.49,
-          "exit_price": 318.82,
-          "return_pct": -1.44
-        },
-        {
-          "ticker": "PG",
-          "symbol": "PG",
-          "sector": "Consumer",
-          "score": 48.5,
-          "macd_score": 40.0,
-          "rsi_score": 67.2,
-          "h52_score": 86.0,
-          "entry_price": 151.28,
-          "exit_price": 165.95,
-          "return_pct": 9.7
         }
       ],
-      "portfolio_return_pct": -3.03,
-      "portfolio_value": 115.64,
+      "portfolio_return_pct": -3.26,
+      "portfolio_value": 119.79,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Healthcare": 1,
         "Technology": 2,
         "Semiconductors": 2,
@@ -1875,19 +1872,30 @@
         "Cybersecurity": 1,
         "Social Media": 1,
         "E-Commerce": 1,
-        "Payments": 2,
-        "Consumer": 1
+        "Payments": 1
       },
       "mode": "INVESTED",
-      "best_stock": "PG",
+      "best_stock": "CAT",
       "worst_stock": "CRWD",
-      "best_return": 9.7,
+      "best_return": 12.58,
       "worst_return": -15.46
     },
     {
       "month": "Mar 2026",
       "month_key": "2026-03",
       "stocks": [
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 94.6,
+          "macd_score": 90.0,
+          "rsi_score": 87.5,
+          "h52_score": 94.1,
+          "entry_price": 732.1,
+          "exit_price": 707.11,
+          "return_pct": -3.41
+        },
         {
           "ticker": "JNJ",
           "symbol": "JNJ",
@@ -1911,6 +1919,18 @@
           "entry_price": 303.02,
           "exit_price": 287.36,
           "return_pct": -5.17
+        },
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 88.2,
+          "macd_score": 90.0,
+          "rsi_score": 71.8,
+          "h52_score": 87.3,
+          "entry_price": 831.94,
+          "exit_price": 837.87,
+          "return_pct": 0.71
         },
         {
           "ticker": "XOM",
@@ -2043,36 +2063,13 @@
           "entry_price": 1009.45,
           "exit_price": 994.99,
           "return_pct": -1.43
-        },
-        {
-          "ticker": "PG",
-          "symbol": "PG",
-          "sector": "Consumer",
-          "score": 51.5,
-          "macd_score": 40.0,
-          "rsi_score": 71.9,
-          "h52_score": 95.4,
-          "entry_price": 164.05,
-          "exit_price": 143.36,
-          "return_pct": -12.61
-        },
-        {
-          "ticker": "MA",
-          "symbol": "MA",
-          "sector": "Payments",
-          "score": 46.2,
-          "macd_score": 20.0,
-          "rsi_score": 60.6,
-          "h52_score": 86.2,
-          "entry_price": 508.61,
-          "exit_price": 498.8,
-          "return_pct": -1.93
         }
       ],
-      "portfolio_return_pct": -2.45,
-      "portfolio_value": 112.81,
+      "portfolio_return_pct": -1.66,
+      "portfolio_value": 117.8,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Healthcare": 1,
         "Technology": 2,
         "Energy": 1,
@@ -2083,15 +2080,13 @@
         "E-Commerce": 1,
         "Cybersecurity": 1,
         "Social Media": 1,
-        "Retail": 1,
-        "Consumer": 1,
-        "Payments": 1
+        "Retail": 1
       },
       "mode": "INVESTED",
       "best_stock": "XOM",
-      "worst_stock": "PG",
+      "worst_stock": "LLY",
       "best_return": 6.47,
-      "worst_return": -12.61
+      "worst_return": -11.95
     },
     {
       "month": "Apr 2026",
@@ -2108,6 +2103,30 @@
           "entry_price": 244.2,
           "exit_price": 228.54,
           "return_pct": -6.41
+        },
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 92.7,
+          "macd_score": 90.0,
+          "rsi_score": 81.1,
+          "h52_score": 89.7,
+          "entry_price": 720.63,
+          "exit_price": 888.42,
+          "return_pct": 23.28
+        },
+        {
+          "ticker": "MRK",
+          "symbol": "MRK",
+          "sector": "Other",
+          "score": 90.9,
+          "macd_score": 90.0,
+          "rsi_score": 76.0,
+          "h52_score": 96.1,
+          "entry_price": 120.88,
+          "exit_price": 109.18,
+          "return_pct": -9.68
         },
         {
           "ticker": "XOM",
@@ -2252,37 +2271,14 @@
           "entry_price": 396.75,
           "exit_price": 445.75,
           "return_pct": 12.35
-        },
-        {
-          "ticker": "PG",
-          "symbol": "PG",
-          "sector": "Consumer",
-          "score": 48.2,
-          "macd_score": 20.0,
-          "rsi_score": 59.4,
-          "h52_score": 82.5,
-          "entry_price": 142.84,
-          "exit_price": 145.99,
-          "return_pct": 2.2
-        },
-        {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 45.1,
-          "macd_score": 20.0,
-          "rsi_score": 62.2,
-          "h52_score": 71.7,
-          "entry_price": 96.47,
-          "exit_price": 93.61,
-          "return_pct": -2.96
         }
       ],
-      "portfolio_return_pct": 10.84,
-      "portfolio_value": 125.04,
+      "portfolio_return_pct": 11.8,
+      "portfolio_value": 131.7,
       "num_stocks": 15,
       "sectors": {
         "Healthcare": 1,
+        "Other": 2,
         "Energy": 1,
         "Technology": 2,
         "Semiconductors": 2,
@@ -2292,20 +2288,30 @@
         "Retail": 1,
         "Social Media": 1,
         "E-Commerce": 1,
-        "Cybersecurity": 1,
-        "Consumer": 1,
-        "Streaming": 1
+        "Cybersecurity": 1
       },
       "mode": "INVESTED",
       "best_stock": "AMD",
-      "worst_stock": "XOM",
+      "worst_stock": "MRK",
       "best_return": 70.76,
-      "worst_return": -6.9
+      "worst_return": -9.68
     },
     {
       "month": "May 2026",
       "month_key": "2026-05",
       "stocks": [
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 95.2,
+          "macd_score": 90.0,
+          "rsi_score": 86.6,
+          "h52_score": 99.2,
+          "entry_price": 896.84,
+          "exit_price": 875.87,
+          "return_pct": -2.34
+        },
         {
           "ticker": "GOOGL",
           "symbol": "GOOGL",
@@ -2329,6 +2335,18 @@
           "entry_price": 351.87,
           "exit_price": 516.1,
           "return_pct": 46.67
+        },
+        {
+          "ticker": "NEE",
+          "symbol": "NEE",
+          "sector": "Other",
+          "score": 90.7,
+          "macd_score": 90.0,
+          "rsi_score": 80.6,
+          "h52_score": 99.8,
+          "entry_price": 98.0,
+          "exit_price": 87.01,
+          "return_pct": -11.21
         },
         {
           "ticker": "JNJ",
@@ -2461,36 +2479,13 @@
           "entry_price": 371.96,
           "exit_price": 380.31,
           "return_pct": 2.24
-        },
-        {
-          "ticker": "PG",
-          "symbol": "PG",
-          "sector": "Consumer",
-          "score": 45.1,
-          "macd_score": 20.0,
-          "rsi_score": 60.3,
-          "h52_score": 86.5,
-          "entry_price": 147.87,
-          "exit_price": 143.56,
-          "return_pct": -2.91
-        },
-        {
-          "ticker": "V",
-          "symbol": "V",
-          "sector": "Payments",
-          "score": 43.8,
-          "macd_score": 20.0,
-          "rsi_score": 62.7,
-          "h52_score": 88.3,
-          "entry_price": 332.19,
-          "exit_price": 325.68,
-          "return_pct": -1.96
         }
       ],
-      "portfolio_return_pct": 5.25,
-      "portfolio_value": 131.6,
+      "portfolio_return_pct": 4.67,
+      "portfolio_value": 137.85,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "Technology": 2,
         "Semiconductors": 2,
         "Healthcare": 2,
@@ -2500,43 +2495,41 @@
         "Pharma": 1,
         "Retail": 1,
         "EV/Auto": 1,
-        "Social Media": 1,
-        "Consumer": 1,
-        "Payments": 1
+        "Social Media": 1
       },
       "mode": "INVESTED",
       "best_stock": "AMD",
-      "worst_stock": "COST",
+      "worst_stock": "NEE",
       "best_return": 46.67,
-      "worst_return": -5.82
+      "worst_return": -11.21
     }
   ],
   "portfolio_values": [
     100.0,
-    104.28,
-    105.8,
-    108.19,
-    114.3,
-    121.63,
-    118.29,
-    118.98,
-    119.25,
-    115.64,
-    112.81,
-    125.04,
-    131.6
+    102.87,
+    105.18,
+    108.47,
+    115.54,
+    123.85,
+    121.41,
+    120.43,
+    123.83,
+    119.79,
+    117.8,
+    131.7,
+    137.85
   ],
   "summary": {
-    "total_return_pct": 31.6,
-    "annualized_return": 31.6,
-    "win_rate": 75.0,
-    "max_drawdown": -7.25,
-    "sharpe_ratio": 1.95,
+    "total_return_pct": 37.85,
+    "annualized_return": 37.9,
+    "win_rate": 66.7,
+    "max_drawdown": -4.88,
+    "sharpe_ratio": 2.21,
     "best_month": "Apr 2026",
-    "best_month_return": 10.84,
+    "best_month_return": 11.8,
     "worst_month": "Feb 2026",
-    "worst_month_return": -3.03,
+    "worst_month_return": -3.26,
     "total_trades": 180,
-    "universe_size": 21
+    "universe_size": 50
   }
 }

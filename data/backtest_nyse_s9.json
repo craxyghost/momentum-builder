@@ -3,7 +3,7 @@
   "strategy_name": "Ignition Momentum",
   "strategy_icon": "\ud83d\ude80",
   "exchange": "NYSE",
-  "generated_at": "2026-06-04 19:39",
+  "generated_at": "2026-06-04 19:53",
   "period": {
     "start": "Jun 2025",
     "end": "May 2026",
@@ -83,19 +83,33 @@
           "exit_price": 115.94,
           "return_pct": -13.36,
           "ignition": 80.91
+        },
+        {
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 86.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.2,
+          "entry_price": 218.9,
+          "exit_price": 223.5,
+          "return_pct": 2.1,
+          "ignition": 80.6
         }
       ],
-      "portfolio_return_pct": -12.06,
-      "portfolio_value": 96.56,
-      "num_stocks": 2,
+      "portfolio_return_pct": -7.34,
+      "portfolio_value": 101.74,
+      "num_stocks": 3,
       "sectors": {
         "Cybersecurity": 1,
-        "Streaming": 1
+        "Streaming": 1,
+        "Other": 1
       },
       "mode": "INVESTED",
-      "best_stock": "CRWD",
+      "best_stock": "SNOW",
       "worst_stock": "NFLX",
-      "best_return": -10.76,
+      "best_return": 2.1,
       "worst_return": -13.36
     },
     {
@@ -103,77 +117,87 @@
       "month_key": "2025-08",
       "stocks": [
         {
-          "ticker": "META",
-          "symbol": "META",
-          "sector": "Social Media",
-          "score": 82.5,
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 85.4,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 98.6,
-          "entry_price": 758.95,
-          "exit_price": 736.97,
-          "return_pct": -2.9,
-          "ignition": 79.78999999999999
-        },
-        {
-          "ticker": "JPM",
-          "symbol": "JPM",
-          "sector": "Banking",
-          "score": 82.6,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 98.3,
-          "entry_price": 286.23,
-          "exit_price": 297.09,
-          "return_pct": 3.79,
-          "ignition": 79.765
-        },
-        {
-          "ticker": "CRWD",
-          "symbol": "CRWD",
-          "sector": "Cybersecurity",
-          "score": 84.2,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 87.8,
-          "entry_price": 448.95,
-          "exit_price": 423.7,
-          "return_pct": -5.62,
-          "ignition": 78.51
-        },
-        {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 84.3,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 86.4,
-          "entry_price": 116.3,
-          "exit_price": 120.82,
-          "return_pct": 3.89,
-          "ignition": 78.32
+          "h52_score": 97.5,
+          "entry_price": 216.8,
+          "exit_price": 238.66,
+          "return_pct": 10.08,
+          "ignition": 80.205
         }
       ],
-      "portfolio_return_pct": -0.21,
-      "portfolio_value": 96.36,
-      "num_stocks": 4,
+      "portfolio_return_pct": 10.08,
+      "portfolio_value": 112.0,
+      "num_stocks": 1,
       "sectors": {
-        "Social Media": 1,
-        "Banking": 1,
-        "Cybersecurity": 1,
-        "Streaming": 1
+        "Other": 1
       },
       "mode": "INVESTED",
-      "best_stock": "NFLX",
-      "worst_stock": "CRWD",
-      "best_return": 3.89,
-      "worst_return": -5.62
+      "best_stock": "SNOW",
+      "worst_stock": "SNOW",
+      "best_return": 10.08,
+      "worst_return": 10.08
     },
     {
       "month": "Sep 2025",
       "month_key": "2025-09",
       "stocks": [
+        {
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 82.7,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 98.9,
+          "entry_price": 725.72,
+          "exit_price": 784.81,
+          "return_pct": 8.14,
+          "ignition": 79.875
+        },
+        {
+          "ticker": "MS",
+          "symbol": "MS",
+          "sector": "Other",
+          "score": 81.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.8,
+          "entry_price": 146.07,
+          "exit_price": 156.29,
+          "return_pct": 7.0,
+          "ignition": 79.83
+        },
+        {
+          "ticker": "SNOW",
+          "symbol": "SNOW",
+          "sector": "Other",
+          "score": 84.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.5,
+          "entry_price": 234.0,
+          "exit_price": 225.55,
+          "return_pct": -3.61,
+          "ignition": 79.78500000000001
+        },
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 84.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 93.7,
+          "entry_price": 287.69,
+          "exit_price": 328.03,
+          "return_pct": 14.02,
+          "ignition": 79.375
+        },
         {
           "ticker": "NVDA",
           "symbol": "NVDA",
@@ -186,47 +210,20 @@
           "exit_price": 186.55,
           "return_pct": 9.75,
           "ignition": 79.0
-        },
-        {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 84.5,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 90.1,
-          "entry_price": 119.7,
-          "exit_price": 119.89,
-          "return_pct": 0.16,
-          "ignition": 78.915
-        },
-        {
-          "ticker": "META",
-          "symbol": "META",
-          "sector": "Social Media",
-          "score": 81.2,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 92.8,
-          "entry_price": 724.34,
-          "exit_price": 732.66,
-          "return_pct": 1.15,
-          "ignition": 78.66000000000001
         }
       ],
-      "portfolio_return_pct": 3.69,
-      "portfolio_value": 99.92,
-      "num_stocks": 3,
+      "portfolio_return_pct": 7.06,
+      "portfolio_value": 119.91,
+      "num_stocks": 5,
       "sectors": {
-        "Semiconductors": 1,
-        "Streaming": 1,
-        "Social Media": 1
+        "Other": 4,
+        "Semiconductors": 1
       },
       "mode": "INVESTED",
-      "best_stock": "NVDA",
-      "worst_stock": "NFLX",
-      "best_return": 9.75,
-      "worst_return": 0.16
+      "best_stock": "AVGO",
+      "worst_stock": "SNOW",
+      "best_return": 14.02,
+      "worst_return": -3.61
     },
     {
       "month": "Oct 2025",
@@ -259,6 +256,19 @@
           "ignition": 93.925
         },
         {
+          "ticker": "WMT",
+          "symbol": "WMT",
+          "sector": "Other",
+          "score": 81.1,
+          "macd_score": 90.0,
+          "rsi_score": 88.3,
+          "h52_score": 97.1,
+          "entry_price": 101.95,
+          "exit_price": 100.58,
+          "return_pct": -1.35,
+          "ignition": 93.86
+        },
+        {
           "ticker": "NVDA",
           "symbol": "NVDA",
           "sector": "Semiconductors",
@@ -272,52 +282,51 @@
           "ignition": 93.825
         },
         {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 90.6,
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 89.1,
           "macd_score": 90.0,
-          "rsi_score": 81.7,
-          "h52_score": 89.4,
-          "entry_price": 117.55,
-          "exit_price": 111.89,
-          "return_pct": -4.82,
-          "ignition": 92.955
-        },
-        {
-          "ticker": "META",
-          "symbol": "META",
-          "sector": "Social Media",
-          "score": 83.3,
-          "macd_score": 90.0,
-          "rsi_score": 80.0,
-          "h52_score": 92.2,
-          "entry_price": 720.29,
-          "exit_price": 647.27,
-          "return_pct": -10.14,
-          "ignition": 91.49
+          "rsi_score": 79.7,
+          "h52_score": 96.5,
+          "entry_price": 782.12,
+          "exit_price": 777.94,
+          "return_pct": -0.54,
+          "ignition": 93.22
         }
       ],
-      "portfolio_return_pct": 0.95,
-      "portfolio_value": 100.87,
+      "portfolio_return_pct": 3.57,
+      "portfolio_value": 124.19,
       "num_stocks": 5,
       "sectors": {
         "Banking": 1,
         "Cybersecurity": 1,
-        "Semiconductors": 1,
-        "Streaming": 1,
-        "Social Media": 1
+        "Other": 2,
+        "Semiconductors": 1
       },
       "mode": "INVESTED",
       "best_stock": "CRWD",
-      "worst_stock": "META",
+      "worst_stock": "WMT",
       "best_return": 11.33,
-      "worst_return": -10.14
+      "worst_return": -1.35
     },
     {
       "month": "Nov 2025",
       "month_key": "2025-11",
       "stocks": [
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 94.1,
+          "macd_score": 90.0,
+          "rsi_score": 84.0,
+          "h52_score": 95.6,
+          "entry_price": 370.51,
+          "exit_price": 401.35,
+          "return_pct": 8.32,
+          "ignition": 95.16
+        },
         {
           "ticker": "JPM",
           "symbol": "JPM",
@@ -345,6 +354,19 @@
           "ignition": 94.935
         },
         {
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 84.4,
+          "macd_score": 90.0,
+          "rsi_score": 88.2,
+          "h52_score": 96.1,
+          "entry_price": 118.36,
+          "exit_price": 124.31,
+          "return_pct": 5.02,
+          "ignition": 94.345
+        },
+        {
           "ticker": "NVDA",
           "symbol": "NVDA",
           "sector": "Semiconductors",
@@ -356,53 +378,53 @@
           "exit_price": 176.98,
           "return_pct": -14.94,
           "ignition": 94.33
-        },
-        {
-          "ticker": "AMD",
-          "symbol": "AMD",
-          "sector": "Semiconductors",
-          "score": 81.4,
-          "macd_score": 90.0,
-          "rsi_score": 79.7,
-          "h52_score": 95.9,
-          "entry_price": 259.33,
-          "exit_price": 217.53,
-          "return_pct": -16.12,
-          "ignition": 91.59
-        },
-        {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 86.9,
-          "macd_score": 90.0,
-          "rsi_score": 65.8,
-          "h52_score": 96.4,
-          "entry_price": 281.8,
-          "exit_price": 319.75,
-          "return_pct": 13.47,
-          "ignition": 84.29000000000002
         }
       ],
-      "portfolio_return_pct": -4.85,
-      "portfolio_value": 95.98,
+      "portfolio_return_pct": -1.65,
+      "portfolio_value": 122.14,
       "num_stocks": 5,
       "sectors": {
+        "Other": 2,
         "Banking": 1,
         "Cybersecurity": 1,
-        "Semiconductors": 2,
-        "Technology": 1
+        "Semiconductors": 1
       },
       "mode": "INVESTED",
-      "best_stock": "GOOGL",
-      "worst_stock": "AMD",
-      "best_return": 13.47,
-      "worst_return": -16.12
+      "best_stock": "AVGO",
+      "worst_stock": "NVDA",
+      "best_return": 8.32,
+      "worst_return": -14.94
     },
     {
       "month": "Dec 2025",
       "month_key": "2025-12",
       "stocks": [
+        {
+          "ticker": "AVGO",
+          "symbol": "AVGO",
+          "sector": "Other",
+          "score": 95.2,
+          "macd_score": 90.0,
+          "rsi_score": 86.0,
+          "h52_score": 100.0,
+          "entry_price": 393.27,
+          "exit_price": 344.72,
+          "return_pct": -12.35,
+          "ignition": 96.54
+        },
+        {
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 87.1,
+          "macd_score": 90.0,
+          "rsi_score": 89.5,
+          "h52_score": 97.8,
+          "entry_price": 124.36,
+          "exit_price": 121.25,
+          "return_pct": -2.5,
+          "ignition": 95.465
+        },
         {
           "ticker": "JNJ",
           "symbol": "JNJ",
@@ -417,6 +439,19 @@
           "ignition": 94.49
         },
         {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 92.6,
+          "macd_score": 90.0,
+          "rsi_score": 81.4,
+          "h52_score": 96.8,
+          "entry_price": 568.0,
+          "exit_price": 570.45,
+          "return_pct": 0.43,
+          "ignition": 94.39
+        },
+        {
           "ticker": "JPM",
           "symbol": "JPM",
           "sector": "Banking",
@@ -428,62 +463,21 @@
           "exit_price": 319.14,
           "return_pct": 2.96,
           "ignition": 93.92999999999999
-        },
-        {
-          "ticker": "CRWD",
-          "symbol": "CRWD",
-          "sector": "Cybersecurity",
-          "score": 88.6,
-          "macd_score": 90.0,
-          "rsi_score": 78.8,
-          "h52_score": 89.8,
-          "entry_price": 503.21,
-          "exit_price": 468.76,
-          "return_pct": -6.85,
-          "ignition": 91.89
-        },
-        {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 90.2,
-          "macd_score": 90.0,
-          "rsi_score": 71.7,
-          "h52_score": 97.4,
-          "entry_price": 317.27,
-          "exit_price": 312.58,
-          "return_pct": -1.48,
-          "ignition": 86.575
-        },
-        {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 88.6,
-          "macd_score": 90.0,
-          "rsi_score": 67.0,
-          "h52_score": 83.4,
-          "entry_price": 174.74,
-          "exit_price": 186.48,
-          "return_pct": 6.72,
-          "ignition": 82.98
         }
       ],
-      "portfolio_return_pct": 0.31,
-      "portfolio_value": 96.28,
+      "portfolio_return_pct": -2.25,
+      "portfolio_value": 119.39,
       "num_stocks": 5,
       "sectors": {
+        "Other": 3,
         "Healthcare": 1,
-        "Banking": 1,
-        "Cybersecurity": 1,
-        "Technology": 1,
-        "Semiconductors": 1
+        "Banking": 1
       },
       "mode": "INVESTED",
-      "best_stock": "NVDA",
-      "worst_stock": "CRWD",
-      "best_return": 6.72,
-      "worst_return": -6.85
+      "best_stock": "JPM",
+      "worst_stock": "AVGO",
+      "best_return": 2.96,
+      "worst_return": -12.35
     },
     {
       "month": "Jan 2026",
@@ -503,6 +497,19 @@
           "ignition": 95.31
         },
         {
+          "ticker": "MS",
+          "symbol": "MS",
+          "sector": "Other",
+          "score": 90.7,
+          "macd_score": 90.0,
+          "rsi_score": 84.0,
+          "h52_score": 97.4,
+          "entry_price": 176.59,
+          "exit_price": 180.83,
+          "return_pct": 2.4,
+          "ignition": 94.75
+        },
+        {
           "ticker": "JPM",
           "symbol": "JPM",
           "sector": "Banking",
@@ -516,59 +523,44 @@
           "ignition": 94.72
         },
         {
-          "ticker": "LLY",
-          "symbol": "LLY",
-          "sector": "Pharma",
-          "score": 87.5,
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 91.5,
           "macd_score": 90.0,
-          "rsi_score": 82.1,
-          "h52_score": 96.8,
-          "entry_price": 1072.76,
-          "exit_price": 1033.64,
-          "return_pct": -3.65,
-          "ignition": 93.545
+          "rsi_score": 82.8,
+          "h52_score": 95.6,
+          "entry_price": 875.51,
+          "exit_price": 926.43,
+          "return_pct": 5.82,
+          "ignition": 94.34
         },
         {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 91.1,
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 88.4,
           "macd_score": 90.0,
-          "rsi_score": 69.3,
-          "h52_score": 95.2,
-          "entry_price": 316.68,
-          "exit_price": 337.76,
-          "return_pct": 6.66,
-          "ignition": 85.825
-        },
-        {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 86.1,
-          "macd_score": 90.0,
-          "rsi_score": 69.3,
-          "h52_score": 87.9,
-          "entry_price": 189.83,
-          "exit_price": 191.12,
-          "return_pct": 0.68,
-          "ignition": 83.73
+          "rsi_score": 84.4,
+          "h52_score": 95.4,
+          "entry_price": 121.8,
+          "exit_price": 141.15,
+          "return_pct": 15.89,
+          "ignition": 94.09
         }
       ],
-      "portfolio_return_pct": 1.68,
-      "portfolio_value": 97.9,
+      "portfolio_return_pct": 5.77,
+      "portfolio_value": 126.28,
       "num_stocks": 5,
       "sectors": {
         "Healthcare": 1,
-        "Banking": 1,
-        "Pharma": 1,
-        "Technology": 1,
-        "Semiconductors": 1
+        "Other": 3,
+        "Banking": 1
       },
       "mode": "INVESTED",
-      "best_stock": "JNJ",
+      "best_stock": "GILD",
       "worst_stock": "JPM",
-      "best_return": 9.88,
+      "best_return": 15.89,
       "worst_return": -5.15
     },
     {
@@ -589,72 +581,70 @@
           "ignition": 96.595
         },
         {
-          "ticker": "LLY",
-          "symbol": "LLY",
-          "sector": "Pharma",
-          "score": 84.8,
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 94.4,
           "macd_score": 90.0,
-          "rsi_score": 79.7,
-          "h52_score": 91.5,
-          "entry_price": 1034.06,
-          "exit_price": 1048.43,
-          "return_pct": 1.39,
-          "ignition": 91.60999999999999
+          "rsi_score": 84.6,
+          "h52_score": 96.7,
+          "entry_price": 658.57,
+          "exit_price": 741.42,
+          "return_pct": 12.58,
+          "ignition": 95.535
         },
         {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 92.4,
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 85.6,
           "macd_score": 90.0,
-          "rsi_score": 72.7,
-          "h52_score": 98.7,
-          "entry_price": 335.98,
-          "exit_price": 311.54,
-          "return_pct": -7.27,
-          "ignition": 87.46000000000001
+          "rsi_score": 88.9,
+          "h52_score": 99.8,
+          "entry_price": 140.25,
+          "exit_price": 148.11,
+          "return_pct": 5.6,
+          "ignition": 95.315
         },
         {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 89.0,
+          "ticker": "GS",
+          "symbol": "GS",
+          "sector": "Other",
+          "score": 92.0,
           "macd_score": 90.0,
-          "rsi_score": 70.4,
-          "h52_score": 90.1,
-          "entry_price": 187.19,
-          "exit_price": 177.18,
-          "return_pct": -5.35,
-          "ignition": 84.915
+          "rsi_score": 85.2,
+          "h52_score": 95.0,
+          "entry_price": 923.18,
+          "exit_price": 851.32,
+          "return_pct": -7.78,
+          "ignition": 94.95
         },
         {
-          "ticker": "AMD",
-          "symbol": "AMD",
-          "sector": "Semiconductors",
-          "score": 90.2,
+          "ticker": "MS",
+          "symbol": "MS",
+          "sector": "Other",
+          "score": 88.3,
           "macd_score": 90.0,
-          "rsi_score": 69.6,
-          "h52_score": 88.6,
-          "entry_price": 235.77,
-          "exit_price": 200.21,
-          "return_pct": -15.08,
-          "ignition": 84.72999999999999
+          "rsi_score": 85.0,
+          "h52_score": 94.9,
+          "entry_price": 181.63,
+          "exit_price": 165.62,
+          "return_pct": -8.82,
+          "ignition": 94.145
         }
       ],
-      "portfolio_return_pct": -3.5,
-      "portfolio_value": 94.47,
+      "portfolio_return_pct": 2.08,
+      "portfolio_value": 128.91,
       "num_stocks": 5,
       "sectors": {
         "Healthcare": 1,
-        "Pharma": 1,
-        "Technology": 1,
-        "Semiconductors": 2
+        "Other": 4
       },
       "mode": "INVESTED",
-      "best_stock": "JNJ",
-      "worst_stock": "AMD",
-      "best_return": 8.81,
-      "worst_return": -15.08
+      "best_stock": "CAT",
+      "worst_stock": "MS",
+      "best_return": 12.58,
+      "worst_return": -8.82
     },
     {
       "month": "Mar 2026",
@@ -674,31 +664,70 @@
           "ignition": 97.455
         },
         {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 85.1,
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 94.6,
           "macd_score": 90.0,
-          "rsi_score": 78.4,
-          "h52_score": 97.2,
-          "entry_price": 158.28,
-          "exit_price": 168.52,
-          "return_pct": 6.47,
-          "ignition": 92.2
+          "rsi_score": 87.5,
+          "h52_score": 94.1,
+          "entry_price": 732.1,
+          "exit_price": 707.11,
+          "return_pct": -3.41,
+          "ignition": 95.91
+        },
+        {
+          "ticker": "GILD",
+          "symbol": "GILD",
+          "sector": "Other",
+          "score": 85.4,
+          "macd_score": 90.0,
+          "rsi_score": 89.9,
+          "h52_score": 94.7,
+          "entry_price": 147.03,
+          "exit_price": 138.58,
+          "return_pct": -5.75,
+          "ignition": 94.76
+        },
+        {
+          "ticker": "WMT",
+          "symbol": "WMT",
+          "sector": "Other",
+          "score": 83.1,
+          "macd_score": 90.0,
+          "rsi_score": 90.3,
+          "h52_score": 95.0,
+          "entry_price": 126.96,
+          "exit_price": 123.79,
+          "return_pct": -2.49,
+          "ignition": 94.44500000000001
+        },
+        {
+          "ticker": "MRK",
+          "symbol": "MRK",
+          "sector": "Other",
+          "score": 83.9,
+          "macd_score": 90.0,
+          "rsi_score": 79.8,
+          "h52_score": 98.9,
+          "entry_price": 122.6,
+          "exit_price": 119.41,
+          "return_pct": -2.61,
+          "ignition": 92.565
         }
       ],
-      "portfolio_return_pct": 2.28,
-      "portfolio_value": 96.62,
-      "num_stocks": 2,
+      "portfolio_return_pct": -3.23,
+      "portfolio_value": 124.75,
+      "num_stocks": 5,
       "sectors": {
         "Healthcare": 1,
-        "Energy": 1
+        "Other": 4
       },
       "mode": "INVESTED",
-      "best_stock": "XOM",
-      "worst_stock": "JNJ",
-      "best_return": 6.47,
-      "worst_return": -1.91
+      "best_stock": "JNJ",
+      "worst_stock": "GILD",
+      "best_return": -1.91,
+      "worst_return": -5.75
     },
     {
       "month": "Apr 2026",
@@ -718,6 +747,19 @@
           "ignition": 96.49
         },
         {
+          "ticker": "WMT",
+          "symbol": "WMT",
+          "sector": "Other",
+          "score": 89.6,
+          "macd_score": 90.0,
+          "rsi_score": 86.1,
+          "h52_score": 92.3,
+          "entry_price": 123.56,
+          "exit_price": 131.68,
+          "return_pct": 6.57,
+          "ignition": 94.28999999999999
+        },
+        {
           "ticker": "XOM",
           "symbol": "XOM",
           "sector": "Energy",
@@ -729,25 +771,91 @@
           "exit_price": 153.29,
           "return_pct": -6.9,
           "ignition": 93.78
+        },
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 92.7,
+          "macd_score": 90.0,
+          "rsi_score": 81.1,
+          "h52_score": 89.7,
+          "entry_price": 720.63,
+          "exit_price": 888.42,
+          "return_pct": 23.28,
+          "ignition": 93.27
+        },
+        {
+          "ticker": "NEE",
+          "symbol": "NEE",
+          "sector": "Other",
+          "score": 87.9,
+          "macd_score": 90.0,
+          "rsi_score": 78.5,
+          "h52_score": 97.5,
+          "entry_price": 92.73,
+          "exit_price": 97.88,
+          "return_pct": 5.55,
+          "ignition": 92.83
         }
       ],
-      "portfolio_return_pct": -6.66,
-      "portfolio_value": 90.19,
-      "num_stocks": 2,
+      "portfolio_return_pct": 4.42,
+      "portfolio_value": 130.26,
+      "num_stocks": 5,
       "sectors": {
         "Healthcare": 1,
+        "Other": 3,
         "Energy": 1
       },
       "mode": "INVESTED",
-      "best_stock": "JNJ",
+      "best_stock": "CAT",
       "worst_stock": "XOM",
-      "best_return": -6.41,
+      "best_return": 23.28,
       "worst_return": -6.9
     },
     {
       "month": "May 2026",
       "month_key": "2026-05",
       "stocks": [
+        {
+          "ticker": "CAT",
+          "symbol": "CAT",
+          "sector": "Other",
+          "score": 95.2,
+          "macd_score": 90.0,
+          "rsi_score": 86.6,
+          "h52_score": 99.2,
+          "entry_price": 896.84,
+          "exit_price": 875.87,
+          "return_pct": -2.34,
+          "ignition": 96.57
+        },
+        {
+          "ticker": "WMT",
+          "symbol": "WMT",
+          "sector": "Other",
+          "score": 86.6,
+          "macd_score": 90.0,
+          "rsi_score": 87.4,
+          "h52_score": 98.2,
+          "entry_price": 131.67,
+          "exit_price": 115.53,
+          "return_pct": -12.26,
+          "ignition": 94.9
+        },
+        {
+          "ticker": "NEE",
+          "symbol": "NEE",
+          "sector": "Other",
+          "score": 90.7,
+          "macd_score": 90.0,
+          "rsi_score": 80.6,
+          "h52_score": 99.8,
+          "entry_price": 98.0,
+          "exit_price": 87.01,
+          "return_pct": -11.21,
+          "ignition": 94.25999999999999
+        },
         {
           "ticker": "AMD",
           "symbol": "AMD",
@@ -762,100 +870,59 @@
           "ignition": 93.455
         },
         {
-          "ticker": "JNJ",
-          "symbol": "JNJ",
-          "sector": "Healthcare",
-          "score": 90.5,
+          "ticker": "MS",
+          "symbol": "MS",
+          "sector": "Other",
+          "score": 89.0,
           "macd_score": 90.0,
-          "rsi_score": 78.7,
-          "h52_score": 91.3,
-          "entry_price": 227.75,
-          "exit_price": 224.04,
-          "return_pct": -1.63,
-          "ignition": 92.47
-        },
-        {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 92.1,
-          "macd_score": 90.0,
-          "rsi_score": 70.8,
-          "h52_score": 99.7,
-          "entry_price": 381.63,
-          "exit_price": 380.34,
-          "return_pct": -0.34,
-          "ignition": 87.075
-        },
-        {
-          "ticker": "XOM",
-          "symbol": "XOM",
-          "sector": "Energy",
-          "score": 87.4,
-          "macd_score": 90.0,
-          "rsi_score": 68.9,
-          "h52_score": 87.5,
-          "entry_price": 151.58,
-          "exit_price": 144.28,
-          "return_pct": -4.82,
-          "ignition": 83.83
-        },
-        {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 84.2,
-          "macd_score": 90.0,
-          "rsi_score": 68.4,
-          "h52_score": 92.0,
-          "entry_price": 201.28,
-          "exit_price": 211.14,
-          "return_pct": 4.9,
-          "ignition": 83.74
+          "rsi_score": 76.8,
+          "h52_score": 97.9,
+          "entry_price": 190.49,
+          "exit_price": 208.0,
+          "return_pct": 9.19,
+          "ignition": 92.685
         }
       ],
-      "portfolio_return_pct": 8.96,
-      "portfolio_value": 98.27,
+      "portfolio_return_pct": 6.01,
+      "portfolio_value": 138.09,
       "num_stocks": 5,
       "sectors": {
-        "Semiconductors": 2,
-        "Healthcare": 1,
-        "Technology": 1,
-        "Energy": 1
+        "Other": 4,
+        "Semiconductors": 1
       },
       "mode": "INVESTED",
       "best_stock": "AMD",
-      "worst_stock": "XOM",
+      "worst_stock": "WMT",
       "best_return": 46.67,
-      "worst_return": -4.82
+      "worst_return": -12.26
     }
   ],
   "portfolio_values": [
     100.0,
     109.8,
-    96.56,
-    96.36,
-    99.92,
-    100.87,
-    95.98,
-    96.28,
-    97.9,
-    94.47,
-    96.62,
-    90.19,
-    98.27
+    101.74,
+    112.0,
+    119.91,
+    124.19,
+    122.14,
+    119.39,
+    126.28,
+    128.91,
+    124.75,
+    130.26,
+    138.09
   ],
   "summary": {
-    "total_return_pct": -1.73,
-    "annualized_return": -1.7,
-    "win_rate": 58.3,
-    "max_drawdown": -17.86,
-    "sharpe_ratio": 0.02,
-    "best_month": "Jun 2025",
-    "best_month_return": 9.8,
+    "total_return_pct": 38.09,
+    "annualized_return": 38.1,
+    "win_rate": 66.7,
+    "max_drawdown": -7.34,
+    "sharpe_ratio": 1.82,
+    "best_month": "Aug 2025",
+    "best_month_return": 10.08,
     "worst_month": "Jul 2025",
-    "worst_month_return": -12.06,
-    "total_trades": 45,
-    "universe_size": 21
+    "worst_month_return": -7.34,
+    "total_trades": 51,
+    "universe_size": 50
   }
 }
