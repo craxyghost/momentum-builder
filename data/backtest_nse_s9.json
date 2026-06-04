@@ -1,0 +1,666 @@
+{
+  "strategy_id": "s9",
+  "strategy_name": "Ignition Momentum",
+  "strategy_icon": "\ud83d\ude80",
+  "exchange": "NSE",
+  "generated_at": "2026-06-04 19:39",
+  "period": {
+    "start": "Jun 2025",
+    "end": "May 2026",
+    "months": 12
+  },
+  "monthly_results": [
+    {
+      "month": "Jun 2025",
+      "month_key": "2025-06",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 77.0,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.0,
+          "entry_price": 913.0,
+          "exit_price": 936.5,
+          "return_pct": 2.57,
+          "ignition": 78.15
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 75.0,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 96.8,
+          "entry_price": 1828.71,
+          "exit_price": 1992.94,
+          "return_pct": 8.98,
+          "ignition": 78.02
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "symbol": "HDFCBANK",
+          "sector": "Banking",
+          "score": 72.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 98.3,
+          "entry_price": 952.18,
+          "exit_price": 987.4,
+          "return_pct": 3.7,
+          "ignition": 77.72500000000001
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "symbol": "ICICIBANK",
+          "sector": "Banking",
+          "score": 71.9,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 98.2,
+          "entry_price": 1430.96,
+          "exit_price": 1434.73,
+          "return_pct": 0.26,
+          "ignition": 77.61
+        },
+        {
+          "ticker": "KOTAKBANK.NS",
+          "symbol": "KOTAKBANK",
+          "sector": "Banking",
+          "score": 73.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 90.1,
+          "entry_price": 412.92,
+          "exit_price": 432.2,
+          "return_pct": 4.67,
+          "ignition": 76.695
+        }
+      ],
+      "portfolio_return_pct": 4.04,
+      "portfolio_value": 104.04,
+      "num_stocks": 5,
+      "sectors": {
+        "NBFC": 1,
+        "Telecom": 1,
+        "Banking": 3
+      },
+      "mode": "INVESTED",
+      "best_stock": "BHARTIARTL",
+      "worst_stock": "ICICIBANK",
+      "best_return": 8.98,
+      "worst_return": 0.26
+    },
+    {
+      "month": "Jul 2025",
+      "month_key": "2025-07",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 81.9,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.7,
+          "entry_price": 932.5,
+          "exit_price": 881.2,
+          "return_pct": -5.5,
+          "ignition": 79.235
+        }
+      ],
+      "portfolio_return_pct": -5.5,
+      "portfolio_value": 98.32,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -5.5,
+      "worst_return": -5.5
+    },
+    {
+      "month": "Aug 2025",
+      "month_key": "2025-08",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 82.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 90.0,
+          "entry_price": 884.8,
+          "exit_price": 877.85,
+          "return_pct": -0.79,
+          "ignition": 78.48
+        }
+      ],
+      "portfolio_return_pct": -0.79,
+      "portfolio_value": 97.54,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -0.79,
+      "worst_return": -0.79
+    },
+    {
+      "month": "Sep 2025",
+      "month_key": "2025-09",
+      "stocks": [
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 74.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 93.1,
+          "entry_price": 1889.0,
+          "exit_price": 1878.4,
+          "return_pct": -0.56,
+          "ignition": 77.285
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 75.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 89.7,
+          "entry_price": 877.85,
+          "exit_price": 998.9,
+          "return_pct": 13.79,
+          "ignition": 77.015
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "symbol": "MARUTI",
+          "sector": "Auto",
+          "score": 65.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.3,
+          "entry_price": 14790.0,
+          "exit_price": 16029.0,
+          "return_pct": 8.38,
+          "ignition": 76.55499999999999
+        },
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 65.9,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 91.5,
+          "entry_price": 154.48,
+          "exit_price": 168.77,
+          "return_pct": 9.25,
+          "ignition": 75.405
+        },
+        {
+          "ticker": "SBIN.NS",
+          "symbol": "SBIN",
+          "sector": "Banking",
+          "score": 62.7,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 92.9,
+          "entry_price": 788.88,
+          "exit_price": 857.0,
+          "return_pct": 8.64,
+          "ignition": 74.975
+        }
+      ],
+      "portfolio_return_pct": 7.9,
+      "portfolio_value": 105.25,
+      "num_stocks": 5,
+      "sectors": {
+        "Telecom": 1,
+        "NBFC": 1,
+        "Auto": 1,
+        "Metals": 1,
+        "Banking": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BHARTIARTL",
+      "best_return": 13.79,
+      "worst_return": -0.56
+    },
+    {
+      "month": "Oct 2025",
+      "month_key": "2025-10",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 78.9,
+          "macd_score": 90.0,
+          "rsi_score": 81.6,
+          "h52_score": 96.4,
+          "entry_price": 991.5,
+          "exit_price": 1042.8,
+          "return_pct": 5.17,
+          "ignition": 91.64000000000001
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 76.5,
+          "macd_score": 90.0,
+          "rsi_score": 81.8,
+          "h52_score": 92.6,
+          "entry_price": 1868.0,
+          "exit_price": 2054.5,
+          "return_pct": 9.98,
+          "ignition": 90.64
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "symbol": "MARUTI",
+          "sector": "Auto",
+          "score": 71.1,
+          "macd_score": 90.0,
+          "rsi_score": 50.5,
+          "h52_score": 97.5,
+          "entry_price": 16026.0,
+          "exit_price": 16186.0,
+          "return_pct": 1.0,
+          "ignition": 77.47
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "symbol": "HINDUNILVR",
+          "sector": "FMCG",
+          "score": 60.5,
+          "macd_score": 90.0,
+          "rsi_score": 61.0,
+          "h52_score": 84.7,
+          "entry_price": 2495.78,
+          "exit_price": 2446.27,
+          "return_pct": -1.98,
+          "ignition": 76.055
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "symbol": "HDFCBANK",
+          "sector": "Banking",
+          "score": 69.9,
+          "macd_score": 70.0,
+          "rsi_score": 72.9,
+          "h52_score": 93.6,
+          "entry_price": 952.7,
+          "exit_price": 987.3,
+          "return_pct": 3.63,
+          "ignition": 74.245
+        }
+      ],
+      "portfolio_return_pct": 3.56,
+      "portfolio_value": 109.0,
+      "num_stocks": 5,
+      "sectors": {
+        "NBFC": 1,
+        "Telecom": 1,
+        "Auto": 1,
+        "FMCG": 1,
+        "Banking": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BHARTIARTL",
+      "worst_stock": "HINDUNILVR",
+      "best_return": 9.98,
+      "worst_return": -1.98
+    },
+    {
+      "month": "Nov 2025",
+      "month_key": "2025-11",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 89.7,
+          "macd_score": 90.0,
+          "rsi_score": 82.8,
+          "h52_score": 94.6,
+          "entry_price": 1037.0,
+          "exit_price": 1037.5,
+          "return_pct": 0.05,
+          "ignition": 93.83
+        }
+      ],
+      "portfolio_return_pct": 0.05,
+      "portfolio_value": 109.05,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 0.05,
+      "worst_return": 0.05
+    },
+    {
+      "month": "Dec 2025",
+      "month_key": "2025-12",
+      "stocks": [
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 84.4,
+          "macd_score": 90.0,
+          "rsi_score": 85.1,
+          "h52_score": 96.6,
+          "entry_price": 2114.7,
+          "exit_price": 2105.6,
+          "return_pct": -0.43,
+          "ignition": 93.645
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 88.9,
+          "macd_score": 90.0,
+          "rsi_score": 82.1,
+          "h52_score": 94.1,
+          "entry_price": 1041.9,
+          "exit_price": 986.8,
+          "return_pct": -5.29,
+          "ignition": 93.42
+        }
+      ],
+      "portfolio_return_pct": -2.86,
+      "portfolio_value": 105.93,
+      "num_stocks": 2,
+      "sectors": {
+        "Telecom": 1,
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BHARTIARTL",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -0.43,
+      "worst_return": -5.29
+    },
+    {
+      "month": "Jan 2026",
+      "month_key": "2026-01",
+      "stocks": [
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 86.5,
+          "macd_score": 90.0,
+          "rsi_score": 85.1,
+          "h52_score": 96.8,
+          "entry_price": 2114.8,
+          "exit_price": 1968.7,
+          "return_pct": -6.91,
+          "ignition": 94.095
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 86.1,
+          "macd_score": 90.0,
+          "rsi_score": 75.5,
+          "h52_score": 89.5,
+          "entry_price": 988.2,
+          "exit_price": 929.85,
+          "return_pct": -5.9,
+          "ignition": 90.52
+        }
+      ],
+      "portfolio_return_pct": -6.41,
+      "portfolio_value": 99.14,
+      "num_stocks": 2,
+      "sectors": {
+        "Telecom": 1,
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BHARTIARTL",
+      "best_return": -5.9,
+      "worst_return": -6.91
+    },
+    {
+      "month": "Feb 2026",
+      "month_key": "2026-02",
+      "stocks": [
+        {
+          "ticker": "TITAN.NS",
+          "symbol": "TITAN",
+          "sector": "Consumer",
+          "score": 74.8,
+          "macd_score": 90.0,
+          "rsi_score": 66.4,
+          "h52_score": 92.2,
+          "entry_price": 3988.0,
+          "exit_price": 4327.5,
+          "return_pct": 8.51,
+          "ignition": 81.39
+        },
+        {
+          "ticker": "SBIN.NS",
+          "symbol": "SBIN",
+          "sector": "Banking",
+          "score": 80.2,
+          "macd_score": 90.0,
+          "rsi_score": 52.1,
+          "h52_score": 99.5,
+          "entry_price": 1056.95,
+          "exit_price": 1180.42,
+          "return_pct": 11.68,
+          "ignition": 79.99
+        },
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 80.7,
+          "macd_score": 90.0,
+          "rsi_score": 46.5,
+          "h52_score": 95.1,
+          "entry_price": 188.81,
+          "exit_price": 212.33,
+          "return_pct": 12.46,
+          "ignition": 78.03
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 77.9,
+          "macd_score": 70.0,
+          "rsi_score": 75.0,
+          "h52_score": 90.5,
+          "entry_price": 1968.7,
+          "exit_price": 1879.3,
+          "return_pct": -4.54,
+          "ignition": 75.905
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 73.7,
+          "macd_score": 70.0,
+          "rsi_score": 68.8,
+          "h52_score": 84.3,
+          "entry_price": 930.8,
+          "exit_price": 995.9,
+          "return_pct": 6.99,
+          "ignition": 72.58500000000001
+        }
+      ],
+      "portfolio_return_pct": 7.02,
+      "portfolio_value": 106.1,
+      "num_stocks": 5,
+      "sectors": {
+        "Consumer": 1,
+        "Banking": 1,
+        "Metals": 1,
+        "Telecom": 1,
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TATASTEEL",
+      "worst_stock": "BHARTIARTL",
+      "best_return": 12.46,
+      "worst_return": -4.54
+    },
+    {
+      "month": "Mar 2026",
+      "month_key": "2026-03",
+      "stocks": [
+        {
+          "ticker": "TITAN.NS",
+          "symbol": "TITAN",
+          "sector": "Consumer",
+          "score": 82.4,
+          "macd_score": 90.0,
+          "rsi_score": 70.7,
+          "h52_score": 98.8,
+          "entry_price": 4288.8,
+          "exit_price": 3951.4,
+          "return_pct": -7.87,
+          "ignition": 84.975
+        }
+      ],
+      "portfolio_return_pct": -7.87,
+      "portfolio_value": 97.75,
+      "num_stocks": 1,
+      "sectors": {
+        "Consumer": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TITAN",
+      "worst_stock": "TITAN",
+      "best_return": -7.87,
+      "worst_return": -7.87
+    },
+    {
+      "month": "Apr 2026",
+      "month_key": "2026-04",
+      "stocks": [
+        {
+          "ticker": "TITAN.NS",
+          "symbol": "TITAN",
+          "sector": "Consumer",
+          "score": 83.9,
+          "macd_score": 90.0,
+          "rsi_score": 61.6,
+          "h52_score": 90.2,
+          "entry_price": 4000.0,
+          "exit_price": 4385.2,
+          "return_pct": 9.63,
+          "ignition": 81.71000000000001
+        },
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 81.7,
+          "macd_score": 90.0,
+          "rsi_score": 46.5,
+          "h52_score": 88.6,
+          "entry_price": 200.0,
+          "exit_price": 211.36,
+          "return_pct": 5.68,
+          "ignition": 77.255
+        }
+      ],
+      "portfolio_return_pct": 7.66,
+      "portfolio_value": 105.24,
+      "num_stocks": 2,
+      "sectors": {
+        "Consumer": 1,
+        "Metals": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TITAN",
+      "worst_stock": "TATASTEEL",
+      "best_return": 9.63,
+      "worst_return": 5.68
+    },
+    {
+      "month": "May 2026",
+      "month_key": "2026-05",
+      "stocks": [
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 83.6,
+          "macd_score": 90.0,
+          "rsi_score": 52.3,
+          "h52_score": 96.8,
+          "entry_price": 211.36,
+          "exit_price": 208.02,
+          "return_pct": -1.58,
+          "ignition": 80.315
+        }
+      ],
+      "portfolio_return_pct": -1.58,
+      "portfolio_value": 103.58,
+      "num_stocks": 1,
+      "sectors": {
+        "Metals": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TATASTEEL",
+      "worst_stock": "TATASTEEL",
+      "best_return": -1.58,
+      "worst_return": -1.58
+    }
+  ],
+  "portfolio_values": [
+    100.0,
+    104.04,
+    98.32,
+    97.54,
+    105.25,
+    109.0,
+    109.05,
+    105.93,
+    99.14,
+    106.1,
+    97.75,
+    105.24,
+    103.58
+  ],
+  "summary": {
+    "total_return_pct": 3.58,
+    "annualized_return": 3.6,
+    "win_rate": 50.0,
+    "max_drawdown": -10.36,
+    "sharpe_ratio": 0.27,
+    "best_month": "Sep 2025",
+    "best_month_return": 7.9,
+    "worst_month": "Mar 2026",
+    "worst_month_return": -7.87,
+    "total_trades": 31,
+    "universe_size": 20
+  }
+}

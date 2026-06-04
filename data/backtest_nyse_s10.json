@@ -1,0 +1,390 @@
+{
+  "strategy_id": "s10",
+  "strategy_name": "Sector Dominator",
+  "strategy_icon": "\ud83d\udc51",
+  "exchange": "NYSE",
+  "generated_at": "2026-06-04 19:39",
+  "period": {
+    "start": "Jun 2025",
+    "end": "May 2026",
+    "months": 12
+  },
+  "monthly_results": [
+    {
+      "month": "Jun 2025",
+      "month_key": "2025-06",
+      "stocks": [
+        {
+          "ticker": "NFLX",
+          "symbol": "NFLX",
+          "sector": "Streaming",
+          "score": 85.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.3,
+          "entry_price": 120.12,
+          "exit_price": 133.91,
+          "return_pct": 11.48
+        }
+      ],
+      "portfolio_return_pct": 11.48,
+      "portfolio_value": 111.48,
+      "num_stocks": 1,
+      "sectors": {
+        "Streaming": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "NFLX",
+      "worst_stock": "NFLX",
+      "best_return": 11.48,
+      "worst_return": 11.48
+    },
+    {
+      "month": "Jul 2025",
+      "month_key": "2025-07",
+      "stocks": [
+        {
+          "ticker": "NFLX",
+          "symbol": "NFLX",
+          "sector": "Streaming",
+          "score": 87.2,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.8,
+          "entry_price": 133.82,
+          "exit_price": 115.94,
+          "return_pct": -13.36
+        }
+      ],
+      "portfolio_return_pct": -13.36,
+      "portfolio_value": 96.59,
+      "num_stocks": 1,
+      "sectors": {
+        "Streaming": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "NFLX",
+      "worst_stock": "NFLX",
+      "best_return": -13.36,
+      "worst_return": -13.36
+    },
+    {
+      "month": "Aug 2025",
+      "month_key": "2025-08",
+      "stocks": [
+        {
+          "ticker": "NFLX",
+          "symbol": "NFLX",
+          "sector": "Streaming",
+          "score": 84.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 86.4,
+          "entry_price": 116.3,
+          "exit_price": 120.82,
+          "return_pct": 3.89
+        }
+      ],
+      "portfolio_return_pct": 3.89,
+      "portfolio_value": 100.35,
+      "num_stocks": 1,
+      "sectors": {
+        "Streaming": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "NFLX",
+      "worst_stock": "NFLX",
+      "best_return": 3.89,
+      "worst_return": 3.89
+    },
+    {
+      "month": "Sep 2025",
+      "month_key": "2025-09",
+      "stocks": [
+        {
+          "ticker": "NFLX",
+          "symbol": "NFLX",
+          "sector": "Streaming",
+          "score": 84.5,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 90.1,
+          "entry_price": 119.7,
+          "exit_price": 119.89,
+          "return_pct": 0.16
+        }
+      ],
+      "portfolio_return_pct": 0.16,
+      "portfolio_value": 100.51,
+      "num_stocks": 1,
+      "sectors": {
+        "Streaming": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "NFLX",
+      "worst_stock": "NFLX",
+      "best_return": 0.16,
+      "worst_return": 0.16
+    },
+    {
+      "month": "Oct 2025",
+      "month_key": "2025-10",
+      "stocks": [
+        {
+          "ticker": "CRWD",
+          "symbol": "CRWD",
+          "sector": "Cybersecurity",
+          "score": 91.1,
+          "macd_score": 90.0,
+          "rsi_score": 82.0,
+          "h52_score": 94.7,
+          "entry_price": 487.75,
+          "exit_price": 543.01,
+          "return_pct": 11.33
+        }
+      ],
+      "portfolio_return_pct": 11.33,
+      "portfolio_value": 111.9,
+      "num_stocks": 1,
+      "sectors": {
+        "Cybersecurity": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "CRWD",
+      "worst_stock": "CRWD",
+      "best_return": 11.33,
+      "worst_return": 11.33
+    },
+    {
+      "month": "Nov 2025",
+      "month_key": "2025-11",
+      "stocks": [
+        {
+          "ticker": "CRWD",
+          "symbol": "CRWD",
+          "sector": "Cybersecurity",
+          "score": 91.6,
+          "macd_score": 90.0,
+          "rsi_score": 83.6,
+          "h52_score": 98.1,
+          "entry_price": 549.32,
+          "exit_price": 509.16,
+          "return_pct": -7.31
+        }
+      ],
+      "portfolio_return_pct": -7.31,
+      "portfolio_value": 103.72,
+      "num_stocks": 1,
+      "sectors": {
+        "Cybersecurity": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "CRWD",
+      "worst_stock": "CRWD",
+      "best_return": -7.31,
+      "worst_return": -7.31
+    },
+    {
+      "month": "Dec 2025",
+      "month_key": "2025-12",
+      "stocks": [
+        {
+          "ticker": "GOOGL",
+          "symbol": "GOOGL",
+          "sector": "Technology",
+          "score": 90.2,
+          "macd_score": 90.0,
+          "rsi_score": 71.7,
+          "h52_score": 97.4,
+          "entry_price": 317.27,
+          "exit_price": 312.58,
+          "return_pct": -1.48
+        }
+      ],
+      "portfolio_return_pct": -1.48,
+      "portfolio_value": 102.18,
+      "num_stocks": 1,
+      "sectors": {
+        "Technology": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "GOOGL",
+      "worst_stock": "GOOGL",
+      "best_return": -1.48,
+      "worst_return": -1.48
+    },
+    {
+      "month": "Jan 2026",
+      "month_key": "2026-01",
+      "stocks": [
+        {
+          "ticker": "GOOGL",
+          "symbol": "GOOGL",
+          "sector": "Technology",
+          "score": 91.1,
+          "macd_score": 90.0,
+          "rsi_score": 69.3,
+          "h52_score": 95.2,
+          "entry_price": 316.68,
+          "exit_price": 337.76,
+          "return_pct": 6.66
+        }
+      ],
+      "portfolio_return_pct": 6.66,
+      "portfolio_value": 108.99,
+      "num_stocks": 1,
+      "sectors": {
+        "Technology": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "GOOGL",
+      "worst_stock": "GOOGL",
+      "best_return": 6.66,
+      "worst_return": 6.66
+    },
+    {
+      "month": "Feb 2026",
+      "month_key": "2026-02",
+      "stocks": [
+        {
+          "ticker": "JNJ",
+          "symbol": "JNJ",
+          "sector": "Healthcare",
+          "score": 92.5,
+          "macd_score": 90.0,
+          "rsi_score": 89.1,
+          "h52_score": 98.8,
+          "entry_price": 225.81,
+          "exit_price": 245.7,
+          "return_pct": 8.81
+        }
+      ],
+      "portfolio_return_pct": 8.81,
+      "portfolio_value": 118.59,
+      "num_stocks": 1,
+      "sectors": {
+        "Healthcare": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "JNJ",
+      "worst_stock": "JNJ",
+      "best_return": 8.81,
+      "worst_return": 8.81
+    },
+    {
+      "month": "Mar 2026",
+      "month_key": "2026-03",
+      "stocks": [
+        {
+          "ticker": "JNJ",
+          "symbol": "JNJ",
+          "sector": "Healthcare",
+          "score": 93.8,
+          "macd_score": 90.0,
+          "rsi_score": 90.9,
+          "h52_score": 99.8,
+          "entry_price": 247.77,
+          "exit_price": 243.04,
+          "return_pct": -1.91
+        }
+      ],
+      "portfolio_return_pct": -1.91,
+      "portfolio_value": 116.32,
+      "num_stocks": 1,
+      "sectors": {
+        "Healthcare": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "JNJ",
+      "worst_stock": "JNJ",
+      "best_return": -1.91,
+      "worst_return": -1.91
+    },
+    {
+      "month": "Apr 2026",
+      "month_key": "2026-04",
+      "stocks": [
+        {
+          "ticker": "JNJ",
+          "symbol": "JNJ",
+          "sector": "Healthcare",
+          "score": 93.5,
+          "macd_score": 90.0,
+          "rsi_score": 88.9,
+          "h52_score": 97.1,
+          "entry_price": 244.2,
+          "exit_price": 228.54,
+          "return_pct": -6.41
+        }
+      ],
+      "portfolio_return_pct": -6.41,
+      "portfolio_value": 108.86,
+      "num_stocks": 1,
+      "sectors": {
+        "Healthcare": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "JNJ",
+      "worst_stock": "JNJ",
+      "best_return": -6.41,
+      "worst_return": -6.41
+    },
+    {
+      "month": "May 2026",
+      "month_key": "2026-05",
+      "stocks": [
+        {
+          "ticker": "GOOGL",
+          "symbol": "GOOGL",
+          "sector": "Technology",
+          "score": 92.1,
+          "macd_score": 90.0,
+          "rsi_score": 70.8,
+          "h52_score": 99.7,
+          "entry_price": 381.63,
+          "exit_price": 380.34,
+          "return_pct": -0.34
+        }
+      ],
+      "portfolio_return_pct": -0.34,
+      "portfolio_value": 108.49,
+      "num_stocks": 1,
+      "sectors": {
+        "Technology": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "GOOGL",
+      "worst_stock": "GOOGL",
+      "best_return": -0.34,
+      "worst_return": -0.34
+    }
+  ],
+  "portfolio_values": [
+    100.0,
+    111.48,
+    96.59,
+    100.35,
+    100.51,
+    111.9,
+    103.72,
+    102.18,
+    108.99,
+    118.59,
+    116.32,
+    108.86,
+    108.49
+  ],
+  "summary": {
+    "total_return_pct": 8.49,
+    "annualized_return": 8.5,
+    "win_rate": 50.0,
+    "max_drawdown": -13.36,
+    "sharpe_ratio": 0.43,
+    "best_month": "Jun 2025",
+    "best_month_return": 11.48,
+    "worst_month": "Jul 2025",
+    "worst_month_return": -13.36,
+    "total_trades": 12,
+    "universe_size": 21
+  }
+}

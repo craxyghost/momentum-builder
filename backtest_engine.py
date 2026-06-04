@@ -43,7 +43,7 @@ NSE_UNIVERSE = [
     'TITAN.NS',        # Consumer
     'SUNPHARMA.NS',    # Pharma
     'WIPRO.NS',        # IT
-    'TATAMOTORS.NS',   # Auto
+    'EICHERMOT.NS',    # Auto (TATAMOTORS.NS delisted from yfinance)
     'TATASTEEL.NS',    # Metals
     'NTPC.NS',         # Power
     'ITC.NS',          # FMCG
@@ -80,7 +80,7 @@ NSE_SECTOR_MAP = {
     'HINDUNILVR.NS':'FMCG',     'SBIN.NS':'Banking',       'BAJFINANCE.NS':'NBFC',
     'BHARTIARTL.NS':'Telecom',  'KOTAKBANK.NS':'Banking',  'ASIANPAINT.NS':'Paints',
     'MARUTI.NS':'Auto',         'TITAN.NS':'Consumer',     'SUNPHARMA.NS':'Pharma',
-    'WIPRO.NS':'IT',            'TATAMOTORS.NS':'Auto',    'TATASTEEL.NS':'Metals',
+    'WIPRO.NS':'IT',            'EICHERMOT.NS':'Auto',     'TATASTEEL.NS':'Metals',
     'NTPC.NS':'Power',          'ITC.NS':'FMCG',           'DRREDDY.NS':'Pharma',
 }
 

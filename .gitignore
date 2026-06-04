@@ -1,4 +1,5 @@
 data/
+!data/backtest_*.json
 *.pyc
 __pycache__/
 .env

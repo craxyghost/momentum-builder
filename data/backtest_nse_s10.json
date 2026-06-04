@@ -1,0 +1,390 @@
+{
+  "strategy_id": "s10",
+  "strategy_name": "Sector Dominator",
+  "strategy_icon": "\ud83d\udc51",
+  "exchange": "NSE",
+  "generated_at": "2026-06-04 19:39",
+  "period": {
+    "start": "Jun 2025",
+    "end": "May 2026",
+    "months": 12
+  },
+  "monthly_results": [
+    {
+      "month": "Jun 2025",
+      "month_key": "2025-06",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 77.0,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.0,
+          "entry_price": 913.0,
+          "exit_price": 936.5,
+          "return_pct": 2.57
+        }
+      ],
+      "portfolio_return_pct": 2.57,
+      "portfolio_value": 102.57,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 2.57,
+      "worst_return": 2.57
+    },
+    {
+      "month": "Jul 2025",
+      "month_key": "2025-07",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 81.9,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 95.7,
+          "entry_price": 932.5,
+          "exit_price": 881.2,
+          "return_pct": -5.5
+        }
+      ],
+      "portfolio_return_pct": -5.5,
+      "portfolio_value": 96.93,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -5.5,
+      "worst_return": -5.5
+    },
+    {
+      "month": "Aug 2025",
+      "month_key": "2025-08",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 82.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 90.0,
+          "entry_price": 884.8,
+          "exit_price": 877.85,
+          "return_pct": -0.79
+        }
+      ],
+      "portfolio_return_pct": -0.79,
+      "portfolio_value": 96.16,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -0.79,
+      "worst_return": -0.79
+    },
+    {
+      "month": "Sep 2025",
+      "month_key": "2025-09",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 75.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 89.7,
+          "entry_price": 877.85,
+          "exit_price": 998.9,
+          "return_pct": 13.79
+        }
+      ],
+      "portfolio_return_pct": 13.79,
+      "portfolio_value": 109.42,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 13.79,
+      "worst_return": 13.79
+    },
+    {
+      "month": "Oct 2025",
+      "month_key": "2025-10",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 78.9,
+          "macd_score": 90.0,
+          "rsi_score": 81.6,
+          "h52_score": 96.4,
+          "entry_price": 991.5,
+          "exit_price": 1042.8,
+          "return_pct": 5.17
+        }
+      ],
+      "portfolio_return_pct": 5.17,
+      "portfolio_value": 115.08,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 5.17,
+      "worst_return": 5.17
+    },
+    {
+      "month": "Nov 2025",
+      "month_key": "2025-11",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 89.7,
+          "macd_score": 90.0,
+          "rsi_score": 82.8,
+          "h52_score": 94.6,
+          "entry_price": 1037.0,
+          "exit_price": 1037.5,
+          "return_pct": 0.05
+        }
+      ],
+      "portfolio_return_pct": 0.05,
+      "portfolio_value": 115.14,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 0.05,
+      "worst_return": 0.05
+    },
+    {
+      "month": "Dec 2025",
+      "month_key": "2025-12",
+      "stocks": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 88.9,
+          "macd_score": 90.0,
+          "rsi_score": 82.1,
+          "h52_score": 94.1,
+          "entry_price": 1041.9,
+          "exit_price": 986.8,
+          "return_pct": -5.29
+        }
+      ],
+      "portfolio_return_pct": -5.29,
+      "portfolio_value": 109.05,
+      "num_stocks": 1,
+      "sectors": {
+        "NBFC": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BAJFINANCE",
+      "worst_stock": "BAJFINANCE",
+      "best_return": -5.29,
+      "worst_return": -5.29
+    },
+    {
+      "month": "Jan 2026",
+      "month_key": "2026-01",
+      "stocks": [
+        {
+          "ticker": "BHARTIARTL.NS",
+          "symbol": "BHARTIARTL",
+          "sector": "Telecom",
+          "score": 86.5,
+          "macd_score": 90.0,
+          "rsi_score": 85.1,
+          "h52_score": 96.8,
+          "entry_price": 2114.8,
+          "exit_price": 1968.7,
+          "return_pct": -6.91
+        }
+      ],
+      "portfolio_return_pct": -6.91,
+      "portfolio_value": 101.51,
+      "num_stocks": 1,
+      "sectors": {
+        "Telecom": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "BHARTIARTL",
+      "worst_stock": "BHARTIARTL",
+      "best_return": -6.91,
+      "worst_return": -6.91
+    },
+    {
+      "month": "Feb 2026",
+      "month_key": "2026-02",
+      "stocks": [
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 80.7,
+          "macd_score": 90.0,
+          "rsi_score": 46.5,
+          "h52_score": 95.1,
+          "entry_price": 188.81,
+          "exit_price": 212.33,
+          "return_pct": 12.46
+        }
+      ],
+      "portfolio_return_pct": 12.46,
+      "portfolio_value": 114.16,
+      "num_stocks": 1,
+      "sectors": {
+        "Metals": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TATASTEEL",
+      "worst_stock": "TATASTEEL",
+      "best_return": 12.46,
+      "worst_return": 12.46
+    },
+    {
+      "month": "Mar 2026",
+      "month_key": "2026-03",
+      "stocks": [
+        {
+          "ticker": "SBIN.NS",
+          "symbol": "SBIN",
+          "sector": "Banking",
+          "score": 86.7,
+          "macd_score": 90.0,
+          "rsi_score": 60.4,
+          "h52_score": 97.3,
+          "entry_price": 1164.02,
+          "exit_price": 962.06,
+          "return_pct": -17.35
+        }
+      ],
+      "portfolio_return_pct": -17.35,
+      "portfolio_value": 94.35,
+      "num_stocks": 1,
+      "sectors": {
+        "Banking": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "SBIN",
+      "worst_stock": "SBIN",
+      "best_return": -17.35,
+      "worst_return": -17.35
+    },
+    {
+      "month": "Apr 2026",
+      "month_key": "2026-04",
+      "stocks": [
+        {
+          "ticker": "TITAN.NS",
+          "symbol": "TITAN",
+          "sector": "Consumer",
+          "score": 83.9,
+          "macd_score": 90.0,
+          "rsi_score": 61.6,
+          "h52_score": 90.2,
+          "entry_price": 4000.0,
+          "exit_price": 4385.2,
+          "return_pct": 9.63
+        }
+      ],
+      "portfolio_return_pct": 9.63,
+      "portfolio_value": 103.44,
+      "num_stocks": 1,
+      "sectors": {
+        "Consumer": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TITAN",
+      "worst_stock": "TITAN",
+      "best_return": 9.63,
+      "worst_return": 9.63
+    },
+    {
+      "month": "May 2026",
+      "month_key": "2026-05",
+      "stocks": [
+        {
+          "ticker": "TATASTEEL.NS",
+          "symbol": "TATASTEEL",
+          "sector": "Metals",
+          "score": 83.6,
+          "macd_score": 90.0,
+          "rsi_score": 52.3,
+          "h52_score": 96.8,
+          "entry_price": 211.36,
+          "exit_price": 208.02,
+          "return_pct": -1.58
+        }
+      ],
+      "portfolio_return_pct": -1.58,
+      "portfolio_value": 101.81,
+      "num_stocks": 1,
+      "sectors": {
+        "Metals": 1
+      },
+      "mode": "INVESTED",
+      "best_stock": "TATASTEEL",
+      "worst_stock": "TATASTEEL",
+      "best_return": -1.58,
+      "worst_return": -1.58
+    }
+  ],
+  "portfolio_values": [
+    100.0,
+    102.57,
+    96.93,
+    96.16,
+    109.42,
+    115.08,
+    115.14,
+    109.05,
+    101.51,
+    114.16,
+    94.35,
+    103.44,
+    101.81
+  ],
+  "summary": {
+    "total_return_pct": 1.81,
+    "annualized_return": 1.8,
+    "win_rate": 50.0,
+    "max_drawdown": -18.06,
+    "sharpe_ratio": 0.2,
+    "best_month": "Sep 2025",
+    "best_month_return": 13.79,
+    "worst_month": "Mar 2026",
+    "worst_month_return": -17.35,
+    "total_trades": 12,
+    "universe_size": 20
+  }
+}
