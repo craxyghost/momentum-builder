@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Month Strategy Backtest — Momentum Builder</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+     background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);color:#e6edf3;min-height:100vh}
+
+/* ── NAV ─────────────────────────────── */
+.nav{display:flex;justify-content:space-between;align-items:center;
+     padding:16px 32px;border-bottom:1px solid #30363d;background:#0d1117}
+.nav h1{font-size:20px;font-weight:700}
+.nav-links a{color:#8b949e;text-decoration:none;margin-left:20px;font-size:14px}
+.nav-links a:hover{color:#58a6ff}
+.nav-links a.active{color:#58a6ff;border-bottom:2px solid #58a6ff;padding-bottom:2px}
+
+/* ── CONTROLS ────────────────────────── */
+.controls{background:#161b22;border-bottom:1px solid #30363d;padding:16px 32px;
+          display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.ctrl-group{display:flex;align-items:center;gap:8px}
+.ctrl-group label{font-size:13px;color:#8b949e;font-weight:600}
+select,button{background:#21262d;border:1px solid #30363d;color:#e6edf3;
+              border-radius:6px;padding:8px 14px;font-size:14px;cursor:pointer}
+select:focus,button:focus{outline:2px solid #58a6ff;border-color:#58a6ff}
+button.primary{background:#238636;border-color:#2ea043;font-weight:600}
+button.primary:hover{background:#2ea043}
+button.primary:disabled{background:#21262d;border-color:#30363d;color:#484f58;cursor:not-allowed}
+.exchange-tab{padding:8px 20px;border-radius:6px;cursor:pointer;
+              border:1px solid #30363d;background:#21262d;color:#8b949e;font-size:14px}
+.exchange-tab.active{background:#1f6feb;border-color:#388bfd;color:#fff;font-weight:600}
+
+/* ── MAIN LAYOUT ────────────────────── */
+.main{max-width:1600px;margin:0 auto;padding:24px 32px}
+
+/* ── PROGRESS ───────────────────────── */
+#progress-bar{display:none;background:#161b22;border:1px solid #30363d;border-radius:8px;
+              padding:20px;margin-bottom:24px}
+.progress-label{font-size:14px;color:#8b949e;margin-bottom:10px}
+.progress-track{background:#21262d;border-radius:4px;height:8px;overflow:hidden}
+.progress-fill{background:linear-gradient(90deg,#238636,#2ea043);height:100%;
+               border-radius:4px;transition:width .4s ease;width:0%}
+.progress-pct{font-size:24px;font-weight:700;color:#3fb950;margin-top:8px}
+
+/* ── SUMMARY CARDS ──────────────────── */
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+              gap:16px;margin-bottom:24px}
+.scard{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px}
+.scard .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px}
+.scard .value{font-size:26px;font-weight:700}
+.green{color:#3fb950} .red{color:#f85149} .blue{color:#58a6ff}
+.yellow{color:#e3b341} .purple{color:#bc8cff}
+
+/* ── CHARTS ─────────────────────────── */
+.charts-row{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:24px}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px}
+.chart-box h3{font-size:15px;font-weight:600;margin-bottom:16px;color:#8b949e}
+
+/* ── MONTHLY TABLE ──────────────────── */
+.section{background:#161b22;border:1px solid #30363d;border-radius:8px;
+         padding:20px;margin-bottom:24px}
+.section-title{font-size:16px;font-weight:600;margin-bottom:16px;
+               display:flex;align-items:center;gap:8px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:#0d1117;padding:10px 12px;text-align:left;
+         font-size:11px;text-transform:uppercase;letter-spacing:.5px;
+         color:#8b949e;border-bottom:1px solid #30363d;white-space:nowrap}
+tbody tr{border-bottom:1px solid #21262d;transition:background .15s}
+tbody tr:hover{background:#1c2128}
+tbody tr.expanded{background:#1c2128}
+td{padding:10px 12px;vertical-align:middle}
+.month-cell{font-weight:600;white-space:nowrap}
+.ret-pos{color:#3fb950;font-weight:700}
+.ret-neg{color:#f85149;font-weight:700}
+.ret-zero{color:#8b949e}
+.mode-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.mode-invested{background:rgba(63,185,80,.15);color:#3fb950;border:1px solid rgba(63,185,80,.3)}
+.mode-cash{background:rgba(248,81,73,.15);color:#f85149;border:1px solid rgba(248,81,73,.3)}
+.expand-btn{background:none;border:1px solid #30363d;border-radius:4px;
+            color:#8b949e;padding:3px 8px;cursor:pointer;font-size:12px}
+.expand-btn:hover{border-color:#58a6ff;color:#58a6ff}
+
+/* ── STOCK DETAIL ROWS ──────────────── */
+.detail-row{display:none}
+.detail-row.open{display:table-row}
+.detail-cell{padding:0 !important}
+.stocks-grid{padding:12px 16px;background:#0d1117;
+             display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.stock-card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:12px}
+.stock-card .s-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.stock-card .s-name{font-weight:600;font-size:14px}
+.stock-card .s-sector{font-size:11px;color:#8b949e;
+                      background:#21262d;padding:2px 6px;border-radius:4px}
+.stock-card .s-row{display:flex;justify-content:space-between;
+                   font-size:12px;color:#8b949e;padding:2px 0}
+.stock-card .s-row span:last-child{color:#e6edf3;font-weight:500}
+.stock-card .s-return{font-size:18px;font-weight:700;margin-top:8px;padding-top:8px;
+                      border-top:1px solid #30363d;text-align:center}
+.score-bar{background:#21262d;border-radius:3px;height:4px;margin-top:4px;overflow:hidden}
+.score-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#f85149,#e3b341,#3fb950)}
+
+/* ── SECTOR BREAKDOWN ───────────────── */
+.sector-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.sector-pill{background:#21262d;border:1px solid #30363d;border-radius:4px;
+             padding:2px 8px;font-size:11px;color:#8b949e}
+.sector-pill span{color:#e6edf3;font-weight:600;margin-left:4px}
+
+/* ── EMPTY STATE ─────────────────────── */
+.empty{text-align:center;padding:60px;color:#8b949e}
+.empty h2{font-size:20px;margin-bottom:10px}
+
+/* ── SPINNER ─────────────────────────── */
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.spinner{border:3px solid #30363d;border-top:3px solid #58a6ff;border-radius:50%;
+         width:36px;height:36px;animation:spin 1s linear infinite;margin:0 auto 12px}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <h1>📈 Strategy Backtest — 12 Months Real Data</h1>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/strategies">Strategies</a>
+    <a href="/strategy-comparison">Returns Chart</a>
+    <a href="/rebalance">Rebalance</a>
+    <a href="/backtest" class="active">Backtest</a>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctrl-group">
+    <label>EXCHANGE</label>
+    <button class="exchange-tab active" id="tab-nse" onclick="setExchange('NSE')">🇮🇳 NSE</button>
+    <button class="exchange-tab"         id="tab-nyse" onclick="setExchange('NYSE')">🇺🇸 NYSE</button>
+  </div>
+  <div class="ctrl-group">
+    <label>STRATEGY</label>
+    <select id="strategy-select" onchange="loadData()">
+      <option value="s5">S5 — Sector Neutral 10</option>
+      <option value="s1">S1 — Dual Momentum</option>
+      <option value="s2">S2 — Quality 50</option>
+      <option value="s3">S3 — QVM 25</option>
+      <option value="s4">S4 — Low Vol 30</option>
+      <option value="s6">S6 — Sweet Spot</option>
+      <option value="s7">S7 — AI APEX</option>
+      <option value="s8">S8 — Dual Sector Mom</option>
+      <option value="s9">🚀 S9 — Ignition Momentum</option>
+      <option value="s10">👑 S10 — Sector Dominator</option>
+    </select>
+  </div>
+  <button class="primary" id="run-btn" onclick="runBacktest()">▶ Run Backtest</button>
+  <span style="font-size:12px;color:#8b949e" id="last-run-label"></span>
+</div>
+
+<div class="main">
+  <div id="progress-bar">
+    <div class="progress-label" id="progress-label">Initialising…</div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-pct" id="progress-pct">0%</div>
+  </div>
+
+  <div id="content">
+    <div class="empty">
+      <div class="spinner"></div>
+      <h2>Select a strategy and click "Run Backtest"</h2>
+      <p>The engine fetches 2 years of real price data and simulates month-by-month picks.</p>
+      <p style="margin-top:8px;font-size:13px">⏱ Takes 30-90 seconds — runs in the background.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+let exchange = 'NSE';
+let pollTimer = null;
+
+function setExchange(ex) {
+  exchange = ex;
+  document.getElementById('tab-nse').classList.toggle('active',  ex === 'NSE');
+  document.getElementById('tab-nyse').classList.toggle('active', ex === 'NYSE');
+  loadData();
+}
+
+async function loadData() {
+  const sid = document.getElementById('strategy-select').value;
+  try {
+    const res = await fetch(`/api/backtest/${exchange}/${sid}/data`);
+    if (res.status === 404) { showEmpty(); return; }
+    const data = await res.json();
+    if (data.error) { showEmpty(); return; }
+    renderDashboard(data);
+  } catch(e) {
+    showEmpty();
+  }
+}
+
+async function runBacktest() {
+  const sid = document.getElementById('strategy-select').value;
+  const btn = document.getElementById('run-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Running…';
+  document.getElementById('progress-bar').style.display = 'block';
+  document.getElementById('content').innerHTML = '';
+
+  try {
+    await fetch(`/api/backtest/${exchange}/${sid}/run`, { method: 'POST' });
+    pollTimer = setInterval(() => pollProgress(sid), 1500);
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = '▶ Run Backtest';
+  }
+}
+
+async function pollProgress(sid) {
+  try {
+    const res  = await fetch(`/api/backtest/${exchange}/${sid}/status`);
+    const data = await res.json();
+    const pct  = data.pct || 0;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent  = pct + '%';
+    document.getElementById('progress-label').textContent = data.message || '…';
+
+    if (pct >= 100) {
+      clearInterval(pollTimer);
+      document.getElementById('run-btn').disabled    = false;
+      document.getElementById('run-btn').textContent = '▶ Run Backtest';
+      document.getElementById('progress-bar').style.display = 'none';
+      loadData();
+    }
+  } catch(e) { /* keep polling */ }
+}
+
+function showEmpty() {
+  document.getElementById('content').innerHTML = `
+    <div class="empty">
+      <h2>No backtest data yet</h2>
+      <p>Click "▶ Run Backtest" to simulate the selected strategy on real historical data.</p>
+    </div>`;
+}
+
+/* ── RENDER ───────────────────────────────────────────────────────── */
+let cumulativeChart = null, monthlyBarChart = null;
+
+function renderDashboard(d) {
+  const s = d.summary;
+  const months = d.monthly_results || [];
+
+  // Format returns
+  const fmtR = v => v > 0 ? `<span class="ret-pos">+${v.toFixed(1)}%</span>`
+                           : v < 0 ? `<span class="ret-neg">${v.toFixed(1)}%</span>`
+                                   : `<span class="ret-zero">0.0%</span>`;
+
+  // Summary cards
+  const totalColor = s.total_return_pct >= 0 ? 'green' : 'red';
+  const ddColor    = s.max_drawdown < -10 ? 'red' : s.max_drawdown < -5 ? 'yellow' : 'green';
+
+  const cards = `
+    <div class="summary-grid">
+      <div class="scard">
+        <div class="label">📅 Period</div>
+        <div class="value blue" style="font-size:16px">${d.period.start} – ${d.period.end}</div>
+      </div>
+      <div class="scard">
+        <div class="label">💰 Total Return</div>
+        <div class="value ${totalColor}">${s.total_return_pct > 0 ? '+' : ''}${s.total_return_pct.toFixed(1)}%</div>
+      </div>
+      <div class="scard">
+        <div class="label">🚀 Annualised</div>
+        <div class="value ${totalColor}">${s.annualized_return > 0 ? '+' : ''}${s.annualized_return.toFixed(0)}%</div>
+      </div>
+      <div class="scard">
+        <div class="label">🏆 Win Rate</div>
+        <div class="value ${s.win_rate >= 60 ? 'green' : 'yellow'}">${s.win_rate.toFixed(0)}%</div>
+      </div>
+      <div class="scard">
+        <div class="label">📉 Max Drawdown</div>
+        <div class="value ${ddColor}">${s.max_drawdown.toFixed(1)}%</div>
+      </div>
+      <div class="scard">
+        <div class="label">⚡ Sharpe Ratio</div>
+        <div class="value ${s.sharpe_ratio >= 1 ? 'green' : 'yellow'}">${s.sharpe_ratio.toFixed(2)}</div>
+      </div>
+      <div class="scard">
+        <div class="label">🟢 Best Month</div>
+        <div class="value green" style="font-size:18px">${s.best_month}<br>+${s.best_month_return.toFixed(1)}%</div>
+      </div>
+      <div class="scard">
+        <div class="label">🔴 Worst Month</div>
+        <div class="value red" style="font-size:18px">${s.worst_month}<br>${s.worst_month_return.toFixed(1)}%</div>
+      </div>
+    </div>`;
+
+  // Charts section
+  const labels   = months.map(m => m.month);
+  const portVals = d.portfolio_values.slice(1);
+  const barVals  = months.map(m => m.portfolio_return_pct);
+  const barColors = barVals.map(v => v >= 0 ? 'rgba(63,185,80,.8)' : 'rgba(248,81,73,.8)');
+
+  const chartsHtml = `
+    <div class="charts-row">
+      <div class="chart-box">
+        <h3>📈 Cumulative Portfolio Value (₹100 / $100 start)</h3>
+        <canvas id="cumulativeChart" height="80"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>📊 Monthly Returns (%)</h3>
+        <canvas id="monthlyBarChart" height="170"></canvas>
+      </div>
+    </div>`;
+
+  // Monthly table
+  let tableRows = '';
+  months.forEach((m, idx) => {
+    const badge = m.mode === 'CASH'
+      ? '<span class="mode-badge mode-cash">CASH</span>'
+      : '<span class="mode-badge mode-invested">INVESTED</span>';
+
+    const sectorPills = Object.entries(m.sectors || {})
+      .map(([sec, n]) => `<span class="sector-pill">${sec}<span>${n}</span></span>`).join('');
+
+    tableRows += `
+      <tr class="${m.mode === 'CASH' ? '' : 'clickable'}" id="row-${idx}">
+        <td class="month-cell">${m.month}</td>
+        <td>${badge}</td>
+        <td>${m.num_stocks}</td>
+        <td>${fmtR(m.portfolio_return_pct)}</td>
+        <td>${fmtR(m.best_return || 0)} ${m.best_stock ? '<small style="color:#8b949e">'+m.best_stock+'</small>' : ''}</td>
+        <td>${fmtR(m.worst_return || 0)} ${m.worst_stock ? '<small style="color:#8b949e">'+m.worst_stock+'</small>' : ''}</td>
+        <td><div class="sector-pills">${sectorPills}</div></td>
+        <td>${m.num_stocks > 0 ? '<button class="expand-btn" onclick="toggleDetail('+idx+')">📋 Details</button>' : '—'}</td>
+      </tr>
+      <tr class="detail-row" id="detail-${idx}">
+        <td colspan="8" class="detail-cell">
+          <div class="stocks-grid" id="stocks-${idx}"></div>
+        </td>
+      </tr>`;
+  });
+
+  const tableHtml = `
+    <div class="section">
+      <div class="section-title">📅 Monthly Simulation — ${d.strategy_name} (${d.exchange})</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Mode</th>
+              <th>Stocks</th>
+              <th>Portfolio Return</th>
+              <th>Best Pick</th>
+              <th>Worst Pick</th>
+              <th>Sectors</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>${tableRows}</tbody>
+        </table>
+      </div>
+    </div>`;
+
+  const label = document.getElementById('last-run-label');
+  if (label) label.textContent = `Last run: ${d.generated_at}`;
+
+  document.getElementById('content').innerHTML = cards + chartsHtml + tableHtml;
+
+  // Store monthly data for expand
+  window._bt_months = months;
+
+  // Draw cumulative chart
+  const ctx1 = document.getElementById('cumulativeChart').getContext('2d');
+  if (cumulativeChart) cumulativeChart.destroy();
+  cumulativeChart = new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Portfolio Value',
+        data: portVals,
+        borderColor: '#58a6ff',
+        backgroundColor: 'rgba(88,166,255,.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: .3,
+        pointBackgroundColor: portVals.map((v, i) => barVals[i] >= 0 ? '#3fb950' : '#f85149'),
+        pointRadius: 5,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `₹${ctx.raw.toFixed(2)}` } },
+      },
+      scales: {
+        x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } },
+        y: { ticks: { color: '#8b949e', callback: v => '₹'+v }, grid: { color: '#21262d' } },
+      },
+    },
+  });
+
+  // Draw monthly bar chart
+  const ctx2 = document.getElementById('monthlyBarChart').getContext('2d');
+  if (monthlyBarChart) monthlyBarChart.destroy();
+  monthlyBarChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data: barVals,
+        backgroundColor: barColors,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#8b949e', font: { size: 10 } }, grid: { display: false } },
+        y: { ticks: { color: '#8b949e', callback: v => v + '%' }, grid: { color: '#21262d' } },
+      },
+    },
+  });
+}
+
+function toggleDetail(idx) {
+  const detailRow = document.getElementById('detail-' + idx);
+  const isOpen = detailRow.classList.contains('open');
+  detailRow.classList.toggle('open', !isOpen);
+
+  if (!isOpen) {
+    const m = window._bt_months[idx];
+    const container = document.getElementById('stocks-' + idx);
+    container.innerHTML = m.stocks.map(s => {
+      const retCls = s.return_pct > 0 ? 'ret-pos' : s.return_pct < 0 ? 'ret-neg' : 'ret-zero';
+      const retStr = (s.return_pct > 0 ? '+' : '') + s.return_pct.toFixed(2) + '%';
+      const isNSE = s.ticker.includes('.NS') || s.ticker.includes('.BO');
+      const curr = isNSE ? '₹' : '$';
+      const scoreFill = Math.min(100, s.score) + '%';
+      return `
+        <div class="stock-card">
+          <div class="s-header">
+            <div class="s-name">${s.symbol}</div>
+            <div class="s-sector">${s.sector}</div>
+          </div>
+          <div class="s-row"><span>Score</span><span>${s.score.toFixed(1)}</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:${scoreFill}"></div></div>
+          <div class="s-row" style="margin-top:6px"><span>MACD</span><span>${(s.macd_score||0).toFixed(0)}</span></div>
+          <div class="s-row"><span>RSI</span><span>${(s.rsi_score||0).toFixed(0)}</span></div>
+          <div class="s-row"><span>52W High</span><span>${(s.h52_score||0).toFixed(0)}</span></div>
+          <div class="s-row" style="margin-top:6px;border-top:1px solid #30363d;padding-top:6px">
+            <span>Entry (Open)</span><span>${curr}${s.entry_price.toLocaleString()}</span>
+          </div>
+          <div class="s-row">
+            <span>Exit (Close)</span><span>${curr}${s.exit_price.toLocaleString()}</span>
+          </div>
+          <div class="s-return ${retCls}">${retStr}</div>
+        </div>`;
+    }).join('');
+  }
+}
+
+// Load data on page load
+window.addEventListener('DOMContentLoaded', () => {
+  loadData();
+});
+</script>
+</body>
+</html>

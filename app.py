@@ -324,8 +324,56 @@ def health():
 
 @app.route('/strategy-comparison')
 def strategy_comparison():
-    """Serve the 8 strategies annual returns comparison chart."""
+    """Serve the 10 strategies annual returns comparison chart."""
     return render_template('strategy-comparison.html')
+
+
+# ── Backtest Dashboard ──────────────────────────────────────────────
+
+@app.route('/backtest')
+def backtest_dashboard():
+    """Serve the 12-month historical backtest dashboard."""
+    return render_template('backtest.html')
+
+
+@app.route('/api/backtest/<exchange>/<sid>/run', methods=['POST'])
+def api_backtest_run(exchange, sid):
+    """Trigger a backtest in a background thread."""
+    import threading
+    from backtest_engine import run_strategy_backtest, set_progress
+
+    exchange = exchange.upper()
+    sid = sid.lower()
+
+    def _run():
+        try:
+            run_strategy_backtest(exchange, sid)
+        except Exception as e:
+            import traceback
+            print(f'[Backtest Error] {e}')
+            print(traceback.format_exc())
+            set_progress(exchange, sid, f'Error: {e}', 100)
+
+    t = threading.Thread(target=_run, daemon=True)
+    t.start()
+    return jsonify({'status': 'started', 'exchange': exchange, 'strategy': sid})
+
+
+@app.route('/api/backtest/<exchange>/<sid>/status')
+def api_backtest_status(exchange, sid):
+    """Get live progress of a running backtest."""
+    from backtest_engine import get_progress
+    return jsonify(get_progress(exchange.upper(), sid.lower()))
+
+
+@app.route('/api/backtest/<exchange>/<sid>/data')
+def api_backtest_data(exchange, sid):
+    """Return saved backtest results JSON."""
+    from backtest_engine import load_backtest
+    data = load_backtest(exchange.upper(), sid.lower())
+    if not data:
+        return jsonify({'error': 'No backtest data. Run the backtest first.'}), 404
+    return jsonify(data)
 
 
 # ── Rebalance Dashboard (Monthly Automation) ───────────────────────
