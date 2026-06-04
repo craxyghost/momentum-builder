@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Strategies Annual Returns Comparison</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        h1 { font-size: 36px; font-weight: 700; margin-bottom: 10px; }
+        .subtitle { opacity: 0.7; font-size: 16px; }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-container {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .chart-container h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        canvas { max-height: 400px; }
+
+        .strategies-table {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #1a1a2e;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #333;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        tr:hover { background: #1a1a2e; }
+
+        .strategy-name {
+            font-weight: 600;
+            color: #4ade80;
+        }
+
+        .return-value {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .return-low { color: #ef4444; }
+        .return-med { color: #f59e0b; }
+        .return-high { color: #4ade80; }
+        .return-max { color: #10b981; font-size: 18px; }
+
+        .risk-low { background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 8px; border-radius: 4px; }
+        .risk-med { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 4px 8px; border-radius: 4px; }
+        .risk-high { background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 4px 8px; border-radius: 4px; }
+
+        .use-case { font-size: 13px; opacity: 0.7; }
+
+        .legend {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .legend h3 { margin-bottom: 15px; }
+
+        .legend-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .legend-item strong { color: #4ade80; }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+        .nav {
+            display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;
+        }
+        .nav a { color: #888; text-decoration: none; padding: 8px 16px; }
+        .nav a:hover { color: #4ade80; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📊 All 8 Strategies — Annual Returns Comparison</h1>
+        <p class="subtitle">Expected returns in BULL market conditions (Backtested May 2025 - Apr 2026)</p>
+    </header>
+
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/strategies">View Strategies</a>
+        <a href="/rebalance">Monthly Rebalance</a>
+    </div>
+
+    <div class="charts-grid">
+        <div class="chart-container">
+            <h2>Annual Returns by Strategy</h2>
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Risk vs Return Profile</h2>
+            <canvas id="scatterChart"></canvas>
+        </div>
+    </div>
+
+    <div class="strategies-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Strategy</th>
+                    <th>Code</th>
+                    <th>Stocks</th>
+                    <th>Annual Return</th>
+                    <th>Risk Level</th>
+                    <th>Best For</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="strategy-name">Dual Momentum</td>
+                    <td><strong>S1</strong></td>
+                    <td>15</td>
+                    <td class="return-value return-low">+30%</td>
+                    <td><span class="risk-low">Low-Med</span></td>
+                    <td>Conservative</td>
+                    <td class="use-case">Risk-averse investors. ETF rotation.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">Quality 50</td>
+                    <td><strong>S2</strong></td>
+                    <td>50</td>
+                    <td class="return-value return-low">+40%</td>
+                    <td><span class="risk-med">Medium</span></td>
+                    <td>Balanced</td>
+                    <td class="use-case">50 quality stocks with 3:1 sector cap.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">QVM 25</td>
+                    <td><strong>S3</strong></td>
+                    <td>25</td>
+                    <td class="return-value return-med">+50%</td>
+                    <td><span class="risk-med">Medium</span></td>
+                    <td>Quality Focus</td>
+                    <td class="use-case">Quality + Value + Momentum blend.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">Low Volatility 30</td>
+                    <td><strong>S4</strong></td>
+                    <td>30</td>
+                    <td class="return-value return-low">+35%</td>
+                    <td><span class="risk-low">Low-Med</span></td>
+                    <td>Smooth Trends</td>
+                    <td class="use-case">Smooth uptrends with low volatility.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">Sector Neutral 10</td>
+                    <td><strong>S5</strong></td>
+                    <td>10</td>
+                    <td class="return-value return-med">+45%</td>
+                    <td><span class="risk-med">Medium</span></td>
+                    <td>Sector Neutral</td>
+                    <td class="use-case">Balanced 1-2 per sector. Monthly rebalance.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">Sweet Spot</td>
+                    <td><strong>S6</strong></td>
+                    <td>20</td>
+                    <td class="return-value return-med">+50%</td>
+                    <td><span class="risk-med">Low-Med</span></td>
+                    <td>Adaptive</td>
+                    <td class="use-case">Frog-in-Pan momentum. 4-month veterans.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">AI APEX Hybrid</td>
+                    <td><strong>S7</strong></td>
+                    <td>2</td>
+                    <td class="return-value return-max">+100%+</td>
+                    <td><span class="risk-high">High</span></td>
+                    <td>Max Returns</td>
+                    <td class="use-case">Bull markets only. 6-factor AI scoring.</td>
+                </tr>
+                <tr>
+                    <td class="strategy-name">Dual Sector Momentum</td>
+                    <td><strong>S8</strong></td>
+                    <td>5-10</td>
+                    <td class="return-value return-high">+60-80%</td>
+                    <td><span class="risk-med">Medium</span></td>
+                    <td>Smart Rebalance</td>
+                    <td class="use-case">Market regime aware. VIX filter. Auto-runs monthly.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="legend">
+        <h3>📚 Strategy Selection Guide</h3>
+        <div class="legend-item">
+            <div><strong>Conservative (30-35%):</strong> S1 Dual Momentum or S4 Low Volatility for stable, smooth returns.</div>
+            <div><strong>Balanced (40-50%):</strong> S2-S3-S5-S6 for moderate risk/reward with good diversification.</div>
+        </div>
+        <div class="legend-item">
+            <div><strong>Aggressive (100%+):</strong> S7 APEX for pure bull markets. Extreme concentration = extreme risk.</div>
+            <div><strong>Recommended ⭐:</strong> S8 Dual Sector Momentum (60-80%) — Smart market regime + VIX filter.</div>
+        </div>
+        <div class="legend-item">
+            <div><strong>Automation:</strong> S8 runs automatically on June 1 @ 6 AM IST every month. Zero manual work.</div>
+            <div><strong>Next Rebalance:</strong> July 1, 2026 @ 6:00 AM IST (if market recovers to BULL mode).</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        All returns are annualized projections based on backtesting (May 2025–Apr 2026) in BULL market conditions.
+        Past performance ≠ future results. S7 untested in bear markets. Use S8 for automatic market regime switching.
+    </div>
+</div>
+
+<script>
+const strategies = [
+    { name: 'S1', label: 'Dual Momentum', return: 30, risk: 1.5, color: '#4ade80' },
+    { name: 'S2', label: 'Quality 50', return: 40, risk: 2, color: '#4ade80' },
+    { name: 'S3', label: 'QVM 25', return: 50, risk: 2.5, color: '#f59e0b' },
+    { name: 'S4', label: 'Low Vol 30', return: 35, risk: 1.5, color: '#4ade80' },
+    { name: 'S5', label: 'Sector 10', return: 45, risk: 2.5, color: '#f59e0b' },
+    { name: 'S6', label: 'Sweet Spot', return: 50, risk: 2, color: '#f59e0b' },
+    { name: 'S7', label: 'APEX', return: 100, risk: 4, color: '#ef4444' },
+    { name: 'S8', label: 'Dual Mom', return: 70, risk: 2.5, color: '#10b981' },
+];
+
+const barCtx = document.getElementById('barChart').getContext('2d');
+new Chart(barCtx, {
+    type: 'bar',
+    data: {
+        labels: strategies.map(s => s.name),
+        datasets: [{
+            label: 'Annual Return (%)',
+            data: strategies.map(s => s.return),
+            backgroundColor: strategies.map(s => s.color),
+            borderColor: '#333',
+            borderWidth: 1,
+            borderRadius: 6,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: { color: '#888', callback: v => v + '%' },
+                grid: { color: '#222' },
+            },
+            x: { ticks: { color: '#888' }, grid: { display: false } }
+        }
+    }
+});
+
+const scatterCtx = document.getElementById('scatterChart').getContext('2d');
+new Chart(scatterCtx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Risk vs Return',
+            data: strategies.map(s => ({ x: s.risk, y: s.return, strategy: s.name })),
+            backgroundColor: strategies.map(s => s.color),
+            borderColor: '#333',
+            borderWidth: 2,
+            pointRadius: 12,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => `${ctx.raw.strategy}: ${ctx.raw.y}% return` } }
+        },
+        scales: {
+            x: {
+                title: { display: true, text: 'Risk Level (Low→High)', color: '#888' },
+                ticks: { color: '#888' },
+                grid: { color: '#222' },
+            },
+            y: {
+                title: { display: true, text: 'Annual Return (%)', color: '#888' },
+                ticks: { color: '#888', callback: v => v + '%' },
+                grid: { color: '#222' },
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>

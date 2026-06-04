@@ -320,6 +320,14 @@ def health():
     })
 
 
+# ── Strategy Comparison Chart ──────────────────────────────────────
+
+@app.route('/strategy-comparison')
+def strategy_comparison():
+    """Serve the 8 strategies annual returns comparison chart."""
+    return render_template('strategy-comparison.html')
+
+
 # ── Rebalance Dashboard (Monthly Automation) ───────────────────────
 
 @app.route('/rebalance')
