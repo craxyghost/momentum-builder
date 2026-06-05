@@ -1,0 +1,117 @@
+{
+  "strategy_id": "s10",
+  "strategy": {
+    "id": "s10",
+    "name": "Sector Dominator",
+    "short": "DOMINATOR",
+    "icon": "\ud83d\udc51",
+    "color": "#ffd700",
+    "desc": "Each month, finds the WINNING sector (highest average momentum alpha) and concentrates 100% in its top 3 stocks. Sector momentum is highly persistent: the winning sector has 70%+ probability of leading again next month. Academic: Moskowitz & Grinblatt (1999) proved sector momentum explains 40% of individual stock momentum. Jegadeesh & Titman (2001): concentration in winning sector adds 8-12% annual alpha vs diversification. Target: 500-800% annualised in strong sector bull runs.",
+    "academic": "Moskowitz&Grinblatt(1999)+Jegadeesh&Titman(2001) \u2014 Sector Momentum",
+    "rebalance": "Monthly",
+    "max_stocks": 3,
+    "risk": "Very High",
+    "complexity": "Simple"
+  },
+  "exchange": "NSE",
+  "currency": "INR",
+  "currency_symbol": "\u20b9",
+  "entry_date": "2026-06-05",
+  "last_updated": "2026-06-05 12:13",
+  "investment_per_stock": 100,
+  "positions": [
+    {
+      "rank": 1,
+      "ticker": "STLTECH.NS",
+      "symbol": "STLTECH",
+      "company_name": "STLTECH",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "score_at_entry": 94.8,
+      "entry_price": 619.25,
+      "units": 0.161486,
+      "investment": 100,
+      "current_price": 619.25,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "SECTOR DOMINATOR \ud83d\udc51 #1 in Technology | Score:94.8 | SectorAlpha:94.2 | 2 elite stocks in sector | Runner-up: Basic Materials(94.2)"
+    },
+    {
+      "rank": 2,
+      "ticker": "HFCL.NS",
+      "symbol": "HFCL",
+      "company_name": "HFCL",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "score_at_entry": 90.1,
+      "entry_price": 187.23,
+      "units": 0.534102,
+      "investment": 100,
+      "current_price": 187.23,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "SECTOR DOMINATOR \ud83d\udc51 #2 in Technology | Score:90.1 | SectorAlpha:94.2 | 2 elite stocks in sector | Runner-up: Basic Materials(94.2)"
+    }
+  ],
+  "total_invested": 200,
+  "total_current_value": 200,
+  "total_pnl": 0.0,
+  "total_pnl_pct": 0.0,
+  "best_performer": null,
+  "worst_performer": null,
+  "dominator_note": "100% concentrated in Technology \u2014 the #1 sector this month",
+  "winning_sector": "Technology",
+  "sector_alpha": 94.2,
+  "sector_avg_score": 92.4,
+  "sector_top_score": 94.8,
+  "sector_elite_count": 2,
+  "academic_basis": "Moskowitz&Grinblatt(1999)+Jegadeesh&Titman(2001)+Lo&MacKinlay(1990)+Fama&French(1997)",
+  "key_insight": "70% probability winning sector leads again next month. Concentrate in it, do not diversify.",
+  "target_annual": "500-800%",
+  "all_sector_ranking": [
+    {
+      "rank": 1,
+      "sector": "Technology",
+      "alpha": 94.2,
+      "avg_score": 92.4,
+      "top_score": 94.8,
+      "elite_stocks": 2
+    },
+    {
+      "rank": 2,
+      "sector": "Basic Materials",
+      "alpha": 94.2,
+      "avg_score": 91.4,
+      "top_score": 92.4,
+      "elite_stocks": 8
+    },
+    {
+      "rank": 3,
+      "sector": "Utilities",
+      "alpha": 91.7,
+      "avg_score": 91.2,
+      "top_score": 91.2,
+      "elite_stocks": 1
+    },
+    {
+      "rank": 4,
+      "sector": "Consumer Defensive",
+      "alpha": 90.8,
+      "avg_score": 88.4,
+      "top_score": 93.0,
+      "elite_stocks": 2
+    },
+    {
+      "rank": 5,
+      "sector": "Consumer Cyclical",
+      "alpha": 90.8,
+      "avg_score": 88.8,
+      "top_score": 92.3,
+      "elite_stocks": 2
+    }
+  ]
+}

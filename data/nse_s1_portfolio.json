@@ -1,0 +1,76 @@
+{
+  "strategy_id": "s1",
+  "strategy": {
+    "id": "s1",
+    "name": "Dual Momentum",
+    "short": "Dual Mom",
+    "icon": "\ud83d\udd04",
+    "color": "#58a6ff",
+    "desc": "Uses the market ETF as a risk switch (absolute momentum). Bull market (ETF 12M > 0%): holds top 15 momentum stocks. Bear market (ETF 12M \u2264 0%): rotates to cash/safe ETF.",
+    "academic": "Antonacci (2014) \u2014 17.4% CAGR, \u221222.7% max drawdown",
+    "rebalance": "Monthly",
+    "max_stocks": 15,
+    "risk": "Low-Medium",
+    "complexity": "Simple"
+  },
+  "exchange": "NSE",
+  "currency": "INR",
+  "currency_symbol": "\u20b9",
+  "entry_date": "2026-06-05",
+  "last_updated": "2026-06-05 12:13",
+  "investment_per_stock": 100,
+  "positions": [
+    {
+      "rank": 1,
+      "ticker": "LIQUIDBEES.NS",
+      "symbol": "LIQUIDBEES",
+      "company_name": "Liquid ETF (Cash)",
+      "sector": "ETF",
+      "category": "Cash",
+      "score_at_entry": 50,
+      "entry_price": 1000.0,
+      "units": 0.1,
+      "investment": 100,
+      "current_price": 1000.0,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "Dual Mom BEAR \u26a0 | Market 12M: -3.7% | Capital protected in Liquid ETF (Cash)"
+    }
+  ],
+  "total_invested": 100,
+  "total_current_value": 100,
+  "total_pnl": 0.0,
+  "total_pnl_pct": 0.0,
+  "best_performer": null,
+  "worst_performer": null,
+  "dual_mode": "BEAR \u2014 capital protected in Liquid ETF (Cash)",
+  "market_12m": -3.67,
+  "all_etf_returns": [
+    {
+      "ticker": "NIFTYBEES.NS",
+      "symbol": "NIFTYBEES",
+      "name": "Nifty 50 ETF (Equity)",
+      "asset": "Equity",
+      "12m_return": -3.67,
+      "current_price": 265.3599853515625
+    },
+    {
+      "ticker": "GOLDBEES.NS",
+      "symbol": "GOLDBEES",
+      "name": "Gold ETF",
+      "asset": "Gold",
+      "12m_return": 61.84,
+      "current_price": 127.77999877929688
+    },
+    {
+      "ticker": "LIQUIDBEES.NS",
+      "symbol": "LIQUIDBEES",
+      "name": "Liquid ETF (Cash)",
+      "asset": "Cash",
+      "12m_return": 1.67,
+      "current_price": 1000.0
+    }
+  ]
+}

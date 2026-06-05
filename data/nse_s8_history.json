@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-03",
+    "total_invested": 100,
+    "total_current_value": 100,
+    "total_pnl": 0.0,
+    "total_pnl_pct": 0.0
+  },
+  {
+    "date": "2026-06-05",
+    "total_invested": 100,
+    "total_current_value": 100,
+    "total_pnl": 0.0,
+    "total_pnl_pct": 0.0
+  }
+]

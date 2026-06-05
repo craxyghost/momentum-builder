@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-05-24",
+    "total_invested": 1000,
+    "total_current_value": 1000,
+    "total_pnl": 0.0,
+    "total_pnl_pct": 0.0
+  },
+  {
+    "date": "2026-05-25",
+    "total_invested": 1000,
+    "total_current_value": 1013.2058,
+    "total_pnl": 13.2058,
+    "total_pnl_pct": 1.32
+  },
+  {
+    "date": "2026-05-26",
+    "total_invested": 1000,
+    "total_current_value": 987.824,
+    "total_pnl": -12.176,
+    "total_pnl_pct": -1.22
+  },
+  {
+    "date": "2026-05-27",
+    "total_invested": 1000,
+    "total_current_value": 1000.7054,
+    "total_pnl": 0.7054,
+    "total_pnl_pct": 0.07
+  },
+  {
+    "date": "2026-05-29",
+    "total_invested": 1000,
+    "total_current_value": 993.2111,
+    "total_pnl": -6.7889,
+    "total_pnl_pct": -0.68
+  },
+  {
+    "date": "2026-05-31",
+    "total_invested": 1000,
+    "total_current_value": 1000.3699,
+    "total_pnl": 0.3699,
+    "total_pnl_pct": 0.04
+  },
+  {
+    "date": "2026-06-01",
+    "total_invested": 1000,
+    "total_current_value": 999.999,
+    "total_pnl": -0.001,
+    "total_pnl_pct": -0.0
+  },
+  {
+    "date": "2026-06-02",
+    "total_invested": 1000,
+    "total_current_value": 999.999,
+    "total_pnl": -0.001,
+    "total_pnl_pct": -0.0
+  },
+  {
+    "date": "2026-06-03",
+    "total_invested": 1000,
+    "total_current_value": 1003.0975,
+    "total_pnl": 3.0975,
+    "total_pnl_pct": 0.31
+  },
+  {
+    "date": "2026-06-05",
+    "total_invested": 1000,
+    "total_current_value": 1000,
+    "total_pnl": 0.0,
+    "total_pnl_pct": 0.0
+  }
+]

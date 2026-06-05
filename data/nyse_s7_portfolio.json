@@ -1,0 +1,110 @@
+{
+  "strategy_id": "s7",
+  "strategy": {
+    "id": "s7",
+    "name": "AI APEX Hybrid",
+    "short": "APEX",
+    "icon": "\u26a1",
+    "color": "#f85149",
+    "desc": "AI-Enhanced APEX Hybrid: concentrated top-2 picks targeting 15%+ monthly returns. Combines 6-factor scoring (Jegadeesh momentum, acceleration, consistency, volatility penalty, 52W strength, MA-cross) with AI confidence overlay. Maximizes returns in bull markets. Proven: +101.7% annualised (May 2025\u2013Apr 2026).",
+    "academic": "Jegadeesh & Titman (1993) + AI ensemble confidence scoring",
+    "rebalance": "Monthly",
+    "max_stocks": 2,
+    "risk": "High",
+    "complexity": "Advanced"
+  },
+  "exchange": "NYSE",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "entry_date": "2026-06-05",
+  "last_updated": "2026-06-05 12:14",
+  "investment_per_stock": 100,
+  "positions": [
+    {
+      "rank": 1,
+      "ticker": "RVMD",
+      "symbol": "RVMD",
+      "company_name": "Revolution Medicines, Inc.",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "score_at_entry": 94.6,
+      "entry_price": 152.03,
+      "units": 0.657765,
+      "investment": 100,
+      "current_price": 152.03,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "APEX Hybrid #1 | Score: 94.5 | Jeg 12M: +299.7% | Accel: 50 | MA: 100 | AI\u00d71.05x"
+    },
+    {
+      "rank": 2,
+      "ticker": "BAND",
+      "symbol": "BAND",
+      "company_name": "BAND",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "score_at_entry": 93.6,
+      "entry_price": 72.68,
+      "units": 1.375894,
+      "investment": 100,
+      "current_price": 72.68,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "APEX Hybrid #2 | Score: 94.5 | Jeg 12M: +363.4% | Accel: 50 | MA: 100 | AI\u00d71.05x"
+    }
+  ],
+  "total_invested": 200,
+  "total_current_value": 200,
+  "total_pnl": 0.0,
+  "total_pnl_pct": 0.0,
+  "best_performer": null,
+  "worst_performer": null,
+  "apex_note": "Concentrated top-2 picks | Target: 15%+ monthly | Risk: High | Proven: +101.7% (2025\u20132026)",
+  "target_monthly": "+15%",
+  "concentration": "Top 2 only",
+  "risk_profile": "High",
+  "backtested_return": "+101.7%",
+  "backtested_period": "May 2025 \u2013 Apr 2026",
+  "top_scores": [
+    {
+      "rank": 1,
+      "symbol": "RVMD",
+      "apex_score": 94.5,
+      "apex_meta": {
+        "jeg_return": 299.7,
+        "jeg_score": 100,
+        "acceleration": 49.9,
+        "consistency": 100,
+        "vol_penalty": 100,
+        "52w_strength": 100,
+        "ma_cross_bonus": 5,
+        "raw_apex": 90.0,
+        "ai_alignment": 4,
+        "ai_multiplier": 1.05,
+        "final_apex": 94.5
+      }
+    },
+    {
+      "rank": 2,
+      "symbol": "BAND",
+      "apex_score": 94.5,
+      "apex_meta": {
+        "jeg_return": 363.41,
+        "jeg_score": 100,
+        "acceleration": 49.8,
+        "consistency": 100,
+        "vol_penalty": 100,
+        "52w_strength": 100,
+        "ma_cross_bonus": 5,
+        "raw_apex": 90.0,
+        "ai_alignment": 4,
+        "ai_multiplier": 1.05,
+        "final_apex": 94.5
+      }
+    }
+  ]
+}

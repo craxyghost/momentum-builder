@@ -1,0 +1,53 @@
+{
+  "strategy_id": "s8",
+  "strategy": {
+    "id": "s8",
+    "name": "Dual Sector Momentum",
+    "short": "DSM",
+    "icon": "\ud83e\udde0",
+    "color": "#7c3aed",
+    "desc": "Master strategy combining Dual Momentum (market timing) + Sector-Neutral Top 10 (stock selection) + Buffer Zones (no churn) + Veteran Premium (Frog-in-Pan) + India VIX safety valve. Monthly rebalance. Bull = top-10 sector-neutral veterans. Bear = 100% LIQUIDBEES. Target: +60-80% annualised. Academic: Antonacci + Gray & Vogel + AQR.",
+    "academic": "Antonacci (2014) \u00d7 Gray & Vogel (2016) \u00d7 AQR (2013) \u00d7 Daniel & Moskowitz (2016)",
+    "rebalance": "Monthly",
+    "max_stocks": 10,
+    "risk": "Medium",
+    "complexity": "Advanced"
+  },
+  "exchange": "NSE",
+  "currency": "INR",
+  "currency_symbol": "\u20b9",
+  "entry_date": "2026-06-05",
+  "last_updated": "2026-06-05 12:13",
+  "investment_per_stock": 100,
+  "positions": [
+    {
+      "rank": 1,
+      "ticker": "LIQUIDBEES.NS",
+      "symbol": "LIQUIDBEES",
+      "company_name": "Liquid ETF (Cash)",
+      "sector": "ETF",
+      "category": "Cash",
+      "score_at_entry": 50,
+      "entry_price": 1000.0,
+      "units": 0.1,
+      "investment": 100,
+      "current_price": 1000.0,
+      "current_value": 100,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "entry_date": "2026-06-05",
+      "strategy_note": "DSM PROTECTED \ud83d\udee1 | Bear Market | NIFTYBEES 12M: -3.7% | Capital in Liquid ETF (Cash)"
+    }
+  ],
+  "total_invested": 100,
+  "total_current_value": 100,
+  "total_pnl": 0.0,
+  "total_pnl_pct": 0.0,
+  "best_performer": null,
+  "worst_performer": null,
+  "dsm_mode": "BEAR/EMERGENCY \u2014 capital protected",
+  "market_12m": -3.67,
+  "india_vix": 15.787500381469727,
+  "vix_regime": "normal",
+  "dsm_note": "Dual Sector Momentum \u2014 Antonacci + Gray&Vogel + AQR + Daniel&Moskowitz"
+}
