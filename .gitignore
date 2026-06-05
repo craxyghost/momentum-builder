@@ -1,5 +1,7 @@
 data/
 !data/backtest_*.json
+!data/nse_screener.json
+!data/nyse_screener.json
 *.pyc
 __pycache__/
 .env

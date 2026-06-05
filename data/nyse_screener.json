@@ -1,0 +1,4709 @@
+{
+  "exchange": "NYSE",
+  "currency": "USD",
+  "last_run": "2026-06-01 11:42",
+  "next_run": "2026-07-01",
+  "total_scanned": 869,
+  "stocks_with_data": 717,
+  "high_momentum_count": 102,
+  "errors_count": 0,
+  "category_breakdown": {
+    "Mid Cap": 39,
+    "Small Cap": 29,
+    "Large Cap": 34
+  },
+  "stocks": [
+    {
+      "ticker": "CIEN",
+      "symbol": "CIEN",
+      "company_name": "Ciena Corporation",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 566.761474609375,
+      "final_score": 94.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 93.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 18.72,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 93.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 1
+    },
+    {
+      "ticker": "RVMD",
+      "symbol": "RVMD",
+      "company_name": "Revolution Medicines, Inc.",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 161.91000366210938,
+      "final_score": 94.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 88.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 17.62,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 2
+    },
+    {
+      "ticker": "STRL",
+      "symbol": "STRL",
+      "company_name": "Sterling Infrastructure, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 850.5800170898438,
+      "final_score": 93.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 86.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 17.32,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.24,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 3
+    },
+    {
+      "ticker": "BAND",
+      "symbol": "BAND",
+      "company_name": "BAND",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 68.04000091552734,
+      "final_score": 93.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 83.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.6,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 4
+    },
+    {
+      "ticker": "CSCO",
+      "symbol": "CSCO",
+      "company_name": "Cisco Systems, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 120.44000244140625,
+      "final_score": 93.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 89.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 17.88,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.84,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 90.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.53,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 5
+    },
+    {
+      "ticker": "KLAC",
+      "symbol": "KLAC",
+      "company_name": "KLA Corporation",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 1915.77001953125,
+      "final_score": 93.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 87.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 17.42,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.78,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 6
+    },
+    {
+      "ticker": "LRCX",
+      "symbol": "LRCX",
+      "company_name": "Lam Research Corporation",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 314.79998779296875,
+      "final_score": 93.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 85.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 17.08,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 93.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.08,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 7
+    },
+    {
+      "ticker": "MRVL",
+      "symbol": "MRVL",
+      "company_name": "Marvell Technology, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 217.39999389648438,
+      "final_score": 93.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.02,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.94,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 8
+    },
+    {
+      "ticker": "CSTM",
+      "symbol": "CSTM",
+      "company_name": "CSTM",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 34.845001220703125,
+      "final_score": 93.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 81.3,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.26,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.5,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.77,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 9
+    },
+    {
+      "ticker": "AMAT",
+      "symbol": "AMAT",
+      "company_name": "Applied Materials, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 456.3800048828125,
+      "final_score": 92.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.08,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.79,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 10
+    },
+    {
+      "ticker": "AMD",
+      "symbol": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 513.4099731445312,
+      "final_score": 92.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.18,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.2,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.58,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 11
+    },
+    {
+      "ticker": "SNX",
+      "symbol": "SNX",
+      "company_name": "TD SYNNEX Corporation",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 270.69000244140625,
+      "final_score": 92.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 83.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.74,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 93.8,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.07,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 12
+    },
+    {
+      "ticker": "HPE",
+      "symbol": "HPE",
+      "company_name": "Hewlett Packard Enterprise Company",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 45.38999938964844,
+      "final_score": 92.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 82.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.52,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 92.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.83,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 13
+    },
+    {
+      "ticker": "COHU",
+      "symbol": "COHU",
+      "company_name": "Cohu, Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 53.54999923706055,
+      "final_score": 92.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 78.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.6,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 96.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.49,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 14
+    },
+    {
+      "ticker": "GTX",
+      "symbol": "GTX",
+      "company_name": "Garrett Motion Inc.",
+      "sector": "Consumer Cyclical",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 31.420000076293945,
+      "final_score": 92.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 81.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.38,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.58,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 15
+    },
+    {
+      "ticker": "AXSM",
+      "symbol": "AXSM",
+      "company_name": "Axsome Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 230.25,
+      "final_score": 91.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 77.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.5,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 95.8,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.37,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 16
+    },
+    {
+      "ticker": "JBL",
+      "symbol": "JBL",
+      "company_name": "Jabil Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 356.4700012207031,
+      "final_score": 91.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 82.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.77,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 96.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.5,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 17
+    },
+    {
+      "ticker": "ATEX",
+      "symbol": "ATEX",
+      "company_name": "ATEX",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 65.71499633789062,
+      "final_score": 91.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.0,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.85,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 18
+    },
+    {
+      "ticker": "BWA",
+      "symbol": "BWA",
+      "company_name": "BorgWarner Inc.",
+      "sector": "Consumer Cyclical",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 70.46499633789062,
+      "final_score": 91.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 78.3,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.66,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.4,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.16,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 98.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.74,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 19
+    },
+    {
+      "ticker": "TKR",
+      "symbol": "TKR",
+      "company_name": "The Timken Company",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 126.13500213623047,
+      "final_score": 91.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.72,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.68,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 98.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.8,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 20
+    },
+    {
+      "ticker": "KNX",
+      "symbol": "KNX",
+      "company_name": "Knight-Swift Transportation Holdings Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 77.41000366210938,
+      "final_score": 91.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 69.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.98,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 21
+    },
+    {
+      "ticker": "ON",
+      "symbol": "ON",
+      "company_name": "ON Semiconductor Corporation",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 120.45999908447266,
+      "final_score": 90.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.94,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.84,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 22
+    },
+    {
+      "ticker": "XPO",
+      "symbol": "XPO",
+      "company_name": "XPO, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 220.61500549316406,
+      "final_score": 90.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.64,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.1,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 23
+    },
+    {
+      "ticker": "LSTR",
+      "symbol": "LSTR",
+      "company_name": "Landstar System, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 210.5500030517578,
+      "final_score": 90.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.28,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 95.1,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.26,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 24
+    },
+    {
+      "ticker": "AKAM",
+      "symbol": "AKAM",
+      "company_name": "Akamai Technologies, Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 154.36500549316406,
+      "final_score": 90.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.64,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.77,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 25
+    },
+    {
+      "ticker": "ARCB",
+      "symbol": "ARCB",
+      "company_name": "ARCB",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 139.66510009765625,
+      "final_score": 90.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.38,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 26
+    },
+    {
+      "ticker": "MPWR",
+      "symbol": "MPWR",
+      "company_name": "Monolithic Power Systems, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 1544.9100341796875,
+      "final_score": 90.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.3,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.06,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 88.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.24,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 27
+    },
+    {
+      "ticker": "AEHR",
+      "symbol": "AEHR",
+      "company_name": "Aehr Test Systems, Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 90.25,
+      "final_score": 90.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.1,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 80.0,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 12.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 28
+    },
+    {
+      "ticker": "MRCY",
+      "symbol": "MRCY",
+      "company_name": "Mercury Systems, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 111.25,
+      "final_score": 89.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.5,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.64,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 90.8,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.62,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 29
+    },
+    {
+      "ticker": "CFNB",
+      "symbol": "CFNB",
+      "company_name": "CFNB",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 32.0099983215332,
+      "final_score": 89.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.7,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 87.1,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.06,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 30
+    },
+    {
+      "ticker": "GLDD",
+      "symbol": "GLDD",
+      "company_name": "Great Lakes Dredge & Dock Corporation",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 17.0,
+      "final_score": 89.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.2,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.98,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 89.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.46,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 31
+    },
+    {
+      "ticker": "BLX",
+      "symbol": "BLX",
+      "company_name": "BLX",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 55.810001373291016,
+      "final_score": 89.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 82.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.4,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 96.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.49,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 78.1,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.71,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 32
+    },
+    {
+      "ticker": "R",
+      "symbol": "R",
+      "company_name": "Ryder System, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 252.1999969482422,
+      "final_score": 89.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.04,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.55,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 85.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.79,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 33
+    },
+    {
+      "ticker": "CARE",
+      "symbol": "CARE",
+      "company_name": "CARE",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 26.850000381469727,
+      "final_score": 89.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.8,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 95.4,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.31,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 88.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.23,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 34
+    },
+    {
+      "ticker": "HST",
+      "symbol": "HST",
+      "company_name": "Host Hotels & Resorts, Inc.",
+      "sector": "Real Estate",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 23.059999465942383,
+      "final_score": 89.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.9,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.55,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 84.4,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.66,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 35
+    },
+    {
+      "ticker": "CRUS",
+      "symbol": "CRUS",
+      "company_name": "Cirrus Logic, Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 170.52999877929688,
+      "final_score": 88.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.62,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.92,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 86.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.04,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 36
+    },
+    {
+      "ticker": "TXN",
+      "symbol": "TXN",
+      "company_name": "Texas Instruments Incorporated",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 294.82501220703125,
+      "final_score": 88.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 68.5,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.7,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.7,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 98.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.8,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 37
+    },
+    {
+      "ticker": "ACLS",
+      "symbol": "ACLS",
+      "company_name": "Axcelis Technologies, Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 150.94000244140625,
+      "final_score": 88.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 67.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.2,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.93,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 38
+    },
+    {
+      "ticker": "ASRT",
+      "symbol": "ASRT",
+      "company_name": "ASRT",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 23.424999237060547,
+      "final_score": 88.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 57.4,
+          "signal": "Bullish Territory | RSI Trend: Falling",
+          "weighted_score": 11.48,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.8,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.97,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 39
+    },
+    {
+      "ticker": "CGEM",
+      "symbol": "CGEM",
+      "company_name": "CGEM",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 16.299999237060547,
+      "final_score": 88.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 58.2,
+          "signal": "Bullish Territory | RSI Trend: Falling",
+          "weighted_score": 11.64,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.55,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 40
+    },
+    {
+      "ticker": "CEVA",
+      "symbol": "CEVA",
+      "company_name": "CEVA, Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 43.56999969482422,
+      "final_score": 88.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 68.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.74,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 82.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.34,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 41
+    },
+    {
+      "ticker": "DDOG",
+      "symbol": "DDOG",
+      "company_name": "Datadog, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 272.9798889160156,
+      "final_score": 88.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.12,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 72.7,
+          "signal": "Strong Uptrend | \ud83d\udfe2 Golden Cross (Bullish Crossover!)",
+          "weighted_score": 10.9,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 42
+    },
+    {
+      "ticker": "RMBS",
+      "symbol": "RMBS",
+      "company_name": "Rambus Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 146.2899932861328,
+      "final_score": 88.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.42,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 89.0,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.35,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 87.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.19,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 43
+    },
+    {
+      "ticker": "GNRC",
+      "symbol": "GNRC",
+      "company_name": "Generac Holdings Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 267.7699890136719,
+      "final_score": 87.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 63.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.78,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.78,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 95.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.36,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 44
+    },
+    {
+      "ticker": "AVGO",
+      "symbol": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 457.5799865722656,
+      "final_score": 87.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 76.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.22,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 69.5,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.42,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 45
+    },
+    {
+      "ticker": "PTEN",
+      "symbol": "PTEN",
+      "company_name": "Patterson-UTI Energy, Inc.",
+      "sector": "Energy",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 11.545000076293945,
+      "final_score": 87.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 63.0,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.6,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.2,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.93,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 46
+    },
+    {
+      "ticker": "CMPR",
+      "symbol": "CMPR",
+      "company_name": "Cimpress plc",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 99.16000366210938,
+      "final_score": 87.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.18,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.1,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.82,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 89.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.49,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 47
+    },
+    {
+      "ticker": "NPO",
+      "symbol": "NPO",
+      "company_name": "Enpro Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 301.0299987792969,
+      "final_score": 87.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.6,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 89.2,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.38,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 82.4,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.36,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 48
+    },
+    {
+      "ticker": "CTOS",
+      "symbol": "CTOS",
+      "company_name": "CTOS",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 9.414999961853027,
+      "final_score": 87.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.1,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.22,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.58,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 90.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.54,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 49
+    },
+    {
+      "ticker": "LUMN",
+      "symbol": "LUMN",
+      "company_name": "Lumen Technologies, Inc.",
+      "sector": "Communication Services",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 11.194999694824219,
+      "final_score": 87.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.3,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.26,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.94,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 86.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.04,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 50
+    },
+    {
+      "ticker": "AIRG",
+      "symbol": "AIRG",
+      "company_name": "Airgain, Inc.",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 7.039999961853027,
+      "final_score": 87.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 59.7,
+          "signal": "Bullish Territory | RSI Trend: Rising",
+          "weighted_score": 11.94,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.3,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.14,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 94.4,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.16,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 51
+    },
+    {
+      "ticker": "CENX",
+      "symbol": "CENX",
+      "company_name": "Century Aluminum Company",
+      "sector": "Basic Materials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 65.33000183105469,
+      "final_score": 86.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 88.3,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 17.66,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.18,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 52
+    },
+    {
+      "ticker": "FTNT",
+      "symbol": "FTNT",
+      "company_name": "Fortinet, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 144.8800048828125,
+      "final_score": 86.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 93.7,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 28.11,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.04,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 77.2,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.58,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 53
+    },
+    {
+      "ticker": "XHR",
+      "symbol": "XHR",
+      "company_name": "Xenia Hotels & Resorts, Inc.",
+      "sector": "Real Estate",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 17.415000915527344,
+      "final_score": 86.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.28,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.1,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.56,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 78.6,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.79,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 54
+    },
+    {
+      "ticker": "F",
+      "symbol": "F",
+      "company_name": "Ford Motor Company",
+      "sector": "Consumer Cyclical",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 16.885000228881836,
+      "final_score": 86.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 69.5,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.9,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.8,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.22,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 76.0,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.4,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 55
+    },
+    {
+      "ticker": "WTRE",
+      "symbol": "WTRE",
+      "company_name": "WisdomTree New Economy Real Estate ETF",
+      "sector": "N/A",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 26.539199829101562,
+      "final_score": 86.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 69.8,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.96,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.3,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.6,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 73.0,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.95,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 56
+    },
+    {
+      "ticker": "CRWD",
+      "symbol": "CRWD",
+      "company_name": "CrowdStrike Holdings, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 767.27001953125,
+      "final_score": 86.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.8,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.56,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 65.7,
+          "signal": "Strong Uptrend | \ud83d\udfe2 Golden Cross (Bullish Crossover!)",
+          "weighted_score": 9.86,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 57
+    },
+    {
+      "ticker": "CRDO",
+      "symbol": "CRDO",
+      "company_name": "CRDO",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 236.50999450683594,
+      "final_score": 86.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.64,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.7,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 66.9,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.04,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 58
+    },
+    {
+      "ticker": "CGO",
+      "symbol": "CGO",
+      "company_name": "CGO",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 14.050000190734863,
+      "final_score": 86.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 96.2,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 28.86,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.3,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 72.4,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.86,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 59
+    },
+    {
+      "ticker": "NXPI",
+      "symbol": "NXPI",
+      "company_name": "NXP Semiconductors N.V.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 314.2099914550781,
+      "final_score": 85.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.34,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 89.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.47,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 80.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.11,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 60
+    },
+    {
+      "ticker": "ATI",
+      "symbol": "ATI",
+      "company_name": "ATI Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 176.5,
+      "final_score": 85.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 79.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.84,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.5,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.92,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 61
+    },
+    {
+      "ticker": "PANW",
+      "symbol": "PANW",
+      "company_name": "Palo Alto Networks, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 295.0400085449219,
+      "final_score": 85.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 70.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.18,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 63.3,
+          "signal": "Strong Uptrend | \ud83d\udfe2 Golden Cross (Bullish Crossover!)",
+          "weighted_score": 9.49,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 62
+    },
+    {
+      "ticker": "CNTA",
+      "symbol": "CNTA",
+      "company_name": "CNTA",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 39.724998474121094,
+      "final_score": 85.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 79.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.9,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.5,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.77,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 63
+    },
+    {
+      "ticker": "AAPL",
+      "symbol": "AAPL",
+      "company_name": "Apple Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 306.80999755859375,
+      "final_score": 85.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 69.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.94,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 96.3,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.44,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 67.2,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.08,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 64
+    },
+    {
+      "ticker": "LITE",
+      "symbol": "LITE",
+      "company_name": "Lumentum Holdings Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 890.27001953125,
+      "final_score": 85.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 91.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 18.3,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 81.6,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 12.24,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 65
+    },
+    {
+      "ticker": "MCHP",
+      "symbol": "MCHP",
+      "company_name": "Microchip Technology Incorporated",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 91.76000213623047,
+      "final_score": 85.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 61.3,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.26,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 83.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.58,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 90.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.61,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 66
+    },
+    {
+      "ticker": "CODA",
+      "symbol": "CODA",
+      "company_name": "CODA",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 13.03499984741211,
+      "final_score": 85.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 64.5,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.9,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 71.5,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 10.72,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 96.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.43,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 67
+    },
+    {
+      "ticker": "MKSI",
+      "symbol": "MKSI",
+      "company_name": "MKS Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 315.2300109863281,
+      "final_score": 84.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 79.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.82,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.84,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 68
+    },
+    {
+      "ticker": "ATRO",
+      "symbol": "ATRO",
+      "company_name": "ATRO",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 85.80000305175781,
+      "final_score": 84.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 78.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.62,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.0,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.1,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 69
+    },
+    {
+      "ticker": "CAT",
+      "symbol": "CAT",
+      "company_name": "Caterpillar Inc.",
+      "sector": "Industrials",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 858.2849731445312,
+      "final_score": 84.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.0,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.62,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 70
+    },
+    {
+      "ticker": "NVDA",
+      "symbol": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 220.32000732421875,
+      "final_score": 84.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.4,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.56,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 62.6,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.39,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 71
+    },
+    {
+      "ticker": "LLY",
+      "symbol": "LLY",
+      "company_name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 1076.31494140625,
+      "final_score": 84.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 62.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.58,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.7,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.76,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 74.7,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.21,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 72
+    },
+    {
+      "ticker": "IRM",
+      "symbol": "IRM",
+      "company_name": "Iron Mountain Incorporated",
+      "sector": "Real Estate",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 128.77000427246094,
+      "final_score": 84.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 92.1,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 27.63,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 67.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.48,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.5,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.18,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 81.7,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.26,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 73
+    },
+    {
+      "ticker": "OXY",
+      "symbol": "OXY",
+      "company_name": "Occidental Petroleum Corporation",
+      "sector": "Energy",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 59.244998931884766,
+      "final_score": 84.5,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 58.8,
+          "signal": "Bullish Territory | RSI Trend: Rising",
+          "weighted_score": 11.76,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 83.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.52,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 88.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.23,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 74
+    },
+    {
+      "ticker": "ENPH",
+      "symbol": "ENPH",
+      "company_name": "Enphase Energy, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 63.880001068115234,
+      "final_score": 84.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 48.8,
+          "signal": "Bearish Territory | RSI Trend: Falling",
+          "weighted_score": 9.76,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 84.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.68,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 99.6,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.94,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 75
+    },
+    {
+      "ticker": "ZETA",
+      "symbol": "ZETA",
+      "company_name": "Zeta Global Holdings Corp.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 25.18000030517578,
+      "final_score": 84.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.0,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.0,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 61.7,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.26,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 76
+    },
+    {
+      "ticker": "CELC",
+      "symbol": "CELC",
+      "company_name": "CELC",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 124.83000183105469,
+      "final_score": 84.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 84.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.94,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 82.3,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 12.34,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 77
+    },
+    {
+      "ticker": "TER",
+      "symbol": "TER",
+      "company_name": "Teradyne, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 370.29998779296875,
+      "final_score": 84.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 80.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 16.18,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.9,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.04,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 78
+    },
+    {
+      "ticker": "ATLO",
+      "symbol": "ATLO",
+      "company_name": "ATLO",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 28.549999237060547,
+      "final_score": 84.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 79.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.82,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.19,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 94.1,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.11,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 79
+    },
+    {
+      "ticker": "ANET",
+      "symbol": "ANET",
+      "company_name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 169.14500427246094,
+      "final_score": 84.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.3,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.26,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.88,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 65.8,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.87,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 80
+    },
+    {
+      "ticker": "CODI",
+      "symbol": "CODI",
+      "company_name": "CODI",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 11.050000190734863,
+      "final_score": 84.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 46.3,
+          "signal": "Bearish Territory | RSI Trend: Falling",
+          "weighted_score": 9.26,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 85.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.8,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 99.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.98,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 81
+    },
+    {
+      "ticker": "RS",
+      "symbol": "RS",
+      "company_name": "Reliance, Inc.",
+      "sector": "Basic Materials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 379.2250061035156,
+      "final_score": 83.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 88.9,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 26.67,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 68.2,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.64,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.64,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 79.4,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.91,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 82
+    },
+    {
+      "ticker": "NET",
+      "symbol": "NET",
+      "company_name": "Cloudflare, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 259.8999938964844,
+      "final_score": 83.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 69.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.88,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.98,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 53.1,
+          "signal": "Mild Downtrend | Bearish Alignment (6M < 12M SMA)",
+          "weighted_score": 7.96,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 83
+    },
+    {
+      "ticker": "VCYT",
+      "symbol": "VCYT",
+      "company_name": "Veracyte, Inc.",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 48.720001220703125,
+      "final_score": 83.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 62.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.48,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 95.1,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.26,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 66.8,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.02,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 84
+    },
+    {
+      "ticker": "ATLC",
+      "symbol": "ATLC",
+      "company_name": "ATLC",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 83.45899963378906,
+      "final_score": 83.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.5,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.1,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.98,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 71.3,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.69,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 85
+    },
+    {
+      "ticker": "ADI",
+      "symbol": "ADI",
+      "company_name": "Analog Devices, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 407.2300109863281,
+      "final_score": 83.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.88,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 91.7,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.76,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 86
+    },
+    {
+      "ticker": "CNOB",
+      "symbol": "CNOB",
+      "company_name": "CNOB",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 29.75,
+      "final_score": 83.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 92.5,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 27.75,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 67.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 96.1,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.42,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 72.5,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.88,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 87
+    },
+    {
+      "ticker": "QCOM",
+      "symbol": "QCOM",
+      "company_name": "QUALCOMM Incorporated",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 233.8000030517578,
+      "final_score": 83.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.2,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.04,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 87.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.1,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 67.7,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.15,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 88
+    },
+    {
+      "ticker": "CVS",
+      "symbol": "CVS",
+      "company_name": "CVS Health Corporation",
+      "sector": "Healthcare",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 90.55500030517578,
+      "final_score": 83.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 63.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.74,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 88.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.32,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 68.4,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.26,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 89
+    },
+    {
+      "ticker": "ROST",
+      "symbol": "ROST",
+      "company_name": "Ross Stores, Inc.",
+      "sector": "Consumer Cyclical",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 225.3699951171875,
+      "final_score": 83.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 76.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.2,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 93.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 93.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 14.09,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 90
+    },
+    {
+      "ticker": "FTI",
+      "symbol": "FTI",
+      "company_name": "TechnipFMC plc",
+      "sector": "Energy",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 67.87000274658203,
+      "final_score": 83.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 77.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.48,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 84.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 12.72,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 91
+    },
+    {
+      "ticker": "ARWR",
+      "symbol": "ARWR",
+      "company_name": "ARWR",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 74.69999694824219,
+      "final_score": 83.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.5,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.2,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.53,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 92
+    },
+    {
+      "ticker": "FSLR",
+      "symbol": "FSLR",
+      "company_name": "First Solar, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 300.3999938964844,
+      "final_score": 82.9,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 64.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.92,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.8,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.22,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 58.3,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 8.74,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 93
+    },
+    {
+      "ticker": "KEYS",
+      "symbol": "KEYS",
+      "company_name": "Keysight Technologies, Inc.",
+      "sector": "Technology",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 329.9599914550781,
+      "final_score": 82.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.78,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 86.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.02,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 94
+    },
+    {
+      "ticker": "MTZ",
+      "symbol": "MTZ",
+      "company_name": "MasTec, Inc.",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 363.6199951171875,
+      "final_score": 82.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 78.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 15.72,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 79.6,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 11.94,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 95
+    },
+    {
+      "ticker": "UNFI",
+      "symbol": "UNFI",
+      "company_name": "United Natural Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 51.26499938964844,
+      "final_score": 82.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.38,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 95.7,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.36,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 92.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.84,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 96
+    },
+    {
+      "ticker": "UNF",
+      "symbol": "UNF",
+      "company_name": "UniFirst Corporation",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 263.6700134277344,
+      "final_score": 82.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 67.7,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.8,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.62,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 97
+    },
+    {
+      "ticker": "GOOGL",
+      "symbol": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "sector": "Communication Services",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 375.5299987792969,
+      "final_score": 81.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.68,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.54,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 90.6,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.59,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 98
+    },
+    {
+      "ticker": "CECO",
+      "symbol": "CECO",
+      "company_name": "CECO",
+      "sector": "N/A",
+      "category": "Small Cap",
+      "currency": "USD",
+      "current_price": 75.16999816894531,
+      "final_score": 81.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 78.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.68,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 79.5,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 11.92,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 93.1,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.96,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 99
+    },
+    {
+      "ticker": "WST",
+      "symbol": "WST",
+      "company_name": "West Pharmaceutical Services, Inc.",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 314.510009765625,
+      "final_score": 81.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 55.7,
+          "signal": "Bullish Territory | RSI Trend: Falling",
+          "weighted_score": 11.14,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 13.89,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 62.0,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.3,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 100
+    },
+    {
+      "ticker": "VSAT",
+      "symbol": "VSAT",
+      "company_name": "Viasat, Inc.",
+      "sector": "Technology",
+      "category": "Mid Cap",
+      "currency": "USD",
+      "current_price": 71.27999877929688,
+      "final_score": 81.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Falling",
+          "weighted_score": 14.44,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 78.7,
+          "signal": "Moderate \u2014 Mid-Range",
+          "weighted_score": 11.8,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 101
+    },
+    {
+      "ticker": "WBD",
+      "symbol": "WBD",
+      "company_name": "Warner Bros. Discovery, Inc.",
+      "sector": "Communication Services",
+      "category": "Large Cap",
+      "currency": "USD",
+      "current_price": 27.173099517822266,
+      "final_score": 81.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.4,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.28,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 50,
+          "signal": "Bullish but Decelerating",
+          "weighted_score": 10.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 89.3,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.4,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 89.4,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.41,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 102
+    }
+  ]
+}

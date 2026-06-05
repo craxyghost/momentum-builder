@@ -1,0 +1,1351 @@
+{
+  "exchange": "NSE",
+  "currency": "INR",
+  "last_run": "2026-06-01 10:58",
+  "next_run": "2026-07-01",
+  "total_scanned": 494,
+  "stocks_with_data": 423,
+  "high_momentum_count": 29,
+  "errors_count": 0,
+  "category_breakdown": {
+    "Small Cap": 10,
+    "Mid Cap": 8,
+    "Large Cap": 11
+  },
+  "stocks": [
+    {
+      "ticker": "STLTECH.NS",
+      "symbol": "STLTECH",
+      "company_name": "STLTECH",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 536.1500244140625,
+      "final_score": 94.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 89.1,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 17.82,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 1
+    },
+    {
+      "ticker": "BAJAJCON.NS",
+      "symbol": "BAJAJCON",
+      "company_name": "BAJAJCON",
+      "sector": "Consumer Defensive",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 552.7999877929688,
+      "final_score": 93.0,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 79.8,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.96,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 2
+    },
+    {
+      "ticker": "NATIONALUM.NS",
+      "symbol": "NATIONALUM",
+      "company_name": "NATIONALUM",
+      "sector": "Basic Materials",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 422.34619140625,
+      "final_score": 92.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 81.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.24,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 94.7,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.2,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 3
+    },
+    {
+      "ticker": "SANSERA.NS",
+      "symbol": "SANSERA",
+      "company_name": "SANSERA",
+      "sector": "Consumer Cyclical",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 2861.0,
+      "final_score": 92.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 76.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.32,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 4
+    },
+    {
+      "ticker": "SALSTEEL.NS",
+      "symbol": "SALSTEEL",
+      "company_name": "SALSTEEL",
+      "sector": "Basic Materials",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 59.599998474121094,
+      "final_score": 91.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.58,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 100,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 15.0,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 5
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "symbol": "ADANIPOWER",
+      "company_name": "Adani Power Limited",
+      "sector": "Utilities",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 243.3699951171875,
+      "final_score": 91.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 81.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 16.24,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 86.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.93,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 6
+    },
+    {
+      "ticker": "HINDALCO.NS",
+      "symbol": "HINDALCO",
+      "company_name": "Hindalco Industries Limited",
+      "sector": "Basic Materials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 1126.699951171875,
+      "final_score": 90.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.8,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.96,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 87.5,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.12,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 7
+    },
+    {
+      "ticker": "HFCL.NS",
+      "symbol": "HFCL",
+      "company_name": "HFCL",
+      "sector": "Technology",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 179.94000244140625,
+      "final_score": 90.1,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 77.0,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.4,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 84.6,
+          "signal": "Very Strong Uptrend | \ud83d\udfe2 Golden Cross (Bullish Crossover!)",
+          "weighted_score": 12.69,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 8
+    },
+    {
+      "ticker": "SAIL.NS",
+      "symbol": "SAIL",
+      "company_name": "SAIL",
+      "sector": "Basic Materials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 204.3699951171875,
+      "final_score": 89.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 73.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.7,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 87.2,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.08,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 9
+    },
+    {
+      "ticker": "LAURUSLABS.NS",
+      "symbol": "LAURUSLABS",
+      "company_name": "LAURUSLABS",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 1360.645263671875,
+      "final_score": 89.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 76.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.3,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 82.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.44,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 10
+    },
+    {
+      "ticker": "CUMMINSIND.NS",
+      "symbol": "CUMMINSIND",
+      "company_name": "Cummins India Limited",
+      "sector": "Industrials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 5881.0,
+      "final_score": 89.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 76.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.24,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 82.1,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.31,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 11
+    },
+    {
+      "ticker": "NAVINFLUOR.NS",
+      "symbol": "NAVINFLUOR",
+      "company_name": "NAVINFLUOR",
+      "sector": "Basic Materials",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 7129.0,
+      "final_score": 89.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.2,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.04,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.6,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.79,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 83.4,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.51,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 12
+    },
+    {
+      "ticker": "GRANULES.NS",
+      "symbol": "GRANULES",
+      "company_name": "GRANULES",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 773.8499755859375,
+      "final_score": 88.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 71.6,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.32,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 81.9,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 12.29,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 13
+    },
+    {
+      "ticker": "MBAPL.NS",
+      "symbol": "MBAPL",
+      "company_name": "MBAPL",
+      "sector": "Basic Materials",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 529.7000122070312,
+      "final_score": 86.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 74.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.9,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 93.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 14.02,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 71.6,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.74,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 14
+    },
+    {
+      "ticker": "KEI.NS",
+      "symbol": "KEI",
+      "company_name": "KEI",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 5267.5,
+      "final_score": 85.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 63.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.72,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.1,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.86,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 74.7,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.21,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 15
+    },
+    {
+      "ticker": "NMDC.NS",
+      "symbol": "NMDC",
+      "company_name": "NMDC",
+      "sector": "Basic Materials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 87.98999786376953,
+      "final_score": 85.4,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.32,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 92.1,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.82,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 75.1,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.26,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 16
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "symbol": "POLYCAB",
+      "company_name": "POLYCAB",
+      "sector": "Industrials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 9477.5,
+      "final_score": 85.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.12,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 68.2,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.23,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 17
+    },
+    {
+      "ticker": "MOTHERSON.NS",
+      "symbol": "MOTHERSON",
+      "company_name": "MOTHERSON",
+      "sector": "Consumer Cyclical",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 145.74000549316406,
+      "final_score": 85.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 96.0,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 28.8,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 64.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.88,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 76.8,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.52,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 18
+    },
+    {
+      "ticker": "ASTERDM.NS",
+      "symbol": "ASTERDM",
+      "company_name": "ASTERDM",
+      "sector": "Healthcare",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 728.3499755859375,
+      "final_score": 84.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 98.7,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 29.61,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 70.9,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.18,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 99.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.98,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 60.1,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.02,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 19
+    },
+    {
+      "ticker": "USHAMART.NS",
+      "symbol": "USHAMART",
+      "company_name": "USHAMART",
+      "sector": "Basic Materials",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 506.04998779296875,
+      "final_score": 84.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 64.4,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.88,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 62.8,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.42,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 20
+    },
+    {
+      "ticker": "ESABINDIA.NS",
+      "symbol": "ESABINDIA",
+      "company_name": "ESABINDIA",
+      "sector": "Industrials",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 6511.0,
+      "final_score": 83.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 95.3,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 28.59,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 62.9,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 12.58,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 70.7,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 10.61,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 21
+    },
+    {
+      "ticker": "GAEL.NS",
+      "symbol": "GAEL",
+      "company_name": "GAEL",
+      "sector": "Consumer Defensive",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 154.88999938964844,
+      "final_score": 83.8,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 88.5,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 26.55,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 61.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.32,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 95.2,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.28,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 91.3,
+          "signal": "Very Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 13.69,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 22
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "symbol": "ADANIPORTS",
+      "company_name": "Adani Ports and Special Economic Zone Limited",
+      "sector": "Industrials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 1804.5999755859375,
+      "final_score": 83.7,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 95.6,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 28.68,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 66.8,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.36,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 100,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 15.0,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 64.7,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.71,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 23
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "symbol": "COALINDIA",
+      "company_name": "Coal India Limited",
+      "sector": "Energy",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 457.8999938964844,
+      "final_score": 82.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 91.1,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 27.33,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.6,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 13.12,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 88.4,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.26,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 79.2,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.88,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 24
+    },
+    {
+      "ticker": "JBCHEPHARM.NS",
+      "symbol": "JBCHEPHARM",
+      "company_name": "JBCHEPHARM",
+      "sector": "Healthcare",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 2167.39990234375,
+      "final_score": 82.3,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 83.0,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 24.9,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 72.7,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 14.54,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 98.0,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.7,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 74.4,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.16,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 25
+    },
+    {
+      "ticker": "TORNTPHARM.NS",
+      "symbol": "TORNTPHARM",
+      "company_name": "TORNTPHARM",
+      "sector": "Healthcare",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 4410.7998046875,
+      "final_score": 82.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 81.6,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 24.48,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 75.5,
+          "signal": "Overbought / Very Strong | RSI Trend: Rising",
+          "weighted_score": 15.1,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.3,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.6,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 73.6,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.04,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 26
+    },
+    {
+      "ticker": "TIMKEN.NS",
+      "symbol": "TIMKEN",
+      "company_name": "TIMKEN",
+      "sector": "Industrials",
+      "category": "Mid Cap",
+      "currency": "INR",
+      "current_price": 3630.39990234375,
+      "final_score": 82.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 100,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 30.0,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 57.5,
+          "signal": "Bullish Territory | RSI Trend: Rising",
+          "weighted_score": 11.5,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 97.9,
+          "signal": "Near 52-Week High (Very Strong)",
+          "weighted_score": 14.68,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 59.9,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 8.98,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 27
+    },
+    {
+      "ticker": "VISHNU.NS",
+      "symbol": "VISHNU",
+      "company_name": "VISHNU",
+      "sector": "Basic Materials",
+      "category": "Small Cap",
+      "currency": "INR",
+      "current_price": 579.0999755859375,
+      "final_score": 81.6,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 99.8,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 29.94,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 61.0,
+          "signal": "Strong Momentum Zone | RSI Trend: Falling",
+          "weighted_score": 12.2,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 89.5,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.42,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 60.5,
+          "signal": "Mild Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 9.07,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 28
+    },
+    {
+      "ticker": "ABB.NS",
+      "symbol": "ABB",
+      "company_name": "ABB",
+      "sector": "Industrials",
+      "category": "Large Cap",
+      "currency": "INR",
+      "current_price": 7253.0,
+      "final_score": 81.2,
+      "momentum_class": "Very Strong",
+      "momentum_color": "#00c853",
+      "recommendation": "High momentum. Strong candidate for long-term position.",
+      "indicators": {
+        "12_1_momentum": {
+          "score": 88.5,
+          "signal": "Very Strong Momentum",
+          "weighted_score": 26.55,
+          "short": "Price Momentum"
+        },
+        "rsi": {
+          "score": 65.5,
+          "signal": "Strong Momentum Zone | RSI Trend: Rising",
+          "weighted_score": 13.1,
+          "short": "Monthly RSI"
+        },
+        "macd": {
+          "score": 85,
+          "signal": "Bullish & Accelerating",
+          "weighted_score": 17.0,
+          "short": "MACD Monthly"
+        },
+        "52_week_high": {
+          "score": 90.1,
+          "signal": "Strong \u2014 Near 52-Week High",
+          "weighted_score": 13.51,
+          "short": "52W High Ratio"
+        },
+        "ma_momentum": {
+          "score": 73.5,
+          "signal": "Strong Uptrend | Bullish Alignment (6M > 12M SMA)",
+          "weighted_score": 11.03,
+          "short": "MA Momentum"
+        }
+      },
+      "rank": 29
+    }
+  ]
+}
