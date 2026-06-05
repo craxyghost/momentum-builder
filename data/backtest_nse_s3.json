@@ -3,7 +3,8 @@
   "strategy_name": "QVM Triple Filter",
   "strategy_icon": "\ud83d\udc8e",
   "exchange": "NSE",
-  "generated_at": "2026-06-04 19:52",
+  "generated_at": "2026-06-04 20:16",
+  "backtest_note": "Full universe: 424 stocks scored, elite >=81 filter applied",
   "period": {
     "start": "Jun 2025",
     "end": "May 2026",
@@ -14,6 +15,30 @@
       "month": "Jun 2025",
       "month_key": "2025-06",
       "stocks": [
+        {
+          "ticker": "V2RETAIL.NS",
+          "symbol": "V2RETAIL",
+          "sector": "Other",
+          "score": 85.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 88.7,
+          "entry_price": 183.42,
+          "exit_price": 181.45,
+          "return_pct": -1.07
+        },
+        {
+          "ticker": "PARADEEP.NS",
+          "symbol": "PARADEEP",
+          "sector": "Other",
+          "score": 84.4,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 97.5,
+          "entry_price": 172.25,
+          "exit_price": 159.25,
+          "return_pct": -7.55
+        },
         {
           "ticker": "BAJFINANCE.NS",
           "symbol": "BAJFINANCE",
@@ -39,18 +64,6 @@
           "return_pct": 8.98
         },
         {
-          "ticker": "DIVISLAB.NS",
-          "symbol": "DIVISLAB",
-          "sector": "Other",
-          "score": 74.8,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 97.8,
-          "entry_price": 6584.52,
-          "exit_price": 6778.63,
-          "return_pct": 2.95
-        },
-        {
           "ticker": "KOTAKBANK.NS",
           "symbol": "KOTAKBANK",
           "sector": "Banking",
@@ -73,18 +86,6 @@
           "entry_price": 952.18,
           "exit_price": 987.4,
           "return_pct": 3.7
-        },
-        {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
-          "sector": "Other",
-          "score": 72.2,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 92.1,
-          "entry_price": 2189.49,
-          "exit_price": 2601.9,
-          "return_pct": 18.84
         },
         {
           "ticker": "EICHERMOT.NS",
@@ -142,8 +143,8 @@
           "macd_score": 40.0,
           "rsi_score": 50.0,
           "h52_score": 88.6,
-          "entry_price": 1406.48,
-          "exit_price": 1494.63,
+          "entry_price": 1400.01,
+          "exit_price": 1487.75,
           "return_pct": 6.27
         },
         {
@@ -195,13 +196,13 @@
           "return_pct": -0.44
         }
       ],
-      "portfolio_return_pct": 4.69,
-      "portfolio_value": 104.69,
+      "portfolio_return_pct": 2.67,
+      "portfolio_value": 102.67,
       "num_stocks": 15,
       "sectors": {
+        "Other": 2,
         "NBFC": 1,
         "Telecom": 1,
-        "Other": 2,
         "Banking": 2,
         "Auto": 2,
         "Consumer": 1,
@@ -212,15 +213,41 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
-      "best_stock": "MUTHOOTFIN",
-      "worst_stock": "ITC",
-      "best_return": 18.84,
-      "worst_return": -0.44
+      "elite_pool_size": 7,
+      "total_scored": 423,
+      "best_stock": "BHARTIARTL",
+      "worst_stock": "PARADEEP",
+      "best_return": 8.98,
+      "worst_return": -7.55
     },
     {
       "month": "Jul 2025",
       "month_key": "2025-07",
       "stocks": [
+        {
+          "ticker": "MBAPL.NS",
+          "symbol": "MBAPL",
+          "sector": "Other",
+          "score": 85.8,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 94.2,
+          "entry_price": 417.52,
+          "exit_price": 445.49,
+          "return_pct": 6.7
+        },
+        {
+          "ticker": "V2RETAIL.NS",
+          "symbol": "V2RETAIL",
+          "sector": "Other",
+          "score": 84.6,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 86.5,
+          "entry_price": 182.8,
+          "exit_price": 185.8,
+          "return_pct": 1.64
+        },
         {
           "ticker": "BAJFINANCE.NS",
           "symbol": "BAJFINANCE",
@@ -234,18 +261,6 @@
           "return_pct": -5.5
         },
         {
-          "ticker": "DIVISLAB.NS",
-          "symbol": "DIVISLAB",
-          "sector": "Other",
-          "score": 79.8,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 99.2,
-          "entry_price": 6797.55,
-          "exit_price": 6565.6,
-          "return_pct": -3.41
-        },
-        {
           "ticker": "BHARTIARTL.NS",
           "symbol": "BHARTIARTL",
           "sector": "Telecom",
@@ -256,18 +271,6 @@
           "entry_price": 1992.34,
           "exit_price": 1898.43,
           "return_pct": -4.71
-        },
-        {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
-          "sector": "Other",
-          "score": 75.5,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 98.3,
-          "entry_price": 2602.99,
-          "exit_price": 2590.4,
-          "return_pct": -0.48
         },
         {
           "ticker": "HDFCBANK.NS",
@@ -349,8 +352,8 @@
           "macd_score": 90.0,
           "rsi_score": 50.0,
           "h52_score": 93.6,
-          "entry_price": 1494.63,
-          "exit_price": 1384.67,
+          "entry_price": 1487.75,
+          "exit_price": 1378.3,
           "return_pct": -7.36
         },
         {
@@ -402,12 +405,12 @@
           "return_pct": -1.21
         }
       ],
-      "portfolio_return_pct": -2.55,
-      "portfolio_value": 102.02,
+      "portfolio_return_pct": -1.74,
+      "portfolio_value": 100.88,
       "num_stocks": 15,
       "sectors": {
-        "NBFC": 1,
         "Other": 2,
+        "NBFC": 1,
         "Telecom": 1,
         "Banking": 2,
         "Auto": 2,
@@ -419,9 +422,11 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
-      "best_stock": "ICICIBANK",
+      "elite_pool_size": 18,
+      "total_scored": 423,
+      "best_stock": "MBAPL",
       "worst_stock": "TITAN",
-      "best_return": 2.47,
+      "best_return": 6.7,
       "worst_return": -9.51
     },
     {
@@ -429,16 +434,28 @@
       "month_key": "2025-08",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "MBAPL.NS",
+          "symbol": "MBAPL",
           "sector": "Other",
-          "score": 82.7,
+          "score": 86.8,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 96.1,
-          "entry_price": 2590.4,
-          "exit_price": 2615.68,
-          "return_pct": 0.98
+          "h52_score": 95.9,
+          "entry_price": 444.49,
+          "exit_price": 419.86,
+          "return_pct": -5.54
+        },
+        {
+          "ticker": "PARADEEP.NS",
+          "symbol": "PARADEEP",
+          "sector": "Other",
+          "score": 86.3,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 91.9,
+          "entry_price": 215.52,
+          "exit_price": 216.43,
+          "return_pct": 0.42
         },
         {
           "ticker": "BAJFINANCE.NS",
@@ -451,18 +468,6 @@
           "entry_price": 884.8,
           "exit_price": 877.85,
           "return_pct": -0.79
-        },
-        {
-          "ticker": "DIVISLAB.NS",
-          "symbol": "DIVISLAB",
-          "sector": "Other",
-          "score": 80.8,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 93.3,
-          "entry_price": 6598.0,
-          "exit_price": 6131.5,
-          "return_pct": -7.07
         },
         {
           "ticker": "BHARTIARTL.NS",
@@ -520,8 +525,8 @@
           "macd_score": 90.0,
           "rsi_score": 50.0,
           "h52_score": 86.7,
-          "entry_price": 1381.38,
-          "exit_price": 1351.8,
+          "entry_price": 1375.03,
+          "exit_price": 1345.58,
           "return_pct": -2.14
         },
         {
@@ -609,8 +614,8 @@
           "return_pct": 4.31
         }
       ],
-      "portfolio_return_pct": 0.88,
-      "portfolio_value": 102.92,
+      "portfolio_return_pct": 0.94,
+      "portfolio_value": 101.83,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -626,38 +631,40 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 22,
+      "total_scored": 423,
       "best_stock": "MARUTI",
-      "worst_stock": "DIVISLAB",
+      "worst_stock": "SUNPHARMA",
       "best_return": 18.13,
-      "worst_return": -7.07
+      "worst_return": -5.65
     },
     {
       "month": "Sep 2025",
       "month_key": "2025-09",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "GODFRYPHLP.NS",
+          "symbol": "GODFRYPHLP",
           "sector": "Other",
-          "score": 80.5,
+          "score": 87.4,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 94.0,
-          "entry_price": 2641.76,
-          "exit_price": 3051.3,
-          "return_pct": 15.5
+          "h52_score": 96.0,
+          "entry_price": 3674.94,
+          "exit_price": 3365.02,
+          "return_pct": -8.43
         },
         {
-          "ticker": "BEL.NS",
-          "symbol": "BEL",
+          "ticker": "LUMAXTECH.NS",
+          "symbol": "LUMAXTECH",
           "sector": "Other",
-          "score": 78.1,
+          "score": 87.1,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 84.7,
-          "entry_price": 368.38,
-          "exit_price": 402.24,
-          "return_pct": 9.19
+          "h52_score": 93.7,
+          "entry_price": 1180.5,
+          "exit_price": 1249.8,
+          "return_pct": 5.87
         },
         {
           "ticker": "BAJFINANCE.NS",
@@ -787,8 +794,8 @@
           "macd_score": 70.0,
           "rsi_score": 50.0,
           "h52_score": 87.5,
-          "entry_price": 1356.0,
-          "exit_price": 1364.0,
+          "entry_price": 1349.76,
+          "exit_price": 1357.72,
           "return_pct": 0.59
         },
         {
@@ -816,8 +823,8 @@
           "return_pct": -4.03
         }
       ],
-      "portfolio_return_pct": 3.19,
-      "portfolio_value": 106.2,
+      "portfolio_return_pct": 1.38,
+      "portfolio_value": 103.24,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -833,26 +840,40 @@
         "IT": 1
       },
       "mode": "INVESTED",
-      "best_stock": "MUTHOOTFIN",
-      "worst_stock": "TITAN",
-      "best_return": 15.5,
-      "worst_return": -7.27
+      "elite_pool_size": 21,
+      "total_scored": 423,
+      "best_stock": "EICHERMOT",
+      "worst_stock": "GODFRYPHLP",
+      "best_return": 15.13,
+      "worst_return": -8.43
     },
     {
       "month": "Oct 2025",
       "month_key": "2025-10",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "LUMAXIND.NS",
+          "symbol": "LUMAXIND",
           "sector": "Other",
-          "score": 87.7,
+          "score": 95.1,
           "macd_score": 90.0,
-          "rsi_score": 87.0,
-          "h52_score": 98.7,
-          "entry_price": 3074.01,
-          "exit_price": 3152.05,
-          "return_pct": 2.54
+          "rsi_score": 86.0,
+          "h52_score": 99.5,
+          "entry_price": 5050.0,
+          "exit_price": 4991.0,
+          "return_pct": -1.17
+        },
+        {
+          "ticker": "GODFRYPHLP.NS",
+          "symbol": "GODFRYPHLP",
+          "sector": "Other",
+          "score": 93.8,
+          "macd_score": 90.0,
+          "rsi_score": 89.5,
+          "h52_score": 85.7,
+          "entry_price": 3369.99,
+          "exit_price": 3060.44,
+          "return_pct": -9.19
         },
         {
           "ticker": "EICHERMOT.NS",
@@ -865,18 +886,6 @@
           "entry_price": 7000.0,
           "exit_price": 7007.0,
           "return_pct": 0.1
-        },
-        {
-          "ticker": "BEL.NS",
-          "symbol": "BEL",
-          "sector": "Other",
-          "score": 80.5,
-          "macd_score": 90.0,
-          "rsi_score": 49.7,
-          "h52_score": 92.9,
-          "entry_price": 400.3,
-          "exit_price": 424.29,
-          "return_pct": 6.0
         },
         {
           "ticker": "BAJFINANCE.NS",
@@ -958,8 +967,8 @@
           "macd_score": 90.0,
           "rsi_score": 48.0,
           "h52_score": 88.3,
-          "entry_price": 1367.0,
-          "exit_price": 1486.4,
+          "entry_price": 1360.71,
+          "exit_price": 1479.56,
           "return_pct": 8.73
         },
         {
@@ -1023,8 +1032,8 @@
           "return_pct": 4.89
         }
       ],
-      "portfolio_return_pct": 3.8,
-      "portfolio_value": 110.24,
+      "portfolio_return_pct": 2.54,
+      "portfolio_value": 105.86,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -1040,26 +1049,40 @@
         "IT": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 29,
+      "total_scored": 423,
       "best_stock": "TITAN",
-      "worst_stock": "DRREDDY",
+      "worst_stock": "GODFRYPHLP",
       "best_return": 11.18,
-      "worst_return": -2.47
+      "worst_return": -9.19
     },
     {
       "month": "Nov 2025",
       "month_key": "2025-11",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "LUMAXIND.NS",
+          "symbol": "LUMAXIND",
           "sector": "Other",
-          "score": 91.7,
+          "score": 93.8,
           "macd_score": 90.0,
-          "rsi_score": 87.7,
-          "h52_score": 94.1,
-          "entry_price": 3153.93,
-          "exit_price": 3712.81,
-          "return_pct": 17.72
+          "rsi_score": 84.3,
+          "h52_score": 93.2,
+          "entry_price": 4989.0,
+          "exit_price": 5610.6,
+          "return_pct": 12.46
+        },
+        {
+          "ticker": "LAURUSLABS.NS",
+          "symbol": "LAURUSLABS",
+          "sector": "Other",
+          "score": 93.5,
+          "macd_score": 90.0,
+          "rsi_score": 85.6,
+          "h52_score": 98.1,
+          "entry_price": 957.0,
+          "exit_price": 1030.32,
+          "return_pct": 7.66
         },
         {
           "ticker": "BAJFINANCE.NS",
@@ -1084,18 +1107,6 @@
           "entry_price": 7030.0,
           "exit_price": 7053.5,
           "return_pct": 0.33
-        },
-        {
-          "ticker": "BEL.NS",
-          "symbol": "BEL",
-          "sector": "Other",
-          "score": 86.6,
-          "macd_score": 90.0,
-          "rsi_score": 52.9,
-          "h52_score": 98.0,
-          "entry_price": 426.19,
-          "exit_price": 410.0,
-          "return_pct": -3.8
         },
         {
           "ticker": "MARUTI.NS",
@@ -1177,8 +1188,8 @@
           "macd_score": 90.0,
           "rsi_score": 57.7,
           "h52_score": 96.2,
-          "entry_price": 1486.0,
-          "exit_price": 1567.5,
+          "entry_price": 1479.16,
+          "exit_price": 1560.29,
           "return_pct": 5.48
         },
         {
@@ -1230,8 +1241,8 @@
           "return_pct": 8.49
         }
       ],
-      "portfolio_return_pct": 3.38,
-      "portfolio_value": 113.97,
+      "portfolio_return_pct": 3.8,
+      "portfolio_value": 109.88,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -1247,9 +1258,11 @@
         "Pharma": 2
       },
       "mode": "INVESTED",
-      "best_stock": "MUTHOOTFIN",
+      "elite_pool_size": 41,
+      "total_scored": 423,
+      "best_stock": "ASIANPAINT",
       "worst_stock": "TATASTEEL",
-      "best_return": 17.72,
+      "best_return": 15.15,
       "worst_return": -7.92
     },
     {
@@ -1257,16 +1270,28 @@
       "month_key": "2025-12",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "LAURUSLABS.NS",
+          "symbol": "LAURUSLABS",
           "sector": "Other",
-          "score": 94.2,
+          "score": 95.4,
           "macd_score": 90.0,
-          "rsi_score": 90.4,
-          "h52_score": 99.2,
-          "entry_price": 3747.31,
-          "exit_price": 3779.74,
-          "return_pct": 0.87
+          "rsi_score": 87.5,
+          "h52_score": 99.8,
+          "entry_price": 1033.97,
+          "exit_price": 1106.9,
+          "return_pct": 7.05
+        },
+        {
+          "ticker": "LUMAXIND.NS",
+          "symbol": "LUMAXIND",
+          "sector": "Other",
+          "score": 95.0,
+          "macd_score": 90.0,
+          "rsi_score": 87.1,
+          "h52_score": 96.9,
+          "entry_price": 5671.0,
+          "exit_price": 5218.0,
+          "return_pct": -7.99
         },
         {
           "ticker": "EICHERMOT.NS",
@@ -1291,18 +1316,6 @@
           "entry_price": 1041.9,
           "exit_price": 986.8,
           "return_pct": -5.29
-        },
-        {
-          "ticker": "CHOLAFIN.NS",
-          "symbol": "CHOLAFIN",
-          "sector": "Other",
-          "score": 85.3,
-          "macd_score": 90.0,
-          "rsi_score": 69.9,
-          "h52_score": 97.4,
-          "entry_price": 1746.69,
-          "exit_price": 1700.93,
-          "return_pct": -2.62
         },
         {
           "ticker": "BHARTIARTL.NS",
@@ -1372,8 +1385,8 @@
           "macd_score": 90.0,
           "rsi_score": 62.7,
           "h52_score": 99.1,
-          "entry_price": 1575.0,
-          "exit_price": 1570.4,
+          "entry_price": 1567.75,
+          "exit_price": 1563.17,
           "return_pct": -0.29
         },
         {
@@ -1437,8 +1450,8 @@
           "return_pct": -6.59
         }
       ],
-      "portfolio_return_pct": -0.32,
-      "portfolio_value": 113.61,
+      "portfolio_return_pct": -0.26,
+      "portfolio_value": 109.59,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -1454,26 +1467,40 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
-      "best_stock": "TATASTEEL",
-      "worst_stock": "SUNPHARMA",
-      "best_return": 6.56,
-      "worst_return": -6.59
+      "elite_pool_size": 48,
+      "total_scored": 423,
+      "best_stock": "LAURUSLABS",
+      "worst_stock": "LUMAXIND",
+      "best_return": 7.05,
+      "worst_return": -7.99
     },
     {
       "month": "Jan 2026",
       "month_key": "2026-01",
       "stocks": [
         {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
+          "ticker": "LAURUSLABS.NS",
+          "symbol": "LAURUSLABS",
           "sector": "Other",
-          "score": 94.5,
+          "score": 95.7,
           "macd_score": 90.0,
-          "rsi_score": 90.7,
-          "h52_score": 98.0,
-          "entry_price": 3769.63,
-          "exit_price": 3797.49,
-          "return_pct": 0.74
+          "rsi_score": 89.1,
+          "h52_score": 99.0,
+          "entry_price": 1106.9,
+          "exit_price": 964.04,
+          "return_pct": -12.91
+        },
+        {
+          "ticker": "SALSTEEL.NS",
+          "symbol": "SALSTEEL",
+          "sector": "Other",
+          "score": 94.9,
+          "macd_score": 90.0,
+          "rsi_score": 85.7,
+          "h52_score": 98.1,
+          "entry_price": 44.24,
+          "exit_price": 38.88,
+          "return_pct": -12.12
         },
         {
           "ticker": "EICHERMOT.NS",
@@ -1486,18 +1513,6 @@
           "entry_price": 7317.0,
           "exit_price": 7122.5,
           "return_pct": -2.66
-        },
-        {
-          "ticker": "HEROMOTOCO.NS",
-          "symbol": "HEROMOTOCO",
-          "sector": "Other",
-          "score": 87.0,
-          "macd_score": 90.0,
-          "rsi_score": 60.3,
-          "h52_score": 90.3,
-          "entry_price": 5660.67,
-          "exit_price": 5428.2,
-          "return_pct": -4.11
         },
         {
           "ticker": "BHARTIARTL.NS",
@@ -1543,8 +1558,8 @@
           "macd_score": 90.0,
           "rsi_score": 62.9,
           "h52_score": 99.3,
-          "entry_price": 1573.7,
-          "exit_price": 1395.4,
+          "entry_price": 1566.46,
+          "exit_price": 1388.98,
           "return_pct": -11.33
         },
         {
@@ -1644,8 +1659,8 @@
           "return_pct": -4.09
         }
       ],
-      "portfolio_return_pct": -3.77,
-      "portfolio_value": 109.33,
+      "portfolio_return_pct": -5.21,
+      "portfolio_value": 103.88,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -1661,10 +1676,12 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 52,
+      "total_scored": 423,
       "best_stock": "SBIN",
-      "worst_stock": "MARUTI",
+      "worst_stock": "LAURUSLABS",
       "best_return": 9.56,
-      "worst_return": -12.58
+      "worst_return": -12.91
     },
     {
       "month": "Feb 2026",
@@ -1683,6 +1700,18 @@
           "return_pct": -9.36
         },
         {
+          "ticker": "HINDCOPPER.NS",
+          "symbol": "HINDCOPPER",
+          "sector": "Other",
+          "score": 93.3,
+          "macd_score": 90.0,
+          "rsi_score": 83.9,
+          "h52_score": 90.2,
+          "entry_price": 618.96,
+          "exit_price": 565.39,
+          "return_pct": -8.65
+        },
+        {
           "ticker": "EICHERMOT.NS",
           "symbol": "EICHERMOT",
           "sector": "Auto",
@@ -1693,18 +1722,6 @@
           "entry_price": 7122.5,
           "exit_price": 8010.5,
           "return_pct": 12.47
-        },
-        {
-          "ticker": "HEROMOTOCO.NS",
-          "symbol": "HEROMOTOCO",
-          "sector": "Other",
-          "score": 85.6,
-          "macd_score": 90.0,
-          "rsi_score": 56.4,
-          "h52_score": 86.6,
-          "entry_price": 5461.55,
-          "exit_price": 5600.83,
-          "return_pct": 2.55
         },
         {
           "ticker": "TATASTEEL.NS",
@@ -1786,8 +1803,8 @@
           "macd_score": 70.0,
           "rsi_score": 48.6,
           "h52_score": 86.6,
-          "entry_price": 1396.0,
-          "exit_price": 1393.9,
+          "entry_price": 1389.58,
+          "exit_price": 1387.48,
           "return_pct": -0.15
         },
         {
@@ -1851,8 +1868,8 @@
           "return_pct": -20.24
         }
       ],
-      "portfolio_return_pct": 1.81,
-      "portfolio_value": 111.31,
+      "portfolio_return_pct": 1.06,
+      "portfolio_value": 104.98,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -1869,6 +1886,8 @@
         "IT": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 51,
+      "total_scored": 423,
       "best_stock": "EICHERMOT",
       "worst_stock": "INFY",
       "best_return": 12.47,
@@ -1878,6 +1897,30 @@
       "month": "Mar 2026",
       "month_key": "2026-03",
       "stocks": [
+        {
+          "ticker": "SALSTEEL.NS",
+          "symbol": "SALSTEEL",
+          "sector": "Other",
+          "score": 93.3,
+          "macd_score": 90.0,
+          "rsi_score": 80.4,
+          "h52_score": 94.8,
+          "entry_price": 47.49,
+          "exit_price": 36.8,
+          "return_pct": -22.51
+        },
+        {
+          "ticker": "BAJAJCON.NS",
+          "symbol": "BAJAJCON",
+          "sector": "Other",
+          "score": 93.1,
+          "macd_score": 90.0,
+          "rsi_score": 78.0,
+          "h52_score": 96.7,
+          "entry_price": 366.5,
+          "exit_price": 347.9,
+          "return_pct": -5.08
+        },
         {
           "ticker": "EICHERMOT.NS",
           "symbol": "EICHERMOT",
@@ -1891,18 +1934,6 @@
           "return_pct": -15.56
         },
         {
-          "ticker": "TORNTPHARM.NS",
-          "symbol": "TORNTPHARM",
-          "sector": "Other",
-          "score": 86.8,
-          "macd_score": 90.0,
-          "rsi_score": 84.0,
-          "h52_score": 96.9,
-          "entry_price": 4182.69,
-          "exit_price": 4211.83,
-          "return_pct": 0.7
-        },
-        {
           "ticker": "SBIN.NS",
           "symbol": "SBIN",
           "sector": "Banking",
@@ -1913,18 +1944,6 @@
           "entry_price": 1164.02,
           "exit_price": 962.06,
           "return_pct": -17.35
-        },
-        {
-          "ticker": "HEROMOTOCO.NS",
-          "symbol": "HEROMOTOCO",
-          "sector": "Other",
-          "score": 86.3,
-          "macd_score": 90.0,
-          "rsi_score": 58.6,
-          "h52_score": 89.4,
-          "entry_price": 5565.0,
-          "exit_price": 5063.0,
-          "return_pct": -9.02
         },
         {
           "ticker": "TATASTEEL.NS",
@@ -2018,8 +2037,8 @@
           "macd_score": 70.0,
           "rsi_score": 48.5,
           "h52_score": 86.5,
-          "entry_price": 1375.5,
-          "exit_price": 1343.9,
+          "entry_price": 1369.17,
+          "exit_price": 1337.71,
           "return_pct": -2.3
         },
         {
@@ -2059,12 +2078,12 @@
           "return_pct": -13.8
         }
       ],
-      "portfolio_return_pct": -8.15,
-      "portfolio_value": 102.24,
+      "portfolio_return_pct": -9.43,
+      "portfolio_value": 95.08,
       "num_stocks": 15,
       "sectors": {
-        "Auto": 2,
         "Other": 2,
+        "Auto": 2,
         "Banking": 2,
         "Metals": 1,
         "Consumer": 1,
@@ -2077,26 +2096,40 @@
         "Paints": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 67,
+      "total_scored": 423,
       "best_stock": "NTPC",
-      "worst_stock": "BAJFINANCE",
+      "worst_stock": "SALSTEEL",
       "best_return": 1.55,
-      "worst_return": -17.45
+      "worst_return": -22.51
     },
     {
       "month": "Apr 2026",
       "month_key": "2026-04",
       "stocks": [
         {
-          "ticker": "TORNTPHARM.NS",
-          "symbol": "TORNTPHARM",
+          "ticker": "NATIONALUM.NS",
+          "symbol": "NATIONALUM",
           "sector": "Other",
-          "score": 86.0,
+          "score": 90.6,
           "macd_score": 90.0,
-          "rsi_score": 81.5,
-          "h52_score": 94.1,
-          "entry_price": 4269.12,
-          "exit_price": 4176.8,
-          "return_pct": -2.16
+          "rsi_score": 70.1,
+          "h52_score": 90.6,
+          "entry_price": 394.48,
+          "exit_price": 397.32,
+          "return_pct": 0.72
+        },
+        {
+          "ticker": "VEDL.NS",
+          "symbol": "VEDL",
+          "sector": "Other",
+          "score": 89.9,
+          "macd_score": 90.0,
+          "rsi_score": 73.4,
+          "h52_score": 85.1,
+          "entry_price": 664.0,
+          "exit_price": 271.55,
+          "return_pct": -59.1
         },
         {
           "ticker": "TITAN.NS",
@@ -2109,18 +2142,6 @@
           "entry_price": 4000.0,
           "exit_price": 4385.2,
           "return_pct": 9.63
-        },
-        {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
-          "sector": "Other",
-          "score": 82.6,
-          "macd_score": 70.0,
-          "rsi_score": 68.4,
-          "h52_score": 76.2,
-          "entry_price": 3251.51,
-          "exit_price": 3395.49,
-          "return_pct": 4.43
         },
         {
           "ticker": "TATASTEEL.NS",
@@ -2214,8 +2235,8 @@
           "macd_score": 70.0,
           "rsi_score": 45.1,
           "h52_score": 83.4,
-          "entry_price": 1384.2,
-          "exit_price": 1430.8,
+          "entry_price": 1377.83,
+          "exit_price": 1424.22,
           "return_pct": 3.37
         },
         {
@@ -2267,8 +2288,8 @@
           "return_pct": 6.18
         }
       ],
-      "portfolio_return_pct": 5.22,
-      "portfolio_value": 107.58,
+      "portfolio_return_pct": 1.18,
+      "portfolio_value": 96.2,
       "num_stocks": 15,
       "sectors": {
         "Other": 2,
@@ -2285,15 +2306,41 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
+      "elite_pool_size": 28,
+      "total_scored": 423,
       "best_stock": "BAJFINANCE",
-      "worst_stock": "TORNTPHARM",
+      "worst_stock": "VEDL",
       "best_return": 12.51,
-      "worst_return": -2.16
+      "worst_return": -59.1
     },
     {
       "month": "May 2026",
       "month_key": "2026-05",
       "stocks": [
+        {
+          "ticker": "STLTECH.NS",
+          "symbol": "STLTECH",
+          "sector": "Other",
+          "score": 92.8,
+          "macd_score": 90.0,
+          "rsi_score": 76.8,
+          "h52_score": 98.5,
+          "entry_price": 294.8,
+          "exit_price": 536.15,
+          "return_pct": 81.87
+        },
+        {
+          "ticker": "SANSERA.NS",
+          "symbol": "SANSERA",
+          "sector": "Other",
+          "score": 91.8,
+          "macd_score": 90.0,
+          "rsi_score": 74.9,
+          "h52_score": 94.1,
+          "entry_price": 2513.6,
+          "exit_price": 2861.0,
+          "return_pct": 13.82
+        },
         {
           "ticker": "TATASTEEL.NS",
           "symbol": "TATASTEEL",
@@ -2305,30 +2352,6 @@
           "entry_price": 211.36,
           "exit_price": 208.02,
           "return_pct": -1.58
-        },
-        {
-          "ticker": "TORNTPHARM.NS",
-          "symbol": "TORNTPHARM",
-          "sector": "Other",
-          "score": 83.2,
-          "macd_score": 90.0,
-          "rsi_score": 80.4,
-          "h52_score": 93.4,
-          "entry_price": 4176.8,
-          "exit_price": 4402.05,
-          "return_pct": 5.39
-        },
-        {
-          "ticker": "MUTHOOTFIN.NS",
-          "symbol": "MUTHOOTFIN",
-          "sector": "Other",
-          "score": 83.1,
-          "macd_score": 70.0,
-          "rsi_score": 71.6,
-          "h52_score": 82.5,
-          "entry_price": 3424.2,
-          "exit_price": 3342.9,
-          "return_pct": -2.37
         },
         {
           "ticker": "SBIN.NS",
@@ -2410,8 +2433,8 @@
           "macd_score": 90.0,
           "rsi_score": 51.5,
           "h52_score": 88.8,
-          "entry_price": 1430.8,
-          "exit_price": 1321.2,
+          "entry_price": 1424.22,
+          "exit_price": 1315.12,
           "return_pct": -7.66
         },
         {
@@ -2475,12 +2498,12 @@
           "return_pct": -4.33
         }
       ],
-      "portfolio_return_pct": -1.98,
-      "portfolio_value": 105.45,
+      "portfolio_return_pct": 4.2,
+      "portfolio_value": 100.24,
       "num_stocks": 15,
       "sectors": {
-        "Metals": 1,
         "Other": 2,
+        "Metals": 1,
         "Banking": 1,
         "Consumer": 1,
         "Auto": 2,
@@ -2493,38 +2516,41 @@
         "FMCG": 1
       },
       "mode": "INVESTED",
-      "best_stock": "ASIANPAINT",
+      "elite_pool_size": 32,
+      "total_scored": 404,
+      "best_stock": "STLTECH",
       "worst_stock": "SBIN",
-      "best_return": 9.29,
+      "best_return": 81.87,
       "worst_return": -9.74
     }
   ],
   "portfolio_values": [
     100.0,
-    104.69,
-    102.02,
-    102.92,
-    106.2,
-    110.24,
-    113.97,
-    113.61,
-    109.33,
-    111.31,
-    102.24,
-    107.58,
-    105.45
+    102.67,
+    100.88,
+    101.83,
+    103.24,
+    105.86,
+    109.88,
+    109.59,
+    103.88,
+    104.98,
+    95.08,
+    96.2,
+    100.24
   ],
   "summary": {
-    "total_return_pct": 5.45,
-    "annualized_return": 5.4,
-    "win_rate": 58.3,
-    "max_drawdown": -10.29,
-    "sharpe_ratio": 0.45,
-    "best_month": "Apr 2026",
-    "best_month_return": 5.22,
+    "total_return_pct": 0.24,
+    "annualized_return": 0.2,
+    "win_rate": 66.7,
+    "max_drawdown": -13.47,
+    "sharpe_ratio": 0.08,
+    "best_month": "May 2026",
+    "best_month_return": 4.2,
     "worst_month": "Mar 2026",
-    "worst_month_return": -8.15,
+    "worst_month_return": -9.43,
     "total_trades": 180,
-    "universe_size": 50
+    "universe_size": 424,
+    "avg_elite_pool": 35.0
   }
 }

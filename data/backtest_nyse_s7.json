@@ -3,7 +3,8 @@
   "strategy_name": "AI APEX Hybrid",
   "strategy_icon": "\u26a1",
   "exchange": "NYSE",
-  "generated_at": "2026-06-04 19:53",
+  "generated_at": "2026-06-04 20:21",
+  "backtest_note": "Full universe: 717 stocks scored, elite >=81 filter applied",
   "period": {
     "start": "Jun 2025",
     "end": "May 2026",
@@ -15,530 +16,545 @@
       "month_key": "2025-06",
       "stocks": [
         {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 85.8,
+          "ticker": "PLTR",
+          "symbol": "PLTR",
+          "sector": "Other",
+          "score": 87.8,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 99.3,
-          "entry_price": 120.12,
-          "exit_price": 133.91,
-          "return_pct": 11.48
+          "h52_score": 98.7,
+          "entry_price": 131.43,
+          "exit_price": 136.32,
+          "return_pct": 3.72
         },
         {
-          "ticker": "CRWD",
-          "symbol": "CRWD",
-          "sector": "Cybersecurity",
-          "score": 85.8,
+          "ticker": "NET",
+          "symbol": "NET",
+          "sector": "Other",
+          "score": 86.6,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 99.4,
-          "entry_price": 471.0,
-          "exit_price": 509.31,
-          "return_pct": 8.13
+          "h52_score": 93.5,
+          "entry_price": 165.0,
+          "exit_price": 195.83,
+          "return_pct": 18.68
         }
       ],
-      "portfolio_return_pct": 9.8,
-      "portfolio_value": 109.8,
+      "portfolio_return_pct": 11.2,
+      "portfolio_value": 111.2,
       "num_stocks": 2,
       "sectors": {
-        "Streaming": 1,
-        "Cybersecurity": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "NFLX",
-      "worst_stock": "CRWD",
-      "best_return": 11.48,
-      "worst_return": 8.13
+      "elite_pool_size": 34,
+      "total_scored": 715,
+      "best_stock": "NET",
+      "worst_stock": "PLTR",
+      "best_return": 18.68,
+      "worst_return": 3.72
     },
     {
       "month": "Jul 2025",
       "month_key": "2025-07",
       "stocks": [
         {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 87.2,
+          "ticker": "NET",
+          "symbol": "NET",
+          "sector": "Other",
+          "score": 88.0,
           "macd_score": 90.0,
           "rsi_score": 50.0,
           "h52_score": 99.8,
-          "entry_price": 133.82,
-          "exit_price": 115.94,
-          "return_pct": -13.36
+          "entry_price": 195.3,
+          "exit_price": 207.68,
+          "return_pct": 6.34
         },
         {
-          "ticker": "CRWD",
-          "symbol": "CRWD",
-          "sector": "Cybersecurity",
-          "score": 87.2,
+          "ticker": "CIB",
+          "symbol": "CIB",
+          "sector": "Other",
+          "score": 87.7,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 99.9,
-          "entry_price": 509.37,
-          "exit_price": 454.57,
-          "return_pct": -10.76
+          "h52_score": 99.0,
+          "entry_price": 45.24,
+          "exit_price": 42.66,
+          "return_pct": -5.71
         }
       ],
-      "portfolio_return_pct": -12.06,
-      "portfolio_value": 96.56,
+      "portfolio_return_pct": 0.31,
+      "portfolio_value": 111.54,
       "num_stocks": 2,
       "sectors": {
-        "Streaming": 1,
-        "Cybersecurity": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "CRWD",
-      "worst_stock": "NFLX",
-      "best_return": -10.76,
-      "worst_return": -13.36
+      "elite_pool_size": 61,
+      "total_scored": 715,
+      "best_stock": "NET",
+      "worst_stock": "CIB",
+      "best_return": 6.34,
+      "worst_return": -5.71
     },
     {
       "month": "Aug 2025",
       "month_key": "2025-08",
       "stocks": [
         {
-          "ticker": "SNOW",
-          "symbol": "SNOW",
+          "ticker": "NET",
+          "symbol": "NET",
           "sector": "Other",
-          "score": 85.4,
+          "score": 87.8,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 97.5,
-          "entry_price": 216.8,
-          "exit_price": 238.66,
-          "return_pct": 10.08
+          "h52_score": 98.4,
+          "entry_price": 198.66,
+          "exit_price": 208.71,
+          "return_pct": 5.06
         },
         {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 84.3,
+          "ticker": "PLTR",
+          "symbol": "PLTR",
+          "sector": "Other",
+          "score": 87.8,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 86.4,
-          "entry_price": 116.3,
-          "exit_price": 120.82,
-          "return_pct": 3.89
+          "h52_score": 98.4,
+          "entry_price": 155.05,
+          "exit_price": 156.71,
+          "return_pct": 1.07
         }
       ],
-      "portfolio_return_pct": 6.99,
-      "portfolio_value": 103.31,
+      "portfolio_return_pct": 3.06,
+      "portfolio_value": 114.95,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Streaming": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "SNOW",
-      "worst_stock": "NFLX",
-      "best_return": 10.08,
-      "worst_return": 3.89
+      "elite_pool_size": 64,
+      "total_scored": 716,
+      "best_stock": "NET",
+      "worst_stock": "PLTR",
+      "best_return": 5.06,
+      "worst_return": 1.07
     },
     {
       "month": "Sep 2025",
       "month_key": "2025-09",
       "stocks": [
         {
-          "ticker": "SNOW",
-          "symbol": "SNOW",
+          "ticker": "CIB",
+          "symbol": "CIB",
           "sector": "Other",
-          "score": 84.8,
+          "score": 88.0,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 95.5,
-          "entry_price": 234.0,
-          "exit_price": 225.55,
-          "return_pct": -3.61
+          "h52_score": 99.7,
+          "entry_price": 48.9,
+          "exit_price": 51.03,
+          "return_pct": 4.36
         },
         {
-          "ticker": "NFLX",
-          "symbol": "NFLX",
-          "sector": "Streaming",
-          "score": 84.5,
+          "ticker": "ARIS",
+          "symbol": "ARIS",
+          "sector": "Other",
+          "score": 87.9,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 90.1,
-          "entry_price": 119.7,
-          "exit_price": 119.89,
-          "return_pct": 0.16
+          "h52_score": 99.4,
+          "entry_price": 8.78,
+          "exit_price": 9.8,
+          "return_pct": 11.62
         }
       ],
-      "portfolio_return_pct": -1.72,
-      "portfolio_value": 101.53,
+      "portfolio_return_pct": 7.99,
+      "portfolio_value": 124.13,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Streaming": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "NFLX",
-      "worst_stock": "SNOW",
-      "best_return": 0.16,
-      "worst_return": -3.61
+      "elite_pool_size": 69,
+      "total_scored": 716,
+      "best_stock": "ARIS",
+      "worst_stock": "CIB",
+      "best_return": 11.62,
+      "worst_return": 4.36
     },
     {
       "month": "Oct 2025",
       "month_key": "2025-10",
       "stocks": [
         {
-          "ticker": "AVGO",
-          "symbol": "AVGO",
+          "ticker": "PLTR",
+          "symbol": "PLTR",
           "sector": "Other",
-          "score": 91.5,
+          "score": 97.1,
           "macd_score": 90.0,
-          "rsi_score": 80.9,
-          "h52_score": 88.2,
-          "entry_price": 326.84,
-          "exit_price": 368.15,
-          "return_pct": 12.64
+          "rsi_score": 98.6,
+          "h52_score": 96.0,
+          "entry_price": 181.32,
+          "exit_price": 200.47,
+          "return_pct": 10.56
         },
         {
-          "ticker": "CRWD",
-          "symbol": "CRWD",
-          "sector": "Cybersecurity",
-          "score": 91.1,
+          "ticker": "KTOS",
+          "symbol": "KTOS",
+          "sector": "Other",
+          "score": 96.6,
           "macd_score": 90.0,
-          "rsi_score": 82.0,
-          "h52_score": 94.7,
-          "entry_price": 487.75,
-          "exit_price": 543.01,
-          "return_pct": 11.33
+          "rsi_score": 93.2,
+          "h52_score": 99.5,
+          "entry_price": 90.5,
+          "exit_price": 90.6,
+          "return_pct": 0.11
         }
       ],
-      "portfolio_return_pct": 11.98,
-      "portfolio_value": 113.69,
+      "portfolio_return_pct": 5.33,
+      "portfolio_value": 130.75,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Cybersecurity": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "AVGO",
-      "worst_stock": "CRWD",
-      "best_return": 12.64,
-      "worst_return": 11.33
+      "elite_pool_size": 114,
+      "total_scored": 716,
+      "best_stock": "PLTR",
+      "worst_stock": "KTOS",
+      "best_return": 10.56,
+      "worst_return": 0.11
     },
     {
       "month": "Nov 2025",
       "month_key": "2025-11",
       "stocks": [
         {
-          "ticker": "AVGO",
-          "symbol": "AVGO",
+          "ticker": "PLTR",
+          "symbol": "PLTR",
           "sector": "Other",
-          "score": 94.1,
+          "score": 97.5,
           "macd_score": 90.0,
-          "rsi_score": 84.0,
-          "h52_score": 95.6,
-          "entry_price": 370.51,
-          "exit_price": 401.35,
-          "return_pct": 8.32
+          "rsi_score": 98.8,
+          "h52_score": 98.2,
+          "entry_price": 205.04,
+          "exit_price": 168.45,
+          "return_pct": -17.85
         },
         {
-          "ticker": "NVDA",
-          "symbol": "NVDA",
-          "sector": "Semiconductors",
-          "score": 92.6,
+          "ticker": "CIEN",
+          "symbol": "CIEN",
+          "sector": "Other",
+          "score": 95.9,
           "macd_score": 90.0,
-          "rsi_score": 82.0,
-          "h52_score": 95.4,
-          "entry_price": 208.06,
-          "exit_price": 176.98,
-          "return_pct": -14.94
+          "rsi_score": 90.8,
+          "h52_score": 98.0,
+          "entry_price": 193.34,
+          "exit_price": 204.21,
+          "return_pct": 5.62
         }
       ],
-      "portfolio_return_pct": -3.31,
-      "portfolio_value": 109.93,
+      "portfolio_return_pct": -6.12,
+      "portfolio_value": 122.75,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Semiconductors": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "AVGO",
-      "worst_stock": "NVDA",
-      "best_return": 8.32,
-      "worst_return": -14.94
+      "elite_pool_size": 128,
+      "total_scored": 716,
+      "best_stock": "CIEN",
+      "worst_stock": "PLTR",
+      "best_return": 5.62,
+      "worst_return": -17.85
     },
     {
       "month": "Dec 2025",
       "month_key": "2025-12",
       "stocks": [
         {
-          "ticker": "AVGO",
-          "symbol": "AVGO",
+          "ticker": "LITE",
+          "symbol": "LITE",
           "sector": "Other",
-          "score": 95.2,
+          "score": 96.9,
           "macd_score": 90.0,
-          "rsi_score": 86.0,
-          "h52_score": 100.0,
-          "entry_price": 393.27,
-          "exit_price": 344.72,
-          "return_pct": -12.35
+          "rsi_score": 94.8,
+          "h52_score": 99.9,
+          "entry_price": 314.99,
+          "exit_price": 368.59,
+          "return_pct": 17.02
         },
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "ARIS",
+          "symbol": "ARIS",
           "sector": "Other",
-          "score": 92.6,
+          "score": 96.5,
           "macd_score": 90.0,
-          "rsi_score": 81.4,
-          "h52_score": 96.8,
-          "entry_price": 568.0,
-          "exit_price": 570.45,
-          "return_pct": 0.43
+          "rsi_score": 94.7,
+          "h52_score": 97.0,
+          "entry_price": 14.32,
+          "exit_price": 16.23,
+          "return_pct": 13.34
         }
       ],
-      "portfolio_return_pct": -5.96,
-      "portfolio_value": 103.38,
+      "portfolio_return_pct": 15.18,
+      "portfolio_value": 141.38,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "CAT",
-      "worst_stock": "AVGO",
-      "best_return": 0.43,
-      "worst_return": -12.35
+      "elite_pool_size": 99,
+      "total_scored": 716,
+      "best_stock": "LITE",
+      "worst_stock": "ARIS",
+      "best_return": 17.02,
+      "worst_return": 13.34
     },
     {
       "month": "Jan 2026",
       "month_key": "2026-01",
       "stocks": [
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "ARIS",
+          "symbol": "ARIS",
           "sector": "Other",
-          "score": 92.5,
+          "score": 96.5,
           "macd_score": 90.0,
-          "rsi_score": 80.8,
-          "h52_score": 91.3,
-          "entry_price": 575.15,
-          "exit_price": 654.58,
-          "return_pct": 13.81
+          "rsi_score": 95.8,
+          "h52_score": 95.5,
+          "entry_price": 16.47,
+          "exit_price": 17.14,
+          "return_pct": 4.07
         },
         {
-          "ticker": "GS",
-          "symbol": "GS",
+          "ticker": "LITE",
+          "symbol": "LITE",
           "sector": "Other",
-          "score": 91.5,
+          "score": 95.9,
           "macd_score": 90.0,
-          "rsi_score": 82.8,
-          "h52_score": 95.6,
-          "entry_price": 875.51,
-          "exit_price": 926.43,
-          "return_pct": 5.82
+          "rsi_score": 95.5,
+          "h52_score": 91.8,
+          "entry_price": 379.38,
+          "exit_price": 391.84,
+          "return_pct": 3.28
         }
       ],
-      "portfolio_return_pct": 9.82,
-      "portfolio_value": 113.53,
+      "portfolio_return_pct": 3.67,
+      "portfolio_value": 146.57,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "CAT",
-      "worst_stock": "GS",
-      "best_return": 13.81,
-      "worst_return": 5.82
+      "elite_pool_size": 130,
+      "total_scored": 716,
+      "best_stock": "ARIS",
+      "worst_stock": "LITE",
+      "best_return": 4.07,
+      "worst_return": 3.28
     },
     {
       "month": "Feb 2026",
       "month_key": "2026-02",
       "stocks": [
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "CIEN",
+          "symbol": "CIEN",
           "sector": "Other",
-          "score": 94.4,
+          "score": 95.7,
           "macd_score": 90.0,
-          "rsi_score": 84.6,
-          "h52_score": 96.7,
-          "entry_price": 658.57,
-          "exit_price": 741.42,
-          "return_pct": 12.58
+          "rsi_score": 93.6,
+          "h52_score": 93.3,
+          "entry_price": 247.93,
+          "exit_price": 348.7,
+          "return_pct": 40.64
         },
         {
-          "ticker": "JNJ",
-          "symbol": "JNJ",
-          "sector": "Healthcare",
-          "score": 92.5,
+          "ticker": "CIB",
+          "symbol": "CIB",
+          "sector": "Other",
+          "score": 95.6,
           "macd_score": 90.0,
-          "rsi_score": 89.1,
-          "h52_score": 98.8,
-          "entry_price": 225.81,
-          "exit_price": 245.7,
-          "return_pct": 8.81
+          "rsi_score": 92.2,
+          "h52_score": 94.6,
+          "entry_price": 80.12,
+          "exit_price": 66.69,
+          "return_pct": -16.76
         }
       ],
-      "portfolio_return_pct": 10.7,
-      "portfolio_value": 125.68,
+      "portfolio_return_pct": 11.94,
+      "portfolio_value": 164.07,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Healthcare": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "CAT",
-      "worst_stock": "JNJ",
-      "best_return": 12.58,
-      "worst_return": 8.81
+      "elite_pool_size": 117,
+      "total_scored": 716,
+      "best_stock": "CIEN",
+      "worst_stock": "CIB",
+      "best_return": 40.64,
+      "worst_return": -16.76
     },
     {
       "month": "Mar 2026",
       "month_key": "2026-03",
       "stocks": [
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "ARIS",
+          "symbol": "ARIS",
           "sector": "Other",
-          "score": 94.6,
+          "score": 97.1,
           "macd_score": 90.0,
-          "rsi_score": 87.5,
-          "h52_score": 94.1,
-          "entry_price": 732.1,
-          "exit_price": 707.11,
-          "return_pct": -3.41
+          "rsi_score": 97.5,
+          "h52_score": 97.4,
+          "entry_price": 22.76,
+          "exit_price": 18.57,
+          "return_pct": -18.41
         },
         {
-          "ticker": "JNJ",
-          "symbol": "JNJ",
-          "sector": "Healthcare",
-          "score": 93.8,
+          "ticker": "CIEN",
+          "symbol": "CIEN",
+          "sector": "Other",
+          "score": 96.5,
           "macd_score": 90.0,
-          "rsi_score": 90.9,
-          "h52_score": 99.8,
-          "entry_price": 247.77,
-          "exit_price": 243.04,
-          "return_pct": -1.91
+          "rsi_score": 95.8,
+          "h52_score": 95.3,
+          "entry_price": 353.76,
+          "exit_price": 388.23,
+          "return_pct": 9.74
         }
       ],
-      "portfolio_return_pct": -2.66,
-      "portfolio_value": 122.34,
+      "portfolio_return_pct": -4.33,
+      "portfolio_value": 156.97,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Healthcare": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "JNJ",
-      "worst_stock": "CAT",
-      "best_return": -1.91,
-      "worst_return": -3.41
+      "elite_pool_size": 148,
+      "total_scored": 716,
+      "best_stock": "CIEN",
+      "worst_stock": "ARIS",
+      "best_return": 9.74,
+      "worst_return": -18.41
     },
     {
       "month": "Apr 2026",
       "month_key": "2026-04",
       "stocks": [
         {
-          "ticker": "JNJ",
-          "symbol": "JNJ",
-          "sector": "Healthcare",
-          "score": 93.5,
+          "ticker": "LITE",
+          "symbol": "LITE",
+          "sector": "Other",
+          "score": 95.6,
           "macd_score": 90.0,
-          "rsi_score": 88.9,
-          "h52_score": 97.1,
-          "entry_price": 244.2,
-          "exit_price": 228.54,
-          "return_pct": -6.41
+          "rsi_score": 98.0,
+          "h52_score": 86.9,
+          "entry_price": 734.88,
+          "exit_price": 902.32,
+          "return_pct": 22.79
         },
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "CIEN",
+          "symbol": "CIEN",
           "sector": "Other",
-          "score": 92.7,
+          "score": 95.3,
           "macd_score": 90.0,
-          "rsi_score": 81.1,
-          "h52_score": 89.7,
-          "entry_price": 720.63,
-          "exit_price": 888.42,
-          "return_pct": 23.28
+          "rsi_score": 96.4,
+          "h52_score": 86.9,
+          "entry_price": 401.71,
+          "exit_price": 527.58,
+          "return_pct": 31.33
         }
       ],
-      "portfolio_return_pct": 8.44,
-      "portfolio_value": 132.67,
+      "portfolio_return_pct": 27.06,
+      "portfolio_value": 199.45,
       "num_stocks": 2,
       "sectors": {
-        "Healthcare": 1,
-        "Other": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "CAT",
-      "worst_stock": "JNJ",
-      "best_return": 23.28,
-      "worst_return": -6.41
+      "elite_pool_size": 150,
+      "total_scored": 716,
+      "best_stock": "CIEN",
+      "worst_stock": "LITE",
+      "best_return": 31.33,
+      "worst_return": 22.79
     },
     {
       "month": "May 2026",
       "month_key": "2026-05",
       "stocks": [
         {
-          "ticker": "CAT",
-          "symbol": "CAT",
+          "ticker": "CIEN",
+          "symbol": "CIEN",
           "sector": "Other",
-          "score": 95.2,
+          "score": 97.5,
           "macd_score": 90.0,
-          "rsi_score": 86.6,
-          "h52_score": 99.2,
-          "entry_price": 896.84,
-          "exit_price": 875.87,
-          "return_pct": -2.34
+          "rsi_score": 97.6,
+          "h52_score": 99.6,
+          "entry_price": 527.25,
+          "exit_price": 580.23,
+          "return_pct": 10.05
         },
         {
-          "ticker": "GOOGL",
-          "symbol": "GOOGL",
-          "sector": "Technology",
-          "score": 92.1,
+          "ticker": "LITE",
+          "symbol": "LITE",
+          "sector": "Other",
+          "score": 96.8,
           "macd_score": 90.0,
-          "rsi_score": 70.8,
-          "h52_score": 99.7,
-          "entry_price": 381.63,
-          "exit_price": 380.34,
-          "return_pct": -0.34
+          "rsi_score": 98.5,
+          "h52_score": 94.0,
+          "entry_price": 913.0,
+          "exit_price": 854.96,
+          "return_pct": -6.36
         }
       ],
-      "portfolio_return_pct": -1.34,
-      "portfolio_value": 130.89,
+      "portfolio_return_pct": 1.85,
+      "portfolio_value": 203.14,
       "num_stocks": 2,
       "sectors": {
-        "Other": 1,
-        "Technology": 1
+        "Other": 2
       },
       "mode": "INVESTED",
-      "best_stock": "GOOGL",
-      "worst_stock": "CAT",
-      "best_return": -0.34,
-      "worst_return": -2.34
+      "elite_pool_size": 174,
+      "total_scored": 714,
+      "best_stock": "CIEN",
+      "worst_stock": "LITE",
+      "best_return": 10.05,
+      "worst_return": -6.36
     }
   ],
   "portfolio_values": [
     100.0,
-    109.8,
-    96.56,
-    103.31,
-    101.53,
-    113.69,
-    109.93,
-    103.38,
-    113.53,
-    125.68,
-    122.34,
-    132.67,
-    130.89
+    111.2,
+    111.54,
+    114.95,
+    124.13,
+    130.75,
+    122.75,
+    141.38,
+    146.57,
+    164.07,
+    156.97,
+    199.45,
+    203.14
   ],
   "summary": {
-    "total_return_pct": 30.89,
-    "annualized_return": 30.9,
-    "win_rate": 50.0,
-    "max_drawdown": -12.06,
-    "sharpe_ratio": 1.11,
-    "best_month": "Oct 2025",
-    "best_month_return": 11.98,
-    "worst_month": "Jul 2025",
-    "worst_month_return": -12.06,
+    "total_return_pct": 103.14,
+    "annualized_return": 103.1,
+    "win_rate": 83.3,
+    "max_drawdown": -6.12,
+    "sharpe_ratio": 2.45,
+    "best_month": "Apr 2026",
+    "best_month_return": 27.06,
+    "worst_month": "Nov 2025",
+    "worst_month_return": -6.12,
     "total_trades": 24,
-    "universe_size": 50
+    "universe_size": 717,
+    "avg_elite_pool": 107.0
   }
 }
