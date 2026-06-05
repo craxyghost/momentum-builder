@@ -182,15 +182,15 @@
     <a href="/screener/nse"  class="nav-link">🇮🇳 NSE Elite</a>
     <a href="/screener/nyse" class="nav-link">🇺🇸 NYSE Elite</a>
     <a href="/portfolio"     class="nav-link">💰 Portfolio</a>
-    <a href="/strategies"    class="nav-link active">📊 6 Strategies</a>
+    <a href="/strategies"    class="nav-link active">📊 All Strategies</a>
   </div>
 </nav>
 
 <!-- ── Page Header ──────────────────────────────────────────────── -->
 <div class="page-header">
-  <h1>📊 5-Strategy Comparison Dashboard</h1>
+  <h1>📊 All Strategies Comparison Dashboard</h1>
   <p>
-    Track and compare 5 different momentum portfolio strategies side-by-side.
+    Track and compare all momentum portfolio strategies side-by-side.
     Each strategy uses a different academic approach — from ETF rotation to sector-neutral stock picking.
     Invest <strong>₹100 / $100 per position</strong>, refresh prices anytime, and let the data tell you which strategy really works.
   </p>
@@ -209,7 +209,7 @@
     <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;">
       {% if (exchange=='NSE' and nse_has_screener) or (exchange=='NYSE' and nyse_has_screener) %}
       <button class="btn btn-danger" id="btn-build" onclick="buildAll()" title="⚠️ Monthly rebalance only — do not click daily">
-        🏗️ Build All 6 Strategies
+        🏗️ Build All Strategies
       </button>
       {% else %}
       <a href="/screener/{{ exchange.lower() }}" class="btn btn-ghost">
@@ -233,7 +233,7 @@
     <h3>Run the {{ exchange }} Screener First</h3>
     <p>
       The 5-strategy portfolios are built from your screener results (score 81-100).
-      Run the {{ exchange }} screener to scan all stocks, then come back here to build all 5 portfolios.
+      Run the {{ exchange }} screener to scan all stocks, then come back here to build all portfolios.
     </p>
     <a href="/screener/{{ exchange.lower() }}" class="btn btn-primary">
       ⚡ Go to {{ exchange }} Screener
@@ -291,7 +291,7 @@
   <div class="chart-card">
     <h3>📈 Cumulative Return Comparison
       <span style="font-size:12px;color:var(--muted);font-weight:400;">
-        — all 5 strategies vs time
+        — all strategies vs time
       </span>
     </h3>
     <div class="chart-wrap">
@@ -536,7 +536,7 @@
             {{ meta.name }} not built yet
           </div>
           <div style="font-size:13px;margin-bottom:18px;">
-            Click "Build All 6 Strategies" above to create all 6 portfolios at once.
+            Click "Build All Strategies" above to create all 6 portfolios at once.
           </div>
         </div>
         {% endif %}
@@ -693,7 +693,7 @@
     const btn = document.getElementById('btn-build');
     btn.disabled = true;
     btn.innerHTML = '<span class="spin"></span> Building…';
-    showToast('⏳ Building all 5 strategies (may take ~60s for ETF data)…');
+    showToast('⏳ Building all strategies (may take ~60s for ETF data)…');
 
     fetch(`/api/strategies/${EXCHANGE}/build`, { method: 'POST' })
       .then(r => r.json())
@@ -704,13 +704,13 @@
         } else {
           showToast('❌ ' + (d.error || 'Error'));
           btn.disabled = false;
-          btn.innerHTML = '🏗️ Build All 6 Strategies';
+          btn.innerHTML = '🏗️ Build All Strategies';
         }
       })
       .catch(() => {
         showToast('❌ Network error');
         btn.disabled = false;
-        btn.innerHTML = '🏗️ Build All 6 Strategies';
+        btn.innerHTML = '🏗️ Build All Strategies';
       });
   }
 

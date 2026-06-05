@@ -372,8 +372,7 @@ def _apply_strategy(cands: list, sid: str, exchange: str, closes: dict, up_to: i
         return sorted(by_sec[best], key=lambda x: x['score'], reverse=True)[:3]
 
     if sid == 's11':
-        # Quality Momentum — top 3 by Sharpe proxy (use h52 + consistency via score)
-        # In backtest, approximate Sharpe by combining score stability indicators
+        # Quality Momentum — top 3 by Sharpe proxy (h52 smoothness + score)
         quality = sorted(elite or cands,
                          key=lambda x: x['h52_score'] * 0.5 + x['score'] * 0.5,
                          reverse=True)
@@ -383,9 +382,51 @@ def _apply_strategy(cands: list, sid: str, exchange: str, closes: dict, up_to: i
             if len(out) >= 3: break
         return out
 
+    if sid == 's12':
+        # Novy-Marx — top 5 by intermediate momentum proxy (h52 + ma = sustained trend)
+        novy = sorted(elite or cands,
+                      key=lambda x: x['h52_score'] * 0.6 + x['score'] * 0.4,
+                      reverse=True)
+        sc, out = defaultdict(int), []
+        for s in novy:
+            if sc[s['sector']] < 2: out.append(s); sc[s['sector']] += 1
+            if len(out) >= 5: break
+        return out
+
+    if sid == 's13':
+        # Consistency Champion — proxy: high rsi + high ma = 9+/12 positive months
+        consistent = [s for s in (elite or cands)
+                      if s.get('rsi_score', 0) >= 65 and s.get('macd_score', 0) >= 65]
+        if len(consistent) < 3:
+            consistent = sorted(elite or cands,
+                                key=lambda x: x.get('rsi_score', 0) + x.get('macd_score', 0),
+                                reverse=True)[:10]
+        sc, out = defaultdict(int), []
+        for s in sorted(consistent, key=lambda x: x['score'], reverse=True):
+            if sc[s['sector']] < 2: out.append(s); sc[s['sector']] += 1
+            if len(out) >= 5: break
+        return out
+
+    if sid == 's14':
+        # Multi-Horizon Confluence — proxy: ALL indicators high (all TFs aligned)
+        for s in (elite or cands):
+            scores = [s['score'], s.get('rsi_score', 50),
+                      s.get('macd_score', 50), s.get('h52_score', 50)]
+            s['_conf'] = sum(scores) / len(scores)
+        confluence = [s for s in (elite or cands)
+                      if s.get('rsi_score', 0) >= 65 and s.get('macd_score', 0) >= 65
+                      and s.get('h52_score', 0) >= 65 and s['score'] >= 83]
+        if len(confluence) < 3:
+            confluence = sorted(elite or cands,
+                                key=lambda x: x.get('_conf', 0), reverse=True)[:10]
+        sc, out = defaultdict(int), []
+        for s in sorted(confluence, key=lambda x: x.get('_conf', 0), reverse=True):
+            if sc[s['sector']] < 2: out.append(s); sc[s['sector']] += 1
+            if len(out) >= 5: break
+        return out
+
     if sid == 's15':
-        # APEX Ultra — top 2 by composite (Sharpe proxy + consistency + score)
-        # In backtest: use h52 as Sharpe proxy, macd as consistency proxy
+        # APEX Ultra — top 2 by composite (h52 + rsi + score + macd)
         for s in (elite or cands):
             s['_ultra'] = (s.get('h52_score', 50) * 0.30 +
                            s.get('rsi_score', 50) * 0.25 +
