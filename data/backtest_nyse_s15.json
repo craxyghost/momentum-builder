@@ -1,7 +1,7 @@
 {
-  "strategy_id": "s7",
-  "strategy_name": "AI APEX Hybrid",
-  "strategy_icon": "\u26a1",
+  "strategy_id": "s15",
+  "strategy_name": "APEX Ultra",
+  "strategy_icon": "\ud83c\udf1f",
   "exchange": "NYSE",
   "generated_at": "2026-06-05 11:25",
   "backtest_note": "Full universe: 717 stocks scored, elite >=81 filter applied",
@@ -25,7 +25,9 @@
           "h52_score": 98.7,
           "entry_price": 131.43,
           "exit_price": 136.32,
-          "return_pct": 3.72
+          "return_pct": 3.72,
+          "ignition": 79.285,
+          "_ultra": 80.08500000000001
         },
         {
           "ticker": "NFLX",
@@ -37,7 +39,9 @@
           "h52_score": 99.3,
           "entry_price": 120.12,
           "exit_price": 133.91,
-          "return_pct": 11.48
+          "return_pct": 11.48,
+          "ignition": 79.095,
+          "_ultra": 79.91499999999999
         }
       ],
       "portfolio_return_pct": 7.6,
@@ -69,23 +73,27 @@
           "h52_score": 99.8,
           "entry_price": 133.82,
           "exit_price": 115.94,
-          "return_pct": -13.36
+          "return_pct": -13.36,
+          "ignition": 79.39,
+          "_ultra": 80.34
         },
         {
-          "ticker": "PLTR",
-          "symbol": "PLTR",
+          "ticker": "NET",
+          "symbol": "NET",
           "sector": "Other",
-          "score": 79.3,
+          "score": 79.2,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 92.0,
-          "entry_price": 135.27,
-          "exit_price": 158.35,
-          "return_pct": 17.06
+          "h52_score": 99.8,
+          "entry_price": 195.3,
+          "exit_price": 207.68,
+          "return_pct": 6.34,
+          "ignition": 79.31,
+          "_ultra": 80.24
         }
       ],
-      "portfolio_return_pct": 1.85,
-      "portfolio_value": 109.59,
+      "portfolio_return_pct": -3.51,
+      "portfolio_value": 103.82,
       "num_stocks": 2,
       "sectors": {
         "Streaming": 1,
@@ -94,9 +102,9 @@
       "mode": "INVESTED",
       "elite_pool_size": 0,
       "total_scored": 715,
-      "best_stock": "PLTR",
+      "best_stock": "NET",
       "worst_stock": "NFLX",
-      "best_return": 17.06,
+      "best_return": 6.34,
       "worst_return": -13.36
     },
     {
@@ -113,7 +121,9 @@
           "h52_score": 98.4,
           "entry_price": 155.05,
           "exit_price": 156.71,
-          "return_pct": 1.07
+          "return_pct": 1.07,
+          "ignition": 81.26,
+          "_ultra": 82.52
         },
         {
           "ticker": "NET",
@@ -125,11 +135,13 @@
           "h52_score": 98.4,
           "entry_price": 198.66,
           "exit_price": 208.71,
-          "return_pct": 5.06
+          "return_pct": 5.06,
+          "ignition": 81.04,
+          "_ultra": 82.245
         }
       ],
       "portfolio_return_pct": 3.06,
-      "portfolio_value": 112.94,
+      "portfolio_value": 107.0,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -147,6 +159,20 @@
       "month_key": "2025-09",
       "stocks": [
         {
+          "ticker": "RCL",
+          "symbol": "RCL",
+          "sector": "Other",
+          "score": 86.0,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 99.1,
+          "entry_price": 349.52,
+          "exit_price": 318.14,
+          "return_pct": -8.98,
+          "ignition": 80.565,
+          "_ultra": 81.72999999999999
+        },
+        {
           "ticker": "NET",
           "symbol": "NET",
           "sector": "Other",
@@ -156,23 +182,13 @@
           "h52_score": 95.3,
           "entry_price": 202.65,
           "exit_price": 214.59,
-          "return_pct": 5.89
-        },
-        {
-          "ticker": "CRDO",
-          "symbol": "CRDO",
-          "sector": "Other",
-          "score": 87.7,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 91.6,
-          "entry_price": 121.91,
-          "exit_price": 145.61,
-          "return_pct": 19.44
+          "return_pct": 5.89,
+          "ignition": 80.575,
+          "_ultra": 81.315
         }
       ],
-      "portfolio_return_pct": 12.67,
-      "portfolio_value": 127.25,
+      "portfolio_return_pct": -1.55,
+      "portfolio_value": 105.34,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -180,10 +196,10 @@
       "mode": "INVESTED",
       "elite_pool_size": 35,
       "total_scored": 716,
-      "best_stock": "CRDO",
-      "worst_stock": "NET",
-      "best_return": 19.44,
-      "worst_return": 5.89
+      "best_stock": "NET",
+      "worst_stock": "RCL",
+      "best_return": 5.89,
+      "worst_return": -8.98
     },
     {
       "month": "Oct 2025",
@@ -199,23 +215,27 @@
           "h52_score": 96.0,
           "entry_price": 181.32,
           "exit_price": 200.47,
-          "return_pct": 10.56
+          "return_pct": 10.56,
+          "ignition": 99.28999999999999,
+          "_ultra": 95.5
         },
         {
-          "ticker": "NET",
-          "symbol": "NET",
+          "ticker": "KTOS",
+          "symbol": "KTOS",
           "sector": "Other",
-          "score": 95.0,
+          "score": 87.3,
           "macd_score": 90.0,
-          "rsi_score": 86.6,
-          "h52_score": 93.3,
-          "entry_price": 213.25,
-          "exit_price": 253.3,
-          "return_pct": 18.78
+          "rsi_score": 93.2,
+          "h52_score": 99.5,
+          "entry_price": 90.5,
+          "exit_price": 90.6,
+          "return_pct": 0.11,
+          "ignition": 96.68499999999999,
+          "_ultra": 92.975
         }
       ],
-      "portfolio_return_pct": 14.67,
-      "portfolio_value": 145.92,
+      "portfolio_return_pct": 5.33,
+      "portfolio_value": 110.95,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -223,10 +243,10 @@
       "mode": "INVESTED",
       "elite_pool_size": 56,
       "total_scored": 716,
-      "best_stock": "NET",
-      "worst_stock": "PLTR",
-      "best_return": 18.78,
-      "worst_return": 10.56
+      "best_stock": "PLTR",
+      "worst_stock": "KTOS",
+      "best_return": 10.56,
+      "worst_return": 0.11
     },
     {
       "month": "Nov 2025",
@@ -242,7 +262,9 @@
           "h52_score": 98.2,
           "entry_price": 205.04,
           "exit_price": 168.45,
-          "return_pct": -17.85
+          "return_pct": -17.85,
+          "ignition": 99.73,
+          "_ultra": 96.285
         },
         {
           "ticker": "NET",
@@ -254,11 +276,13 @@
           "h52_score": 99.6,
           "entry_price": 254.91,
           "exit_price": 200.21,
-          "return_pct": -21.46
+          "return_pct": -21.46,
+          "ignition": 96.83,
+          "_ultra": 93.405
         }
       ],
       "portfolio_return_pct": -19.66,
-      "portfolio_value": 117.23,
+      "portfolio_value": 89.14,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -285,23 +309,27 @@
           "h52_score": 97.0,
           "entry_price": 14.32,
           "exit_price": 16.23,
-          "return_pct": 13.34
+          "return_pct": 13.34,
+          "ignition": 98.365,
+          "_ultra": 94.7
         },
         {
-          "ticker": "ATRO",
-          "symbol": "ATRO",
+          "ticker": "B",
+          "symbol": "B",
           "sector": "Other",
-          "score": 94.2,
+          "score": 87.2,
           "macd_score": 90.0,
-          "rsi_score": 83.1,
-          "h52_score": 98.7,
-          "entry_price": 53.76,
-          "exit_price": 54.24,
-          "return_pct": 0.89
+          "rsi_score": 93.4,
+          "h52_score": 99.1,
+          "entry_price": 41.84,
+          "exit_price": 43.01,
+          "return_pct": 2.78,
+          "ignition": 96.655,
+          "_ultra": 92.88
         }
       ],
-      "portfolio_return_pct": 7.12,
-      "portfolio_value": 125.58,
+      "portfolio_return_pct": 8.06,
+      "portfolio_value": 96.32,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -310,9 +338,9 @@
       "elite_pool_size": 23,
       "total_scored": 716,
       "best_stock": "ARIS",
-      "worst_stock": "ATRO",
+      "worst_stock": "B",
       "best_return": 13.34,
-      "worst_return": 0.89
+      "worst_return": 2.78
     },
     {
       "month": "Jan 2026",
@@ -328,7 +356,9 @@
           "h52_score": 95.5,
           "entry_price": 16.47,
           "exit_price": 17.14,
-          "return_pct": 4.07
+          "return_pct": 4.07,
+          "ignition": 98.59500000000001,
+          "_ultra": 94.75
         },
         {
           "ticker": "CIB",
@@ -340,11 +370,13 @@
           "h52_score": 96.8,
           "entry_price": 62.17,
           "exit_price": 80.22,
-          "return_pct": 29.03
+          "return_pct": 29.03,
+          "ignition": 96.30499999999999,
+          "_ultra": 92.54
         }
       ],
       "portfolio_return_pct": 16.55,
-      "portfolio_value": 146.36,
+      "portfolio_value": 112.26,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -371,23 +403,27 @@
           "h52_score": 94.6,
           "entry_price": 80.12,
           "exit_price": 66.69,
-          "return_pct": -16.76
+          "return_pct": -16.76,
+          "ignition": 97.25999999999999,
+          "_ultra": 93.205
         },
         {
-          "ticker": "ARIS",
-          "symbol": "ARIS",
+          "ticker": "ATRO",
+          "symbol": "ATRO",
           "sector": "Other",
-          "score": 94.9,
+          "score": 94.7,
           "macd_score": 90.0,
-          "rsi_score": 96.1,
-          "h52_score": 78.0,
-          "entry_price": 16.9,
-          "exit_price": 22.68,
-          "return_pct": 34.2
+          "rsi_score": 89.5,
+          "h52_score": 94.7,
+          "entry_price": 75.82,
+          "exit_price": 80.62,
+          "return_pct": 6.33,
+          "ignition": 96.52,
+          "_ultra": 92.46
         }
       ],
-      "portfolio_return_pct": 8.72,
-      "portfolio_value": 159.12,
+      "portfolio_return_pct": -5.22,
+      "portfolio_value": 106.4,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -395,9 +431,9 @@
       "mode": "INVESTED",
       "elite_pool_size": 51,
       "total_scored": 716,
-      "best_stock": "ARIS",
+      "best_stock": "ATRO",
       "worst_stock": "CIB",
-      "best_return": 34.2,
+      "best_return": 6.33,
       "worst_return": -16.76
     },
     {
@@ -414,23 +450,27 @@
           "h52_score": 97.4,
           "entry_price": 22.76,
           "exit_price": 18.57,
-          "return_pct": -18.41
+          "return_pct": -18.41,
+          "ignition": 99.565,
+          "_ultra": 96.07
         },
         {
-          "ticker": "LITE",
-          "symbol": "LITE",
+          "ticker": "ATRO",
+          "symbol": "ATRO",
           "sector": "Other",
-          "score": 95.7,
+          "score": 95.2,
           "macd_score": 90.0,
-          "rsi_score": 98.0,
-          "h52_score": 91.6,
-          "entry_price": 742.9,
-          "exit_price": 702.76,
-          "return_pct": -5.4
+          "rsi_score": 90.4,
+          "h52_score": 98.4,
+          "entry_price": 81.15,
+          "exit_price": 66.73,
+          "return_pct": -17.77,
+          "ignition": 97.4,
+          "_ultra": 93.92
         }
       ],
-      "portfolio_return_pct": -11.91,
-      "portfolio_value": 140.17,
+      "portfolio_return_pct": -18.09,
+      "portfolio_value": 87.15,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -438,9 +478,9 @@
       "mode": "INVESTED",
       "elite_pool_size": 79,
       "total_scored": 716,
-      "best_stock": "LITE",
+      "best_stock": "ATRO",
       "worst_stock": "ARIS",
-      "best_return": -5.4,
+      "best_return": -17.77,
       "worst_return": -18.41
     },
     {
@@ -448,16 +488,18 @@
       "month_key": "2026-04",
       "stocks": [
         {
-          "ticker": "CIEN",
-          "symbol": "CIEN",
+          "ticker": "MTZ",
+          "symbol": "MTZ",
           "sector": "Other",
-          "score": 96.6,
+          "score": 94.4,
           "macd_score": 90.0,
-          "rsi_score": 96.4,
-          "h52_score": 86.9,
-          "entry_price": 401.71,
-          "exit_price": 527.58,
-          "return_pct": 31.33
+          "rsi_score": 88.4,
+          "h52_score": 97.9,
+          "entry_price": 326.6,
+          "exit_price": 394.05,
+          "return_pct": 20.65,
+          "ignition": 96.665,
+          "_ultra": 93.07
         },
         {
           "ticker": "LITE",
@@ -469,11 +511,13 @@
           "h52_score": 86.9,
           "entry_price": 734.88,
           "exit_price": 902.32,
-          "return_pct": 22.79
+          "return_pct": 22.79,
+          "ignition": 97.755,
+          "_ultra": 92.595
         }
       ],
-      "portfolio_return_pct": 27.06,
-      "portfolio_value": 178.1,
+      "portfolio_return_pct": 21.72,
+      "portfolio_value": 106.08,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -481,10 +525,10 @@
       "mode": "INVESTED",
       "elite_pool_size": 100,
       "total_scored": 716,
-      "best_stock": "CIEN",
-      "worst_stock": "LITE",
-      "best_return": 31.33,
-      "worst_return": 22.79
+      "best_stock": "LITE",
+      "worst_stock": "MTZ",
+      "best_return": 22.79,
+      "worst_return": 20.65
     },
     {
       "month": "May 2026",
@@ -500,7 +544,9 @@
           "h52_score": 99.6,
           "entry_price": 527.25,
           "exit_price": 580.23,
-          "return_pct": 10.05
+          "return_pct": 10.05,
+          "ignition": 99.96,
+          "_ultra": 96.80499999999999
         },
         {
           "ticker": "LITE",
@@ -512,11 +558,13 @@
           "h52_score": 94.0,
           "entry_price": 913.0,
           "exit_price": 854.96,
-          "return_pct": -6.36
+          "return_pct": -6.36,
+          "ignition": 99.265,
+          "_ultra": 95.25
         }
       ],
       "portfolio_return_pct": 1.85,
-      "portfolio_value": 181.39,
+      "portfolio_value": 108.04,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -533,26 +581,26 @@
   "portfolio_values": [
     100.0,
     107.6,
-    109.59,
-    112.94,
-    127.25,
-    145.92,
-    117.23,
-    125.58,
-    146.36,
-    159.12,
-    140.17,
-    178.1,
-    181.39
+    103.82,
+    107.0,
+    105.34,
+    110.95,
+    89.14,
+    96.32,
+    112.26,
+    106.4,
+    87.15,
+    106.08,
+    108.04
   ],
   "summary": {
-    "total_return_pct": 81.39,
-    "annualized_return": 81.4,
-    "win_rate": 83.3,
-    "max_drawdown": -19.66,
-    "sharpe_ratio": 1.61,
+    "total_return_pct": 8.04,
+    "annualized_return": 8.0,
+    "win_rate": 58.3,
+    "max_drawdown": -22.37,
+    "sharpe_ratio": 0.38,
     "best_month": "Apr 2026",
-    "best_month_return": 27.06,
+    "best_month_return": 21.72,
     "worst_month": "Nov 2025",
     "worst_month_return": -19.66,
     "total_trades": 24,

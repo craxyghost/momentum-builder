@@ -1,7 +1,7 @@
 {
-  "strategy_id": "s10",
-  "strategy_name": "Sector Dominator",
-  "strategy_icon": "\ud83d\udc51",
+  "strategy_id": "s11",
+  "strategy_name": "Quality Momentum",
+  "strategy_icon": "\ud83d\udca0",
   "exchange": "NSE",
   "generated_at": "2026-06-05 11:19",
   "backtest_note": "Full universe: 424 stocks scored, elite >=81 filter applied",
@@ -16,19 +16,6 @@
       "month_key": "2025-06",
       "stocks": [
         {
-          "ticker": "V2RETAIL.NS",
-          "symbol": "V2RETAIL",
-          "sector": "Other",
-          "score": 76.2,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 88.7,
-          "entry_price": 183.42,
-          "exit_price": 181.45,
-          "return_pct": -1.07,
-          "ignition": 77.045
-        },
-        {
           "ticker": "KIMS.NS",
           "symbol": "KIMS",
           "sector": "Other",
@@ -42,32 +29,45 @@
           "ignition": 78.09
         },
         {
-          "ticker": "KITEX.NS",
-          "symbol": "KITEX",
+          "ticker": "PARADEEP.NS",
+          "symbol": "PARADEEP",
           "sector": "Other",
-          "score": 75.3,
+          "score": 74.6,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 91.8,
-          "entry_price": 290.22,
-          "exit_price": 280.6,
-          "return_pct": -3.32,
-          "ignition": 77.33
+          "h52_score": 97.5,
+          "entry_price": 172.25,
+          "exit_price": 159.25,
+          "return_pct": -7.55,
+          "ignition": 78.045
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "symbol": "HDFCBANK",
+          "sector": "Banking",
+          "score": 68.6,
+          "macd_score": 90.0,
+          "rsi_score": 50.0,
+          "h52_score": 98.3,
+          "entry_price": 952.18,
+          "exit_price": 987.4,
+          "return_pct": 3.7
         }
       ],
-      "portfolio_return_pct": -2.07,
-      "portfolio_value": 97.93,
+      "portfolio_return_pct": -1.89,
+      "portfolio_value": 98.11,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "Banking": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 0,
       "total_scored": 423,
-      "best_stock": "V2RETAIL",
-      "worst_stock": "KITEX",
-      "best_return": -1.07,
-      "worst_return": -3.32
+      "best_stock": "HDFCBANK",
+      "worst_stock": "PARADEEP",
+      "best_return": 3.7,
+      "worst_return": -7.55
     },
     {
       "month": "Jul 2025",
@@ -87,63 +87,50 @@
           "ignition": 78.35
         },
         {
-          "ticker": "BAJAJHLDNG.NS",
-          "symbol": "BAJAJHLDNG",
+          "ticker": "FORTIS.NS",
+          "symbol": "FORTIS",
           "sector": "Other",
-          "score": 75.3,
+          "score": 74.7,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 97.6,
-          "entry_price": 14401.76,
-          "exit_price": 13894.27,
-          "return_pct": -3.52,
-          "ignition": 78.2
+          "h52_score": 99.0,
+          "entry_price": 793.06,
+          "exit_price": 856.44,
+          "return_pct": 7.99,
+          "ignition": 78.28999999999999
         },
         {
-          "ticker": "V2RETAIL.NS",
-          "symbol": "V2RETAIL",
-          "sector": "Other",
-          "score": 75.1,
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 74.2,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 86.5,
-          "entry_price": 182.8,
-          "exit_price": 185.8,
-          "return_pct": 1.64,
-          "ignition": 76.49499999999999
+          "h52_score": 95.7,
+          "entry_price": 932.5,
+          "exit_price": 881.2,
+          "return_pct": -5.5
         }
       ],
-      "portfolio_return_pct": -0.3,
-      "portfolio_value": 97.64,
+      "portfolio_return_pct": 1.16,
+      "portfolio_value": 99.25,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "NBFC": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 0,
       "total_scored": 423,
-      "best_stock": "V2RETAIL",
-      "worst_stock": "BAJAJHLDNG",
-      "best_return": 1.64,
-      "worst_return": -3.52
+      "best_stock": "FORTIS",
+      "worst_stock": "BAJFINANCE",
+      "best_return": 7.99,
+      "worst_return": -5.5
     },
     {
       "month": "Aug 2025",
       "month_key": "2025-08",
       "stocks": [
-        {
-          "ticker": "RADICO.NS",
-          "symbol": "RADICO",
-          "sector": "Other",
-          "score": 85.2,
-          "macd_score": 90.0,
-          "rsi_score": 50.0,
-          "h52_score": 98.1,
-          "entry_price": 2768.0,
-          "exit_price": 2852.5,
-          "return_pct": 3.05,
-          "ignition": 80.25500000000001
-        },
         {
           "ticker": "FORTIS.NS",
           "symbol": "FORTIS",
@@ -158,32 +145,32 @@
           "ignition": 80.475
         },
         {
-          "ticker": "ASTERDM.NS",
-          "symbol": "ASTERDM",
+          "ticker": "RADICO.NS",
+          "symbol": "RADICO",
           "sector": "Other",
-          "score": 85.0,
+          "score": 85.2,
           "macd_score": 90.0,
           "rsi_score": 50.0,
-          "h52_score": 89.6,
-          "entry_price": 605.09,
-          "exit_price": 597.43,
-          "return_pct": -1.26,
-          "ignition": 78.94
+          "h52_score": 98.1,
+          "entry_price": 2768.0,
+          "exit_price": 2852.5,
+          "return_pct": 3.05,
+          "ignition": 80.25500000000001
         }
       ],
-      "portfolio_return_pct": 2.6,
-      "portfolio_value": 100.18,
-      "num_stocks": 3,
+      "portfolio_return_pct": 4.53,
+      "portfolio_value": 103.75,
+      "num_stocks": 2,
       "sectors": {
-        "Other": 3
+        "Other": 2
       },
       "mode": "INVESTED",
       "elite_pool_size": 9,
       "total_scored": 423,
       "best_stock": "FORTIS",
-      "worst_stock": "ASTERDM",
+      "worst_stock": "RADICO",
       "best_return": 6.01,
-      "worst_return": -1.26
+      "worst_return": 3.05
     },
     {
       "month": "Sep 2025",
@@ -216,7 +203,7 @@
         }
       ],
       "portfolio_return_pct": -10.01,
-      "portfolio_value": 90.15,
+      "portfolio_value": 93.36,
       "num_stocks": 2,
       "sectors": {
         "Other": 2
@@ -246,18 +233,6 @@
           "return_pct": -6.06
         },
         {
-          "ticker": "MBAPL.NS",
-          "symbol": "MBAPL",
-          "sector": "Other",
-          "score": 82.1,
-          "macd_score": 90.0,
-          "rsi_score": 48.6,
-          "h52_score": 81.5,
-          "entry_price": 376.65,
-          "exit_price": 406.85,
-          "return_pct": 8.02
-        },
-        {
           "ticker": "LAURUSLABS.NS",
           "symbol": "LAURUSLABS",
           "sector": "Other",
@@ -271,11 +246,11 @@
           "ignition": 91.15
         }
       ],
-      "portfolio_return_pct": 4.94,
-      "portfolio_value": 94.6,
-      "num_stocks": 3,
+      "portfolio_return_pct": 3.4,
+      "portfolio_value": 96.53,
+      "num_stocks": 2,
       "sectors": {
-        "Other": 3
+        "Other": 2
       },
       "mode": "INVESTED",
       "elite_pool_size": 3,
@@ -303,19 +278,6 @@
           "ignition": 95.25999999999999
         },
         {
-          "ticker": "MANAPPURAM.NS",
-          "symbol": "MANAPPURAM",
-          "sector": "Other",
-          "score": 87.7,
-          "macd_score": 90.0,
-          "rsi_score": 67.1,
-          "h52_score": 90.4,
-          "entry_price": 267.63,
-          "exit_price": 283.5,
-          "return_pct": 5.93,
-          "ignition": 83.875
-        },
-        {
           "ticker": "LAURUSLABS.NS",
           "symbol": "LAURUSLABS",
           "sector": "Other",
@@ -327,13 +289,27 @@
           "exit_price": 1030.32,
           "return_pct": 7.66,
           "ignition": 94.475
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 86.4,
+          "macd_score": 90.0,
+          "rsi_score": 82.8,
+          "h52_score": 94.6,
+          "entry_price": 1037.0,
+          "exit_price": 1037.5,
+          "return_pct": 0.05,
+          "ignition": 93.17
         }
       ],
-      "portfolio_return_pct": 3.6,
-      "portfolio_value": 98.01,
+      "portfolio_return_pct": 1.64,
+      "portfolio_value": 98.11,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "NBFC": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 9,
@@ -348,6 +324,19 @@
       "month_key": "2025-12",
       "stocks": [
         {
+          "ticker": "MUTHOOTFIN.NS",
+          "symbol": "MUTHOOTFIN",
+          "sector": "Other",
+          "score": 85.6,
+          "macd_score": 90.0,
+          "rsi_score": 90.4,
+          "h52_score": 99.2,
+          "entry_price": 3747.31,
+          "exit_price": 3779.74,
+          "return_pct": 0.87,
+          "ignition": 95.6
+        },
+        {
           "ticker": "MANAPPURAM.NS",
           "symbol": "MANAPPURAM",
           "sector": "Other",
@@ -361,72 +350,50 @@
           "ignition": 85.71000000000001
         },
         {
-          "ticker": "RBLBANK.NS",
-          "symbol": "RBLBANK",
-          "sector": "Other",
-          "score": 86.9,
+          "ticker": "BAJFINANCE.NS",
+          "symbol": "BAJFINANCE",
+          "sector": "NBFC",
+          "score": 86.3,
           "macd_score": 90.0,
-          "rsi_score": 63.5,
+          "rsi_score": 82.1,
           "h52_score": 94.1,
-          "entry_price": 313.25,
-          "exit_price": 315.8,
-          "return_pct": 0.81
-        },
-        {
-          "ticker": "V2RETAIL.NS",
-          "symbol": "V2RETAIL",
-          "sector": "Other",
-          "score": 86.1,
-          "macd_score": 90.0,
-          "rsi_score": 85.6,
-          "h52_score": 95.5,
-          "entry_price": 247.0,
-          "exit_price": 244.78,
-          "return_pct": -0.9,
-          "ignition": 93.94500000000001
+          "entry_price": 1041.9,
+          "exit_price": 986.8,
+          "return_pct": -5.29,
+          "ignition": 92.89999999999999
         }
       ],
-      "portfolio_return_pct": 2.59,
-      "portfolio_value": 100.55,
+      "portfolio_return_pct": 1.15,
+      "portfolio_value": 99.24,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "NBFC": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 15,
       "total_scored": 423,
       "best_stock": "MANAPPURAM",
-      "worst_stock": "V2RETAIL",
+      "worst_stock": "BAJFINANCE",
       "best_return": 7.87,
-      "worst_return": -0.9
+      "worst_return": -5.29
     },
     {
       "month": "Jan 2026",
       "month_key": "2026-01",
       "stocks": [
         {
-          "ticker": "FORCEMOT.NS",
-          "symbol": "FORCEMOT",
+          "ticker": "TVSMOTOR.NS",
+          "symbol": "TVSMOTOR",
           "sector": "Other",
-          "score": 89.9,
+          "score": 86.9,
           "macd_score": 90.0,
-          "rsi_score": 63.3,
-          "h52_score": 93.7,
-          "entry_price": 20695.0,
-          "exit_price": 19195.0,
-          "return_pct": -7.25
-        },
-        {
-          "ticker": "RBLBANK.NS",
-          "symbol": "RBLBANK",
-          "sector": "Other",
-          "score": 88.7,
-          "macd_score": 90.0,
-          "rsi_score": 64.1,
-          "h52_score": 95.1,
-          "entry_price": 313.95,
-          "exit_price": 298.75,
-          "return_pct": -4.84
+          "rsi_score": 86.9,
+          "h52_score": 99.6,
+          "entry_price": 3723.98,
+          "exit_price": 3664.59,
+          "return_pct": -1.59,
+          "ignition": 95.045
         },
         {
           "ticker": "NYKAA.NS",
@@ -440,20 +407,34 @@
           "exit_price": 237.5,
           "return_pct": -10.38,
           "ignition": 94.71499999999999
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "symbol": "EICHERMOT",
+          "sector": "Auto",
+          "score": 82.6,
+          "macd_score": 90.0,
+          "rsi_score": 81.3,
+          "h52_score": 99.2,
+          "entry_price": 7317.0,
+          "exit_price": 7122.5,
+          "return_pct": -2.66,
+          "ignition": 92.725
         }
       ],
-      "portfolio_return_pct": -7.49,
-      "portfolio_value": 93.02,
+      "portfolio_return_pct": -4.88,
+      "portfolio_value": 94.4,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "Auto": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 23,
       "total_scored": 423,
-      "best_stock": "RBLBANK",
+      "best_stock": "TVSMOTOR",
       "worst_stock": "NYKAA",
-      "best_return": -4.84,
+      "best_return": -1.59,
       "worst_return": -10.38
     },
     {
@@ -461,56 +442,45 @@
       "month_key": "2026-02",
       "stocks": [
         {
-          "ticker": "LUMAXIND.NS",
-          "symbol": "LUMAXIND",
+          "ticker": "UJJIVANSFB.NS",
+          "symbol": "UJJIVANSFB",
           "sector": "Other",
-          "score": 89.0,
+          "score": 88.3,
           "macd_score": 90.0,
-          "rsi_score": 70.3,
-          "h52_score": 82.8,
-          "entry_price": 4899.9,
-          "exit_price": 6045.9,
-          "return_pct": 23.39,
-          "ignition": 83.795
+          "rsi_score": 76.2,
+          "h52_score": 96.1,
+          "entry_price": 65.38,
+          "exit_price": 58.06,
+          "return_pct": -11.2,
+          "ignition": 92.125
         },
         {
-          "ticker": "ABCAPITAL.NS",
-          "symbol": "ABCAPITAL",
+          "ticker": "AUBANK.NS",
+          "symbol": "AUBANK",
           "sector": "Other",
-          "score": 88.8,
+          "score": 87.7,
           "macd_score": 90.0,
-          "rsi_score": 63.1,
-          "h52_score": 92.0,
-          "entry_price": 340.6,
-          "exit_price": 344.45,
-          "return_pct": 1.13
-        },
-        {
-          "ticker": "FORCEMOT.NS",
-          "symbol": "FORCEMOT",
-          "sector": "Other",
-          "score": 88.6,
-          "macd_score": 90.0,
-          "rsi_score": 58.8,
-          "h52_score": 87.5,
-          "entry_price": 19500.0,
-          "exit_price": 24341.0,
-          "return_pct": 24.83
+          "rsi_score": 77.9,
+          "h52_score": 95.4,
+          "entry_price": 982.35,
+          "exit_price": 958.35,
+          "return_pct": -2.44,
+          "ignition": 92.325
         }
       ],
-      "portfolio_return_pct": 16.45,
-      "portfolio_value": 108.32,
-      "num_stocks": 3,
+      "portfolio_return_pct": -6.82,
+      "portfolio_value": 87.96,
+      "num_stocks": 2,
       "sectors": {
-        "Other": 3
+        "Other": 2
       },
       "mode": "INVESTED",
       "elite_pool_size": 25,
       "total_scored": 423,
-      "best_stock": "FORCEMOT",
-      "worst_stock": "ABCAPITAL",
-      "best_return": 24.83,
-      "worst_return": 1.13
+      "best_stock": "AUBANK",
+      "worst_stock": "UJJIVANSFB",
+      "best_return": -2.44,
+      "worst_return": -11.2
     },
     {
       "month": "Mar 2026",
@@ -530,63 +500,51 @@
           "ignition": 93.645
         },
         {
-          "ticker": "LUMAXIND.NS",
-          "symbol": "LUMAXIND",
+          "ticker": "POLYCAB.NS",
+          "symbol": "POLYCAB",
           "sector": "Other",
-          "score": 90.6,
+          "score": 89.2,
           "macd_score": 90.0,
-          "rsi_score": 77.9,
-          "h52_score": 87.2,
-          "entry_price": 5650.0,
-          "exit_price": 4654.0,
-          "return_pct": -17.63,
-          "ignition": 91.675
+          "rsi_score": 65.7,
+          "h52_score": 98.7,
+          "entry_price": 8400.0,
+          "exit_price": 6843.5,
+          "return_pct": -18.53,
+          "ignition": 85.07
         },
         {
-          "ticker": "LUMAXTECH.NS",
-          "symbol": "LUMAXTECH",
-          "sector": "Other",
-          "score": 90.4,
+          "ticker": "EICHERMOT.NS",
+          "symbol": "EICHERMOT",
+          "sector": "Auto",
+          "score": 84.2,
           "macd_score": 90.0,
-          "rsi_score": 70.6,
-          "h52_score": 96.4,
-          "entry_price": 1650.0,
-          "exit_price": 1522.2,
-          "return_pct": -7.75,
-          "ignition": 86.19
+          "rsi_score": 81.9,
+          "h52_score": 97.3,
+          "entry_price": 7800.0,
+          "exit_price": 6586.0,
+          "return_pct": -15.56,
+          "ignition": 92.91
         }
       ],
-      "portfolio_return_pct": -10.15,
-      "portfolio_value": 97.33,
+      "portfolio_return_pct": -13.06,
+      "portfolio_value": 76.47,
       "num_stocks": 3,
       "sectors": {
-        "Other": 3
+        "Other": 2,
+        "Auto": 1
       },
       "mode": "INVESTED",
       "elite_pool_size": 46,
       "total_scored": 423,
       "best_stock": "BAJAJCON",
-      "worst_stock": "LUMAXIND",
+      "worst_stock": "POLYCAB",
       "best_return": -5.08,
-      "worst_return": -17.63
+      "worst_return": -18.53
     },
     {
       "month": "Apr 2026",
       "month_key": "2026-04",
       "stocks": [
-        {
-          "ticker": "BAJAJCON.NS",
-          "symbol": "BAJAJCON",
-          "sector": "Other",
-          "score": 89.3,
-          "macd_score": 90.0,
-          "rsi_score": 65.5,
-          "h52_score": 85.1,
-          "entry_price": 350.75,
-          "exit_price": 450.45,
-          "return_pct": 28.42,
-          "ignition": 83.0
-        },
         {
           "ticker": "CCL.NS",
           "symbol": "CCL",
@@ -601,49 +559,36 @@
           "ignition": 91.93
         },
         {
-          "ticker": "LUMAXTECH.NS",
-          "symbol": "LUMAXTECH",
+          "ticker": "MBAPL.NS",
+          "symbol": "MBAPL",
           "sector": "Other",
-          "score": 86.7,
+          "score": 83.3,
           "macd_score": 90.0,
-          "rsi_score": 61.9,
-          "h52_score": 83.5,
-          "entry_price": 1589.8,
-          "exit_price": 1621.4,
-          "return_pct": 1.99
+          "rsi_score": 58.5,
+          "h52_score": 94.1,
+          "entry_price": 473.95,
+          "exit_price": 525.8,
+          "return_pct": 10.94
         }
       ],
-      "portfolio_return_pct": 12.7,
-      "portfolio_value": 109.69,
-      "num_stocks": 3,
+      "portfolio_return_pct": 9.31,
+      "portfolio_value": 83.59,
+      "num_stocks": 2,
       "sectors": {
-        "Other": 3
+        "Other": 2
       },
       "mode": "INVESTED",
       "elite_pool_size": 15,
       "total_scored": 423,
-      "best_stock": "BAJAJCON",
-      "worst_stock": "LUMAXTECH",
-      "best_return": 28.42,
-      "worst_return": 1.99
+      "best_stock": "MBAPL",
+      "worst_stock": "CCL",
+      "best_return": 10.94,
+      "worst_return": 7.68
     },
     {
       "month": "May 2026",
       "month_key": "2026-05",
       "stocks": [
-        {
-          "ticker": "BAJAJCON.NS",
-          "symbol": "BAJAJCON",
-          "sector": "Other",
-          "score": 91.3,
-          "macd_score": 90.0,
-          "rsi_score": 74.9,
-          "h52_score": 90.7,
-          "entry_price": 450.45,
-          "exit_price": 552.8,
-          "return_pct": 22.72,
-          "ignition": 86.59
-        },
         {
           "ticker": "STLTECH.NS",
           "symbol": "STLTECH",
@@ -658,60 +603,60 @@
           "ignition": 93.23500000000001
         },
         {
-          "ticker": "NATIONALUM.NS",
-          "symbol": "NATIONALUM",
+          "ticker": "CUMMINSIND.NS",
+          "symbol": "CUMMINSIND",
           "sector": "Other",
-          "score": 90.6,
+          "score": 87.6,
           "macd_score": 90.0,
-          "rsi_score": 71.4,
-          "h52_score": 89.7,
-          "entry_price": 397.32,
-          "exit_price": 422.35,
-          "return_pct": 6.3,
-          "ignition": 85.425
+          "rsi_score": 65.5,
+          "h52_score": 98.9,
+          "entry_price": 5266.4,
+          "exit_price": 5881.0,
+          "return_pct": 11.67,
+          "ignition": 84.72999999999999
         }
       ],
-      "portfolio_return_pct": 36.96,
-      "portfolio_value": 150.23,
-      "num_stocks": 3,
+      "portfolio_return_pct": 46.77,
+      "portfolio_value": 122.69,
+      "num_stocks": 2,
       "sectors": {
-        "Other": 3
+        "Other": 2
       },
       "mode": "INVESTED",
       "elite_pool_size": 23,
       "total_scored": 404,
       "best_stock": "STLTECH",
-      "worst_stock": "NATIONALUM",
+      "worst_stock": "CUMMINSIND",
       "best_return": 81.87,
-      "worst_return": 6.3
+      "worst_return": 11.67
     }
   ],
   "portfolio_values": [
     100.0,
-    97.93,
-    97.64,
-    100.18,
-    90.15,
-    94.6,
-    98.01,
-    100.55,
-    93.02,
-    108.32,
-    97.33,
-    109.69,
-    150.23
+    98.11,
+    99.25,
+    103.75,
+    93.36,
+    96.53,
+    98.11,
+    99.24,
+    94.4,
+    87.96,
+    76.47,
+    83.59,
+    122.69
   ],
   "summary": {
-    "total_return_pct": 50.23,
-    "annualized_return": 50.2,
+    "total_return_pct": 22.69,
+    "annualized_return": 22.7,
     "win_rate": 58.3,
-    "max_drawdown": -10.15,
-    "sharpe_ratio": 1.09,
+    "max_drawdown": -26.29,
+    "sharpe_ratio": 0.59,
     "best_month": "May 2026",
-    "best_month_return": 36.96,
+    "best_month_return": 46.77,
     "worst_month": "Mar 2026",
-    "worst_month_return": -10.15,
-    "total_trades": 35,
+    "worst_month_return": -13.06,
+    "total_trades": 30,
     "universe_size": 424,
     "avg_elite_pool": 14.0
   }
