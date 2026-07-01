@@ -17,6 +17,7 @@ S10— Sector Dominator       : 100% concentrated in winning sector's top stocks
 
 import json
 import os
+import time
 from datetime import datetime
 from collections import defaultdict
 import yfinance as yf
@@ -332,35 +333,38 @@ def _cur_price(ticker: str) -> float:
 
 def _batch_prices(tickers: list, exchange: str = None) -> dict:
     """
-    Fetch live prices for multiple tickers in ONE yfinance call.
-    Falls back to individual fetches for any that fail.
-    Falls back further to Twelve Data (TWELVE_DATA_API_KEY env var) for
-    anything still missing — used when Yahoo Finance is blocked, e.g.
-    from cloud host IPs like Render.
-    Returns {ticker: price} — price is 0.0 if unavailable.
+    Fetch LIVE / intraday prices for multiple tickers in ONE yfinance call.
+    Order of attempts:
+      1. Intraday (1-minute) bars — so a same-day refresh shows real
+         movement instead of re-reading the last daily close. Retries
+         once, since cloud hosts (e.g. Render) often hit transient
+         Yahoo rate-limits (HTTP 429).
+      2. Daily close — covers weekends/holidays with no intraday bars.
+      3. Individual fast_info fetch per ticker.
+      4. Twelve Data (TWELVE_DATA_API_KEY env var) — used when Yahoo is
+         outright blocked from a cloud host IP, which is common on
+         Render's shared IPs.
+    Returns {ticker: price} — price is 0.0 if unavailable everywhere.
     """
     if not tickers:
         return {}
     result = {t: 0.0 for t in tickers}
-    try:
-        joined = ' '.join(tickers)
-        df = yf.download(joined, period='2d', interval='1d',
-                         progress=False, auto_adjust=True)
-        if df.empty:
-            raise ValueError('empty dataframe')
+    joined = ' '.join(tickers)
 
+    def _fill_from(df):
+        if df is None or df.empty:
+            return
         close = df.get('Close', df.get('close'))
         if close is None:
-            raise ValueError('no Close column')
-
+            return
         if len(tickers) == 1:
-            # Single ticker → flat Series
             vals = close.dropna()
             if not vals.empty:
                 result[tickers[0]] = float(vals.iloc[-1])
         else:
-            # Multiple tickers → MultiIndex or wide DataFrame
             for t in tickers:
+                if result[t] > 0:
+                    continue
                 try:
                     col = close[t] if t in close.columns else None
                     if col is not None:
@@ -368,19 +372,44 @@ def _batch_prices(tickers: list, exchange: str = None) -> dict:
                         if not vals.empty:
                             result[t] = float(vals.iloc[-1])
                 except Exception:
-                    pass  # will fallback below
-    except Exception:
-        pass   # silent fallback to individual fetches
+                    pass
 
-    # Fallback: individually fetch any ticker that got 0
+    # 1) Live intraday (1-minute) bars, with one retry on failure.
+    for attempt in range(2):
+        try:
+            df_intraday = yf.download(joined, period='1d', interval='1m',
+                                       progress=False, auto_adjust=True)
+            _fill_from(df_intraday)
+            break
+        except Exception as e:
+            print(f'[_batch_prices] intraday fetch attempt {attempt+1} failed: {e}')
+            if attempt == 0:
+                time.sleep(2)
+
+    # 2) Daily close fallback for anything still missing.
+    missing = [t for t, p in result.items() if p <= 0]
+    if missing:
+        try:
+            df_daily = yf.download(' '.join(missing), period='2d', interval='1d',
+                                    progress=False, auto_adjust=True)
+            _fill_from(df_daily)
+        except Exception as e:
+            print(f'[_batch_prices] daily fallback fetch failed: {e}')
+
+    # 3) Individual fetch (fast_info) for anything still missing.
     missing = [t for t, p in result.items() if p <= 0]
     for t in missing:
         result[t] = _cur_price(t)
 
-    # Final fallback: Twelve Data (works from cloud hosts Yahoo blocks)
+    # 4) Twelve Data — works from cloud hosts Yahoo blocks outright.
     still_missing = [t for t, p in result.items() if p <= 0]
     if still_missing:
         result.update(_batch_prices_twelvedata(still_missing, exchange))
+
+    still_missing = [t for t, p in result.items() if p <= 0]
+    if still_missing:
+        print(f'[_batch_prices] could not fetch a live price for: {still_missing} '
+              f'— last known price will be kept for these.')
 
     return result
 
