@@ -68,9 +68,9 @@ def _require_basic_auth():
   auth_pass = os.environ.get('BASIC_AUTH_PASS')
   if not auth_user or not auth_pass:
     return  # auth disabled unless both env vars are set
-    auth = request.authorization
-    if not auth or auth.username != auth_user or auth.password != auth_pass:
-      return Response('Authentication required', 401,
+  auth = request.authorization
+  if not auth or auth.username != auth_user or auth.password != auth_pass:
+    return Response('Authentication required', 401,
                       {'WWW-Authenticate': 'Basic realm="Momentum Builder"'})
       
 
