@@ -117,7 +117,7 @@ def update_portfolio(exchange: str) -> dict | None:
 
     # Batch-fetch all prices in ONE yfinance call (fast, avoids timeout)
     tickers = [pos['ticker'] for pos in pf['positions']]
-    prices  = _batch_prices(tickers)
+    prices  = _batch_prices(tickers, exchange)
 
     for pos in pf['positions']:
         cp = prices.get(pos['ticker'], 0)

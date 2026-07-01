@@ -330,10 +330,13 @@ def _cur_price(ticker: str) -> float:
         return 0.0
 
 
-def _batch_prices(tickers: list) -> dict:
+def _batch_prices(tickers: list, exchange: str = None) -> dict:
     """
     Fetch live prices for multiple tickers in ONE yfinance call.
     Falls back to individual fetches for any that fail.
+    Falls back further to Twelve Data (TWELVE_DATA_API_KEY env var) for
+    anything still missing — used when Yahoo Finance is blocked, e.g.
+    from cloud host IPs like Render.
     Returns {ticker: price} — price is 0.0 if unavailable.
     """
     if not tickers:
@@ -373,6 +376,55 @@ def _batch_prices(tickers: list) -> dict:
     missing = [t for t, p in result.items() if p <= 0]
     for t in missing:
         result[t] = _cur_price(t)
+
+    # Final fallback: Twelve Data (works from cloud hosts Yahoo blocks)
+    still_missing = [t for t, p in result.items() if p <= 0]
+    if still_missing:
+        result.update(_batch_prices_twelvedata(still_missing, exchange))
+
+    return result
+
+
+def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
+    """
+    Fallback price fetch via Twelve Data (twelvedata.com). Used when
+    Yahoo Finance is unreachable, e.g. blocked from cloud host IPs.
+    Requires TWELVE_DATA_API_KEY env var; returns {} silently if unset.
+    """
+    import os, requests
+    api_key = os.environ.get('TWELVE_DATA_API_KEY')
+    if not api_key or not tickers:
+        return {}
+
+    bare_map = {}
+    for t in tickers:
+        bare = t.replace('.NS', '').replace('.BO', '')
+        bare_map[bare] = t
+
+    params = {'symbol': ','.join(bare_map.keys()), 'apikey': api_key}
+    if exchange in ('NSE', 'BSE'):
+        params['exchange'] = exchange
+
+    result = {}
+    try:
+        resp = requests.get('https://api.twelvedata.com/price',
+                            params=params, timeout=15)
+        data = resp.json()
+        if len(bare_map) == 1:
+            bare, orig = next(iter(bare_map.items()))
+            price = float(data.get('price', 0) or 0)
+            if price > 0:
+                result[orig] = price
+        else:
+            for bare, orig in bare_map.items():
+                entry = data.get(bare)
+                if isinstance(entry, dict) and entry.get('price'):
+                    try:
+                        result[orig] = float(entry['price'])
+                    except (TypeError, ValueError):
+                        pass
+    except Exception as e:
+        print(f'[TwelveData] batch price fetch failed: {e}')
 
     return result
 
@@ -1597,7 +1649,7 @@ def update_strategy(exchange: str, sid: str) -> dict | None:
 
     # Batch-fetch all tickers in ONE yfinance call (much faster, avoids timeouts)
     tickers = [pos['ticker'] for pos in pf['positions']]
-    prices  = _batch_prices(tickers)
+    prices  = _batch_prices(tickers, exchange)
 
     for pos in pf['positions']:
         cp = prices.get(pos['ticker'], 0)
