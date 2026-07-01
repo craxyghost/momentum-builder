@@ -59,6 +59,21 @@ except ImportError:
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+# ── Simple HTTP Basic Auth (private personal use only) ─────────────
+@app.before_request
+def _require_basic_auth():
+  import os
+  from flask import Response
+  auth_user = os.environ.get('BASIC_AUTH_USER')
+  auth_pass = os.environ.get('BASIC_AUTH_PASS')
+  if not auth_user or not auth_pass:
+    return  # auth disabled unless both env vars are set
+    auth = request.authorization
+    if not auth or auth.username != auth_user or auth.password != auth_pass:
+      return Response('Authentication required', 401,
+                      {'WWW-Authenticate': 'Basic realm="Momentum Builder"'})
+      
+
 # ── Exchange detection helpers ─────────────────────────────────────
 
 EXCHANGE_HINTS = {
