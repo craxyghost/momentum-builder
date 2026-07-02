@@ -20,7 +20,8 @@ from portfolio_tracker import (
     create_portfolio, update_portfolio, load_portfolio, load_history
 )
 from strategy_builder import (
-    STRATEGIES, build_all, update_all, update_strategy,
+    STRATEGIES, build_all, update_all, update_strategy, update_all_async,
+    update_strategy_async, get_refresh_status,
     load_all_strategies, load_all_histories, load_strategy, load_history as load_strat_history
 )
 import traceback
@@ -204,21 +205,58 @@ def api_strategies_build(exchange):
 
 @app.route('/api/strategies/<exchange>/refresh', methods=['POST'])
 def api_strategies_refresh(exchange):
+    """
+    Starts the refresh in the BACKGROUND and returns immediately.
+
+    Why: Twelve Data's free plan allows only 8 credits/minute, so a full
+    refresh across every strategy's unique tickers now waits a real ~65s
+    between batches of 8 to respect that limit. For NYSE universes with
+    100+ unique tickers that can take several minutes -- far longer than
+    Render (or any web server) will hold a request open. Running it in
+    the background and having the client poll /refresh/status avoids
+    the request just timing out mid-refresh with nothing saved.
+    """
     exchange = exchange.upper()
-    results  = update_all(exchange)
-    summary  = {sid: {'pnl_pct': pf['total_pnl_pct'], 'pnl': pf['total_pnl'],
-                       'price_sources': pf.get('price_sources', {})}
-                for sid, pf in results.items() if pf}
-    return jsonify({'success': True, 'summary': summary})
+    status = update_all_async(exchange)
+    return jsonify({'success': True, 'started': True, 'status': status})
+
+
+@app.route('/api/strategies/<exchange>/refresh/status')
+def api_strategies_refresh_status(exchange):
+    exchange = exchange.upper()
+    status = get_refresh_status(exchange)
+    summary = None
+    if not status.get('running'):
+        # Refresh finished (or never ran) -- include the latest saved
+        # P&L so the client can render results once done=true.
+        portfolios = load_all_strategies(exchange)
+        summary = {sid: {'pnl_pct': pf['total_pnl_pct'], 'pnl': pf['total_pnl'],
+                          'price_sources': pf.get('price_sources', {})}
+                   for sid, pf in portfolios.items() if pf}
+    return jsonify({'status': status, 'summary': summary})
 
 
 @app.route('/api/strategies/<exchange>/<sid>/refresh', methods=['POST'])
 def api_strategy_single_refresh(exchange, sid):
+    """Same background-job rationale as the bulk refresh above -- a
+    single strategy can still hold 20-30 positions, which is enough
+    Twelve Data chunks (each with a real ~65s rate-limit wait) to
+    exceed a normal web request timeout."""
     exchange = exchange.upper()
-    pf = update_strategy(exchange, sid)
-    if not pf:
+    if not load_strategy(exchange, sid):
         return jsonify({'error': 'No portfolio found. Build strategies first.'}), 404
-    return jsonify({'success': True, 'portfolio': pf})
+    status = update_strategy_async(exchange, sid)
+    return jsonify({'success': True, 'started': True, 'status': status})
+
+
+@app.route('/api/strategies/<exchange>/<sid>/refresh/status')
+def api_strategy_single_refresh_status(exchange, sid):
+    exchange = exchange.upper()
+    status = get_refresh_status(exchange, sid)
+    portfolio = None
+    if not status.get('running'):
+        portfolio = load_strategy(exchange, sid)
+    return jsonify({'status': status, 'portfolio': portfolio})
 
 
 @app.route('/api/strategies/<exchange>/data')

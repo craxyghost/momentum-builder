@@ -18,6 +18,7 @@ S10— Sector Dominator       : 100% concentrated in winning sector's top stocks
 import json
 import os
 import time
+import threading
 from datetime import datetime
 from collections import defaultdict
 import yfinance as yf
@@ -331,7 +332,7 @@ def _cur_price(ticker: str) -> float:
         return 0.0
 
 
-def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None) -> dict:
+def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None, progress_cb=None) -> dict:
     """
     Fetch LIVE / intraday prices for multiple tickers in ONE call per data
     source (never one call per strategy — see update_all()).
@@ -386,17 +387,30 @@ def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None) 
                 except Exception:
                     pass
 
+    # 0) NSE India direct (free, no API key) — the PRIMARY source for
+    #    NSE tickers. Twelve Data's free Basic plan doesn't cover NSE at
+    #    all (needs their $79/mo Grow plan), so there's no point wasting
+    #    time on Yahoo/Twelve Data for these first.
+    if exchange == 'NSE':
+        nse_prices = _batch_prices_nse_direct(tickers)
+        for t, p in nse_prices.items():
+            if p > 0:
+                result[t] = p
+                source_log[t] = 'nse_direct'
+
     # 1) Live intraday (1-minute) bars — one attempt, short timeout.
     #    (No point retrying slowly here: if Yahoo is blocked outright on
     #    this host, Twelve Data below will pick up the slack in seconds
     #    instead of us burning 10-20s per retry per refresh.)
-    try:
-        df_intraday = yf.download(joined, period='1d', interval='1m',
-                                   progress=False, auto_adjust=True,
-                                   timeout=8)
-        _fill_from(df_intraday, 'yahoo_intraday')
-    except Exception as e:
-        print(f'[_batch_prices] intraday fetch failed: {e}')
+    missing = [t for t, p in result.items() if p <= 0]
+    if missing:
+        try:
+            df_intraday = yf.download(' '.join(missing), period='1d', interval='1m',
+                                       progress=False, auto_adjust=True,
+                                       timeout=8)
+            _fill_from(df_intraday, 'yahoo_intraday')
+        except Exception as e:
+            print(f'[_batch_prices] intraday fetch failed: {e}')
 
     # 2) Daily close fallback for anything still missing.
     missing = [t for t, p in result.items() if p <= 0]
@@ -410,12 +424,14 @@ def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None) 
             print(f'[_batch_prices] daily fallback fetch failed: {e}')
 
     # 3) Twelve Data — ONE batched call (chunked) for everything still
-    #    missing. This is the path that matters on Render: Yahoo is
-    #    commonly blocked/throttled from shared cloud IPs, so this is
-    #    the real primary source in production, not a rare fallback.
+    #    missing. This is the path that matters for NYSE on Render:
+    #    Yahoo is commonly blocked/throttled from shared cloud IPs, so
+    #    this is the real primary source in production for US tickers.
+    #    Skipped for NSE -- Twelve Data's Basic plan doesn't cover it, so
+    #    calling it would just burn credits for a guaranteed miss.
     missing = [t for t, p in result.items() if p <= 0]
-    if missing:
-        td_prices = _batch_prices_twelvedata(missing, exchange)
+    if missing and exchange != 'NSE':
+        td_prices = _batch_prices_twelvedata(missing, exchange, progress_cb)
         for t, p in td_prices.items():
             if p > 0:
                 result[t] = p
@@ -440,7 +456,7 @@ def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None) 
     return result
 
 
-def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
+def _batch_prices_twelvedata(tickers: list, exchange: str = None, progress_cb=None) -> dict:
     """
     Fallback price fetch via Twelve Data (twelvedata.com). Used when
     Yahoo Finance is unreachable, e.g. blocked from cloud host IPs —
@@ -473,6 +489,8 @@ def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
     chunks = [tickers[i:i + CHUNK_SIZE] for i in range(0, len(tickers), CHUNK_SIZE)]
 
     for idx_c, chunk in enumerate(chunks):
+        if progress_cb:
+            progress_cb(idx_c, len(chunks), len(result), len(tickers))
         bare_map = {}
         for t in chunk:
             bare = t.replace('.NS', '').replace('.BO', '')
@@ -495,8 +513,7 @@ def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
                 print(f"[TwelveData] chunk {idx_c+1}/{len(chunks)} REJECTED — "
                       f"code={data.get('code')} message={data.get('message')} "
                       f"symbols={list(bare_map.keys())}")
-                if data.get('code') == 429 and idx_c < len(chunks) - 1:
-                    _time.sleep(60)   # per-minute cap — wait it out before the next chunk
+                # (fall through to the uniform inter-chunk sleep below)
                 continue
 
             if len(bare_map) == 1:
@@ -521,15 +538,108 @@ def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
         except Exception as e:
             print(f'[TwelveData] chunk {idx_c+1}/{len(chunks)} fetch failed: {e}')
 
-        # Small pause between chunks so we don't burst past the
-        # per-minute credit cap even when individual chunks succeed.
+        # A REAL per-minute wait between chunks. Twelve Data's free plan
+        # resets its 8-credit budget every rolling minute; waiting only
+        # 8s between chunks (the old behavior) meant every other chunk
+        # landed inside the same still-exhausted window and got
+        # rejected -- confirmed in production logs as an alternating
+        # success/fail pattern in exact groups of 8 tickers. 65s gives a
+        # safety margin over the minute boundary.
         if idx_c < len(chunks) - 1:
-            _time.sleep(8)
+            _time.sleep(65)
 
     return result
 
 
+# ── NSE India direct scraper (free — Twelve Data's Basic plan doesn't
+# cover NSE at all; requires their $79/mo Grow plan) ─────────────────
+_NSE_SESSION = {'session': None, 'warmed_at': 0}
+_NSE_HEADERS = {
+    'User-Agent': ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                    'AppleWebKit/537.36 (KHTML, like Gecko) '
+                    'Chrome/124.0.0.0 Safari/537.36'),
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Referer': 'https://www.nseindia.com/get-quotes/equity',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
+}
+
+
+def _nse_session():
+    """
+    NSE's public site blocks any request that doesn't carry cookies from
+    a prior visit to the site (standard anti-scraping measure). We warm
+    up a requests.Session by hitting the homepage first, then reuse that
+    session (and its cookies) for every quote lookup in this process.
+    Re-warms automatically every 5 minutes since NSE cookies expire.
+    """
+    import requests, time as _time
+    now = _time.time()
+    if _NSE_SESSION['session'] is not None and now - _NSE_SESSION['warmed_at'] < 300:
+        return _NSE_SESSION['session']
+
+    s = requests.Session()
+    s.headers.update(_NSE_HEADERS)
+    try:
+        s.get('https://www.nseindia.com/', timeout=10)
+        s.get('https://www.nseindia.com/get-quotes/equity?symbol=RELIANCE', timeout=10)
+    except Exception as e:
+        print(f'[NSE-direct] warm-up failed: {e}')
+    _NSE_SESSION['session'] = s
+    _NSE_SESSION['warmed_at'] = now
+    return s
+
+
+def _batch_prices_nse_direct(tickers: list) -> dict:
+    """
+    Fetch NSE prices straight from nseindia.com's public quote API
+    (api.quote-equity) — free, no key required, real-time during market
+    hours. This is the PRIMARY source for NSE tickers: Twelve Data's
+    Basic (free) plan doesn't include NSE/India at all (min. plan is
+    Grow, $79/mo), and Yahoo Finance is blocked outright from Render.
+
+    Bare symbol only (strip .NS/.BO before calling). One HTTP call per
+    symbol — NSE doesn't offer a multi-symbol batch quote endpoint —
+    but each call is fast and there's no credit/rate cap like Twelve
+    Data, just plain scraping etiquette (small delay between calls).
+    """
+    import time as _time
+    result = {}
+    if not tickers:
+        return result
+
+    session = _nse_session()
+    for i, t in enumerate(tickers):
+        bare = t.replace('.NS', '').replace('.BO', '')
+        try:
+            resp = session.get('https://www.nseindia.com/api/quote-equity',
+                                params={'symbol': bare}, timeout=10)
+            if resp.status_code == 401 or resp.status_code == 403:
+                # Cookies expired mid-run — re-warm once and retry this symbol.
+                _NSE_SESSION['session'] = None
+                session = _nse_session()
+                resp = session.get('https://www.nseindia.com/api/quote-equity',
+                                    params={'symbol': bare}, timeout=10)
+            data = resp.json()
+            price = data.get('priceInfo', {}).get('lastPrice')
+            if price:
+                result[t] = float(price)
+        except Exception as e:
+            print(f'[NSE-direct] {bare} failed: {e}')
+
+        # Light pacing so we don't look like a scraping burst.
+        if i < len(tickers) - 1:
+            _time.sleep(0.3)
+
+    missing = [t for t in tickers if t not in result]
+    if missing:
+        print(f'[NSE-direct] no price for: {missing}')
+    return result
+
+
 def _12m_return(ticker: str) -> float:
+
     try:
         df = yf.Ticker(ticker).history(period='2y', interval='1mo')
         if len(df) < 13:
@@ -1742,6 +1852,10 @@ def build_all(exchange: str, screener_stocks: list) -> dict:
 
 
 # ── Update (refresh live prices) ────────────────────────────────────
+_REFRESH_JOBS = {}   # 'EXCHANGE' or 'EXCHANGE:sid' -> status dict
+_REFRESH_LOCK = threading.Lock()
+
+
 def _apply_prices_and_save(exchange: str, sid: str, pf: dict, prices: dict,
                             source_log: dict = None) -> dict:
     """Apply a pre-fetched {ticker: price} map to one portfolio, recompute
@@ -1797,19 +1911,80 @@ def update_strategy(exchange: str, sid: str) -> dict | None:
     return _apply_prices_and_save(exchange, sid, pf, prices, source_log)
 
 
+def update_strategy_async(exchange: str, sid: str) -> dict | None:
+    """
+    Background version of update_strategy() -- same rationale as
+    update_all_async(): a strategy with many positions can hit Twelve
+    Data's chunked rate-limit wait (real ~65s per 8 tickers) and run
+    long enough to exceed a web request's timeout.
+    """
+    exchange = exchange.upper()
+    key = f'{exchange}:{sid}'
+    pf = load_strategy(exchange, sid)
+    if not pf:
+        return None
+
+    with _REFRESH_LOCK:
+        existing = _REFRESH_JOBS.get(key)
+        if existing and existing.get('running'):
+            return dict(existing)
+        job = {
+            'running': True,
+            'started_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'finished_at': None,
+            'error': None,
+            'tickers_total': 0,
+            'tickers_done': 0,
+            'chunk': 0,
+            'chunks_total': 0,
+        }
+        _REFRESH_JOBS[key] = job
+
+    def _progress_cb(chunk_idx, chunks_total, tickers_done, tickers_total):
+        job['chunk'] = chunk_idx + 1
+        job['chunks_total'] = chunks_total
+        job['tickers_done'] = tickers_done
+        job['tickers_total'] = tickers_total
+
+    def _run():
+        try:
+            tickers = [pos['ticker'] for pos in pf['positions']]
+            job['tickers_total'] = len(tickers)
+            source_log = {}
+            prices = _batch_prices(tickers, exchange, source_log, _progress_cb)
+            _apply_prices_and_save(exchange, sid, pf, prices, source_log)
+        except Exception as e:
+            job['error'] = str(e)
+            print(f'[update_strategy_async] {key} refresh crashed: {e}')
+        finally:
+            job['running'] = False
+            job['finished_at'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    threading.Thread(target=_run, daemon=True).start()
+    return dict(job)
+
+
 def update_all(exchange: str) -> dict:
     """
-    Refresh EVERY strategy for an exchange.
+    Refresh EVERY strategy for an exchange, synchronously.
 
     Critically, this fetches the price for each UNIQUE ticker across all
     strategies exactly ONCE, instead of once per strategy. Strategies
     share most of their tickers (they're all drawn from the same top-N
     screener universe), so calling _batch_prices() per-strategy meant
     15 separate bursts of requests to Yahoo/Twelve Data in a few seconds
-    — which is what tripped Twelve Data's per-minute rate limit (and
-    Yahoo's) for most of them, leaving only whichever strategies landed
-    inside the rate-limit window with real prices and the rest stuck at
-    their last-known (build-time) price, i.e. a flat 0.00%.
+    — which is what tripped Twelve Data's per-minute rate limit for
+    most of them, leaving only whichever strategies landed inside the
+    rate-limit window with real prices and the rest stuck at their
+    last-known (build-time) price, i.e. a flat 0.00%.
+
+    NOTE: for NYSE with many unique tickers, Twelve Data's free-plan
+    8-credits/minute cap means this can now take several minutes (a
+    real 65s wait between each batch of 8 tickers — see
+    _batch_prices_twelvedata). Calling this directly will block for
+    that whole time. Use update_all_async() from a web request instead,
+    so the HTTP response isn't held open long enough to hit Render's
+    request timeout.
     """
     portfolios = {sid: load_strategy(exchange, sid) for sid in STRATEGIES}
     portfolios = {sid: pf for sid, pf in portfolios.items() if pf}
@@ -1825,6 +2000,73 @@ def update_all(exchange: str) -> dict:
     for sid, pf in portfolios.items():
         results[sid] = _apply_prices_and_save(exchange, sid, pf, prices, source_log)
     return results
+
+
+# ── Background refresh job (so "Refresh All Prices" doesn't block the
+# HTTP request for the several minutes a rate-limit-respecting Twelve
+# Data pull can take) ────────────────────────────────────────────────
+def get_refresh_status(exchange: str, sid: str = None) -> dict:
+    key = f'{exchange.upper()}:{sid}' if sid else exchange.upper()
+    job = _REFRESH_JOBS.get(key)
+    if not job:
+        return {'running': False, 'never_run': True}
+    return dict(job)   # shallow copy so callers can't mutate our state
+
+
+def update_all_async(exchange: str) -> dict:
+    """
+    Kick off update_all() for `exchange` on a background thread and
+    return immediately. If a refresh is already running for this
+    exchange, just returns its current status instead of starting a
+    second overlapping one.
+    """
+    exchange = exchange.upper()
+    with _REFRESH_LOCK:
+        existing = _REFRESH_JOBS.get(exchange)
+        if existing and existing.get('running'):
+            return dict(existing)
+
+        job = {
+            'running': True,
+            'started_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'finished_at': None,
+            'error': None,
+            'tickers_total': 0,
+            'tickers_done': 0,
+            'chunk': 0,
+            'chunks_total': 0,
+        }
+        _REFRESH_JOBS[exchange] = job
+
+    def _progress_cb(chunk_idx, chunks_total, tickers_done, tickers_total):
+        job['chunk'] = chunk_idx + 1
+        job['chunks_total'] = chunks_total
+        job['tickers_done'] = tickers_done
+        job['tickers_total'] = tickers_total
+
+    def _run():
+        try:
+            portfolios = {sid: load_strategy(exchange, sid) for sid in STRATEGIES}
+            portfolios = {sid: pf for sid, pf in portfolios.items() if pf}
+            all_tickers = sorted({pos['ticker']
+                                   for pf in portfolios.values()
+                                   for pos in pf['positions']})
+            job['tickers_total'] = len(all_tickers)
+
+            source_log = {}
+            prices = _batch_prices(all_tickers, exchange, source_log, _progress_cb)
+
+            for sid, pf in portfolios.items():
+                _apply_prices_and_save(exchange, sid, pf, prices, source_log)
+        except Exception as e:
+            job['error'] = str(e)
+            print(f'[update_all_async] {exchange} refresh crashed: {e}')
+        finally:
+            job['running'] = False
+            job['finished_at'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    threading.Thread(target=_run, daemon=True).start()
+    return dict(job)
 
 
 # ── Strategy aliases for external access ─────────────────────────────

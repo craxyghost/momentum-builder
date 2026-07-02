@@ -714,21 +714,28 @@
       });
   }
 
-  // ── Refresh All ───────────────────────────────────────────────
+  // ── Refresh All (background job — polls for progress) ──────────
+  // Twelve Data's free plan allows 8 credits/minute, so a full refresh
+  // now waits a real ~65s between each batch of 8 tickers to respect
+  // that limit. For NYSE that can take several minutes. The refresh
+  // endpoint kicks this off in the background and returns immediately;
+  // we poll /refresh/status every few seconds to show progress and
+  // reload once it's actually done, instead of assuming it finished
+  // synchronously (which is what silently produced flat 0.00% results
+  // before — the request would return before real prices came back).
   function refreshAll() {
     const btn = document.getElementById('btn-refresh');
     btn.disabled = true;
-    btn.innerHTML = '<span class="spin"></span> Refreshing…';
-    showToast('⏳ Fetching live prices for all portfolios…');
+    btn.innerHTML = '<span class="spin"></span> Starting…';
+    showToast('⏳ Fetching live prices in the background — this can take a few minutes…');
 
     fetch(`/api/strategies/${EXCHANGE}/refresh`, { method: 'POST' })
       .then(r => r.json())
       .then(d => {
         if (d.success) {
-          showToast('✅ All prices updated! Reloading…');
-          setTimeout(() => location.reload(), 800);
+          pollRefreshAll(btn);
         } else {
-          showToast('❌ Error refreshing');
+          showToast('❌ Error starting refresh');
           btn.disabled = false;
           btn.innerHTML = '🔄 Refresh All Prices';
         }
@@ -739,17 +746,39 @@
       });
   }
 
-  // ── Refresh Single ────────────────────────────────────────────
+  function pollRefreshAll(btn) {
+    fetch(`/api/strategies/${EXCHANGE}/refresh/status`)
+      .then(r => r.json())
+      .then(d => {
+        const s = d.status || {};
+        if (s.running) {
+          const chunkInfo = s.chunks_total
+            ? ` (batch ${s.chunk}/${s.chunks_total}, ${s.tickers_done}/${s.tickers_total} priced)`
+            : '';
+          btn.innerHTML = `<span class="spin"></span> Refreshing…${chunkInfo}`;
+          setTimeout(() => pollRefreshAll(btn), 4000);
+        } else if (s.error) {
+          showToast('❌ Refresh failed: ' + s.error);
+          btn.disabled = false;
+          btn.innerHTML = '🔄 Refresh All Prices';
+        } else {
+          showToast('✅ All prices updated! Reloading…');
+          setTimeout(() => location.reload(), 800);
+        }
+      })
+      .catch(() => setTimeout(() => pollRefreshAll(btn), 5000));
+  }
+
+  // ── Refresh Single (same background-job pattern) ────────────────
   function refreshOne(sid, btn) {
     btn.disabled = true;
-    btn.innerHTML = '<span class="spin"></span> Refreshing…';
+    btn.innerHTML = '<span class="spin"></span> Starting…';
 
     fetch(`/api/strategies/${EXCHANGE}/${sid}/refresh`, { method: 'POST' })
       .then(r => r.json())
       .then(d => {
         if (d.success) {
-          showToast('✅ Prices updated! Reloading…');
-          setTimeout(() => location.reload(), 800);
+          pollRefreshOne(sid, btn);
         } else {
           showToast('❌ ' + (d.error || 'Error'));
           btn.disabled = false;
@@ -760,6 +789,27 @@
         btn.disabled = false;
         btn.innerHTML = '🔄 Refresh Prices';
       });
+  }
+
+  function pollRefreshOne(sid, btn) {
+    fetch(`/api/strategies/${EXCHANGE}/${sid}/refresh/status`)
+      .then(r => r.json())
+      .then(d => {
+        const s = d.status || {};
+        if (s.running) {
+          const chunkInfo = s.chunks_total ? ` (${s.chunk}/${s.chunks_total})` : '';
+          btn.innerHTML = `<span class="spin"></span> Refreshing…${chunkInfo}`;
+          setTimeout(() => pollRefreshOne(sid, btn), 4000);
+        } else if (s.error) {
+          showToast('❌ Refresh failed: ' + s.error);
+          btn.disabled = false;
+          btn.innerHTML = '🔄 Refresh Prices';
+        } else {
+          showToast('✅ Prices updated! Reloading…');
+          setTimeout(() => location.reload(), 800);
+        }
+      })
+      .catch(() => setTimeout(() => pollRefreshOne(sid, btn), 5000));
   }
 
   // ── Toast ─────────────────────────────────────────────────────
