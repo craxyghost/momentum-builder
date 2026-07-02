@@ -392,11 +392,19 @@ def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None, 
     #    all (needs their $79/mo Grow plan), so there's no point wasting
     #    time on Yahoo/Twelve Data for these first.
     if exchange == 'NSE':
-        nse_prices = _batch_prices_nse_direct(tickers)
-        for t, p in nse_prices.items():
+        gf_prices = _batch_prices_google_finance(tickers, exchange)
+        for t, p in gf_prices.items():
             if p > 0:
                 result[t] = p
-                source_log[t] = 'nse_direct'
+                source_log[t] = 'google_finance'
+
+        missing = [t for t, p in result.items() if p <= 0]
+        if missing:
+            nse_prices = _batch_prices_nse_direct(missing)
+            for t, p in nse_prices.items():
+                if p > 0:
+                    result[t] = p
+                    source_log[t] = 'nse_direct'
 
     # 1) Live intraday (1-minute) bars — one attempt, short timeout.
     #    (No point retrying slowly here: if Yahoo is blocked outright on
@@ -548,6 +556,83 @@ def _batch_prices_twelvedata(tickers: list, exchange: str = None, progress_cb=No
         if idx_c < len(chunks) - 1:
             _time.sleep(65)
 
+    return result
+
+
+# ── Google Finance scraper (free, no key, tried first for NSE) ──────
+# Google's infrastructure generally does NOT block cloud/datacenter IPs
+# the way NSE and Yahoo do (their finance pages are meant to be publicly
+# crawlable), so this is worth trying as a lighter-weight primary source
+# before the NSE-direct scraper below. Unverified whether the price is
+# present without JS execution until actually tested in production --
+# see source_log values of 'google_finance' vs falling through to
+# 'nse_direct' in /api/debug/price-sources to know which one is real.
+_GF_HEADERS = {
+    'User-Agent': ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                    'AppleWebKit/537.36 (KHTML, like Gecko) '
+                    'Chrome/124.0.0.0 Safari/537.36'),
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+}
+
+import re as _re
+_GF_PRICE_PATTERNS = [
+    _re.compile(r'class="YMlKec fxKbKc">([^<]+)<'),
+    _re.compile(r'data-last-price="([0-9.,]+)"'),
+]
+
+
+def _batch_prices_google_finance(tickers: list, exchange: str = None) -> dict:
+    """
+    Fetch NSE (or NYSE) prices from Google Finance's public quote page
+    (google.com/finance/quote/SYMBOL:EXCHANGE) via a plain GET request
+    -- no API key, no cookies/session warm-up needed. Google Finance is
+    a client-rendered page in a normal browser, but historically embeds
+    the current price as plain text in the initial server response (the
+    'YMlKec fxKbKc' div class, used by many public scrapers), which
+    means a plain requests.get() *should* see it without needing to run
+    any JavaScript -- but this is unverified against Render specifically
+    until tested live.
+    """
+    import requests, time as _time
+    result = {}
+    if not tickers:
+        return result
+
+    gf_exchange = 'NSE' if exchange == 'NSE' else 'NASDAQ'
+    session = requests.Session()
+    session.headers.update(_GF_HEADERS)
+
+    for i, t in enumerate(tickers):
+        bare = t.replace('.NS', '').replace('.BO', '')
+        url = f'https://www.google.com/finance/quote/{bare}:{gf_exchange}'
+        try:
+            resp = session.get(url, timeout=10)
+            price = None
+            for pattern in _GF_PRICE_PATTERNS:
+                m = pattern.search(resp.text)
+                if m:
+                    raw = m.group(1).strip().lstrip('₹$').replace(',', '')
+                    try:
+                        price = float(raw)
+                        break
+                    except ValueError:
+                        continue
+            if price and price > 0:
+                result[t] = price
+            else:
+                print(f'[GoogleFinance] {bare}: price pattern not found in response '
+                      f'(status {resp.status_code}, {len(resp.text)} bytes) -- '
+                      f'likely needs JS execution or page structure changed.')
+        except Exception as e:
+            print(f'[GoogleFinance] {bare} failed: {e}')
+
+        if i < len(tickers) - 1:
+            _time.sleep(0.3)
+
+    missing = [t for t in tickers if t not in result]
+    if missing:
+        print(f'[GoogleFinance] no price for: {missing}')
     return result
 
 
