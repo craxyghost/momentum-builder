@@ -568,11 +568,23 @@ _NSE_HEADERS = {
 
 def _nse_session():
     """
-    NSE's public site blocks any request that doesn't carry cookies from
-    a prior visit to the site (standard anti-scraping measure). We warm
-    up a requests.Session by hitting the homepage first, then reuse that
-    session (and its cookies) for every quote lookup in this process.
-    Re-warms automatically every 5 minutes since NSE cookies expire.
+    NSE's public site blocks requests from cloud/datacenter IPs outright
+    (confirmed in production on Render: this returns nothing even with
+    correct cookies/headers, from the same class of IP Yahoo Finance
+    also blocks). It also blocks any request that doesn't carry cookies
+    from a prior visit (standard anti-scraping measure) even when the
+    IP itself isn't blocked.
+
+    If NSE_PROXY_URL is set (standard 'http://user:pass@host:port'
+    format -- works with any HTTP(S) proxy provider, e.g. a residential
+    proxy plan from Webshare/IPRoyal/etc.), route through it so requests
+    appear to come from a non-datacenter IP. Without it, this will keep
+    failing from Render the same way Yahoo does.
+
+    We warm up a requests.Session by hitting the homepage first, then
+    reuse that session (and its cookies + proxy config) for every quote
+    lookup in this process. Re-warms automatically every 5 minutes since
+    NSE cookies expire.
     """
     import requests, time as _time
     now = _time.time()
@@ -581,9 +593,18 @@ def _nse_session():
 
     s = requests.Session()
     s.headers.update(_NSE_HEADERS)
+
+    proxy_url = os.environ.get('NSE_PROXY_URL')
+    if proxy_url:
+        s.proxies.update({'http': proxy_url, 'https': proxy_url})
+    else:
+        print('[NSE-direct] NSE_PROXY_URL not set -- requests go out on '
+              "Render's own IP, which NSE is known to block. Set "
+              'NSE_PROXY_URL to a residential proxy URL to fix this.')
+
     try:
-        s.get('https://www.nseindia.com/', timeout=10)
-        s.get('https://www.nseindia.com/get-quotes/equity?symbol=RELIANCE', timeout=10)
+        s.get('https://www.nseindia.com/', timeout=15)
+        s.get('https://www.nseindia.com/get-quotes/equity?symbol=RELIANCE', timeout=15)
     except Exception as e:
         print(f'[NSE-direct] warm-up failed: {e}')
     _NSE_SESSION['session'] = s
@@ -614,13 +635,13 @@ def _batch_prices_nse_direct(tickers: list) -> dict:
         bare = t.replace('.NS', '').replace('.BO', '')
         try:
             resp = session.get('https://www.nseindia.com/api/quote-equity',
-                                params={'symbol': bare}, timeout=10)
+                                params={'symbol': bare}, timeout=15)
             if resp.status_code == 401 or resp.status_code == 403:
                 # Cookies expired mid-run — re-warm once and retry this symbol.
                 _NSE_SESSION['session'] = None
                 session = _nse_session()
                 resp = session.get('https://www.nseindia.com/api/quote-equity',
-                                    params={'symbol': bare}, timeout=10)
+                                    params={'symbol': bare}, timeout=15)
             data = resp.json()
             price = data.get('priceInfo', {}).get('lastPrice')
             if price:
