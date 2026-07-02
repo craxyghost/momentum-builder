@@ -392,11 +392,19 @@ def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None, 
     #    all (needs their $79/mo Grow plan), so there's no point wasting
     #    time on Yahoo/Twelve Data for these first.
     if exchange == 'NSE':
-        gf_prices = _batch_prices_google_finance(tickers, exchange)
-        for t, p in gf_prices.items():
+        # Google Finance was tried and confirmed NOT viable: requests
+        # succeed (HTTP 200, ~1MB) but the price is injected by
+        # client-side JS -- it's simply not in the static HTML a plain
+        # GET receives, on Render or anywhere else. See _batch_prices_
+        # google_finance's docstring; kept in the file but no longer
+        # called. BSE India (via the `bse` pip package) is next: BSE
+        # lists almost every NSE-listed large/mid-cap stock too, and
+        # its JSON API is a plain request/response, not JS-rendered.
+        bse_prices = _batch_prices_bse(tickers, exchange)
+        for t, p in bse_prices.items():
             if p > 0:
                 result[t] = p
-                source_log[t] = 'google_finance'
+                source_log[t] = 'bse'
 
         missing = [t for t, p in result.items() if p <= 0]
         if missing:
@@ -633,6 +641,68 @@ def _batch_prices_google_finance(tickers: list, exchange: str = None) -> dict:
     missing = [t for t in tickers if t not in result]
     if missing:
         print(f'[GoogleFinance] no price for: {missing}')
+    return result
+
+
+# ── BSE India scraper (free, no key) — via the `bse` pip package ────
+# github.com/BennyThadikaran/BseIndiaApi wraps BSE's own unofficial
+# JSON endpoints (api.bseindia.com) with built-in cookie/session warm-up
+# and request throttling. Unlike Google Finance, BSE.quote() hits a
+# plain JSON API (not a JS-rendered page), so there's nothing to parse
+# out of HTML. BSE lists almost every NSE large/mid-cap stock under a
+# different numeric "scrip code" -- getScripCode() looks that up by
+# symbol name and the result is cached in-process since it never
+# changes. Whether BSE blocks cloud/datacenter IPs the way NSE does is
+# unverified until tested live from Render (this assistant's own
+# sandbox can't reach bseindia.com at all to pre-check it).
+_BSE_SCRIP_CACHE: dict = {}
+
+
+def _batch_prices_bse(tickers: list, exchange: str = None) -> dict:
+    result: dict = {}
+    if not tickers:
+        return result
+    try:
+        from bse import BSE
+    except ImportError:
+        print('[BSE] the "bse" package is not installed -- add it to requirements.txt')
+        return result
+
+    try:
+        session = BSE(download_folder='/tmp')
+    except Exception as e:
+        print(f'[BSE] failed to start session: {e}')
+        return result
+
+    try:
+        for t in tickers:
+            bare = t.replace('.NS', '').replace('.BO', '')
+            try:
+                code = _BSE_SCRIP_CACHE.get(bare)
+                if code is None:
+                    code = session.getScripCode(bare)
+                    _BSE_SCRIP_CACHE[bare] = code
+                q = session.quote(code)
+                ltp = q.get('LTP') if isinstance(q, dict) else None
+                if ltp and float(ltp) > 0:
+                    result[t] = float(ltp)
+                else:
+                    print(f'[BSE] {bare} (code {code}): quote had no usable LTP: {q}')
+            except ValueError as e:
+                print(f'[BSE] {bare}: scrip not found on BSE -- {e}')
+            except (TimeoutError, ConnectionError) as e:
+                print(f'[BSE] {bare}: request failed -- {e}')
+            except Exception as e:
+                print(f'[BSE] {bare}: unexpected error -- {type(e).__name__}: {e}')
+    finally:
+        try:
+            session.exit()
+        except Exception:
+            pass
+
+    missing = [t for t in tickers if t not in result]
+    if missing:
+        print(f'[BSE] no price for: {missing}')
     return result
 
 
