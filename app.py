@@ -206,7 +206,8 @@ def api_strategies_build(exchange):
 def api_strategies_refresh(exchange):
     exchange = exchange.upper()
     results  = update_all(exchange)
-    summary  = {sid: {'pnl_pct': pf['total_pnl_pct'], 'pnl': pf['total_pnl']}
+    summary  = {sid: {'pnl_pct': pf['total_pnl_pct'], 'pnl': pf['total_pnl'],
+                       'price_sources': pf.get('price_sources', {})}
                 for sid, pf in results.items() if pf}
     return jsonify({'success': True, 'summary': summary})
 
@@ -227,6 +228,30 @@ def api_strategies_data(exchange):
         'portfolios': load_all_strategies(exchange),
         'histories':  load_all_histories(exchange),
     })
+
+
+# ── Diagnostics ──────────────────────────────────────────────────
+@app.route('/api/debug/price-sources')
+def api_debug_price_sources():
+    """
+    Shows, for a quick sanity check, whether TWELVE_DATA_API_KEY is
+    configured on this host and where the last refresh actually pulled
+    each ticker's price from (yahoo_intraday / yahoo_daily / twelvedata /
+    yahoo_individual / unavailable). Useful for confirming on Render
+    whether Twelve Data is actually being reached, without needing to
+    read server logs.
+    """
+    import os as _os
+    key_set = bool(_os.environ.get('TWELVE_DATA_API_KEY'))
+    out = {'twelve_data_key_configured': key_set, 'exchanges': {}}
+    for exch in ('NSE', 'NYSE'):
+        strategies = load_all_strategies(exch)
+        exch_sources = {}
+        for sid, pf in strategies.items():
+            if pf and pf.get('price_sources'):
+                exch_sources[sid] = pf['price_sources']
+        out['exchanges'][exch] = exch_sources
+    return jsonify(out)
 
 
 # ── Screener API ───────────────────────────────────────────────────

@@ -331,27 +331,37 @@ def _cur_price(ticker: str) -> float:
         return 0.0
 
 
-def _batch_prices(tickers: list, exchange: str = None) -> dict:
+def _batch_prices(tickers: list, exchange: str = None, source_log: dict = None) -> dict:
     """
-    Fetch LIVE / intraday prices for multiple tickers in ONE yfinance call.
+    Fetch LIVE / intraday prices for multiple tickers in ONE call per data
+    source (never one call per strategy — see update_all()).
+
     Order of attempts:
-      1. Intraday (1-minute) bars — so a same-day refresh shows real
-         movement instead of re-reading the last daily close. Retries
-         once, since cloud hosts (e.g. Render) often hit transient
-         Yahoo rate-limits (HTTP 429).
-      2. Daily close — covers weekends/holidays with no intraday bars.
-      3. Individual fast_info fetch per ticker.
-      4. Twelve Data (TWELVE_DATA_API_KEY env var) — used when Yahoo is
-         outright blocked from a cloud host IP, which is common on
-         Render's shared IPs.
+      1. Intraday (1-minute) bars via yfinance — real-time movement.
+         Short timeout so a blocked/slow host fails fast instead of
+         hanging the whole refresh request.
+      2. Daily close via yfinance — covers weekends/holidays.
+      3. Twelve Data (TWELVE_DATA_API_KEY env var) batched in one request
+         (chunked to respect free-tier per-minute credit limits) — this
+         is what actually works from Render, since Yahoo frequently
+         blocks/rate-limits cloud host IPs outright.
+      4. Individual yfinance fast_info fetch — last resort, only for
+         whatever is still missing after the batched attempts above.
+
+    `source_log`, if given a dict, is filled in as {ticker: 'yahoo_intraday'
+    | 'yahoo_daily' | 'twelvedata' | 'yahoo_individual' | 'unavailable'}
+    so callers/API responses can show exactly where each price came from.
+
     Returns {ticker: price} — price is 0.0 if unavailable everywhere.
     """
     if not tickers:
         return {}
     result = {t: 0.0 for t in tickers}
+    if source_log is None:
+        source_log = {}
     joined = ' '.join(tickers)
 
-    def _fill_from(df):
+    def _fill_from(df, tag):
         if df is None or df.empty:
             return
         close = df.get('Close', df.get('close'))
@@ -361,6 +371,7 @@ def _batch_prices(tickers: list, exchange: str = None) -> dict:
             vals = close.dropna()
             if not vals.empty:
                 result[tickers[0]] = float(vals.iloc[-1])
+                source_log[tickers[0]] = tag
         else:
             for t in tickers:
                 if result[t] > 0:
@@ -371,42 +382,57 @@ def _batch_prices(tickers: list, exchange: str = None) -> dict:
                         vals = col.dropna()
                         if not vals.empty:
                             result[t] = float(vals.iloc[-1])
+                            source_log[t] = tag
                 except Exception:
                     pass
 
-    # 1) Live intraday (1-minute) bars, with one retry on failure.
-    for attempt in range(2):
-        try:
-            df_intraday = yf.download(joined, period='1d', interval='1m',
-                                       progress=False, auto_adjust=True)
-            _fill_from(df_intraday)
-            break
-        except Exception as e:
-            print(f'[_batch_prices] intraday fetch attempt {attempt+1} failed: {e}')
-            if attempt == 0:
-                time.sleep(2)
+    # 1) Live intraday (1-minute) bars — one attempt, short timeout.
+    #    (No point retrying slowly here: if Yahoo is blocked outright on
+    #    this host, Twelve Data below will pick up the slack in seconds
+    #    instead of us burning 10-20s per retry per refresh.)
+    try:
+        df_intraday = yf.download(joined, period='1d', interval='1m',
+                                   progress=False, auto_adjust=True,
+                                   timeout=8)
+        _fill_from(df_intraday, 'yahoo_intraday')
+    except Exception as e:
+        print(f'[_batch_prices] intraday fetch failed: {e}')
 
     # 2) Daily close fallback for anything still missing.
     missing = [t for t, p in result.items() if p <= 0]
     if missing:
         try:
             df_daily = yf.download(' '.join(missing), period='2d', interval='1d',
-                                    progress=False, auto_adjust=True)
-            _fill_from(df_daily)
+                                    progress=False, auto_adjust=True,
+                                    timeout=8)
+            _fill_from(df_daily, 'yahoo_daily')
         except Exception as e:
             print(f'[_batch_prices] daily fallback fetch failed: {e}')
 
-    # 3) Individual fetch (fast_info) for anything still missing.
+    # 3) Twelve Data — ONE batched call (chunked) for everything still
+    #    missing. This is the path that matters on Render: Yahoo is
+    #    commonly blocked/throttled from shared cloud IPs, so this is
+    #    the real primary source in production, not a rare fallback.
+    missing = [t for t, p in result.items() if p <= 0]
+    if missing:
+        td_prices = _batch_prices_twelvedata(missing, exchange)
+        for t, p in td_prices.items():
+            if p > 0:
+                result[t] = p
+                source_log[t] = 'twelvedata'
+
+    # 4) Last resort: individual yfinance fetch for whatever is STILL
+    #    missing (small count by now, so the per-ticker cost is fine).
     missing = [t for t, p in result.items() if p <= 0]
     for t in missing:
-        result[t] = _cur_price(t)
-
-    # 4) Twelve Data — works from cloud hosts Yahoo blocks outright.
-    still_missing = [t for t, p in result.items() if p <= 0]
-    if still_missing:
-        result.update(_batch_prices_twelvedata(still_missing, exchange))
+        p = _cur_price(t)
+        if p > 0:
+            result[t] = p
+            source_log[t] = 'yahoo_individual'
 
     still_missing = [t for t, p in result.items() if p <= 0]
+    for t in still_missing:
+        source_log.setdefault(t, 'unavailable')
     if still_missing:
         print(f'[_batch_prices] could not fetch a live price for: {still_missing} '
               f'— last known price will be kept for these.')
@@ -417,43 +443,88 @@ def _batch_prices(tickers: list, exchange: str = None) -> dict:
 def _batch_prices_twelvedata(tickers: list, exchange: str = None) -> dict:
     """
     Fallback price fetch via Twelve Data (twelvedata.com). Used when
-    Yahoo Finance is unreachable, e.g. blocked from cloud host IPs.
-    Requires TWELVE_DATA_API_KEY env var; returns {} silently if unset.
+    Yahoo Finance is unreachable, e.g. blocked from cloud host IPs —
+    the normal case on Render.
+
+    Requires TWELVE_DATA_API_KEY env var; returns {} (with a loud log
+    line) if unset, so this doesn't fail silently forever.
+
+    Chunks requests to CHUNK_SIZE symbols each, with a short pause
+    between chunks, to stay under free-tier per-minute credit limits
+    (Twelve Data's Basic/free plan is 8 credits/minute; each symbol in
+    a batched quote costs 1 credit). Without chunking, refreshing 15+
+    strategies that together reference 30-100+ unique tickers in a
+    single request reliably trips the per-minute limit and Twelve Data
+    returns a top-level error object instead of per-symbol prices —
+    which is exactly why some strategies got real prices and most
+    didn't when this was called once per strategy instead of once per
+    refresh.
     """
-    import os, requests
+    import os, requests, time as _time
     api_key = os.environ.get('TWELVE_DATA_API_KEY')
-    if not api_key or not tickers:
+    if not tickers:
+        return {}
+    if not api_key:
+        print('[TwelveData] TWELVE_DATA_API_KEY is not set — skipping Twelve Data fallback entirely.')
         return {}
 
-    bare_map = {}
-    for t in tickers:
-        bare = t.replace('.NS', '').replace('.BO', '')
-        bare_map[bare] = t
-
-    params = {'symbol': ','.join(bare_map.keys()), 'apikey': api_key}
-    if exchange in ('NSE', 'BSE'):
-        params['exchange'] = exchange
-
+    CHUNK_SIZE = 8   # matches Twelve Data free-plan per-minute credit cap
     result = {}
-    try:
-        resp = requests.get('https://api.twelvedata.com/price',
-                            params=params, timeout=15)
-        data = resp.json()
-        if len(bare_map) == 1:
-            bare, orig = next(iter(bare_map.items()))
-            price = float(data.get('price', 0) or 0)
-            if price > 0:
-                result[orig] = price
-        else:
-            for bare, orig in bare_map.items():
-                entry = data.get(bare)
-                if isinstance(entry, dict) and entry.get('price'):
-                    try:
-                        result[orig] = float(entry['price'])
-                    except (TypeError, ValueError):
-                        pass
-    except Exception as e:
-        print(f'[TwelveData] batch price fetch failed: {e}')
+    chunks = [tickers[i:i + CHUNK_SIZE] for i in range(0, len(tickers), CHUNK_SIZE)]
+
+    for idx_c, chunk in enumerate(chunks):
+        bare_map = {}
+        for t in chunk:
+            bare = t.replace('.NS', '').replace('.BO', '')
+            bare_map[bare] = t
+
+        params = {'symbol': ','.join(bare_map.keys()), 'apikey': api_key}
+        if exchange in ('NSE', 'BSE'):
+            params['exchange'] = exchange
+
+        try:
+            resp = requests.get('https://api.twelvedata.com/price',
+                                params=params, timeout=15)
+            data = resp.json()
+
+            # Twelve Data returns a single top-level error object (not
+            # per-symbol) when the whole request is rejected — e.g. bad
+            # key, plan limit, or rate limit exceeded. Surface it loudly
+            # instead of letting it look like "no price found".
+            if isinstance(data, dict) and data.get('status') == 'error':
+                print(f"[TwelveData] chunk {idx_c+1}/{len(chunks)} REJECTED — "
+                      f"code={data.get('code')} message={data.get('message')} "
+                      f"symbols={list(bare_map.keys())}")
+                if data.get('code') == 429 and idx_c < len(chunks) - 1:
+                    _time.sleep(60)   # per-minute cap — wait it out before the next chunk
+                continue
+
+            if len(bare_map) == 1:
+                bare, orig = next(iter(bare_map.items()))
+                price = float(data.get('price', 0) or 0)
+                if price > 0:
+                    result[orig] = price
+                elif isinstance(data, dict) and data.get('code'):
+                    print(f"[TwelveData] {bare} -> error code={data.get('code')} "
+                          f"message={data.get('message')}")
+            else:
+                for bare, orig in bare_map.items():
+                    entry = data.get(bare)
+                    if isinstance(entry, dict) and entry.get('price'):
+                        try:
+                            result[orig] = float(entry['price'])
+                        except (TypeError, ValueError):
+                            pass
+                    elif isinstance(entry, dict) and entry.get('code'):
+                        print(f"[TwelveData] {bare} -> error code={entry.get('code')} "
+                              f"message={entry.get('message')}")
+        except Exception as e:
+            print(f'[TwelveData] chunk {idx_c+1}/{len(chunks)} fetch failed: {e}')
+
+        # Small pause between chunks so we don't burst past the
+        # per-minute credit cap even when individual chunks succeed.
+        if idx_c < len(chunks) - 1:
+            _time.sleep(8)
 
     return result
 
@@ -1670,20 +1741,20 @@ def build_all(exchange: str, screener_stocks: list) -> dict:
     return results
 
 
-# ── Update (refresh live prices) ──────────────────────────────────
-def update_strategy(exchange: str, sid: str) -> dict | None:
-    pf = load_strategy(exchange, sid)
-    if not pf:
-        return None
-
-    # Batch-fetch all tickers in ONE yfinance call (much faster, avoids timeouts)
-    tickers = [pos['ticker'] for pos in pf['positions']]
-    prices  = _batch_prices(tickers, exchange)
-
+# ── Update (refresh live prices) ────────────────────────────────────
+def _apply_prices_and_save(exchange: str, sid: str, pf: dict, prices: dict,
+                            source_log: dict = None) -> dict:
+    """Apply a pre-fetched {ticker: price} map to one portfolio, recompute
+    P&L, save it, and return it. Shared by update_strategy() (single) and
+    update_all() (bulk, pre-fetched once for every strategy)."""
+    sources = {}
     for pos in pf['positions']:
         cp = prices.get(pos['ticker'], 0)
         if cp <= 0:
             cp = pos['current_price']   # keep last known if fetch failed
+            sources[pos['ticker']] = (source_log or {}).get(pos['ticker'], 'unavailable')
+        else:
+            sources[pos['ticker']] = (source_log or {}).get(pos['ticker'], 'unknown')
         cv  = round(pos['units'] * cp, 4)
         pnl = round(cv - INV, 4)
         pct = round((pnl / INV) * 100, 2) if INV else 0
@@ -1702,6 +1773,7 @@ def update_strategy(exchange: str, sid: str) -> dict | None:
     pf['total_pnl']           = t_pnl
     pf['total_pnl_pct']       = t_pct
     pf['last_updated']        = datetime.now().strftime('%Y-%m-%d %H:%M')
+    pf['price_sources']       = sources   # diagnostics: where each price came from
 
     srt = sorted(pf['positions'], key=lambda x: x['pnl_pct'], reverse=True)
     pf['best_performer']  = srt[0]['symbol']  if srt else None
@@ -1713,8 +1785,46 @@ def update_strategy(exchange: str, sid: str) -> dict | None:
     return pf
 
 
+def update_strategy(exchange: str, sid: str) -> dict | None:
+    """Refresh ONE strategy in isolation (used by the single-strategy
+    refresh button). Fetches prices just for its own tickers."""
+    pf = load_strategy(exchange, sid)
+    if not pf:
+        return None
+    tickers = [pos['ticker'] for pos in pf['positions']]
+    source_log = {}
+    prices = _batch_prices(tickers, exchange, source_log)
+    return _apply_prices_and_save(exchange, sid, pf, prices, source_log)
+
+
 def update_all(exchange: str) -> dict:
-    return {sid: update_strategy(exchange, sid) for sid in STRATEGIES}
+    """
+    Refresh EVERY strategy for an exchange.
+
+    Critically, this fetches the price for each UNIQUE ticker across all
+    strategies exactly ONCE, instead of once per strategy. Strategies
+    share most of their tickers (they're all drawn from the same top-N
+    screener universe), so calling _batch_prices() per-strategy meant
+    15 separate bursts of requests to Yahoo/Twelve Data in a few seconds
+    — which is what tripped Twelve Data's per-minute rate limit (and
+    Yahoo's) for most of them, leaving only whichever strategies landed
+    inside the rate-limit window with real prices and the rest stuck at
+    their last-known (build-time) price, i.e. a flat 0.00%.
+    """
+    portfolios = {sid: load_strategy(exchange, sid) for sid in STRATEGIES}
+    portfolios = {sid: pf for sid, pf in portfolios.items() if pf}
+
+    all_tickers = sorted({pos['ticker']
+                           for pf in portfolios.values()
+                           for pos in pf['positions']})
+
+    source_log = {}
+    prices = _batch_prices(all_tickers, exchange, source_log)
+
+    results = {}
+    for sid, pf in portfolios.items():
+        results[sid] = _apply_prices_and_save(exchange, sid, pf, prices, source_log)
+    return results
 
 
 # ── Strategy aliases for external access ─────────────────────────────
