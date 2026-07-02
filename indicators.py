@@ -574,6 +574,139 @@ INDICATOR_META = {
 }
 
 
+# ─────────────────────────────────────────────
+# Extra factor-specific indicators — NOT part of the base 5-indicator
+# weighted score. These exist so strategies whose selling point IS a
+# distinct academic factor (rather than a filter on the base 5) can
+# actually compute that factor, instead of approximating it with a
+# threshold on RSI/MACD/52-week-high (which makes multiple "different"
+# strategies converge on identical picks — see S12/S13/S14 below).
+# All three take the same monthly 'Close' price Series the base
+# indicators already use, so no extra data fetch is required.
+# ─────────────────────────────────────────────
+
+def indicator_intermediate_momentum(monthly_data: pd.DataFrame) -> dict:
+    """
+    Intermediate ("12-7 Month") Momentum
+    -------------------------------------
+    Academic backing: Novy-Marx (2012) "Is Momentum Really Momentum?",
+    Journal of Financial Economics.
+
+    Return from 12 months ago to 7 months ago — i.e. skip the most
+    recent 6 months entirely. Novy-Marx found this window predicts
+    future returns BETTER than the standard 12-1 month window, because
+    it avoids both short-term reversal (last month) and medium-term
+    reversal (last 6 months), isolating the part of the momentum signal
+    driven by slow information diffusion / underreaction.
+
+    This is what S12 "Novy-Marx Top 5" is named for — it needs this
+    number specifically, not a generic momentum score.
+    """
+    close = monthly_data['Close'].dropna()
+    n = len(close)
+    if n < 13:
+        return {'score': 50.0, 'value': 0.0, 'signal': 'Insufficient data',
+                'detail': 'Need 13+ months for 12-7M window'}
+    p_7m_ago  = float(close.iloc[-8])
+    p_12m_ago = float(close.iloc[-13])
+    if p_12m_ago <= 0:
+        return {'score': 50.0, 'value': 0.0, 'signal': 'Insufficient data',
+                'detail': 'Zero/invalid price 12 months ago'}
+    ret_12_7 = (p_7m_ago / p_12m_ago - 1) * 100
+    score = round(min(100.0, max(0.0, (ret_12_7 + 30) / 70 * 100)), 1)
+    if ret_12_7 >= 15:
+        signal = 'Strong 12-7M Intermediate Momentum'
+    elif ret_12_7 >= 5:
+        signal = 'Moderate 12-7M Momentum'
+    elif ret_12_7 >= -5:
+        signal = 'Flat 12-7M Momentum'
+    else:
+        signal = 'Negative 12-7M Momentum'
+    return {
+        'score': score, 'value': round(ret_12_7, 2), 'signal': signal,
+        'detail': f'12-7M return: {ret_12_7:.1f}% (skips most recent 6 months)',
+    }
+
+
+def indicator_momentum_consistency(monthly_data: pd.DataFrame) -> dict:
+    """
+    Momentum Consistency (% of last 12 months positive)
+    -----------------------------------------------------
+    Academic backing: Grinblatt & Moskowitz (2004) "Predicting Stock
+    Price Movements from Past Returns", + Conrad & Yongheng (2014)
+    "Frog-in-the-Pan" momentum. Both show that a stock up steadily in
+    9+ of the last 12 months outperforms a stock with the SAME total
+    return achieved via one or two big spikes — consistency itself is
+    priced information, not noise.
+
+    This is what S13 "Consistency Champion" is named for.
+    """
+    close = monthly_data['Close'].dropna()
+    if len(close) < 13:
+        return {'score': 50.0, 'value': 0, 'signal': 'Insufficient data',
+                'detail': 'Need 13+ months to count 12 monthly returns'}
+    monthly_returns = close.pct_change().dropna().iloc[-12:]
+    if len(monthly_returns) < 6:
+        return {'score': 50.0, 'value': 0, 'signal': 'Insufficient data',
+                'detail': 'Fewer than 6 monthly returns available'}
+    positive_months = int((monthly_returns > 0).sum())
+    total_months = len(monthly_returns)
+    pct = positive_months / total_months * 100
+    if positive_months >= 9:
+        signal = f'Highly Consistent ({positive_months}/{total_months} positive months)'
+    elif positive_months >= 7:
+        signal = f'Moderately Consistent ({positive_months}/{total_months} positive months)'
+    else:
+        signal = f'Inconsistent ({positive_months}/{total_months} positive months)'
+    return {
+        'score': round(pct, 1), 'value': positive_months, 'signal': signal,
+        'detail': f'{positive_months} of {total_months} trailing months were positive',
+        'meets_9_of_12': positive_months >= 9,
+    }
+
+
+def indicator_multi_horizon_confluence(monthly_data: pd.DataFrame) -> dict:
+    """
+    Multi-Horizon Confluence (1M, 3M, 6M, 12M all aligned)
+    ---------------------------------------------------------
+    Academic backing: Asness, Moskowitz & Pedersen (2013) "Value and
+    Momentum Everywhere" — time-series momentum is strongest and most
+    persistent when short, medium, and long lookback windows all agree
+    on direction, versus one horizon showing momentum while others
+    disagree (often a sign of a temporary spike, not a trend).
+
+    This is what S14 "Multi-Horizon Confluence" is named for — it
+    needs the actual 1M/3M/6M/12M returns, not a proxy.
+    """
+    close = monthly_data['Close'].dropna()
+    n = len(close)
+    if n < 13:
+        return {'score': 50.0, 'value': 0, 'signal': 'Insufficient data',
+                'detail': 'Need 13+ months for all four horizons',
+                'all_positive': False}
+
+    def _ret(back):
+        return (float(close.iloc[-1]) / float(close.iloc[-1 - back]) - 1) * 100
+
+    def _pct_score(ret):
+        return min(100.0, max(0.0, (ret + 30) / 70 * 100))
+
+    ret_1m, ret_3m, ret_6m, ret_12m = _ret(1), _ret(3), _ret(6), _ret(12)
+    all_positive = ret_1m > 0 and ret_3m > 0 and ret_6m > 0 and ret_12m > 0
+    weighted = (_pct_score(ret_12m) * 0.40 + _pct_score(ret_6m) * 0.30
+                + _pct_score(ret_3m) * 0.20 + _pct_score(ret_1m) * 0.10)
+    signal = ('All Timeframes Aligned Bullish' if all_positive
+              else 'Timeframes Not Fully Aligned')
+    return {
+        'score': round(weighted, 1), 'value': int(all_positive), 'signal': signal,
+        'detail': (f'1M:{ret_1m:+.1f}% 3M:{ret_3m:+.1f}% '
+                   f'6M:{ret_6m:+.1f}% 12M:{ret_12m:+.1f}%'),
+        'all_positive': all_positive,
+        'returns': {'1m': round(ret_1m, 2), '3m': round(ret_3m, 2),
+                    '6m': round(ret_6m, 2), '12m': round(ret_12m, 2)},
+    }
+
+
 def calculate_all_indicators(ticker: str) -> dict:
     """
     Main function: fetches data and calculates all 5 momentum indicators.

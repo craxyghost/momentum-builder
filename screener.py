@@ -22,6 +22,8 @@ from indicators import (
     calculate_all_indicators,
     indicator_price_momentum, indicator_rsi, indicator_macd,
     indicator_52week_high, indicator_ma_momentum,
+    indicator_intermediate_momentum, indicator_momentum_consistency,
+    indicator_multi_horizon_confluence,
     INDICATOR_WEIGHTS, INDICATOR_META,
 )
 
@@ -678,6 +680,24 @@ def _score_from_data(symbol: str, exchange: str,
         if final_score < 81:
             return None
 
+        # ── Extra factor-specific scores (NOT part of final_score / the
+        #    81+ screening bar above) — computed only for stocks that
+        #    already cleared the base screen, so this never changes who
+        #    makes the elite pool. These exist so S12/S13/S14 can select
+        #    by their OWN named academic factor instead of proxying off
+        #    RSI/MACD/52-week-high, which was causing them to pick
+        #    identical portfolios. weight=0 keeps them out of final_score.
+        for key, fn in (
+            ('intermediate_momentum', indicator_intermediate_momentum),
+            ('consistency',           indicator_momentum_consistency),
+            ('confluence',            indicator_multi_horizon_confluence),
+        ):
+            v = fn(monthly_df)
+            v['weight'] = 0
+            v['weighted_score'] = 0
+            v.setdefault('short', key)
+            res[key] = v
+
         suffix = '.NS' if exchange == 'NSE' else ''
         ticker   = symbol + suffix if '.' not in symbol else symbol
         cat_map  = _NSE_CATEGORY_MAP if exchange == 'NSE' else _NYSE_CATEGORY_MAP
@@ -685,7 +705,11 @@ def _score_from_data(symbol: str, exchange: str,
 
         ind_snap = {k: {'score': v['score'], 'signal': v.get('signal', ''),
                         'weighted_score': v['weighted_score'],
-                        'short': v.get('short', k)} for k, v in res.items()}
+                        'short': v.get('short', k),
+                        'value': v.get('value'),
+                        'meets_9_of_12': v.get('meets_9_of_12'),
+                        'all_positive': v.get('all_positive'),
+                        'returns': v.get('returns')} for k, v in res.items()}
 
         if final_score >= 80:
             mom_class, mom_color = 'Very Strong', '#00c853'

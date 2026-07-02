@@ -1791,94 +1791,125 @@ def _intermediate_momentum(ticker: str) -> float:
 
 
 def build_s12_novy_marx(exchange: str, stocks: list) -> dict | None:
-    """S12: Novy-Marx Top 5 — 12→7M intermediate momentum. Backtested +117% NYSE."""
+    """S12: Novy-Marx Top 5 — 12→7M intermediate momentum. Backtested +117% NYSE.
+
+    Ranks the elite pool by the ACTUAL Novy-Marx (2012) 12-7 month
+    return (return from 12 months ago to 7 months ago, skipping the
+    most recent 6 months) — see indicator_intermediate_momentum() in
+    indicators.py. This used to be a proxy (52-week-high + MA score),
+    which made this strategy pick the same stocks as several others
+    that also lean on those two generic sub-scores. Falls back to the
+    old proxy only if a stock's screener data predates this fix (no
+    'intermediate_momentum' key yet) — re-running "Build All Strategies"
+    refreshes it.
+    """
     if not stocks:
         return None
-    ranked = sorted(stocks, key=lambda x: x.get('final_score', 0), reverse=True)
-    elite  = [s for s in ranked if s.get('final_score', 0) >= 81]
+    elite = [s for s in stocks if s.get('final_score', 0) >= 81]
     if not elite:
         return None
-    # Proxy: stocks near 52W high + strong MA = good intermediate momentum
-    novy_proxy = sorted(elite,
-                        key=lambda x: (x.get('indicators',{}).get('52_week_high',{}).get('score',50)
-                                       + x.get('indicators',{}).get('ma_momentum',{}).get('score',50)),
-                        reverse=True)
+
+    def _novy_score(x):
+        im = x.get('indicators', {}).get('intermediate_momentum')
+        if im is not None:
+            return im.get('score', 50)
+        # legacy fallback for stocks scored before this fix
+        return (x.get('indicators', {}).get('52_week_high', {}).get('score', 50)
+                + x.get('indicators', {}).get('ma_momentum', {}).get('score', 50)) / 2
+
+    novy_ranked = sorted(elite, key=_novy_score, reverse=True)
     sc, chosen = defaultdict(int), []
-    for s in novy_proxy:
+    for s in novy_ranked:
         sector = (s.get('sector') or 'Unknown').strip()
         if sc[sector] < 2:
             chosen.append(s); sc[sector] += 1
         if len(chosen) >= 5: break
-    if not chosen: chosen = novy_proxy[:5]
+    if not chosen: chosen = novy_ranked[:5]
     pos = [_make_position(s, i+1,
-           f'Novy-Marx #{i+1} | Intermediate12-7M proxy | Score:{s["final_score"]:.1f} | {s.get("sector","?")}')
+           f'Novy-Marx #{i+1} | 12-7M return: '
+           f'{s.get("indicators",{}).get("intermediate_momentum",{}).get("value","?")}% '
+           f'| Score:{s["final_score"]:.1f} | {s.get("sector","?")}')
            for i, s in enumerate(chosen)]
     return _save(exchange, 's12', pos, {
-        'novy_note': 'Top 5 by Novy-Marx 12-7M intermediate momentum',
+        'novy_note': 'Top 5 by ACTUAL Novy-Marx 12-7M intermediate momentum return',
         'academic': 'Novy-Marx(2012) JFE — adds +1.5%/month vs standard 12-1M',
         'backtested': '+117% NYSE, +77% NSE annualised',
     })
 
 
 def build_s13_consistency(exchange: str, stocks: list) -> dict | None:
-    """S13: Consistency Champion — only stocks positive 9+/12 months. Backtested +93% NYSE."""
+    """S13: Consistency Champion — only stocks positive 9+/12 months. Backtested +93% NYSE.
+
+    Uses the ACTUAL count of positive months out of the trailing 12
+    (indicator_momentum_consistency() in indicators.py), not a proxy
+    of MA-score + RSI-score. Prefers stocks that genuinely clear the
+    9-of-12 bar; only widens the net if too few clear it outright.
+    """
     if not stocks:
         return None
     elite = [s for s in stocks if s.get('final_score', 0) >= 81]
     if not elite:
         return None
-    # Proxy: high MA score + high RSI = consistent monthly gains
-    consistent = [s for s in elite
-                  if s.get('indicators',{}).get('ma_momentum',{}).get('score',0) >= 70
-                  and s.get('indicators',{}).get('rsi',{}).get('score',0) >= 65]
+
+    def _consistency_score(x):
+        c = x.get('indicators', {}).get('consistency')
+        if c is not None:
+            return c.get('score', 0)
+        # legacy fallback for stocks scored before this fix
+        return (x.get('indicators', {}).get('ma_momentum', {}).get('score', 0)
+                + x.get('indicators', {}).get('rsi', {}).get('score', 0)) / 2
+
+    consistent = [s for s in elite if s.get('indicators', {}).get('consistency', {}).get('meets_9_of_12')]
     if len(consistent) < 3:
-        consistent = sorted(elite, key=lambda x:
-                            (x.get('indicators',{}).get('ma_momentum',{}).get('score',50)
-                             + x.get('indicators',{}).get('rsi',{}).get('score',50)),
-                            reverse=True)[:10]
+        consistent = sorted(elite, key=_consistency_score, reverse=True)[:10]
     sc, chosen = defaultdict(int), []
-    for s in sorted(consistent, key=lambda x: x['final_score'], reverse=True):
+    for s in sorted(consistent, key=_consistency_score, reverse=True):
         sector = (s.get('sector') or 'Unknown').strip()
         if sc[sector] < 2:
             chosen.append(s); sc[sector] += 1
         if len(chosen) >= 5: break
     if not chosen: chosen = consistent[:5]
     pos = [_make_position(s, i+1,
-           f'Consistency #{i+1} | MA:{s.get("indicators",{}).get("ma_momentum",{}).get("score",0):.0f} '
-           f'RSI:{s.get("indicators",{}).get("rsi",{}).get("score",0):.0f} | {s.get("sector","?")}')
+           f'Consistency #{i+1} | '
+           f'{s.get("indicators",{}).get("consistency",{}).get("value","?")}/12 positive months '
+           f'| {s.get("sector","?")}')
            for i, s in enumerate(chosen)]
     return _save(exchange, 's13', pos, {
-        'consistency_note': 'Top 5 with 9+/12 positive months — eliminates one-time spikes',
+        'consistency_note': 'Top 5 with ACTUAL 9+/12 positive months — eliminates one-time spikes',
         'academic': 'Grinblatt&Moskowitz(2004)+Conrad&Yongheng(2014)',
         'backtested': '+93% NYSE, +67% NSE annualised',
     })
 
 
 def build_s14_confluence(exchange: str, stocks: list) -> dict | None:
-    """S14: Multi-Horizon Confluence — all timeframes aligned. Backtested +130% NYSE."""
+    """S14: Multi-Horizon Confluence — all timeframes aligned. Backtested +130% NYSE.
+
+    Uses the ACTUAL 1M/3M/6M/12M returns (indicator_multi_horizon_
+    confluence() in indicators.py) and requires all four to be
+    genuinely positive, not a proxy of "5 generic sub-scores above 65."
+    """
     if not stocks:
         return None
     elite = [s for s in stocks if s.get('final_score', 0) >= 81]
     if not elite:
         return None
-    # Proxy: high score across ALL indicator dimensions = all timeframes bullish
-    confluence = []
-    for s in elite:
-        ind = s.get('indicators', {})
-        scores = [
-            s.get('final_score', 0),
-            ind.get('rsi', {}).get('score', 0),
-            ind.get('macd', {}).get('score', 0),
-            ind.get('52_week_high', {}).get('score', 0),
-            ind.get('ma_momentum', {}).get('score', 0),
-        ]
-        # All must be above 65 (all timeframes bullish)
-        if all(sc >= 65 for sc in scores):
-            confluent_score = sum(scores) / len(scores)
-            confluence.append({**s, '_confluence': confluent_score})
+
+    def _confluence_score(x):
+        cf = x.get('indicators', {}).get('confluence')
+        if cf is not None:
+            return cf.get('score', 0)
+        # legacy fallback for stocks scored before this fix
+        ind = x.get('indicators', {})
+        return sum([x.get('final_score', 0), ind.get('rsi', {}).get('score', 0),
+                    ind.get('macd', {}).get('score', 0),
+                    ind.get('52_week_high', {}).get('score', 0),
+                    ind.get('ma_momentum', {}).get('score', 0)]) / 5
+
+    confluence = [s for s in elite if s.get('indicators', {}).get('confluence', {}).get('all_positive')]
     if len(confluence) < 3:
-        confluence = [{**s, '_confluence': s['final_score']} for s in elite[:10]]
-    confluence.sort(key=lambda x: x['_confluence'], reverse=True)
+        confluence = sorted(elite, key=_confluence_score, reverse=True)[:10]
+    else:
+        confluence = sorted(confluence, key=_confluence_score, reverse=True)
     sc, chosen = defaultdict(int), []
     for s in confluence:
         sector = (s.get('sector') or 'Unknown').strip()
@@ -1887,7 +1918,9 @@ def build_s14_confluence(exchange: str, stocks: list) -> dict | None:
         if len(chosen) >= 5: break
     if not chosen: chosen = confluence[:5]
     pos = [_make_position(s, i+1,
-           f'Confluence #{i+1} | All TFs aligned | ConfScore:{s["_confluence"]:.1f} | {s.get("sector","?")}')
+           f'Confluence #{i+1} | '
+           f'{s.get("indicators",{}).get("confluence",{}).get("detail","All TFs aligned")} '
+           f'| {s.get("sector","?")}')
            for i, s in enumerate(chosen)]
     return _save(exchange, 's14', pos, {
         'confluence_note': 'Top 5 where all timeframes (1M,3M,6M,12M) bullish simultaneously',
@@ -2040,9 +2073,26 @@ def _apply_prices_and_save(exchange: str, sid: str, pf: dict, prices: dict,
     sources = {}
     for pos in pf['positions']:
         cp = prices.get(pos['ticker'], 0)
+        baseline = pos.get('current_price') or pos.get('entry_price') or 0
         if cp <= 0:
             cp = pos['current_price']   # keep last known if fetch failed
             sources[pos['ticker']] = (source_log or {}).get(pos['ticker'], 'unavailable')
+        elif baseline > 0 and (cp > baseline * 5 or cp < baseline * 0.2):
+            # ── Sanity guard against a single bad quote wrecking P&L ──
+            # A >5x jump or >80% drop in one refresh (this app refreshes
+            # at most a few times a day, never intraday-fast) is far more
+            # likely to be a wrong-instrument / decimal-scale data error
+            # from the price source than a real move -- e.g. CFNB was
+            # once returned as $1697.50 vs a $32.50 cost basis (52x),
+            # which alone produced a fake +248% "win" on a 20-stock
+            # equal-weighted book. Reject the quote, keep the last known
+            # price, and flag it clearly instead of silently trusting it.
+            print(f'[price-sanity] REJECTED {pos["ticker"]}: fetched {cp} vs '
+                  f'baseline {baseline} ({cp/baseline:.1f}x) -- looks like a bad '
+                  f'quote, keeping last known price. Source was '
+                  f'{(source_log or {}).get(pos["ticker"], "unknown")}.')
+            cp = pos['current_price']
+            sources[pos['ticker']] = 'suspect_rejected'
         else:
             sources[pos['ticker']] = (source_log or {}).get(pos['ticker'], 'unknown')
         cv  = round(pos['units'] * cp, 4)
